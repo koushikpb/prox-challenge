@@ -1,16 +1,22 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import dutyCycleJson from '@/data/duty_cycle.json';
 import polarityJson from '@/data/polarity.json';
 import settingsJson from '@/data/settings.json';
 import troubleshootingJson from '@/data/troubleshooting.json';
 import partsJson from '@/data/parts.json';
+import regionsJson from '@/data/regions.json';
 import {
   dutyCycleSchema,
   partsSchema,
   polaritySchema,
+  regionsSchema,
   settingsSchema,
   troubleshootingSchema,
 } from '@/data/schemas';
+
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
 describe('structured-data schemas', () => {
   it('duty_cycle.json validates against dutyCycleSchema', () => {
@@ -36,6 +42,30 @@ describe('structured-data schemas', () => {
   it('parts.json validates against partsSchema', () => {
     const result = partsSchema.safeParse(partsJson);
     expect(result.success, JSON.stringify(result.error?.issues, null, 2)).toBe(true);
+  });
+
+  it('regions.json validates against regionsSchema', () => {
+    const result = regionsSchema.safeParse(regionsJson);
+    expect(result.success, JSON.stringify(result.error?.issues, null, 2)).toBe(true);
+  });
+});
+
+describe('region registry contracts', () => {
+  it('every region_id referenced by polarity.json exists in regions.json', () => {
+    const polarity = polaritySchema.parse(polarityJson);
+    const regions = regionsSchema.parse(regionsJson);
+    const regionIds = new Set(regions.map((r) => r.region_id));
+    for (const row of polarity) {
+      expect(regionIds.has(row.region_id), `polarity row ${row.process} references missing region ${row.region_id}`).toBe(true);
+    }
+  });
+
+  it('every region in regions.json has its PNG on disk', () => {
+    const regions = regionsSchema.parse(regionsJson);
+    for (const region of regions) {
+      const abs = path.join(REPO_ROOT, region.image_path.replace(/^\//, ''));
+      expect(existsSync(abs), `missing region image at ${abs}`).toBe(true);
+    }
   });
 });
 

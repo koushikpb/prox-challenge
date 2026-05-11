@@ -172,6 +172,43 @@ export const partsEntrySchema = z.object({
 
 export const partsSchema = z.array(partsEntrySchema);
 
+export const regionEntrySchema = z.object({
+  region_id: z.string().min(1).regex(/^[A-Za-z0-9_]+$/),
+  source: z.enum(['owner-manual', 'quick-start', 'selection-chart']),
+  page: positiveInt,
+  bbox: z.object({
+    x: z.number().int().nonnegative(),
+    y: z.number().int().nonnegative(),
+    w: positiveInt,
+    h: positiveInt,
+  }),
+  image_path: z.string().startsWith('/data/regions/'),
+  caption: z.string().min(1),
+  source_pages: z.array(positiveInt).min(1),
+});
+
+export const regionsSchema = z.array(regionEntrySchema).superRefine((regions, ctx) => {
+  const ids = new Set(regions.map((r) => r.region_id));
+  if (ids.size !== regions.length) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: 'region_id values must be unique',
+    });
+  }
+});
+
+export const pageIndexEntrySchema = z.object({
+  page: positiveInt,
+  source: z.enum(['owner-manual', 'quick-start', 'selection-chart']),
+  section: z.string().min(1),
+  headings: z.array(z.string()),
+  text: z.string(),
+  image_path: z.string().startsWith('/data/pages/'),
+  region_ids: z.array(z.string()).default([]),
+});
+
+export const pageIndexSchema = z.array(pageIndexEntrySchema);
+
 export type DutyCycleEntry = z.infer<typeof dutyCycleEntrySchema>;
 export type DutyCycleTable = z.infer<typeof dutyCycleSchema>;
 export type PolarityEntry = z.infer<typeof polarityEntrySchema>;
@@ -182,6 +219,10 @@ export type TroubleshootingNode = z.infer<typeof troubleshootingNodeSchema>;
 export type TroubleshootingTree = z.infer<typeof troubleshootingSchema>;
 export type PartsEntry = z.infer<typeof partsEntrySchema>;
 export type PartsTable = z.infer<typeof partsSchema>;
+export type RegionEntry = z.infer<typeof regionEntrySchema>;
+export type RegionsTable = z.infer<typeof regionsSchema>;
+export type PageIndexEntry = z.infer<typeof pageIndexEntrySchema>;
+export type PageIndex = z.infer<typeof pageIndexSchema>;
 
 export function validate<T>(schema: z.ZodType<T>, json: unknown, filename: string): T {
   const result = schema.safeParse(json);

@@ -63,7 +63,9 @@
     "headings": [],
     "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nSpecifications\n\nMig\n\nPower Input 120 VAC / 60 Hz 240 VAC / 60 Hz\n\nCurrent Input at Output 20.8 A at 100 A 25.5 A at 200 A\n\nWelding Current Range 30 –140 A 30 –220 A\n\nRated Duty Cycles \n40% @ 100 A\n\n100% @ 75 A\n\n25% @ 200 A\n\n100% @ 115 A\n\nMaximum OCV 86 VDC\n\nWeldable Materials \nMild Steel, Stainless Steel\n\nAluminum (with optional Spool Gun)\n\nWelding Wire Capacity \nSolid Core: 0.025\" / 0.030\" / 0.035\"\n\nFlux Cored: 0.030\" / 0.035\" / 0.045\"\n\nWire Speed 50 – 500 IPM\n\nWire Spool Capacity Up to 12 lb spool\n\ntig\n\nPower Input 120 VAC / 60 Hz 240 VAC / 60 Hz\n\nCurrent Input at Output 20.6 A at 125 A 15.6 A at 175 A\n\nWelding Current Range 10 A –125 A 10 A –175 A\n\nRated Duty Cycles \n40% @ 125 A\n\n100% @ 90 A\n\n30% @ 175 A\n\n100% @ 105 A\n\nMaximum OCV 86 VDC\n\nWeldable Materials Mild Steel, Stainless Steel, Chrome Moly\n\nStick\n\nPower Input 120 VAC / 60 Hz 240 VAC / 60 Hz\n\nCurrent Input at Output 19.5 A at 80 A 23.7 A at 175 A\n\nWelding Current Range 10 A – 80 A 10 A –175 A\n\nRated Duty Cycles \n40% @ 80 A\n\n100% @ 60 A\n\n25% @ 175 A\n\n100% @ 100 A\n\nMaximum OCV 86 VDC\n\nWeldable Materials Mild Steel, Stainless Steel",
     "image_path": "/data/pages/owner-manual-007.png",
-    "region_ids": []
+    "region_ids": [
+      "duty_cycle_specifications"
+    ]
   },
   {
     "page": 8,
@@ -117,7 +119,9 @@
     "headings": [],
     "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\n13. Loosen the Knob on the Wire Feed\n\nmechanism, then insert the Gun Cable\n\nConnector through the hole on the Welder\n\nfront and into the socket on the Wire Feed.\n\n14. Ensure that the Gun Cable Connector\n\nis fully inserted into the socket on\n\nthe Wire Feed mechanism as shown,\n\nthen tighten the Knob securely.\n\nIf Connector is not fully inserted, the gas\n\nconnection will leak, preventing shielding\n\ngas from reaching the welding arc.\n\nnOtice: To prevent damage, do\n\nnot overtighten the Knob.\n\n15. Insert the Wire Feed Control Cable through\n\nthe hole on the Welder front and connect it\n\nto the Wire Feed Control Socket inside the\n\nmachine, then tighten the lock ring on the Cable\n\nplug. Note that the plug on the Cable fits into\n\nthe Socket in one specific orientation only.\n\n16. dcen direct current electrode\n\nnegative Wire Setup for Flux-cored\n\n(gasless) welding:\n\nPlug Ground Clamp Cable into Positive (+)\n\nSocket. Plug Wire Feed Power Cable\n\ninto Negative (–) Socket. Twist cables\n\nclockwise all the way to lock in place.\n\ngun cable\n\nconnector\n\nIncorrect – Connector not fully insertedIncorrect – Connector not fully inserted\n\nWire Feed\n\nMechanism\n\nknob\n\nCorrect – Connector fully insertedCorrect – Connector fully inserted\n\nWire\n\nFeed\n\ncontrol\n\ncable\n\nground clamp cable\n\nin positive Socket\n\nWire Feed\n\npower cable in\n\nnegative Socket\n\ndcen\n\nFlux-Cored (Gasless)\n\npolarity Setup",
     "image_path": "/data/pages/owner-manual-013.png",
-    "region_ids": []
+    "region_ids": [
+      "polarity_DCEN_flux_cored"
+    ]
   },
   {
     "page": 14,
@@ -135,7 +139,9 @@
     ],
     "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\n17. dcep direct current electrode positive Wire\n\nSetup for Solid Core (gas shielded) welding:\n\na. Plug Ground Clamp Cable into Negative (–)\n\nSocket. Plug Wire Feed Power Cable\n\ninto Positive (+) Socket. Twist cables\n\nclockwise all the way to lock in place.\n\nb. Determine which type of shielding\n\ngas would be appropriate for\n\nthe welding you will do. Refer\n\nto the Settings Chart on the\n\ninside of the Welder door.\n\nc. With assistance, set the cylinder (not included)\n\nonto a cabinet or cart near the Welder\n\nand secure the cylinder in place with two\n\nstraps (not included) to prevent tipping.\n\nd. Remove the cylinder’s cap. Stand to the\n\nside of the valve opening, then open the\n\nvalve briefly to blow dust and dirt from the\n\nvalve opening. Close the cylinder valve.\n\ne. Locate the Regulator (included) and close its\n\nvalve until it is loose, then thread Regulator\n\nonto cylinder and wrench-tighten connection.\n\nnote: When using C100 shielding gas, connect the\n\nenclosed CGA 580/320 adapter to the inlet connection\n\nof the Regulator and wrench-tighten. Thread the\n\nadapter onto the gas cylinder and wrench-tighten.\n\nf. Attach the Gas Hose (included)\n\nto the Regulator’s outlet and\n\nthe Welder’s gas inlet. Wrench-\n\ntighten both connections.\n\nground clamp cable\n\nin negative Socket\n\ndcep\n\nSolid Core (Gas Shielded)\n\npolarity Setup\n\nWire Feed\n\npower cable in\n\npositive Socket\n\nReset\nPower Input\nGas Inlet\n\nIP21S S 1 f1 f2\n\nDate:\n\n57812 25d\nConforms to ANSI/IEC Std. 60974-1\n264149\nVulcan OMNIPRO 220\n30A/15.5V to 220A/25V\nX 25% 60% 100%\nU0 = 86V I2 200A 130A 115A\nU2 24V 20.5V 19.75V\n1~50/60Hz\nU 1 = 240V I1max = 25.5A\n23.7A\n15.6A\nI 1eff = 12.8A\n11.9A\n8.5A\n10A/20.4V to 175A/27V\nX 25% 60% 100%\nU0 = 86V I2 175A 115A 100A\nU2 27V 24.6V 24V\n10A/10.4V to 175A/17V\nX 30% 60% 100%\nU0 = 86V I2 175A 125A 105A\nU 2 17V 15V 14.2V\n30A/15.5V to 140A/21V\nX 40% 60% 100%\nU0 = 86V I2 100A 85A 75A\nU2 19V 18.25V 17.75V\n1~50/60Hz\nU 1 = 120V I1max = 20.8A\n19.5A\n20.6A\nI 1eff = 13.1A\n12.3A\n13A\n10A/20.4V to 80A/23.2V\nX 40% 60% 100%\nU0 = 86V I2 80A 70A 60A\nU 2 23.2V 22.8V 22.4V\n10A/10.4V to 125A/15V\nX 40% 60% 100%\nU0 = 86V I2 125A 105A 90A\nU2 15V 14.2V 13.6V\n\nUPC 193175422590\n\nf \ne\n\nc\n\nBriefly open valve\n\nto clean,\n\nthen close\n\nvalve.\n\nd",
     "image_path": "/data/pages/owner-manual-014.png",
-    "region_ids": []
+    "region_ids": [
+      "polarity_DCEP_solid_core"
+    ]
   },
   {
     "page": 15,
@@ -201,7 +207,9 @@
     "headings": [],
     "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\n4. Turn the Power Switch to the OFF position,\n\nthen plug the Power Cord into a properly\n\ngrounded, GFCI protected 120 VAC (20 amp\n\nrated) or 240 VAC receptacle that matches\n\nthe plug. The circuit must be equipped with\n\ndelayed action-type circuit breaker or fuses.\n\n5. Set MIG Gun down on nonconductive, nonflammable\n\nsurface away from any grounded objects.\n\n6. Turn the Power Switch ON.\n\npower\n\nSwitch\n\nSettings\n\n®\n\nMain\n\ncontrol\n\nknob\n\nleft\n\nknob\n\nRight\n\nknob\n\n1. Press Home Button on Control Panel.\n\n2. Turn Main Control Knob until desired\n\nprocess appears on LCD display screen.\n\n3. Press Main Control Knob to select process.\n\nnote: Press Main Control Knob to go to next screen.\n\nPress Back Button to return to the previous screen.\n\n4. Adjust settings for the selected process.\n\na. Polarity and Gas Settings:\n\n• Plug cables in according to screen.\n\n• Connect gas according to screen.\n\n• Set SCFH between 20-30.\n\nb. Set Wire Diameter and Material Thickness:\n\n• Turn Left Knob to set wire diameter.\n\n• Turn Right Knob to set material thickness.\n\n.025\" 24ga\n\nc. Auto Weld Settings:\n\n• Turn Left Knob to adjust Wire\n\nFeed Speed (Amperage).\n\n• Turn Right Knob to adjust Voltage.\n\n121 13.8\n\n0.00\n\n.030\"\n\n0.025 5\n\n24ga\n\nprocess\n\nRun-in WFS inductance Spot timer\n\nWire\n\ndiameter\n\nMaterial\n\nthickness\n\ngas type\n\nnote: If the Wire Feed Speed or Voltage settings are\n\nadjusted manually, the white mark on the line shows\n\nthe recommended setting for your wire/electrode\n\ndiameter and workpiece thickness.",
     "image_path": "/data/pages/owner-manual-020.png",
-    "region_ids": []
+    "region_ids": [
+      "lcd_synergic_display"
+    ]
   },
   {
     "page": 21,
@@ -240,7 +248,9 @@
     "headings": [],
     "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nTIG / Stick Welding\n\nRead the entiRe iMpORtant SaFety inFORMatiOn section at the beginning of this manual\n\nincluding all text under subheadings therein before set up or use of this product.\n\ntO pReVent SeRiOUS inJURy FROM accidental OpeRatiOn:\n\nturn the power Switch off and unplug the Welder before setup.\n\nnote: Remove the protective foam and cardboard from the Welder before setup. Place the Welder on a level\n\nsurface that can bear its weight near the work area. Leave space around the Welder for proper air flow.\n\ntig Setup\n\nconnect cables\n\nground clamp cable\n\nin positive Socket\n\nground\n\nclamp\n\ntig torchtig torch\n\ncable incable in\n\nnegativenegative\n\nSocketSocket\n\ntig torch\n\n(sold separately)\n\nFoot pedal Socket\n\n(inside Welder)\n\nFoot pedal\n\n(sold separately)\n\nFoot pedal\n\ncable\n\nShielding\n\ngas Hose\n\n1. Plug Ground Clamp Cable into Positive Socket.\n\nTwist clockwise all the way to lock in place.\n\n2. Plug TIG Torch Cable (TIG Torch sold\n\nseparately) into Negative Socket. Twist\n\nclockwise all the way to lock in place.\n\n3. Insert the Foot Pedal Cable (Foot Pedal\n\nsold separately) through hole on Welder\n\nfront and connect to the Foot Pedal\n\nSocket inside the machine. Secure by\n\nturning collar clockwise until tight.\n\n4. For connecting Shielding Gas Hose, refer to\n\nConnect Shielding Gas section on next page.",
     "image_path": "/data/pages/owner-manual-024.png",
-    "region_ids": []
+    "region_ids": [
+      "polarity_TIG"
+    ]
   },
   {
     "page": 25,
@@ -285,7 +295,9 @@
     ],
     "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nStick Setup\n\nconnect cables\n\nelectrode Holder\n\ncable in positive Socket\n\nground clamp cable\n\nin negative Socket\n\nground\n\nclamp\n\nelectrode\n\nHolder\n\n1. Plug Ground Clamp Cable into Negative Socket.\n\nTwist clockwise all the way to lock in place.\n\n2. Plug Electrode Holder Cable into Positive Socket.\n\nTwist clockwise all the way to lock in place.\n\nconnect power cord\n\nPlug either 120 VAC or 240 VAC Power\n\nCord into Power Input Socket.\n\nnote: Plug will only fit one way.\n\nWaRning! tO pReVent SeRiOUS inJURy\n\nFROM accidental OpeRatiOn: Do not\n\nplug cord into wall outlet at this time.\n\nReset\nPower Input\nGas Inlet\n\nIP21S S 1 f1 f2\n\nDate:\n57812 25d\nConforms to ANSI/IEC Std. 60974-1\n264149\nVulcan OMNIPRO 220\n30A/15.5V to 220A/25V\nX 25% 60% 100%\nU0 = 86V I2 200A 130A 115A\nU 2 24V 20.5V 19.75V\n1~50/60Hz\nU 1 = 240V \nI1max = 25.5A\n23.7A\n15.6A\nI1eff = 12.8A\n11.9A\n8.5A\n10A/20.4V to 175A/27V\nX 25% 60% 100%\nU0 = 86V I2 175A 115A 100A\nU2 27V 24.6V 24V\n10A/10.4V to 175A/17V\nX 30% 60% 100%\nU0 = 86V I2 175A 125A 105A\nU 2 17V 15V 14.2V\n30A/15.5V to 140A/21V\nX 40% 60% 100%\nU0 = 86V I2 100A 85A 75A\nU 2 19V 18.25V 17.75V\n1~50/60Hz\nU 1 = 120V \nI1max = 20.8A\n19.5A\n20.6A\nI1eff = 13.1A\n12.3A\n13A\n10A/20.4V to 80A/23.2V\nX 40% 60% 100%\nU0 = 86V I2 80A 70A 60A\nU 2 23.2V 22.8V 22.4V\n10A/10.4V to 125A/15V\nX 40% 60% 100%\nU0 = 86V I2 125A 105A 90A\nU 2 15V 14.2V 13.6V\n\nUPC 193175422590\n\npower\n\ninput",
     "image_path": "/data/pages/owner-manual-027.png",
-    "region_ids": []
+    "region_ids": [
+      "polarity_Stick"
+    ]
   },
   {
     "page": 28,
@@ -499,7 +511,9 @@
     ],
     "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nWiring Schematic\n\nAC1\nAC2\nG\n34\n-T\n\n～\n1\n\n～\n3\n \n-\n \n4\n+\n \n2\n\n～\n1\n\n～\n3\n \n-\n \n4\n+\n \n2\n24V\nJ\n2 1\nIGBT\nPFC\n \n5\n6\n4\n1\nOUT+\nOUT-\nK1 AC 120-240V/50/60HZ\nRECITIFIER\n1/4 1/4 1/4 1/4\n4\n3\n2\n1\nT1\nT60*30*28\n1\n2\n3\n4\nCN1\n\nHall\n\nv\nOUT+\n1\n2\n1\n2\nFANFAN2\n1\n2\n3\n4\n5\n6\n7\nCN8\n1\n2\n3\n4\n5\n6\n7\nCN1\n1\n2\n3\n4\n5\n6\nCN2\n1\n2\nCN3\nAVIATION\nPLUG\n1\n2\n3\nCN7\nWIRE FEEDER\nM\n \n1\n2\n3\n4\n5\nCN4\nSOLENOID\nVALVE\n1\n2\n3\n4\nCN3\n1\n2\nCN6\n3 4\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n29\n30\n31\n32\n33\n34\n28\nCN5\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n29\n30\n31\n32\n33\n34\n28\nCN7\n3\n2\n1\n5\n4\n3\n2\n1\n5\n4\n3\n2\n1\n5\n4\n1\n2\n3\n4\nCN5\n1\n2\n3\n4\nMCU BOARD\nLCD\n \nSCREEN\nFAST WIRE FEED SWITCH\nREMOTE\nBOARD\nAVIATION\nPLUG\nSOLENOID\nVALVE",
     "image_path": "/data/pages/owner-manual-045.png",
-    "region_ids": []
+    "region_ids": [
+      "wiring_schematic"
+    ]
   },
   {
     "page": 46,
@@ -519,7 +533,9 @@
     "headings": [],
     "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nassembly diagram\n\n124567\n10 912 11 815 1416\n17\n18\n20\n21\n22\n25\n23\n24\n26 27 28 29 \n33 34 35 41 42 43\n44\n45\n4037 38 39\n46\n47\n50\n49\n52\n60 59 58\n54\n53\n57 56\n55\n48\n51\n13\n61\n32 36\n19\n30 31\n3",
     "image_path": "/data/pages/owner-manual-047.png",
-    "region_ids": []
+    "region_ids": [
+      "parts_diagram"
+    ]
   },
   {
     "page": 48,
@@ -561,6 +577,8 @@
     "headings": [],
     "text": "",
     "image_path": "/data/pages/selection-chart-001.png",
-    "region_ids": []
+    "region_ids": [
+      "selection_chart_overview"
+    ]
   }
 ]
