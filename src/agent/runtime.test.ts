@@ -180,13 +180,12 @@ describe('streamAgentTurn', () => {
     expect(calls).toHaveLength(1);
   });
 
-  it('rejects a bad render_artifact payload at the input schema and continues without aborting', async () => {
+  it('rejects a bad render_polarity_artifact payload at the input schema and continues without aborting', async () => {
     const { client } = makeMockClient([
       {
         kind: 'tool_use',
-        tool: 'render_artifact',
+        tool: 'render_polarity_artifact',
         input: {
-          type: 'polarity',
           process: 'TIG',
           ground_socket: 'Positive',
           electrode_socket: 'Negative',
@@ -205,7 +204,7 @@ describe('streamAgentTurn', () => {
     );
 
     const end = events.find(
-      (e) => e.type === 'tool_call_end' && e.tool === 'render_artifact',
+      (e) => e.type === 'tool_call_end' && e.tool === 'render_polarity_artifact',
     );
     expect(end).toBeDefined();
     expect((end as { ok: boolean }).ok).toBe(false);
@@ -213,13 +212,12 @@ describe('streamAgentTurn', () => {
     expect(events.some((e) => e.type === 'text_delta' && e.delta.includes('hiccup'))).toBe(true);
   });
 
-  it('emits an artifact event when render_artifact succeeds', async () => {
+  it('emits an artifact event when render_polarity_artifact succeeds', async () => {
     const { client } = makeMockClient([
       {
         kind: 'tool_use',
-        tool: 'render_artifact',
+        tool: 'render_polarity_artifact',
         input: {
-          type: 'polarity',
           process: 'TIG',
           ground_socket: 'Positive',
           electrode_socket: 'Negative',
@@ -240,6 +238,41 @@ describe('streamAgentTurn', () => {
     const artifact = events.find((e) => e.type === 'artifact');
     expect(artifact).toBeDefined();
     expect((artifact as { artifact: { type: string } }).artifact.type).toBe('polarity');
+  });
+
+  it('skips empty-content assistant messages before they reach the Anthropic client', async () => {
+    const snapshots: Anthropic.MessageParam[][] = [];
+    const events = buildStreamEvents({
+      kind: 'text',
+      text: 'MIG / 240V / 200A → 25% duty cycle (p. 7).',
+    });
+    const client: AgentClient = {
+      messages: {
+        stream: ((body: Anthropic.MessageStreamParams) => {
+          snapshots.push((body.messages as Anthropic.MessageParam[]).map((m) => ({ ...m })));
+          return makeStream(events);
+        }) as unknown as AgentClient['messages']['stream'],
+      } as unknown as AgentClient['messages'],
+    };
+    const { ctx } = collectCtx();
+    await streamAgentTurn(
+      {
+        messages: [
+          { role: 'user', content: 'duty cycle for MIG 240V 200A?' },
+          { role: 'assistant', content: '' },
+          { role: 'user', content: 'still there?' },
+        ],
+      },
+      ctx,
+      { client },
+    );
+    expect(snapshots).toHaveLength(1);
+    const sent = snapshots[0]!;
+    expect(sent).toHaveLength(2);
+    for (const m of sent) {
+      expect(typeof m.content === 'string' ? m.content.length : 1).toBeGreaterThan(0);
+    }
+    expect(sent.map((m) => m.role)).toEqual(['user', 'user']);
   });
 
   it('rejects bad tool input through zod validation and still returns a tool_result', async () => {

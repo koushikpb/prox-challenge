@@ -118,6 +118,28 @@ describe('POST /api/chat', () => {
     expect(events.at(-1)?.type).toBe('done');
   });
 
+  it('accepts an empty-content assistant message in the conversation tail and streams the next turn', async () => {
+    process.env.ANTHROPIC_API_KEY = 'test-key';
+    runtimeMock.streamAgentTurn.mockImplementation(
+      async (_req: unknown, ctx: StreamContext) => {
+        ctx.emit({ type: 'text_delta', delta: 'OK, here is the polarity.' });
+      },
+    );
+    const req = makeRequest({
+      messages: [
+        { role: 'user', content: 'TIG polarity?' },
+        { role: 'assistant', content: '' },
+        { role: 'user', content: 'still there?' },
+      ],
+    });
+    const res = await POST(req);
+    expect(res.status).toBe(200);
+    const events = await collect(res);
+    expect(events.some((e) => e.type === 'error')).toBe(false);
+    expect(events.at(-1)?.type).toBe('done');
+    expect(runtimeMock.streamAgentTurn).toHaveBeenCalledTimes(1);
+  });
+
   it('does not cache a turn that emitted an error', async () => {
     process.env.ANTHROPIC_API_KEY = 'test-key';
     runtimeMock.streamAgentTurn.mockImplementation(

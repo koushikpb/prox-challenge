@@ -2,14 +2,32 @@ import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 import { StreamParseError } from '@/streaming';
 import {
-  renderArtifact,
-  renderArtifactInputSchema,
-  type RenderArtifactInput,
+  renderDutyCycleArtifact,
+  renderDutyCycleArtifactTool,
+  renderPolarityArtifact,
+  renderPolarityArtifactTool,
+  renderSettingsArtifact,
+  renderSettingsArtifactTool,
+  renderTroubleshootArtifact,
+  renderTroubleshootArtifactTool,
+  type RenderSettingsArtifactInput,
+  type RenderTroubleshootArtifactInput,
 } from './render_artifact';
+import type { ToolDefinition } from './types';
 
-describe('render_artifact — round trips', () => {
-  it('round-trips a duty_cycle payload', () => {
-    const payload = {
+describe('render_*_artifact — round trips', () => {
+  it('renderDutyCycleArtifact builds the typed artifact from a flat payload', () => {
+    const out = renderDutyCycleArtifact({
+      process: 'MIG',
+      input_voltage: 240,
+      amperage: 200,
+      duty_cycle_pct: 25,
+      work_minutes: 2.5,
+      rest_minutes: 7.5,
+      source_page: 7,
+    });
+    expect(out.rendered).toBe(true);
+    expect(out.artifact).toEqual({
       type: 'duty_cycle',
       process: 'MIG',
       input_voltage: 240,
@@ -18,29 +36,24 @@ describe('render_artifact — round trips', () => {
       work_minutes: 2.5,
       rest_minutes: 7.5,
       source_page: 7,
-    } as const;
-    const out = renderArtifact(payload);
-    expect(out.rendered).toBe(true);
-    expect(out.artifact).toEqual(payload);
+    });
   });
 
-  it('round-trips a polarity payload', () => {
-    const payload = {
-      type: 'polarity',
+  it('renderPolarityArtifact builds the typed artifact from a flat payload', () => {
+    const out = renderPolarityArtifact({
       process: 'MIG_solid',
       ground_socket: 'Negative',
       electrode_socket: 'Positive',
       polarity_name: 'DCEP',
       source_page: 14,
-    } as const;
-    const out = renderArtifact(payload);
+    });
     expect(out.rendered).toBe(true);
-    expect(out.artifact).toEqual(payload);
+    expect(out.artifact.type).toBe('polarity');
+    expect(out.artifact).toMatchObject({ polarity_name: 'DCEP' });
   });
 
-  it('round-trips a settings payload (no wfs_ipm / voltage — synergic welder)', () => {
-    const payload: RenderArtifactInput = {
-      type: 'settings',
+  it('renderSettingsArtifact builds the typed artifact from a flat payload', () => {
+    const input: RenderSettingsArtifactInput = {
       process: 'MIG',
       subprocess: 'solid-core',
       material: 'mild_steel',
@@ -53,14 +66,13 @@ describe('render_artifact — round trips', () => {
       applications: ['general fabrication'],
       source_page: 21,
     };
-    const out = renderArtifact(payload);
+    const out = renderSettingsArtifact(input);
     expect(out.rendered).toBe(true);
-    expect(out.artifact).toEqual(payload);
+    expect(out.artifact.type).toBe('settings');
   });
 
-  it('round-trips a troubleshoot payload with a branching node and a leaf', () => {
-    const payload: RenderArtifactInput = {
-      type: 'troubleshoot',
+  it('renderTroubleshootArtifact builds the typed artifact from a flat payload', () => {
+    const input: RenderTroubleshootArtifactInput = {
       symptom: 'porosity',
       tree: [
         {
@@ -83,28 +95,23 @@ describe('render_artifact — round trips', () => {
         },
       ],
     };
-    const out = renderArtifact(payload);
+    const out = renderTroubleshootArtifact(input);
     expect(out.rendered).toBe(true);
-    expect(out.artifact).toEqual(payload);
+    expect(out.artifact.type).toBe('troubleshoot');
+    expect((out.artifact as { tree: unknown[] }).tree).toHaveLength(2);
   });
 });
 
-describe('render_artifact — real-bug rejections', () => {
-  it('rejects the hallucinated duty_cycle payload from the smoke screenshots ({ band })', () => {
+describe('render_*_artifact — real-bug rejections', () => {
+  it('renderDutyCycleArtifact rejects the hallucinated { band } payload from the smoke screenshots', () => {
     expect(() =>
-      renderArtifact({
-        type: 'duty_cycle',
-        // @ts-expect-error — `band` is a lookup_duty_cycle output field, not a payload field
-        band: 'rated',
-      }),
+      renderDutyCycleArtifactTool.input_schema.parse({ band: 'rated' }),
     ).toThrow();
   });
 
-  it('rejects the hallucinated troubleshoot payload from the smoke screenshots', () => {
+  it('renderTroubleshootArtifact rejects the hallucinated { defect, process, causes, notes } payload', () => {
     expect(() =>
-      renderArtifact({
-        type: 'troubleshoot',
-        // @ts-expect-error — invented field set, not the documented { symptom, tree } shape
+      renderTroubleshootArtifactTool.input_schema.parse({
         defect: 'porosity',
         process: 'MIG',
         causes: ['low gas flow', 'dirty base metal'],
@@ -113,24 +120,31 @@ describe('render_artifact — real-bug rejections', () => {
     ).toThrow();
   });
 
-  it('keeps the prior polarity_name enum rejection', () => {
+  it('renderPolarityArtifact rejects an out-of-enum polarity_name and throws StreamParseError from the handler when bypassed', () => {
     expect(() =>
-      renderArtifact({
-        type: 'polarity',
+      renderPolarityArtifactTool.input_schema.parse({
         process: 'TIG',
         ground_socket: 'Positive',
         electrode_socket: 'Negative',
-        // @ts-expect-error — DCXY is not in the enum
         polarity_name: 'DCXY',
+        source_page: 24,
+      }),
+    ).toThrow();
+    expect(() =>
+      // bypass the input schema to confirm the handler still defends via parseArtifactPayload
+      renderPolarityArtifact({
+        process: 'TIG',
+        ground_socket: 'Positive',
+        electrode_socket: 'Negative',
+        polarity_name: 'DCXY' as unknown as 'DCEN',
         source_page: 24,
       }),
     ).toThrow(StreamParseError);
   });
 
-  it('rejects strict-mode unknown fields on a settings payload', () => {
+  it('renderSettingsArtifact rejects unknown fields (strict mode)', () => {
     expect(() =>
-      renderArtifact({
-        type: 'settings',
+      renderSettingsArtifactTool.input_schema.parse({
         process: 'MIG',
         material: 'mild_steel',
         thickness_in: 0.125,
@@ -139,34 +153,47 @@ describe('render_artifact — real-bug rejections', () => {
         cleanliness: 'more_spatter',
         applications: ['hobby'],
         source_page: 21,
-        // @ts-expect-error — strict mode rejects unknown keys
         wfs_label: '6 o’clock',
       }),
     ).toThrow();
   });
+
+  it('every per-type tool rejects a payload that carries an extra `type` field', () => {
+    const tools = [
+      renderDutyCycleArtifactTool,
+      renderPolarityArtifactTool,
+      renderSettingsArtifactTool,
+      renderTroubleshootArtifactTool,
+    ];
+    for (const tool of tools) {
+      expect(() => tool.input_schema.parse({ type: 'duty_cycle' })).toThrow();
+    }
+  });
 });
 
-describe('render_artifact — JSON-Schema shape', () => {
-  it('produces a four-variant discriminated schema (oneOf or anyOf over the four types)', () => {
-    const json = z.toJSONSchema(renderArtifactInputSchema, {
-      target: 'draft-7',
-      unrepresentable: 'any',
-    }) as Record<string, unknown>;
-    const variants =
-      (json.oneOf as Array<Record<string, unknown>> | undefined) ??
-      (json.anyOf as Array<Record<string, unknown>> | undefined);
-    expect(Array.isArray(variants)).toBe(true);
-    expect(variants).toHaveLength(4);
+describe('render_*_artifact — JSON-Schema shape for the Anthropic tools API', () => {
+  const renderTools: Array<ToolDefinition<unknown, unknown>> = [
+    renderDutyCycleArtifactTool as unknown as ToolDefinition<unknown, unknown>,
+    renderPolarityArtifactTool as unknown as ToolDefinition<unknown, unknown>,
+    renderSettingsArtifactTool as unknown as ToolDefinition<unknown, unknown>,
+    renderTroubleshootArtifactTool as unknown as ToolDefinition<unknown, unknown>,
+  ];
 
-    const typeConsts = variants!
-      .map((v) => {
-        const props = v.properties as Record<string, Record<string, unknown>> | undefined;
-        return props?.type?.const as string | undefined;
-      })
-      .filter((t): t is string => typeof t === 'string')
-      .sort();
-    expect(typeConsts).toEqual(
-      ['duty_cycle', 'polarity', 'settings', 'troubleshoot'].sort(),
-    );
-  });
+  it.each(renderTools.map((t) => [t.name, t] as const))(
+    '%s emits a plain object root schema with no top-level oneOf/anyOf/allOf',
+    (_name, tool) => {
+      const json = z.toJSONSchema(tool.input_schema, {
+        target: 'draft-7',
+        unrepresentable: 'any',
+      }) as Record<string, unknown>;
+      expect(json.type).toBe('object');
+      expect(json.oneOf).toBeUndefined();
+      expect(json.anyOf).toBeUndefined();
+      expect(json.allOf).toBeUndefined();
+      const properties = json.properties as Record<string, unknown> | undefined;
+      expect(properties).toBeDefined();
+      // The discriminator `type` must not be on the input schema — the tool name carries it.
+      expect(properties?.type).toBeUndefined();
+    },
+  );
 });
