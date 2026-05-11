@@ -87,7 +87,7 @@ const REGIONS: readonly RegionSpec[] = [
       'Auto Weld synergic display: after dialing in wire diameter and material thickness with the left and right knobs, the welder shows its recommended amperage and voltage (here, 121 A and 13.8 V for 0.030″ wire on 24 gauge). (p. 20)',
   },
   {
-    region_id: 'selection_chart_overview',
+    region_id: 'selection_chart',
     source: 'selection-chart',
     page: 1,
     bbox: { x: 0, y: 1500, w: 5000, h: 1820 },
