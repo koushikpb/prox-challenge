@@ -1,0 +1,146 @@
+[
+  {
+    "region_id": "duty_cycle_specifications",
+    "source": "owner-manual",
+    "page": 7,
+    "bbox": {
+      "x": 100,
+      "y": 80,
+      "w": 2200,
+      "h": 2400
+    },
+    "caption": "Specifications block: rated duty cycles for MIG, TIG, and Stick at 120 V and 240 V. For example, MIG at 200 A on 240 V is rated 25 % — 2½ minutes welding per 10-minute period. (p. 7)",
+    "image_path": "/data/regions/duty_cycle_specifications.png",
+    "source_pages": [
+      7
+    ]
+  },
+  {
+    "region_id": "lcd_synergic_display",
+    "source": "owner-manual",
+    "page": 20,
+    "bbox": {
+      "x": 200,
+      "y": 1700,
+      "w": 2280,
+      "h": 1100
+    },
+    "caption": "Auto Weld synergic display: after dialing in wire diameter and material thickness with the left and right knobs, the welder shows its recommended amperage and voltage (here, 121 A and 13.8 V for 0.030″ wire on 24 gauge). (p. 20)",
+    "image_path": "/data/regions/lcd_synergic_display.png",
+    "source_pages": [
+      20
+    ]
+  },
+  {
+    "region_id": "parts_diagram",
+    "source": "owner-manual",
+    "page": 47,
+    "bbox": {
+      "x": 100,
+      "y": 80,
+      "w": 2200,
+      "h": 3300
+    },
+    "caption": "Exploded assembly diagram with numbered callouts that line up with the parts list on p. 46. (p. 47)",
+    "image_path": "/data/regions/parts_diagram.png",
+    "source_pages": [
+      47
+    ]
+  },
+  {
+    "region_id": "polarity_DCEN_flux_cored",
+    "source": "owner-manual",
+    "page": 13,
+    "bbox": {
+      "x": 100,
+      "y": 1880,
+      "w": 2150,
+      "h": 1480
+    },
+    "caption": "Safety: unplug the welder before changing cable polarity. Flux-cored (gasless) MIG runs DCEN: plug the ground clamp cable into the Positive (+) socket and the wire-feed power cable into the Negative (−) socket. (p. 13)",
+    "image_path": "/data/regions/polarity_DCEN_flux_cored.png",
+    "source_pages": [
+      13
+    ]
+  },
+  {
+    "region_id": "polarity_DCEP_solid_core",
+    "source": "owner-manual",
+    "page": 14,
+    "bbox": {
+      "x": 100,
+      "y": 80,
+      "w": 2200,
+      "h": 1300
+    },
+    "caption": "Safety: unplug the welder before changing cable polarity. Solid-core (gas-shielded) MIG runs DCEP: plug the ground clamp cable into the Negative (−) socket and the wire-feed power cable into the Positive (+) socket. (p. 14)",
+    "image_path": "/data/regions/polarity_DCEP_solid_core.png",
+    "source_pages": [
+      14
+    ]
+  },
+  {
+    "region_id": "polarity_Stick",
+    "source": "owner-manual",
+    "page": 27,
+    "bbox": {
+      "x": 100,
+      "y": 50,
+      "w": 2200,
+      "h": 1900
+    },
+    "caption": "Safety: unplug the welder before changing cable polarity. Stick (SMAW) is set up DCEP per the manual: plug the ground clamp cable into the Negative (−) socket and the electrode holder cable into the Positive (+) socket. Always follow the electrode manufacturer’s polarity instructions — some specialty rods call for DCEN. (p. 27)",
+    "image_path": "/data/regions/polarity_Stick.png",
+    "source_pages": [
+      27
+    ]
+  },
+  {
+    "region_id": "polarity_TIG",
+    "source": "owner-manual",
+    "page": 24,
+    "bbox": {
+      "x": 200,
+      "y": 680,
+      "w": 2080,
+      "h": 2300
+    },
+    "caption": "Safety: unplug the welder before changing cable polarity. TIG runs DCEN: plug the ground clamp cable into the Positive (+) socket and the TIG torch cable into the Negative (−) socket. (p. 24)",
+    "image_path": "/data/regions/polarity_TIG.png",
+    "source_pages": [
+      24
+    ]
+  },
+  {
+    "region_id": "selection_chart",
+    "source": "selection-chart",
+    "page": 1,
+    "bbox": {
+      "x": 0,
+      "y": 1500,
+      "w": 5000,
+      "h": 1820
+    },
+    "caption": "Welder selection chart: matches each process (Flux-Cored, MIG, Stick, TIG) to skill level, shielding-gas requirement, materials, thickness range, cleanliness, and typical applications. (selection chart)",
+    "image_path": "/data/regions/selection_chart.png",
+    "source_pages": [
+      1
+    ]
+  },
+  {
+    "region_id": "wiring_schematic",
+    "source": "owner-manual",
+    "page": 45,
+    "bbox": {
+      "x": 100,
+      "y": 80,
+      "w": 2200,
+      "h": 3300
+    },
+    "caption": "Safety: all internal service requires the welder to be unplugged and fully discharged before any panel is opened. Internal wiring schematic showing the PFC stage, MCU board, IGBT inverter, and output rectification. (p. 45)",
+    "image_path": "/data/regions/wiring_schematic.png",
+    "source_pages": [
+      45
+    ]
+  }
+]

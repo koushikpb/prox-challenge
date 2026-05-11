@@ -10,8 +10,9 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "test": "vitest run",
-    "extract": "npm run extract:pages",
+    "extract": "npm run extract:pages && npm run extract:regions",
     "extract:pages": "tsx scripts/extract-pages.ts",
+    "extract:regions": "tsx scripts/extract-regions.ts",
     "eval": "tsx scripts/run-eval.ts"
   },
   "dependencies": {
