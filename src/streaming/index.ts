@@ -19,3 +19,5 @@ export type {
 } from './types';
 
 export { StreamParseError, parseArtifactPayload, parseEvent, serializeEvent } from './parser';
+export { readEventStream, streamChat } from './client';
+export type { ChatMessage, ChatRequest, ChatRole, StreamChatOptions } from './client';
