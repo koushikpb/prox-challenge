@@ -50,3 +50,8 @@ CLAUDE.md
 # Note: data/ is intentionally NOT ignored.
 # Generated extraction outputs under data/ are committed to the repo
 # so reviewers and Vercel deployments do not re-run the extractor.
+
+# Mirror of data/{pages,regions} produced by scripts/sync-public-data.ts so
+# Next.js serves the page/region assets at /data/... URLs. Generated at
+# install / prebuild time; do not commit.
+public/data/

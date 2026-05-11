@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/sync-public-data.ts",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
@@ -13,7 +14,9 @@
     "extract": "npm run extract:pages && npm run extract:regions",
     "extract:pages": "tsx scripts/extract-pages.ts",
     "extract:regions": "tsx scripts/extract-regions.ts",
-    "eval": "tsx scripts/run-eval.ts"
+    "eval": "tsx scripts/run-eval.ts",
+    "sync:public-data": "tsx scripts/sync-public-data.ts",
+    "postinstall": "tsx scripts/sync-public-data.ts || true"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
