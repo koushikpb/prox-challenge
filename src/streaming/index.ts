@@ -18,6 +18,16 @@ export type {
   TroubleshootNode,
 } from './types';
 
-export { StreamParseError, parseArtifactPayload, parseEvent, serializeEvent } from './parser';
+export {
+  StreamParseError,
+  artifactPayloadSchema,
+  dutyCycleArtifactSchema,
+  parseArtifactPayload,
+  parseEvent,
+  polarityArtifactSchema,
+  serializeEvent,
+  settingsArtifactSchema,
+  troubleshootArtifactSchema,
+} from './parser';
 export { readEventStream, streamChat } from './client';
 export type { ChatMessage, ChatRequest, ChatRole, StreamChatOptions } from './client';

@@ -3,10 +3,10 @@ import { toolRegistry } from './index';
 import { lookupPolarity } from './lookup_polarity';
 import { getRegion } from './get_region';
 import { searchManual } from './search_manual';
-import { renderArtifact } from './render_artifact';
+import { renderSettingsArtifact } from './render_artifact';
 
 describe('tool registry contract', () => {
-  it('registers exactly the seven Spec-defined tools', () => {
+  it('registers exactly the ten Spec-defined tools (six grounding + four per-type render)', () => {
     const names = toolRegistry.map((t) => t.name).sort();
     expect(names).toEqual(
       [
@@ -15,7 +15,10 @@ describe('tool registry contract', () => {
         'lookup_duty_cycle',
         'lookup_polarity',
         'lookup_settings',
-        'render_artifact',
+        'render_duty_cycle_artifact',
+        'render_polarity_artifact',
+        'render_settings_artifact',
+        'render_troubleshoot_artifact',
         'search_manual',
       ].sort(),
     );
@@ -46,22 +49,19 @@ describe('cross-tool grounding', () => {
     }
   });
 
-  it('render_artifact validates a fully-populated settings payload', () => {
-    const out = renderArtifact({
-      type: 'settings',
-      payload: {
-        process: 'MIG',
-        subprocess: 'solid-core',
-        material: 'mild_steel',
-        thickness_in: 0.125,
-        skill_level: 'moderate',
-        gas_required: true,
-        gas_scfh_min: 20,
-        gas_scfh_max: 30,
-        cleanliness: 'clean_minimal_spatter',
-        applications: ['general fabrication'],
-        source_page: 1,
-      },
+  it('render_settings_artifact validates a fully-populated settings payload', () => {
+    const out = renderSettingsArtifact({
+      process: 'MIG',
+      subprocess: 'solid-core',
+      material: 'mild_steel',
+      thickness_in: 0.125,
+      skill_level: 'moderate',
+      gas_required: true,
+      gas_scfh_min: 20,
+      gas_scfh_max: 30,
+      cleanliness: 'clean_minimal_spatter',
+      applications: ['general fabrication'],
+      source_page: 1,
     });
     expect(out.rendered).toBe(true);
     expect(out.artifact.type).toBe('settings');

@@ -7,7 +7,7 @@ import type { StreamContext } from '@/streaming/sse';
 import { truncateArgsPreview } from '@/streaming/cache';
 import { pageIndex } from '@/tools/load-data';
 import { ToolInputError } from '@/tools/types';
-import { toolRegistry } from '@/tools';
+import { RENDER_ARTIFACT_TOOL_NAMES, toolRegistry } from '@/tools';
 import { SYSTEM_PROMPT } from './system-prompt';
 
 export const DEFAULT_MODEL = 'claude-sonnet-4-6';
@@ -97,10 +97,12 @@ export async function streamAgentTurn(
   const maxTokens = opts.maxTokens ?? DEFAULT_MAX_TOKENS;
   const maxLoops = opts.maxToolLoops ?? DEFAULT_MAX_TOOL_LOOPS;
 
-  const conversation: Anthropic.MessageParam[] = request.messages.map((m) => ({
-    role: m.role,
-    content: m.content,
-  }));
+  const conversation: Anthropic.MessageParam[] = request.messages
+    .filter((m) => m.content.length > 0)
+    .map((m) => ({
+      role: m.role,
+      content: m.content,
+    }));
 
   const citedPages = new Set<number>();
 
@@ -109,6 +111,7 @@ export async function streamAgentTurn(
 
     const assistantContent: Anthropic.ContentBlockParam[] = [];
     const toolUseBlocks = new Map<number, ToolUseAccumulator>();
+    const endedToolIndices = new Set<number>();
     let stopReason: Anthropic.StopReason | null = null;
     let assistantText = '';
 
@@ -138,24 +141,30 @@ export async function streamAgentTurn(
           },
         });
       }
-    } catch (err) {
-      throw err;
+
+      emitCitations(assistantText, ctx, citedPages);
+
+      conversation.push({ role: 'assistant', content: assistantContent });
+
+      if (stopReason !== 'tool_use' || toolUseBlocks.size === 0) {
+        return;
+      }
+
+      const toolResults: Anthropic.ToolResultBlockParam[] = [];
+      for (const [index, acc] of toolUseBlocks) {
+        const result = await runTool(acc, ctx);
+        endedToolIndices.add(index);
+        toolResults.push(result);
+      }
+      conversation.push({ role: 'user', content: toolResults });
+    } finally {
+      for (const [index, acc] of toolUseBlocks) {
+        if (!endedToolIndices.has(index)) {
+          ctx.emit({ type: 'tool_call_end', tool: acc.name, ok: false });
+          endedToolIndices.add(index);
+        }
+      }
     }
-
-    emitCitations(assistantText, ctx, citedPages);
-
-    conversation.push({ role: 'assistant', content: assistantContent });
-
-    if (stopReason !== 'tool_use' || toolUseBlocks.size === 0) {
-      return;
-    }
-
-    const toolResults: Anthropic.ToolResultBlockParam[] = [];
-    for (const [, acc] of toolUseBlocks) {
-      const result = await runTool(acc, ctx);
-      toolResults.push(result);
-    }
-    conversation.push({ role: 'user', content: toolResults });
   }
 }
 
@@ -278,7 +287,7 @@ async function runTool(
   try {
     const result = await entry.handler(parseResult.data);
     ctx.emit({ type: 'tool_call_end', tool: acc.name, ok: true });
-    if (acc.name === 'render_artifact') {
+    if ((RENDER_ARTIFACT_TOOL_NAMES as readonly string[]).includes(acc.name)) {
       maybeEmitArtifact(result, ctx);
     }
     return {
@@ -293,7 +302,7 @@ async function runTool(
       return {
         type: 'tool_result',
         tool_use_id: acc.id,
-        content: `render_artifact rejected the payload: ${err.message}. Re-check the payload shape against the schema and try again or answer in prose.`,
+        content: `${acc.name} rejected the payload: ${err.message}. Re-check the payload shape against the schema and try again or answer in prose.`,
         is_error: true,
       };
     }

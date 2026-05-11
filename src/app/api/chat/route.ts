@@ -12,10 +12,10 @@ export const dynamic = 'force-dynamic';
 const requestSchema = z.object({
   messages: z
     .array(
-      z.object({
-        role: z.enum(['user', 'assistant']),
-        content: z.string().min(1),
-      }),
+      z.discriminatedUnion('role', [
+        z.object({ role: z.literal('user'), content: z.string().min(1) }),
+        z.object({ role: z.literal('assistant'), content: z.string() }),
+      ]),
     )
     .min(1),
   session_id: z.string().optional(),

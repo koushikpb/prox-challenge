@@ -10,7 +10,7 @@ export class StreamParseError extends Error {
   }
 }
 
-const dutyCycleArtifactSchema = z
+export const dutyCycleArtifactSchema = z
   .object({
     type: z.literal('duty_cycle'),
     process: z.enum(['MIG', 'TIG', 'Stick']),
@@ -23,7 +23,7 @@ const dutyCycleArtifactSchema = z
   })
   .strict();
 
-const polarityArtifactSchema = z
+export const polarityArtifactSchema = z
   .object({
     type: z.literal('polarity'),
     process: z.enum(['MIG_solid', 'MIG_flux', 'TIG', 'Stick']),
@@ -34,7 +34,7 @@ const polarityArtifactSchema = z
   })
   .strict();
 
-const settingsArtifactSchema = z
+export const settingsArtifactSchema = z
   .object({
     type: z.literal('settings'),
     process: z.enum(['MIG', 'TIG', 'Stick']),
@@ -67,7 +67,7 @@ const troubleshootNodeSchema = z
   })
   .strict();
 
-const troubleshootArtifactSchema = z
+export const troubleshootArtifactSchema = z
   .object({
     type: z.literal('troubleshoot'),
     symptom: z.string(),
@@ -75,7 +75,7 @@ const troubleshootArtifactSchema = z
   })
   .strict();
 
-const artifactPayloadSchema = z.discriminatedUnion('type', [
+export const artifactPayloadSchema = z.discriminatedUnion('type', [
   dutyCycleArtifactSchema,
   polarityArtifactSchema,
   settingsArtifactSchema,

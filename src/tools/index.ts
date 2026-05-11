@@ -54,11 +54,23 @@ export {
 } from './search_manual';
 
 export {
-  renderArtifact,
-  renderArtifactTool,
-  renderArtifactInputSchema,
-  type RenderArtifactInput,
+  renderDutyCycleArtifact,
+  renderDutyCycleArtifactTool,
+  renderDutyCycleArtifactInputSchema,
+  renderPolarityArtifact,
+  renderPolarityArtifactTool,
+  renderPolarityArtifactInputSchema,
+  renderSettingsArtifact,
+  renderSettingsArtifactTool,
+  renderSettingsArtifactInputSchema,
+  renderTroubleshootArtifact,
+  renderTroubleshootArtifactTool,
+  renderTroubleshootArtifactInputSchema,
   type RenderArtifactOutput,
+  type RenderDutyCycleArtifactInput,
+  type RenderPolarityArtifactInput,
+  type RenderSettingsArtifactInput,
+  type RenderTroubleshootArtifactInput,
 } from './render_artifact';
 
 import { lookupDutyCycleTool } from './lookup_duty_cycle';
@@ -67,7 +79,21 @@ import { lookupSettingsTool } from './lookup_settings';
 import { getPageImageTool } from './get_page_image';
 import { getRegionTool } from './get_region';
 import { searchManualTool } from './search_manual';
-import { renderArtifactTool } from './render_artifact';
+import {
+  renderDutyCycleArtifactTool,
+  renderPolarityArtifactTool,
+  renderSettingsArtifactTool,
+  renderTroubleshootArtifactTool,
+} from './render_artifact';
+
+export const RENDER_ARTIFACT_TOOL_NAMES = [
+  'render_duty_cycle_artifact',
+  'render_polarity_artifact',
+  'render_settings_artifact',
+  'render_troubleshoot_artifact',
+] as const;
+
+export type RenderArtifactToolName = (typeof RENDER_ARTIFACT_TOOL_NAMES)[number];
 
 export const toolRegistry = [
   searchManualTool,
@@ -76,5 +102,8 @@ export const toolRegistry = [
   lookupDutyCycleTool,
   lookupPolarityTool,
   lookupSettingsTool,
-  renderArtifactTool,
+  renderDutyCycleArtifactTool,
+  renderPolarityArtifactTool,
+  renderSettingsArtifactTool,
+  renderTroubleshootArtifactTool,
 ] as const;
