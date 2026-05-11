@@ -3,6 +3,8 @@
 import type { ManualSource } from '@/streaming';
 import { cn } from '@/lib/utils';
 
+import { RenderArtifact } from '@/components/artifacts';
+
 import { Citation } from './Citation';
 import { ToolChip } from './ToolChip';
 import type { AssistantMessage, ChatMessageRecord } from './types';
@@ -77,14 +79,7 @@ function AssistantBubble({
         {message.artifacts.length > 0 && (
           <div className="space-y-2">
             {message.artifacts.map((artifact, idx) => (
-              <div
-                key={`${artifact.type}-${idx}`}
-                data-artifact-placeholder
-                data-artifact-type={artifact.type}
-                className="rounded-md border border-dashed bg-muted/40 px-3 py-2 text-xs text-muted-foreground"
-              >
-                Artifact: {artifact.type} (renderer arrives in a later task)
-              </div>
+              <RenderArtifact key={`${artifact.type}-${idx}`} payload={artifact} />
             ))}
           </div>
         )}
