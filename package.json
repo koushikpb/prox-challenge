@@ -19,6 +19,7 @@
     "postinstall": "tsx scripts/sync-public-data.ts || true"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.95.1",
     "@base-ui/react": "^1.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
