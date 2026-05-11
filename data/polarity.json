@@ -1,0 +1,38 @@
+[
+  {
+    "process": "MIG_solid",
+    "polarity_name": "DCEP",
+    "ground_socket": "Negative",
+    "electrode_socket": "Positive",
+    "source_page": 14,
+    "region_id": "polarity_DCEP_solid_core",
+    "explanation": "Solid-core gas-shielded MIG runs DCEP: ground clamp into the Negative (−) socket and the wire-feed power cable into the Positive (+) socket. (p. 14)"
+  },
+  {
+    "process": "MIG_flux",
+    "polarity_name": "DCEN",
+    "ground_socket": "Positive",
+    "electrode_socket": "Negative",
+    "source_page": 13,
+    "region_id": "polarity_DCEN_flux_cored",
+    "explanation": "Flux-cored (gasless) MIG runs DCEN: ground clamp into the Positive (+) socket and the wire-feed power cable into the Negative (−) socket. The flux core shields the weld, so the polarity is reversed from gas-shielded MIG. (p. 13)"
+  },
+  {
+    "process": "TIG",
+    "polarity_name": "DCEN",
+    "ground_socket": "Positive",
+    "electrode_socket": "Negative",
+    "source_page": 24,
+    "region_id": "polarity_TIG",
+    "explanation": "TIG runs DCEN: ground clamp into the Positive (+) socket and the TIG torch cable into the Negative (−) socket. (p. 24)"
+  },
+  {
+    "process": "Stick",
+    "polarity_name": "DCEP",
+    "ground_socket": "Negative",
+    "electrode_socket": "Positive",
+    "source_page": 27,
+    "region_id": "polarity_Stick",
+    "explanation": "Stick (SMAW) on this welder is set up DCEP per the manual: ground clamp into the Negative (−) socket and the electrode holder cable into the Positive (+) socket. Some specialty rods call for DCEN — always follow the electrode manufacturer's instructions. (p. 27)"
+  }
+]

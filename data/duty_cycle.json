@@ -1,0 +1,62 @@
+[
+  {
+    "process": "MIG",
+    "input_voltage": 120,
+    "rated": { "amperage": 100, "duty_cycle_pct": 40, "work_minutes": 4, "rest_minutes": 6 },
+    "continuous": { "amperage": 75, "duty_cycle_pct": 100 },
+    "current_range": { "min_a": 30, "max_a": 140 },
+    "ocv_v": 86,
+    "source_page": 7,
+    "notes": "Specifications block on p. 7; worked example on p. 19 (4 min welding / 6 min resting in a 10-minute period). Verified against owner-manual-007.png."
+  },
+  {
+    "process": "MIG",
+    "input_voltage": 240,
+    "rated": { "amperage": 200, "duty_cycle_pct": 25, "work_minutes": 2.5, "rest_minutes": 7.5 },
+    "continuous": { "amperage": 115, "duty_cycle_pct": 100 },
+    "current_range": { "min_a": 30, "max_a": 220 },
+    "ocv_v": 86,
+    "source_page": 7,
+    "notes": "Specifications block on p. 7; worked example on p. 19 (2-1/2 min welding / 7-1/2 min resting in a 10-minute period). README-example fact."
+  },
+  {
+    "process": "TIG",
+    "input_voltage": 120,
+    "rated": { "amperage": 125, "duty_cycle_pct": 40, "work_minutes": 4, "rest_minutes": 6 },
+    "continuous": { "amperage": 90, "duty_cycle_pct": 100 },
+    "current_range": { "min_a": 10, "max_a": 125 },
+    "ocv_v": 86,
+    "source_page": 7,
+    "notes": "Specifications block on p. 7."
+  },
+  {
+    "process": "TIG",
+    "input_voltage": 240,
+    "rated": { "amperage": 175, "duty_cycle_pct": 30, "work_minutes": 3, "rest_minutes": 7 },
+    "continuous": { "amperage": 105, "duty_cycle_pct": 100 },
+    "current_range": { "min_a": 10, "max_a": 175 },
+    "ocv_v": 86,
+    "source_page": 7,
+    "notes": "Specifications block on p. 7."
+  },
+  {
+    "process": "Stick",
+    "input_voltage": 120,
+    "rated": { "amperage": 80, "duty_cycle_pct": 40, "work_minutes": 4, "rest_minutes": 6 },
+    "continuous": { "amperage": 60, "duty_cycle_pct": 100 },
+    "current_range": { "min_a": 10, "max_a": 80 },
+    "ocv_v": 86,
+    "source_page": 7,
+    "notes": "Specifications block on p. 7."
+  },
+  {
+    "process": "Stick",
+    "input_voltage": 240,
+    "rated": { "amperage": 175, "duty_cycle_pct": 25, "work_minutes": 2.5, "rest_minutes": 7.5 },
+    "continuous": { "amperage": 100, "duty_cycle_pct": 100 },
+    "current_range": { "min_a": 10, "max_a": 175 },
+    "ocv_v": 86,
+    "source_page": 7,
+    "notes": "Specifications block on p. 7."
+  }
+]
