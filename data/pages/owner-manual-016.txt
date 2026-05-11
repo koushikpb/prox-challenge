@@ -1,0 +1,165 @@
+Sa
+F
+ety
+ 
+Welding
+ 
+t
+ip
+S
+tig
+ 
+/ Stick
+c
+O
+nt
+RO
+l
+S
+ 
+Wi
+R
+e
+ 
+M
+aintenance
+
+dangeR
+
+paRtS May Be at Welding VOltage
+
+tO pReVent electRic SHOck and deatH:
+
+1. keep hands away from Wire Feed mechanism.
+
+2. close door before plugging in, unless using cold
+
+Wire Feed to feed wire through to gun.
+
+3. do not touch trigger while feeding wire through to gun.
+
+24. Plug either 120 VAC or 240 VAC Power
+
+Cord into Power Input Socket.
+
+note: Plug will only fit one way.
+
+25. Do not touch the Gun’s Trigger. Plug the Power
+
+Cord into a properly grounded, GFCI protected
+
+120 VAC (20 amp rated) or 240 VAC receptacle that
+
+matches the plug and turn the Power Switch ON.
+
+The circuit must be equipped with delayed
+
+action-type circuit breaker or fuses.
+
+26. Point the Gun away from
+
+all objects. Press and
+
+hold the Cold Wire Feed
+
+Switch until the wire feeds
+
+through two inches.
+
+the wire liner may come
+
+out with the welding
+
+wire. this is normal,
+
+just push the wire liner
+
+back into the gun.
+
+If the wire does not feed
+
+properly and the Spool
+
+is stationary, turn OFF
+
+and unplug the Welder
+
+and slightly tighten the
+
+Feed Tensioner clockwise
+
+before retrying.
+
+Reset
+Power Input
+Gas Inlet
+
+IP21S S 1 f1 f2
+
+Date:
+57812 25d
+Conforms to ANSI/IEC Std. 60974-1
+264149
+Vulcan OMNIPRO 220
+30A/15.5V to 220A/25V
+X 25% 60% 100%
+U0 = 86V I2 200A 130A 115A
+U 2 24V 20.5V 19.75V
+1~50/60Hz
+U 1 = 240V 
+I1max = 25.5A
+23.7A
+15.6A
+I1eff = 12.8A
+11.9A
+8.5A
+10A/20.4V to 175A/27V
+X 25% 60% 100%
+U0 = 86V I2 175A 115A 100A
+U2 27V 24.6V 24V
+10A/10.4V to 175A/17V
+X 30% 60% 100%
+U0 = 86V I2 175A 125A 105A
+U 2 17V 15V 14.2V
+30A/15.5V to 140A/21V
+X 40% 60% 100%
+U0 = 86V I2 100A 85A 75A
+U 2 19V 18.25V 17.75V
+1~50/60Hz
+U 1 = 120V 
+I1max = 20.8A
+19.5A
+20.6A
+I1eff = 13.1A
+12.3A
+13A
+10A/20.4V to 80A/23.2V
+X 40% 60% 100%
+U0 = 86V I2 80A 70A 60A
+U 2 23.2V 22.8V 22.4V
+10A/10.4V to 125A/15V
+X 40% 60% 100%
+U0 = 86V I2 125A 105A 90A
+U 2 15V 14.2V 13.6V
+
+UPC 193175422590
+
+power
+
+input
+
+power
+
+Switch
+
+Mig gun
+
+Welding
+
+Wire
+
+2"
+
+cold Wire
+
+Feed Switch

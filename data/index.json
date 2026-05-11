@@ -1,0 +1,566 @@
+[
+  {
+    "page": 1,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [
+      "OMNIPRO 220",
+      "MULTIPROCESS WELDING SYSTEM"
+    ],
+    "text": "OMNIPRO 220\n\nMULTIPROCESS WELDING SYSTEM\n\nVisit our website at: https://www.harborfreight.com\nemail our technical support at: productsupport@harborfreight.com\n®\n\n57812\n\nOwner’s Manual & Safety Instructions\nSave This Manual Keep this manual for the safety warnings and precautions, assembly,\noperating, inspection, maintenance and cleaning procedures. Write the product’s Date Code in the back of\nthe manual (or month and year of purchase if product has no number). Keep this manual and the receipt in\na safe and dry place for future reference. 25e\nWhen unpacking, make sure that the product is intact\nand undamaged. If any parts are missing or broken,\nCopyright\n© \n2022 by Harbor Freight Tools\n®\n. All rights reserved.\nNo portion of this manual or any artwork contained herein may be reproduced in\nany shape or form without the express written consent of Harbor Freight Tools.\nDiagrams within this manual may not be drawn proportionally. Due to continuing\nimprovements, actual product may differ slightly from the product described herein.\nTools required for assembly and service may not be included.\nRead this material before using this product.\nFailure to do so can result in serious injury.\nSAVE THIS MANUAL.",
+    "image_path": "/data/pages/owner-manual-001.png",
+    "region_ids": []
+  },
+  {
+    "page": 2,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\ntable of contents\n\nSafety ........................................................................2\n\nSpecifications ............................................................7\n\nControls .....................................................................8\n\nMIG / Flux-Cored Wire Welding .................................10\n\nTIG / Stick Welding ....................................................24\n\nWelding Tips .............................................................34\n\nMaintenance .............................................................41\n\nParts List and Diagram .............................................46\n\nWarranty ...................................................................48\n\nWaRning SyMBOlS and deFinitiOnS\n\nThis is the Safety alert symbol. It is used to alert you to potential\n\npersonal injury hazards. Obey all Safety messages that\n\nfollow this symbol to avoid possible injury or death.\n\nIndicates a hazardous situation which, if not avoided,\n\nwill result in death or serious injury.\n\nIndicates a hazardous situation which, if not avoided,\n\ncould result in death or serious injury.\n\nIndicates a hazardous situation which, if not avoided,\n\ncould result in minor or moderate injury.\n\nAddresses practices not related to personal injury.\n\niMpORtant SaFety inFORMatiOn\n\nRead all Safety warnings and instructions.\n\nFailure to follow the warnings and instructions may result in electric shock, fire and/or serious injury.\n\nSave all warnings and instructions for future reference.\n\ngeneral Safety\n\npROtect yourself and others. Read and understand this information.\n\n1. Before use, read and understand\n\nmanufacturer′s instructions,\n\nMaterial Safety Data Sheets (MSDS′s),\n\nemployer′s Safety practices, and ANSI Z49.1.\n\n2. keep out of reach of children.\n\nKeep children and bystanders away while operating.\n\n3. place the welder on a stable location before use.\n\nIf it falls while plugged in, severe injury,\n\nelectric shock, or fire may result.\n\n4. do not overreach.\n\nkeep proper footing and balance at all times.\n\n5. Stay alert, watch what you are doing and use\n\ncommon sense when operating a welder.\n\ndo not use a welder while you are tired or under\n\nthe influence of drugs, alcohol or medication.\n\nA moment of inattention while operating welders\n\nmay result in serious personal injury.\n\n6. avoid unintentional starting. Make sure you are\n\nprepared to begin work before turning on the Welder.\n\n7. never leave the Welder unattended while\n\nenergized. Turn power off if you have to leave.\n\n8. the warnings, precautions, and instructions\n\ndiscussed in this instruction manual cannot\n\ncover all possible conditions and situations\n\nthat may occur. It must be understood by the\n\noperator that common sense and caution are\n\nfactors which cannot be built into this product,\n\nbut must be supplied by the operator.",
+    "image_path": "/data/pages/owner-manual-002.png",
+    "region_ids": []
+  },
+  {
+    "page": 3,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nFume and gas Safety\n\nINHALATION HAZARD:\n\nWelding and plasma cutting produce toxic fumes.\n\n1. exposure to welding or cutting exhaust\n\nfumes can increase the risk of developing\n\ncertain cancers, such as cancer of the\n\nlarynx and lung cancer. Also, some diseases\n\nthat may be linked to exposure to welding\n\nor plasma cutting exhaust fumes are:\n\n• Early onset of Parkinson’s Disease\n\n• Heart disease\n\n• Ulcers\n\n• Damage to the reproductive organs\n\n• Inflammation of the small intestine or stomach\n\n• Kidney damage\n\n• Respiratory diseases such as\n\nemphysema, bronchitis, or pneumonia\n\nUse natural or forced air ventilation and wear\n\na respirator approved by NIOSH to protect\n\nagainst the fumes produced to reduce the\n\nrisk of developing the above illnesses.\n\n2. do not use near degreasing or\n\npainting operations.\n\n3. keep head out of fumes.\n\nDo not breathe exhaust fumes.\n\n4. Use enough ventilation, exhaust at arc, or\n\nboth, to keep fumes and gases from breathing\n\nzone and general area. If engineering controls\n\nare not feasible, use an approved respirator.\n\n5. Work in a confined area only if it\n\nis well-ventilated, or while wearing\n\nan air-supplied respirator.\n\n6. Have a recognized specialist in\n\nindustrial Hygiene or environmental Services\n\ncheck the operation and air quality\n\nand make recommendations\n\nfor the specific welding situation.\n\nFollow OSHA guidelines for\n\nPermissible Exposure Limits (PEL’s) and\n\nthe American Conference of Governmental\n\nIndustrial Hygienists recommendations for\n\nThreshold Limit Values (TLV’s) for fumes and gases.\n\narc Ray Safety\n\naRc RayS can injure eyes and burn skin.\n\n1. Wear anSi-approved welding eye protection\n\nfeaturing at least a number 10 shade lens rating.\n\n2. Wear leather leggings, fire resistant shoes\n\nor boots during use. Do not wear pants with\n\ncuffs, shirts with open pockets, or any clothing\n\nthat can catch and hold molten metal or sparks.\n\n3. keep clothing free of grease, oil,\n\nsolvents, or any flammable substances.\n\nWear dry, insulating gloves and protective clothing.\n\n4. Wear an approved head covering to protect\n\nthe head and neck. Use aprons, cape, sleeves,\n\nshoulder covers, and bibs designed and\n\napproved for welding and cutting procedures.\n\n5. Wear an approved welding jacket or long sleeves\n\nto protect forearms from radiation burns.\n\n6. When welding/cutting overhead or in confined\n\nspaces, wear flame resistant ear plugs or\n\near muffs to keep sparks out of ears.",
+    "image_path": "/data/pages/owner-manual-003.png",
+    "region_ids": []
+  },
+  {
+    "page": 4,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nelectrical Safety\n\nelectRic SHOck can kill.\n\n1. turn off, disconnect power, and\n\ndischarge electrode to ground before setting\n\ndown torch/electrode holder and before service.\n\n2. do not touch energized electrical parts.\n\nWear dry, insulating gloves. Do not touch electrode\n\nholder, electrode, welding torch, or welding wire with\n\nbare hand. Do not wear wet or damaged gloves.\n\n3. connect to grounded, gFci-protected\n\npower supply only.\n\n4. do not use near water or damp objects.\n\n5. people with pacemakers should consult their\n\nphysician(s) before use. Electromagnetic fields\n\nin close proximity to heart pacemaker could cause\n\npacemaker interference or pacemaker failure.\n\n6. do not expose welders to rain or wet conditions.\n\nWater entering a welder will increase\n\nthe risk of electric shock.\n\n7. do not abuse the cord. never use the cord\n\nfor carrying, pulling or unplugging the welder.\n\nkeep cord away from heat, oil, sharp edges\n\nor moving parts. Damaged or entangled\n\ncords increase the risk of electric shock.\n\n8. do not use outdoors.\n\n9. insulate yourself from the workpiece and\n\nground. Use nonflammable, dry insulating\n\nmaterial if possible, or use dry rubber mats,\n\ndry wood or plywood, or other dry insulating\n\nmaterial large enough to cover your full\n\narea of contact with the work or ground.\n\n10. tHiS Welding MacHine MUSt Be\n\ncOnnected tO pOWeR SOURce in\n\naccORdance WitH applicaBle\n\nelectRical cOdeS.\n\nFire Safety\n\naRc and Slag can cause fire.\n\n1. clear away or protect flammable objects.\n\nRemove or make safe all combustible materials for a\n\nradius of 35 feet (10 meters) around the work area.\n\nUse a fire resistant material to cover\n\nor block all open doorways, windows,\n\ncracks, and other openings.\n\n2. keep aBc-type fire extinguisher near\n\nwork area and know how to use it.\n\n3. Maintain a safe working environment.\n\nKeep the work area well lit.\n\nMake sure there is adequate\n\nsurrounding workspace. Keep the work area free\n\nof obstructions, grease, oil, trash, and other debris.\n\n4. do not operate welders in atmospheres\n\ncontaining dangerously reactive or\n\nflammable liquids, gases, vapors, or dust.\n\nProvide adequate ventilation in work areas\n\nto prevent accumulation of such substances.\n\nWelders create sparks which may ignite flammable\n\nsubstances or make reactive fumes toxic.\n\n5. if working on a metal wall, ceiling, etc.,\n\nprevent ignition of combustibles on the\n\nother side by moving the combustibles to a\n\nsafe location. If relocation of combustibles is\n\nnot possible, designate someone to serve as\n\na fire watch, equipped with a fire extinguisher,\n\nduring the cutting process and for at least one\n\nhalf hour after the cutting is completed.\n\n6. do not weld or cut on materials having\n\na combustible coating or combustible\n\ninternal structure, as in walls or ceilings, without\n\nan approved method for eliminating the hazard.\n\n7. do not dispose of hot slag in containers\n\nholding combustible materials.\n\n8. after welding, make a thorough examination\n\nfor evidence of fire. Be aware that easily\n\nvisible smoke or flame may not be present\n\nfor some time after the fire has started.\n\n9. do not apply heat to a container that has held\n\nan unknown substance or a combustible\n\nmaterial whose contents, when heated,\n\ncan produce flammable or explosive vapors.\n\nClean and purge containers before applying heat.\n\nVent closed containers, including castings,\n\nbefore preheating, welding, or cutting.",
+    "image_path": "/data/pages/owner-manual-004.png",
+    "region_ids": []
+  },
+  {
+    "page": 5,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nWelder Use and care\n\n1. do not use the welder if the switch does not turn\n\nit on and off. Any welder that cannot be controlled\n\nwith the switch is dangerous and must be repaired.\n\n2. disconnect the plug from the power\n\nsource before making any adjustments,\n\nchanging accessories, or storing welders.\n\nSuch preventive Safety measures reduce the\n\nrisk of starting the welder accidentally.\n\n3. prevent unintentional starting.\n\nensure the switch is in the off-\n\nposition before connecting to power\n\nsource or moving the welder. Carrying\n\nor energizing welders that have the\n\nswitch on invites accidents.\n\n4. Store idle welders out of the reach of\n\nchildren and do not allow persons unfamiliar\n\nwith the welder or these instructions to\n\noperate the welder. Welders are dangerous\n\nin the hands of untrained users.\n\n5. Use the welder and accessories in\n\naccordance with these instructions, taking\n\ninto account the working conditions and\n\nthe work to be performed. Use of the welder\n\nfor operations different from those intended\n\ncould result in a hazardous situation.\n\n6. do not use the welder for pipe thawing.\n\nMaintenance\n\n1. Maintain welders. check for misalignment or\n\nbinding of moving parts, breakage of parts\n\nand any other condition that may affect the\n\nwelder’s operation. if damaged, have the\n\nwelder repaired before use. Many accidents\n\nare caused by poorly maintained welders.\n\n2. Have your welder serviced by a qualified\n\nrepair person using only identical\n\nreplacement parts. This will ensure that\n\nthe Safety of the welder is maintained.\n\n3. Maintain labels and nameplates on the Welder.\n\nThese carry important information.\n\nIf unreadable or missing, contact\n\nHarbor Freight Tools for a replacement.\n\n4. Unplug before maintenance. Unplug the Welder\n\nfrom its electrical outlet before any inspection,\n\nmaintenance, or cleaning procedures.\n\ngas Shielded Welding - cylinder Safety\n\ncylinders can explode when damaged.\n\n1. do not weld on a pressurized or closed cylinder.\n\n2. do not allow an electrode holder,\n\nelectrode, welding torch, or welding\n\nwire to touch the cylinder.\n\n3. keep cylinders away from any electrical circuits,\n\nincluding welding circuits.\n\n4. keep protective cap in place over the valve\n\nexcept when the cylinder is in use.\n\n5. Use only correct gas shielding equipment\n\ndesigned specifically for the type of welding\n\nyou will do. Maintain this equipment properly.\n\n6. protect gas cylinders from heat, being struck,\n\nphysical damage, slag, flames, sparks, and arcs.\n\n7. Use proper procedures to move cylinders.\n\nSaVe tHeSe inStRUctiOnS.",
+    "image_path": "/data/pages/owner-manual-005.png",
+    "region_ids": []
+  },
+  {
+    "page": 6,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nSymbology\n\nWire Feed (Speed)\n\nWorkpiece Ground Cable\n\nTorch Cable\n\nOverheat Shutdown Indicator\n\nCooling Fan\n\nHousing Ground Point\n\nVac \nVolts Alternating Current\n\na \nAmperes\n\nOcV \nOpen Circuit Voltage\n\nkVa \nKilovolt Amperes\n\n(Volts / 1000 * Amperes)\n\nipM \nInches Per Minute\n\naWg \nAmerican Wire Gauge\n\nElectric Shock Hazard.\n\nDo not touch energized parts.\n\nInhalation Hazard.\n\nKeep head out of fumes\n\nand use proper ventilation.\n\nRead manual before\n\nsetup and/or use.\n\nFire Hazard.\n\nKeep flammable materials\n\naway during welding. Spatter\n\ncan cause accidental fires.\n\nArc Ray Hazard.\n\nWear welding helmet with\n\nproperly rated filter lens.\n\nPacemaker Hazard.\n\nWelding processes may\n\ninterfere with pacemakers.\n\nConsult doctor before use.\n\ngrounding\n\ntO pReVent electRic SHOck and deatH\n\nFROM incORRect gROUnding WiRe cOnnectiOn:\n\ncheck with a qualified electrician if you are in doubt as to whether the outlet is\n\nproperly grounded. do not use the welder if the power cord or plug is damaged. if damaged,\n\nhave it repaired by a service facility before use. if the plug will not fit the outlet, have a proper outlet\n\ninstalled by a qualified electrician, do not use adapter plugs.\n\n1. The green wire inside the cord is connected to\n\nthe grounding system in the Welder. The green\n\nwire in the cord must be the only wire connected\n\nto the Welder’s grounding system and must\n\nnever be attached to an electrically “live” terminal.\n\nNever leave the grounding wire disconnected\n\nor modify either Power Cord Plug in any way.\n\n2. Make sure the tool is connected to an outlet having\n\nthe same configuration as the plug. If the tool must\n\nbe reconnected for use on a different type of electric\n\ncircuit, the reconnection should be made by qualified\n\nservice personnel; and after reconnection, the tool\n\nshould comply with all local codes and ordinances.\n\nextension cords\n\ndo not use an extension cord on this welder.\n\nReplacement cords\n\n1. Use only one of the supplied power cords for\n\nthis welder or an identical replacement cord.\n\n2. do not install a thinner or longer\n\ncord on this welder.\n\n3. do not patch cords of any length\n\ntogether for this item, patches may allow\n\nmoisture to penetrate the insulation,\n\nresulting in electric shock.",
+    "image_path": "/data/pages/owner-manual-006.png",
+    "region_ids": []
+  },
+  {
+    "page": 7,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nSpecifications\n\nMig\n\nPower Input 120 VAC / 60 Hz 240 VAC / 60 Hz\n\nCurrent Input at Output 20.8 A at 100 A 25.5 A at 200 A\n\nWelding Current Range 30 –140 A 30 –220 A\n\nRated Duty Cycles \n40% @ 100 A\n\n100% @ 75 A\n\n25% @ 200 A\n\n100% @ 115 A\n\nMaximum OCV 86 VDC\n\nWeldable Materials \nMild Steel, Stainless Steel\n\nAluminum (with optional Spool Gun)\n\nWelding Wire Capacity \nSolid Core: 0.025\" / 0.030\" / 0.035\"\n\nFlux Cored: 0.030\" / 0.035\" / 0.045\"\n\nWire Speed 50 – 500 IPM\n\nWire Spool Capacity Up to 12 lb spool\n\ntig\n\nPower Input 120 VAC / 60 Hz 240 VAC / 60 Hz\n\nCurrent Input at Output 20.6 A at 125 A 15.6 A at 175 A\n\nWelding Current Range 10 A –125 A 10 A –175 A\n\nRated Duty Cycles \n40% @ 125 A\n\n100% @ 90 A\n\n30% @ 175 A\n\n100% @ 105 A\n\nMaximum OCV 86 VDC\n\nWeldable Materials Mild Steel, Stainless Steel, Chrome Moly\n\nStick\n\nPower Input 120 VAC / 60 Hz 240 VAC / 60 Hz\n\nCurrent Input at Output 19.5 A at 80 A 23.7 A at 175 A\n\nWelding Current Range 10 A – 80 A 10 A –175 A\n\nRated Duty Cycles \n40% @ 80 A\n\n100% @ 60 A\n\n25% @ 175 A\n\n100% @ 100 A\n\nMaximum OCV 86 VDC\n\nWeldable Materials Mild Steel, Stainless Steel",
+    "image_path": "/data/pages/owner-manual-007.png",
+    "region_ids": []
+  },
+  {
+    "page": 8,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\ncontrols\n\nFront panel controls\n\n®\n\nWire Feed\n\npower cable\n\npower\n\nSwitch\n\nlcd\n\ndisplay\n\nRight\n\nknob\n\nleft\n\nknob\n\ncontrol\n\nknob\n\nHome\n\nButton\n\nBack\n\nButton\n\nSpool gun\n\ngas Outlet\n\nMIG Gun /\n\nSpool gun\n\ncable Socket\n\nnegative\n\nSocket\n\npositive\n\nSocket\n\nStorage\n\ncompartment\n\nnote: When using an optional Spool Gun (sold separately), connect the\n\nSpool Gun gas hose to the Spool Gun Gas Outlet.",
+    "image_path": "/data/pages/owner-manual-008.png",
+    "region_ids": []
+  },
+  {
+    "page": 9,
+    "source": "owner-manual",
+    "section": "Safety",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\ninterior controls\n\ncold Wire\n\nFeed Switch\n\nidler\n\narm\n\nWire Feed\n\nMechanism\n\nWire Spool\n\nSpool knob\n\nFeed\n\ntensioner\n\nWire inlet\n\nliner\n\nFeed\n\nRoller\n\nknob\n\nWire Feed\n\ncontrol Socket\n\nFoot pedal\n\nSocket",
+    "image_path": "/data/pages/owner-manual-009.png",
+    "region_ids": []
+  },
+  {
+    "page": 10,
+    "source": "owner-manual",
+    "section": "Controls",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\n1. turn the power Switch OFF and unplug\n\nthe Welder before proceeding.\n\n2. Pull up on the Door Latch,\n\nthen open the Door.\n\n3. 1-2 pound Wire Spool installation:\n\nRemove the Wingnut and Spacer. If\n\nreplacing a Spool, remove the old Spool\n\nand all remaining wire from the liners.\n\n4. Place the new Wire Spool over the Spool Spindle\n\nand against the Spool Brake Pad as illustrated.\n\nto prevent wire feed problems, set the\n\nSpool so that it will unwind clockwise.\n\n5. Replace the Spacer over the\n\nSpool Spindle and secure Spool\n\nin place with the Wingnut.\n\nnotice: If Wire Spool can spin freely, Wingnut is too\n\nloose. This will cause the welding wire to unravel and\n\nunspool which can cause tangling and feeding problems.\n\npower\n\nSwitch\n\ndoor\n\nlatch\n\ndoor\n\nWelder\n\nWall\n\nWingnut\n\n1-2 lb\n\nWire Spool\n\nSpool\n\nBrake pad\n\nSpacer\n\nSpool\n\nSpindle\n\n1-2 lb Spool loading\n\nMIG / Flux-Cored Wire Welding\n\nRead the entiRe iMpORtant SaFety inFORMatiOn section at the beginning of this manual\n\nincluding all text under subheadings therein before set up or use of this product.\n\ntO pReVent SeRiOUS inJURy FROM accidental OpeRatiOn:\n\nturn the power Switch off and unplug the Welder before setup.\n\nnote: Remove the protective foam and cardboard from the Welder before setup.\n\nWire Spool Installation / Wire Setup",
+    "image_path": "/data/pages/owner-manual-010.png",
+    "region_ids": []
+  },
+  {
+    "page": 11,
+    "source": "owner-manual",
+    "section": "Controls",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\n6. 10-12 pound Wire Spool installation:\n\nRemove the Wingnut and Spacer. If\n\nreplacing a Spool, remove the old Spool\n\nand all remaining wire from the liners.\n\n7. Place the Spool Adapter over the Spool Spindle\n\nand against the Spool Brake Pad as illustrated.\n\n8. Place the new Wire Spool over the Adapter and\n\nline up pin on Adapter with hole in Spool.\n\nto prevent wire feed problems, set the\n\nSpool so that it will unwind clockwise.\n\n9. Replace the Spacer over the Spool Spindle\n\nand secure Spool in place with the Wingnut.\n\nnotice: If Wire Spool can spin freely, Wingnut\n\nis too loose. This will cause the welding\n\nwire to unravel and unspool which can\n\ncause tangling and feeding problems.\n\n10. Screw the Spool Knob into the Spool Adapter.\n\n11. Turn the Feed Tensioner knob counterclockwise to\n\nloosen it enough to pull it down to remove tension.\n\nThe spring-loaded Idler Arm will move up as shown.\n\nWelder\n\nWall\n\nSpool\n\nBrake pad\n\n10-12 lb\n\nSpool\n\nadapter\n\n10-12 lb Spool loading\n\nWingnut\n\n10-12 lb\n\nWire Spool\n\nSpacer\n\nSpool Spindle\n\nSpool knob\n\nWire\n\nmust\n\nunwind\n\nin this\n\ndirection\n\nidler arm\n\nFeed tensioner",
+    "image_path": "/data/pages/owner-manual-011.png",
+    "region_ids": []
+  },
+  {
+    "page": 12,
+    "source": "owner-manual",
+    "section": "Controls",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\n12. Feed Roller instructions:\n\nCheck that the Feed Roller is correct for the\n\ntype of wire being used (solid core or flux-\n\ncored) and that it is turned to properly match\n\nthe wire size marked on the Wire Spool:\n\na. Unscrew the Feed Roller Knob\n\ncounterclockwise.\n\nb. Remove the Feed Roller Knob\n\nto expose the Feed Roller.\n\nc. Flip or replace the Feed Roller as needed\n\nand confirm that it is the correct Roller\n\nfor the type of wire being used and that\n\nthe number showing is the same as\n\nthe wire diameter on the Spool.\n\nd. Screw the Feed Roller Knob back into\n\nplace to secure the Feed Roller.\n\nFeed Roller\n\nknob\n\nFeed\n\nRoller\n\naa\n\nBB\n\ncc\n\ndd\n\n0.030\n \n/\n \n0.035\n\ngroove\n\n0.025\n\ngroove\n\nSolid core\n\nV-groove\n\n0.045\n\ngroove\n\n0.030\n \n/\n \n0.035\n\ngroove\n\nFlux-cored\n\nknurled groove",
+    "image_path": "/data/pages/owner-manual-012.png",
+    "region_ids": []
+  },
+  {
+    "page": 13,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\n13. Loosen the Knob on the Wire Feed\n\nmechanism, then insert the Gun Cable\n\nConnector through the hole on the Welder\n\nfront and into the socket on the Wire Feed.\n\n14. Ensure that the Gun Cable Connector\n\nis fully inserted into the socket on\n\nthe Wire Feed mechanism as shown,\n\nthen tighten the Knob securely.\n\nIf Connector is not fully inserted, the gas\n\nconnection will leak, preventing shielding\n\ngas from reaching the welding arc.\n\nnOtice: To prevent damage, do\n\nnot overtighten the Knob.\n\n15. Insert the Wire Feed Control Cable through\n\nthe hole on the Welder front and connect it\n\nto the Wire Feed Control Socket inside the\n\nmachine, then tighten the lock ring on the Cable\n\nplug. Note that the plug on the Cable fits into\n\nthe Socket in one specific orientation only.\n\n16. dcen direct current electrode\n\nnegative Wire Setup for Flux-cored\n\n(gasless) welding:\n\nPlug Ground Clamp Cable into Positive (+)\n\nSocket. Plug Wire Feed Power Cable\n\ninto Negative (–) Socket. Twist cables\n\nclockwise all the way to lock in place.\n\ngun cable\n\nconnector\n\nIncorrect – Connector not fully insertedIncorrect – Connector not fully inserted\n\nWire Feed\n\nMechanism\n\nknob\n\nCorrect – Connector fully insertedCorrect – Connector fully inserted\n\nWire\n\nFeed\n\ncontrol\n\ncable\n\nground clamp cable\n\nin positive Socket\n\nWire Feed\n\npower cable in\n\nnegative Socket\n\ndcen\n\nFlux-Cored (Gasless)\n\npolarity Setup",
+    "image_path": "/data/pages/owner-manual-013.png",
+    "region_ids": []
+  },
+  {
+    "page": 14,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [
+      "U0 = 86V I2 200A 130A 115A",
+      "U2 24V 20.5V 19.75V",
+      "U0 = 86V I2 175A 115A 100A",
+      "U2 27V 24.6V 24V",
+      "U0 = 86V I2 175A 125A 105A",
+      "U 2 17V 15V 14.2V",
+      "U0 = 86V I2 100A 85A 75A",
+      "U2 19V 18.25V 17.75V"
+    ],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\n17. dcep direct current electrode positive Wire\n\nSetup for Solid Core (gas shielded) welding:\n\na. Plug Ground Clamp Cable into Negative (–)\n\nSocket. Plug Wire Feed Power Cable\n\ninto Positive (+) Socket. Twist cables\n\nclockwise all the way to lock in place.\n\nb. Determine which type of shielding\n\ngas would be appropriate for\n\nthe welding you will do. Refer\n\nto the Settings Chart on the\n\ninside of the Welder door.\n\nc. With assistance, set the cylinder (not included)\n\nonto a cabinet or cart near the Welder\n\nand secure the cylinder in place with two\n\nstraps (not included) to prevent tipping.\n\nd. Remove the cylinder’s cap. Stand to the\n\nside of the valve opening, then open the\n\nvalve briefly to blow dust and dirt from the\n\nvalve opening. Close the cylinder valve.\n\ne. Locate the Regulator (included) and close its\n\nvalve until it is loose, then thread Regulator\n\nonto cylinder and wrench-tighten connection.\n\nnote: When using C100 shielding gas, connect the\n\nenclosed CGA 580/320 adapter to the inlet connection\n\nof the Regulator and wrench-tighten. Thread the\n\nadapter onto the gas cylinder and wrench-tighten.\n\nf. Attach the Gas Hose (included)\n\nto the Regulator’s outlet and\n\nthe Welder’s gas inlet. Wrench-\n\ntighten both connections.\n\nground clamp cable\n\nin negative Socket\n\ndcep\n\nSolid Core (Gas Shielded)\n\npolarity Setup\n\nWire Feed\n\npower cable in\n\npositive Socket\n\nReset\nPower Input\nGas Inlet\n\nIP21S S 1 f1 f2\n\nDate:\n\n57812 25d\nConforms to ANSI/IEC Std. 60974-1\n264149\nVulcan OMNIPRO 220\n30A/15.5V to 220A/25V\nX 25% 60% 100%\nU0 = 86V I2 200A 130A 115A\nU2 24V 20.5V 19.75V\n1~50/60Hz\nU 1 = 240V I1max = 25.5A\n23.7A\n15.6A\nI 1eff = 12.8A\n11.9A\n8.5A\n10A/20.4V to 175A/27V\nX 25% 60% 100%\nU0 = 86V I2 175A 115A 100A\nU2 27V 24.6V 24V\n10A/10.4V to 175A/17V\nX 30% 60% 100%\nU0 = 86V I2 175A 125A 105A\nU 2 17V 15V 14.2V\n30A/15.5V to 140A/21V\nX 40% 60% 100%\nU0 = 86V I2 100A 85A 75A\nU2 19V 18.25V 17.75V\n1~50/60Hz\nU 1 = 120V I1max = 20.8A\n19.5A\n20.6A\nI 1eff = 13.1A\n12.3A\n13A\n10A/20.4V to 80A/23.2V\nX 40% 60% 100%\nU0 = 86V I2 80A 70A 60A\nU 2 23.2V 22.8V 22.4V\n10A/10.4V to 125A/15V\nX 40% 60% 100%\nU0 = 86V I2 125A 105A 90A\nU2 15V 14.2V 13.6V\n\nUPC 193175422590\n\nf \ne\n\nc\n\nBriefly open valve\n\nto clean,\n\nthen close\n\nvalve.\n\nd",
+    "image_path": "/data/pages/owner-manual-014.png",
+    "region_ids": []
+  },
+  {
+    "page": 15,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\niMpORtant\n\nSecurely hold onto the end of the welding wire and keep\n\ntension on it during the following steps.\n\nif this is not done, the welding wire will unravel and unspool\n\nwhich can cause tangling and feeding problems.\n\n18. Cut off all bent and crimped wire.\n\nThe cut end must have no burrs or\n\nsharp edges; cut again if needed.\n\n19. Keep tension on the wire and guide at\n\nleast 12 inches of wire into the Wire\n\nInlet Liner and Feed Guide.\n\n20. Make sure the welding wire is resting in the groove\n\nof the Feed Roller, then push the wire Idler Arm\n\ndown, and swing the Feed Tensioner up to latch it\n\nacross the tip of the arm.\n\nAfter the wire is held by the Tensioner,\n\nyou may release it.\n\nnote: The tension should be 3 – 5 for solid wire and\n\n2 – 3 for flux-cored wire. Too much force on flux-cored\n\nwire will crush it and may cause feeding issues.\n\n21. Pull the Nozzle to remove it.\n\n22. Unscrew the Contact Tip\n\ncounterclockwise and remove.\n\n23. Lay the MIG Gun Cable out in a straight line\n\nso that the welding wire moves through it\n\neasily. Leave the cover open, so that the\n\nfeed mechanism can be observed.\n\niMpORtant\n\nStainless steel wire is less flexible than\n\nother welding wire. therefore, it is more\n\ndifficult to feed through the liner and gun.\n\nit is especially important to keep the gun cable\n\nstraight while feeding stainless steel wire.\n\nWireWire\n\nSpoolSpool\n\nWelding\n\nWire\n\nHOld WiRe\n\nSecURely \nFeed\n\nguide\n\nWire inlet\n\nliner\n\nidler arm Feed tensioner\n\nnozzle \ncontact\n\ntip\n\nMig gun",
+    "image_path": "/data/pages/owner-manual-015.png",
+    "region_ids": []
+  },
+  {
+    "page": 16,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [
+      "U0 = 86V I2 200A 130A 115A",
+      "U 2 24V 20.5V 19.75V",
+      "U0 = 86V I2 175A 115A 100A",
+      "U2 27V 24.6V 24V",
+      "U0 = 86V I2 175A 125A 105A",
+      "U 2 17V 15V 14.2V",
+      "U0 = 86V I2 100A 85A 75A",
+      "U 2 19V 18.25V 17.75V"
+    ],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\ndangeR\n\npaRtS May Be at Welding VOltage\n\ntO pReVent electRic SHOck and deatH:\n\n1. keep hands away from Wire Feed mechanism.\n\n2. close door before plugging in, unless using cold\n\nWire Feed to feed wire through to gun.\n\n3. do not touch trigger while feeding wire through to gun.\n\n24. Plug either 120 VAC or 240 VAC Power\n\nCord into Power Input Socket.\n\nnote: Plug will only fit one way.\n\n25. Do not touch the Gun’s Trigger. Plug the Power\n\nCord into a properly grounded, GFCI protected\n\n120 VAC (20 amp rated) or 240 VAC receptacle that\n\nmatches the plug and turn the Power Switch ON.\n\nThe circuit must be equipped with delayed\n\naction-type circuit breaker or fuses.\n\n26. Point the Gun away from\n\nall objects. Press and\n\nhold the Cold Wire Feed\n\nSwitch until the wire feeds\n\nthrough two inches.\n\nthe wire liner may come\n\nout with the welding\n\nwire. this is normal,\n\njust push the wire liner\n\nback into the gun.\n\nIf the wire does not feed\n\nproperly and the Spool\n\nis stationary, turn OFF\n\nand unplug the Welder\n\nand slightly tighten the\n\nFeed Tensioner clockwise\n\nbefore retrying.\n\nReset\nPower Input\nGas Inlet\n\nIP21S S 1 f1 f2\n\nDate:\n57812 25d\nConforms to ANSI/IEC Std. 60974-1\n264149\nVulcan OMNIPRO 220\n30A/15.5V to 220A/25V\nX 25% 60% 100%\nU0 = 86V I2 200A 130A 115A\nU 2 24V 20.5V 19.75V\n1~50/60Hz\nU 1 = 240V \nI1max = 25.5A\n23.7A\n15.6A\nI1eff = 12.8A\n11.9A\n8.5A\n10A/20.4V to 175A/27V\nX 25% 60% 100%\nU0 = 86V I2 175A 115A 100A\nU2 27V 24.6V 24V\n10A/10.4V to 175A/17V\nX 30% 60% 100%\nU0 = 86V I2 175A 125A 105A\nU 2 17V 15V 14.2V\n30A/15.5V to 140A/21V\nX 40% 60% 100%\nU0 = 86V I2 100A 85A 75A\nU 2 19V 18.25V 17.75V\n1~50/60Hz\nU 1 = 120V \nI1max = 20.8A\n19.5A\n20.6A\nI1eff = 13.1A\n12.3A\n13A\n10A/20.4V to 80A/23.2V\nX 40% 60% 100%\nU0 = 86V I2 80A 70A 60A\nU 2 23.2V 22.8V 22.4V\n10A/10.4V to 125A/15V\nX 40% 60% 100%\nU0 = 86V I2 125A 105A 90A\nU 2 15V 14.2V 13.6V\n\nUPC 193175422590\n\npower\n\ninput\n\npower\n\nSwitch\n\nMig gun\n\nWelding\n\nWire\n\n2\"\n\ncold Wire\n\nFeed Switch",
+    "image_path": "/data/pages/owner-manual-016.png",
+    "region_ids": []
+  },
+  {
+    "page": 17,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\n27. To check the wire’s drive tension, press and hold\n\nTrigger to feed the wire against a piece of wood\n\nfrom 2 to 3 inches away.\n\nnote: after pressing trigger, wire will stop\n\nfeeding after 3 seconds if there is no arc.\n\ncheck tension for less than 3 seconds.\n\nIf the wire stops instead of bending, unplug\n\nthe Welder, slightly tighten the Feed Tensioner\n\nclockwise, and try again. If the wire bends\n\nfrom the feed pressure, then the tension\n\nis set properly. Before proceeding, turn\n\nOFF the Power Switch and unplug the\n\nPower Cord from its electrical outlet.\n\n28. Turn OFF the Power Switch and unplug the\n\nPower Cord from its electrical outlet.\n\n29. Close the Door. Make sure\n\nDoor is securely latched.\n\n30. Select a Contact Tip that is compatible with\n\nthe welding wire used. Slide the Contact\n\nTip over the wire and thread it clockwise into\n\nthe MIG Gun. Tighten the Contact Tip.\n\n31. Replace the Nozzle and cut the wire\n\noff at 1/2\" from tip (1/2\" stickout).\n\nincrementally\n\nincrease tension\n\nuntil\n\nwire bends. \n2–3\"\n\nnozzle \ncontact\n\ntip\n\nMig gun\n\nOptional Spool gun Setup\n\n1. To set up optional Spool Gun (sold separately), plug Ground Clamp Cable into Negative (–) Socket. Plug\n\nWire Feed Power Cable into Positive (+) Socket. Twist cables clockwise all the way to lock in place.\n\n2. Loosen the Knob on the Wire Feed\n\nmechanism, then insert the Spool\n\nGun Cable Connector through the\n\nhole on the Welder front and into\n\nthe socket on the Wire Feed.\n\n3. Ensure Cable Connector is fully\n\ninserted and tighten the Knob\n\nsecurely. If Connector is not fully\n\ninserted, the gas connection will\n\nleak, preventing shielding gas\n\nfrom reaching the welding arc.\n\nnOtice: To prevent damage, do\n\nnot overtighten the Knob.\n\n4. Insert the Wire Feed Control Cable\n\nthrough hole on Welder front and\n\nconnect to the Wire Feed Control Socket\n\ninside the machine, then tighten lock\n\nring on the Cable plug. Note that the\n\nplug on the Cable fits into the Socket\n\nin one specific orientation only.\n\n5. Connect Gas Hose on Spool Gun Cable\n\nConnector to Spool Gun Gas Outlet on front\n\nof Welder. Refer to paragraph 17 on page 14\n\nfor further shielding gas setup information.\n\n6. Refer to Spool Gun manual for\n\noperational information.\n\nSpool gun\n\nSpool gunSpool gun\n\ngas Outletgas Outlet\n\nSpool gun\n\ncable connector\n\ngas Hose\n\nWire FeedWire Feed\n\ncontrolcontrol\n\ncablecable\n\nground\n\nclamp cable\n\nin negative\n\nSocket\n\nWire Feed\n\npower cable in\n\npositive Socket",
+    "image_path": "/data/pages/owner-manual-017.png",
+    "region_ids": []
+  },
+  {
+    "page": 18,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nBasic Wire Welding\n\nRead the entiRe iMpORtant SaFety inFORMatiOn section at the beginning of this manual\n\nincluding all text under subheadings therein before welding.\n\ntO pReVent SeRiOUS inJURy:\n\nprotective gear must be worn when using the Welder; minimum shade number 10 full face shield\n\n(or welding mask), ear protection, welding gloves, sleeves and apron, NIOSH-approved respirator, and fire\n\nresistant work clothes without pockets should be worn when welding.\n\nlight from the arc can cause permanent damage to the eyes and skin.\n\ndo not breathe arc fumes.\n\nFlux-cored wire welding is used to weld mild steel\n\nand stainless steel without shielding gas.\n\nMIG welding uses solid wire and shielding gas,\n\nand is used to weld mild steel and stainless steel.\n\nMIG welding can also be used to weld thinner\n\nworkpieces than flux-cored welding can.\n\nAluminum welding can be performed with an\n\noptional Spool Gun (sold separately) using\n\naluminum wire and shielding gas.\n\nGood welding takes a degree of skill and experience.\n\nPractice a few sample welds on scrap before\n\nwelding your first project. Additional practice\n\nperiods are recommended whenever you weld:\n\n• a different thickness of material\n\n• a different type of material\n\n• a different type of connection\n\n• using a different process\n\nMake practice welds on pieces of scrap to practice\n\ntechnique before welding anything of value.\n\npractice your welding\n\ntechnique on scrap\n\npieces before welding\n\nanything of value.\n\ntO pReVent SeRiOUS inJURy,\n\nFiRe and BURnS:\n\nkeep welding tip clear of grounded\n\nobjects whenever unit is plugged\n\nin and turned on.\n\npower\n\nSwitch\n\n=",
+    "image_path": "/data/pages/owner-manual-018.png",
+    "region_ids": []
+  },
+  {
+    "page": 19,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [
+      "240 VAC",
+      "120 VAC"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nSetting Up the Weld\n\nclamps\n\nworkpieces\n\nchamfer thick workpieces.\n\nclean surfaces\n\nto bare metal.\n\n1. Make practice welds on pieces of scrap the\n\nsame thickness as your intended workpiece\n\nto practice technique before welding anything\n\nof value. Clean the weld surfaces thoroughly\n\nwith a wire brush or angle grinder; there\n\nmust be no rust, paint, oil, or other materials\n\non the weld surfaces, only bare metal.\n\n2. Use clamps (not included) to hold the workpieces\n\nin position so that you can concentrate on proper\n\nwelding technique. The distance (if any) between the\n\ntwo workpieces must be controlled properly to allow\n\nthe weld to hold both sides securely while allowing\n\nthe weld to penetrate fully into the joint. The edges\n\nof thicker workpieces may need to be chamfered\n\n(or beveled) to allow proper weld penetration.\n\nnotice: When welding equipment on a vehicle,\n\ndisconnect the vehicle battery power from both the\n\npositive connection and the ground before welding.\n\nThis prevents damage to some vehicle electrical\n\nsystems and electronics due to the high voltage\n\nand high frequency bursts common in welding.\n\n3. Clamp Ground Cable to bare metal on the\n\nworkpiece near the weld area, or to metal work\n\nbench where the workpiece is clamped.\n\n®\n\nground connection depends\n\non desired welding polarity\n\nWorkpiece\n\nground\n\nclamp\n\nclean\n\nsurface to\n\nbare metal.\n\nDuty Cycle (Duration of Use)\n\navoid damage to the Welder by not welding for more\n\nthan the prescribed duty cycle time. The Duty Cycle\n\ndefines the number of minutes, within a 10 minute\n\nperiod, during which a given welder can produce a\n\nparticular welding current without overheating.\n\nFor example, a welder with a 40% duty cycle at\n\n100 A welding current must be allowed to rest for at least\n\n6 minutes after every 4 minutes of continuous welding.\n\nFailure to carefully observe duty cycle limitations\n\ncan easily over-stress a welder’s power generation\n\nsystem contributing to premature welder failure.\n\nThis Welder has an internal thermal protection system\n\nto help prevent this sort of over-stress. When the\n\nWelder overheats, it automatically shuts down and a\n\nwarning screen appears in the LCD Display window.\n\nThe Welder automatically returns to service after\n\ncooling off. Should this occur, rest the MIG Gun on an\n\nelectrically non-conductive, heat-proof surface, such\n\nas a concrete slab, well clear of the ground clamp.\n\nallow the Welder to cool with the power Switch on,\n\nso that the internal Fan will help cool the Welder.\n\nWhen normal operation resumes, use shorter welding\n\nperiods and longer rest periods to prevent needless wear.\n\nRated Duty Cycle\n\n100% continuous Use at 115 a\n\n240 VAC\n\n25% Use at 200 A\n\nFor 10 continuous Minutes\n2-1/2\nMinutes\nWelding\n7-1/2\nMinutes\nResting\n\nRated Duty Cycle\n\n100% continuous Use at 75 a\n\n120 VAC\n\n40% Use at 100 A\n\nFor 10 continuous Minutes\n4\nMinutes\nWelding\n6\nMinutes\nResting",
+    "image_path": "/data/pages/owner-manual-019.png",
+    "region_ids": []
+  },
+  {
+    "page": 20,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\n4. Turn the Power Switch to the OFF position,\n\nthen plug the Power Cord into a properly\n\ngrounded, GFCI protected 120 VAC (20 amp\n\nrated) or 240 VAC receptacle that matches\n\nthe plug. The circuit must be equipped with\n\ndelayed action-type circuit breaker or fuses.\n\n5. Set MIG Gun down on nonconductive, nonflammable\n\nsurface away from any grounded objects.\n\n6. Turn the Power Switch ON.\n\npower\n\nSwitch\n\nSettings\n\n®\n\nMain\n\ncontrol\n\nknob\n\nleft\n\nknob\n\nRight\n\nknob\n\n1. Press Home Button on Control Panel.\n\n2. Turn Main Control Knob until desired\n\nprocess appears on LCD display screen.\n\n3. Press Main Control Knob to select process.\n\nnote: Press Main Control Knob to go to next screen.\n\nPress Back Button to return to the previous screen.\n\n4. Adjust settings for the selected process.\n\na. Polarity and Gas Settings:\n\n• Plug cables in according to screen.\n\n• Connect gas according to screen.\n\n• Set SCFH between 20-30.\n\nb. Set Wire Diameter and Material Thickness:\n\n• Turn Left Knob to set wire diameter.\n\n• Turn Right Knob to set material thickness.\n\n.025\" 24ga\n\nc. Auto Weld Settings:\n\n• Turn Left Knob to adjust Wire\n\nFeed Speed (Amperage).\n\n• Turn Right Knob to adjust Voltage.\n\n121 13.8\n\n0.00\n\n.030\"\n\n0.025 5\n\n24ga\n\nprocess\n\nRun-in WFS inductance Spot timer\n\nWire\n\ndiameter\n\nMaterial\n\nthickness\n\ngas type\n\nnote: If the Wire Feed Speed or Voltage settings are\n\nadjusted manually, the white mark on the line shows\n\nthe recommended setting for your wire/electrode\n\ndiameter and workpiece thickness.",
+    "image_path": "/data/pages/owner-manual-020.png",
+    "region_ids": []
+  },
+  {
+    "page": 21,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nd. Optional Settings:\n\n• Press Main Control Knob to\n\nenter Optional Settings.\n\n• Turn Main Control Knob until desired\n\nsetting appears on screen.\n\n• Press Main Control Knob to\n\nselect desired setting.\n\n• Turn Main Control Knob to adjust setting.\n\nAvailable Optional Settings:\n\n• Run-In WFS – Adjust wire speed before it\n\ncontacts workpiece. This setting represents\n\na % of the pre-set wire feed speed (WFS).\n\n• Inductance – Adjust length of arc.\n\nIncrease for more fluid puddle and flatter\n\nbead. Decrease for colder puddle.\n\n• Spot Timer – Set timer for spot welding.\n\n• Recall Setting – Retrieve saved settings.\n\n• Save Setting – Program up to 5 different\n\nconfigurations. Turn Main Control Knob to\n\nscroll between 5 available slots. Press Main\n\nControl Knob to access OVERWRITE MEMORY\n\nSETTING screen and turn Main Control Knob\n\nto choose YES selection. Press Main Control\n\nKnob to save current Welder settings.\n\nnote: The initial settings may need to be\n\nadjusted after stopping and carefully inspecting\n\nthe weld. Proper welding takes experience.\n\ngas Shielded, Solid-core Wire Only\n\ndangeR! tO pReVent deatH\n\nFROM aSpHyXiatiOn:\n\ndo not open gas without proper ventilation. Fix gas\n\nleaks immediately.\n\nShielding gas can displace air and cause rapid loss of\n\nconsciousness and death.\n\nShielding gas without carbon dioxide can be\n\neven more hazardous because asphyxiation\n\ncan start without feeling shortness of breath.\n\n1. Open gas cylinder valve all the way.\n\n2. Set Flow Gauge to SCFH value\n\nindicated on Settings Chart.",
+    "image_path": "/data/pages/owner-manual-021.png",
+    "region_ids": []
+  },
+  {
+    "page": 22,
+    "source": "owner-manual",
+    "section": "Wire",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\n1.\n\nBasic Wire Welding technique\n\nPress (and hold) Trigger and contact the area\n\nto be welded with electrode wire to ignite arc.\n\n2. For a narrow weld, you can usually draw the wire\n\nin a steady straight line.\n\nThis is called a stringer bead.\n\nFor a wider weld, draw the wire back and forth\n\nacross the joint.\n\nThis is called a weave bead and takes\n\npractice to perform properly.\n\n3. Direct the welding wire straight into the joint.\n\nThis gives an angle of 90° (straight up and\n\ndown) for butt (end to end) welds, and an\n\nangle of 45° for fillet (T-shaped) welds.\n\n4. For MIG welding using solid wire and\n\nshielding gas, the end of the MIG Gun should\n\nbe tilted so that wire is angled anywhere\n\nin-between straight on and 15° away\n\nfrom the direction you are welding. The\n\namount of tilt is called the push angle.\n\n5. When using flux-cored wire without\n\nshielding gas, the end of the MIG Gun\n\nshould be tilted so that wire is angled\n\nanywhere in-between straight on and\n\n15° in the direction you are welding. The\n\namount of tilt is called the drag angle.\n\n6. The Contact Tip should remain within 1/2″\n\nof the work surface. This distance is called\n\nCTWD - Contact Tip to Work Distance.\n\nstringer bead weave bead\n\nWeld Mig gun angles,\n\nviewed from front of weld joint.\n\n45°\n\nfillet weld joint\n\n90°\n\nbutt weld joint\n\nctWd\n\n(up to 1/2\")\n\nWeld\n\ndirection\n\ndrag angledrag angle\n\n0-15°0-15°\n\nWeld\n\ndirection\n\npush anglepush angle\n\n0-15°0-15°\n\nSolid Wire with Shielding gas Flux-cored Wire without gas",
+    "image_path": "/data/pages/owner-manual-022.png",
+    "region_ids": []
+  },
+  {
+    "page": 23,
+    "source": "owner-manual",
+    "section": "TIG-Stick",
+    "headings": [
+      "120 VAC",
+      "240 VAC"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nnote: If Welder is used too long, a\n\nwarning screen appears in the LCD\n\nDisplay window and the unit automatically\n\nshuts down. The Welder automatically\n\nreturns to service after cooling off.\n\nShould this occur, rest the MIG Gun\n\non an electrically non-conductive,\n\nheat-proof surface, such as a concrete\n\nslab, away from the ground clamp.\n\nallow the Welder to cool with the\n\npower Switch on, so that the internal\n\nFan will help cool the Welder.\n\nWhen normal operation resumes, use\n\nshorter welding periods and longer rest\n\nperiods to help prevent needless wear.\n\n7. After welding the test weld on a piece\n\nof scrap for a few seconds, stop, and\n\ncheck your progress. Clean, then compare\n\nyour weld’s appearance with the diagrams\n\nand descriptions in the Welding tips section\n\nstarting on the next page. After making any\n\nnecessary adjustments, continue to weld\n\nwhile carefully following the DUTY CYCLE\n\nguidelines as explained on page 19.\n\ncaUtiOn! Weld will be hot, do not touch.\n\n8. When welding is complete, set the Mig\n\ngun down on a heat-proof, electrically\n\nnon-conductive surface.\n\nTurn the Power Switch OFF.\n\n9. Allow Welder to cool down, then\n\nunplug the Power Cord.\n\n10. Remove Ground Clamp from workpiece\n\nor table and disconnect MIG Gun.\n\n11. Respool wire by clipping wire, removing gas\n\nnozzle/contact tip on MIG gun, releasing Idler\n\nArm on Wire Feed mechanism, and rotating\n\nthe Wire Spool counterclockwise. Be sure\n\nto securely hold wire as it is being respooled\n\nbecause the end of wire has a tendency to\n\nquickly unravel once it clears the wire feeder.\n\n12. Mig Only:\n\nclose shielding gas cylinder valve\n\nsecurely. Remove Regulator and\n\nreplace cap. Disconnect Gas Hose from\n\nWelder. Store and secure gas cylinder.\n\n®\n\npower\n\nSwitch\n\nlcd\n\ndisplay \nWarning\n\nScreen\n\n120 VAC\n\n40% Use at 100 A\n\nFor 10 continuous Minutes\n\n100% Continuous Use at 75 A\n\n44\n\nMinutesMinutes\n\nWeldingWelding\n\n66\n\nMinutesMinutes\n\nRestingResting\n\n240 VAC\n\n25% Use at 200 A\n\nFor 10 continuous Minutes\n\n100% Continuous Use at 115 A\n\n2-1/22-1/2\n\nMinutesMinutes\n\nWeldingWelding\n\n7-1/27-1/2\n\nMinutesMinutes\n\nRestingResting\n\nafter practice welding for a few seconds,\n\nStOp and examine your weld using the\n\nguidelines starting on the next page.\n\nFOllOW dUty cycle!\n\nMig gun\n\nconcrete slab\n\n(or other heat-proof,\n\nnon-conductive surface)\n\npower\n\nSwitch",
+    "image_path": "/data/pages/owner-manual-023.png",
+    "region_ids": []
+  },
+  {
+    "page": 24,
+    "source": "owner-manual",
+    "section": "TIG-Stick",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nTIG / Stick Welding\n\nRead the entiRe iMpORtant SaFety inFORMatiOn section at the beginning of this manual\n\nincluding all text under subheadings therein before set up or use of this product.\n\ntO pReVent SeRiOUS inJURy FROM accidental OpeRatiOn:\n\nturn the power Switch off and unplug the Welder before setup.\n\nnote: Remove the protective foam and cardboard from the Welder before setup. Place the Welder on a level\n\nsurface that can bear its weight near the work area. Leave space around the Welder for proper air flow.\n\ntig Setup\n\nconnect cables\n\nground clamp cable\n\nin positive Socket\n\nground\n\nclamp\n\ntig torchtig torch\n\ncable incable in\n\nnegativenegative\n\nSocketSocket\n\ntig torch\n\n(sold separately)\n\nFoot pedal Socket\n\n(inside Welder)\n\nFoot pedal\n\n(sold separately)\n\nFoot pedal\n\ncable\n\nShielding\n\ngas Hose\n\n1. Plug Ground Clamp Cable into Positive Socket.\n\nTwist clockwise all the way to lock in place.\n\n2. Plug TIG Torch Cable (TIG Torch sold\n\nseparately) into Negative Socket. Twist\n\nclockwise all the way to lock in place.\n\n3. Insert the Foot Pedal Cable (Foot Pedal\n\nsold separately) through hole on Welder\n\nfront and connect to the Foot Pedal\n\nSocket inside the machine. Secure by\n\nturning collar clockwise until tight.\n\n4. For connecting Shielding Gas Hose, refer to\n\nConnect Shielding Gas section on next page.",
+    "image_path": "/data/pages/owner-manual-024.png",
+    "region_ids": []
+  },
+  {
+    "page": 25,
+    "source": "owner-manual",
+    "section": "TIG-Stick",
+    "headings": [
+      "U0 = 86V I2 200A 130A 115A",
+      "U 2 24V 20.5V 19.75V",
+      "U0 = 86V I2 175A 115A 100A",
+      "U2 27V 24.6V 24V",
+      "U0 = 86V I2 175A 125A 105A",
+      "U 2 17V 15V 14.2V",
+      "U0 = 86V I2 100A 85A 75A",
+      "U 2 19V 18.25V 17.75V"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nconnect Shielding gas\n\n1. With assistance, place an 100% Argon cylinder\n\n(not included) onto a cabinet or cart near the\n\nWelder and secure the cylinder in place with\n\ntwo straps (not included) to prevent tipping.\n\n2. Remove the cylinder’s cap. Stand to the\n\nside of the valve opening, then open the\n\nvalve briefly to blow dust and dirt from the\n\nvalve opening. Close the cylinder valve.\n\n3. Locate the Regulator (included) and close its\n\nvalve until it is loose, then thread Regulator\n\nonto cylinder and wrench-tighten connection.\n\n4. Connect Shielding Gas Hose on TIG\n\nTorch Cable Connector to the Regulator’s\n\nOutlet and wrench-tighten connection.\n\nconnect power cord\n\nPlug either 120 VAC or 240 VAC Power\n\nCord into Power Input Socket.\n\nnote: Plug will only fit one way.\n\nWaRning! tO pReVent SeRiOUS inJURy\n\nFROM accidental OpeRatiOn: Do not\n\nplug cord into wall outlet at this time.\n\n4 \n3\n\n1\n\nBriefly open valve\n\nto clean,\n\nthen close\n\nvalve.\n\n2\n\nReset\nPower Input\nGas Inlet\n\nIP21S S 1 f1 f2\n\nDate:\n57812 25d\nConforms to ANSI/IEC Std. 60974-1\n264149\nVulcan OMNIPRO 220\n30A/15.5V to 220A/25V\nX 25% 60% 100%\nU0 = 86V I2 200A 130A 115A\nU 2 24V 20.5V 19.75V\n1~50/60Hz\nU 1 = 240V \nI1max = 25.5A\n23.7A\n15.6A\nI1eff = 12.8A\n11.9A\n8.5A\n10A/20.4V to 175A/27V\nX 25% 60% 100%\nU0 = 86V I2 175A 115A 100A\nU2 27V 24.6V 24V\n10A/10.4V to 175A/17V\nX 30% 60% 100%\nU0 = 86V I2 175A 125A 105A\nU 2 17V 15V 14.2V\n30A/15.5V to 140A/21V\nX 40% 60% 100%\nU0 = 86V I2 100A 85A 75A\nU 2 19V 18.25V 17.75V\n1~50/60Hz\nU 1 = 120V \nI1max = 20.8A\n19.5A\n20.6A\nI1eff = 13.1A\n12.3A\n13A\n10A/20.4V to 80A/23.2V\nX 40% 60% 100%\nU0 = 86V I2 80A 70A 60A\nU 2 23.2V 22.8V 22.4V\n10A/10.4V to 125A/15V\nX 40% 60% 100%\nU0 = 86V I2 125A 105A 90A\nU 2 15V 14.2V 13.6V\n\nUPC 193175422590\n\npower\n\ninput",
+    "image_path": "/data/pages/owner-manual-025.png",
+    "region_ids": []
+  },
+  {
+    "page": 26,
+    "source": "owner-manual",
+    "section": "TIG-Stick",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nSharpen Tungsten Electrode (sold separately)\n\nTo avoid Electrode contamination, dedicate a fine grit grinding wheel exclusively to Electrode grinding.\n\nWaRning! tO pReVent SeRiOUS inJURy: Some\n\nElectrodes may have materials added to them that are\n\nhazardous to breathe. Wear a respirator and ANSI-\n\napproved Safety goggles when grinding an Electrode.\n\n1. Shut off the welder and wait until Electrode\n\nand Torch have cooled enough to handle.\n\n2. Remove Back Cap. Pull Electrode from front\n\nof Torch. (Pulling it from rear will damage\n\nCollet and create burrs on Electrode).\n\n3. If Electrode has dulled or been otherwise\n\ncontaminated, use pliers or a suitable tool to\n\ngrip the Electrode above the contaminated\n\nsection and snap off the end of the Electrode.\n\n4. Lightly press Electrode tip\n\nagainst the surface of\n\nthe grinding wheel at an angle.\n\nRotate Electrode tip until a\n\nblunt point is formed.\n\nnote: Grinding direction must be\n\nparallel to length of Electrode.\n\n5. The conical portion of the ideal\n\ntip will be 2-1/2 times as long\n\nas the Electrode diameter.\n\n6. Re-insert Electrode into Collet with tip\n\nprotruding 1/8\"-1/4\" beyond the Ceramic\n\nNozzle, then re-tighten the Back Cap.\n\nAssemble TIG Torch (sold separately)\n\n1. Consult Settings Chart, on top of Welder, to\n\ndetermine proper Tungsten Electrode size to be\n\nused with thickness of material to be welded.\n\n2. Match Collet and Collet Body sizes\n\nto Tungsten Electrode size.\n\n3. Thread Collet Body into the front of the Torch.\n\n4. Make sure Ceramic Nozzle size is\n\nappropriate for application.\n\n5. Thread Ceramic Nozzle onto Collet Body.\n\n6. Insert Collet into back of Torch and into Collet Body.\n\n7. Insert Tungsten Electrode into\n\nCollet on front of Torch.\n\n8. Lock Electrode in place with Back Cap.\n\nElectrode should protrude 1/8\" to 1/4\"\n\nbeyond the Ceramic Nozzle.\n\ncollet\n\nBody\n\nceramic\n\nnozzle\n\ncollet\n\nBack cap\n\ninsert tungsten\n\nelectrode here.\n\ngrinding\nWheel\n\nelectrode",
+    "image_path": "/data/pages/owner-manual-026.png",
+    "region_ids": []
+  },
+  {
+    "page": 27,
+    "source": "owner-manual",
+    "section": "TIG-Stick",
+    "headings": [
+      "U0 = 86V I2 200A 130A 115A",
+      "U 2 24V 20.5V 19.75V",
+      "U0 = 86V I2 175A 115A 100A",
+      "U2 27V 24.6V 24V",
+      "U0 = 86V I2 175A 125A 105A",
+      "U 2 17V 15V 14.2V",
+      "U0 = 86V I2 100A 85A 75A",
+      "U 2 19V 18.25V 17.75V"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nStick Setup\n\nconnect cables\n\nelectrode Holder\n\ncable in positive Socket\n\nground clamp cable\n\nin negative Socket\n\nground\n\nclamp\n\nelectrode\n\nHolder\n\n1. Plug Ground Clamp Cable into Negative Socket.\n\nTwist clockwise all the way to lock in place.\n\n2. Plug Electrode Holder Cable into Positive Socket.\n\nTwist clockwise all the way to lock in place.\n\nconnect power cord\n\nPlug either 120 VAC or 240 VAC Power\n\nCord into Power Input Socket.\n\nnote: Plug will only fit one way.\n\nWaRning! tO pReVent SeRiOUS inJURy\n\nFROM accidental OpeRatiOn: Do not\n\nplug cord into wall outlet at this time.\n\nReset\nPower Input\nGas Inlet\n\nIP21S S 1 f1 f2\n\nDate:\n57812 25d\nConforms to ANSI/IEC Std. 60974-1\n264149\nVulcan OMNIPRO 220\n30A/15.5V to 220A/25V\nX 25% 60% 100%\nU0 = 86V I2 200A 130A 115A\nU 2 24V 20.5V 19.75V\n1~50/60Hz\nU 1 = 240V \nI1max = 25.5A\n23.7A\n15.6A\nI1eff = 12.8A\n11.9A\n8.5A\n10A/20.4V to 175A/27V\nX 25% 60% 100%\nU0 = 86V I2 175A 115A 100A\nU2 27V 24.6V 24V\n10A/10.4V to 175A/17V\nX 30% 60% 100%\nU0 = 86V I2 175A 125A 105A\nU 2 17V 15V 14.2V\n30A/15.5V to 140A/21V\nX 40% 60% 100%\nU0 = 86V I2 100A 85A 75A\nU 2 19V 18.25V 17.75V\n1~50/60Hz\nU 1 = 120V \nI1max = 20.8A\n19.5A\n20.6A\nI1eff = 13.1A\n12.3A\n13A\n10A/20.4V to 80A/23.2V\nX 40% 60% 100%\nU0 = 86V I2 80A 70A 60A\nU 2 23.2V 22.8V 22.4V\n10A/10.4V to 125A/15V\nX 40% 60% 100%\nU0 = 86V I2 125A 105A 90A\nU 2 15V 14.2V 13.6V\n\nUPC 193175422590\n\npower\n\ninput",
+    "image_path": "/data/pages/owner-manual-027.png",
+    "region_ids": []
+  },
+  {
+    "page": 28,
+    "source": "owner-manual",
+    "section": "TIG-Stick",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nBasic TIG / Stick Welding\n\nRead the entiRe iMpORtant SaFety inFORMatiOn section at the beginning of this\n\nmanual including all text under subheadings therein before set up or use of this product.\n\ntO pReVent SeRiOUS inJURy:\n\nprotective gear must be worn when using the Welder; minimum shade number 10 full face shield\n\n(or welding mask), ear protection, welding gloves, sleeves and apron, NIOSH-approved respirator, and fire\n\nresistant work clothes without pockets should be worn when welding.\n\nlight from the arc can cause permanent damage to the eyes and skin.\n\ndo not breathe arc fumes.\n\n• DC TIG Welding is used to weld\n\nmild steel and stainless steel using\n\na TIG Rod and shielding gas.\n\n• AC TIG Welding is used to weld aluminum\n\nusing a TIG Rod and shielding gas.\n\n• Stick Welding is used to weld mild\n\nsteel and stainless steel using a\n\nStick Electrode without shielding gas.\n\nGood welding takes a degree of skill and experience.\n\nPractice a few sample welds on scrap before\n\nwelding your first project. Additional practice\n\nperiods are recommended whenever you weld:\n\n• a different thickness of material\n\n• a different type of material\n\n• a different type of connection\n\n• using a different process\n\nMake practice welds on pieces of scrap to practice\n\ntechnique before welding anything of value.\n\ntO pReVent SeRiOUS inJURy,\n\nFiRe and BURnS:\n\nkeep welding tip clear of grounded\n\nobjects whenever unit is plugged\n\nin and turned on.\n\npower\n\nOn\n\n=\n\npractice your welding\n\ntechnique on scrap\n\npieces before welding\n\nanything of value.",
+    "image_path": "/data/pages/owner-manual-028.png",
+    "region_ids": []
+  },
+  {
+    "page": 29,
+    "source": "owner-manual",
+    "section": "Welding Tips",
+    "headings": [
+      "240 VAC",
+      "120 VAC",
+      "240 VAC",
+      "120 VAC"
+    ],
+    "text": "SaFety\nWelding tipS\nMaintenance\n \ntig / Stick\n \ncOntROlS\nWiRe\n\nDuty Cycle (Duration of Use)\n\navoid damage to the Welder by not welding for more\nthan the prescribed duty cycle time. The Duty Cycle\ndefines the number of minutes, within a 10 minute\nperiod, during which a given welder can produce a\nparticular welding current without overheating.\nFor example, a welder with a 40% duty\n\ncycle at 125 A welding current must be\n\nallowed to rest for at least 6 minutes after\nevery 4 minutes of continuous welding.\nFailure to carefully observe duty cycle limitations\ncan easily over-stress a welder’s power generation\nsystem contributing to premature welder failure.\nThis Welder has an internal thermal protection system to\nhelp prevent this sort of over-stress. When the Welder\noverheats, it automatically shuts down and a warning\nscreen appears in the LCD Display window. The Welder\nautomatically returns to service after cooling off. Should\nthis occur, rest the Tig Torch or Electrode Holder on an\nelectrically non-conductive, heat-proof surface, such\nas a concrete slab, well clear of the ground clamp.\n\nallow the Welder to cool with the power Switch on,\nso that the internal Fan will help cool the Welder.\n\nWhen normal operation resumes, use\nshorter welding periods and longer rest\nperiods to prevent needless wear.\n\n240 VAC\n25% Use at 175 A\n\nFor 10 continuous Minutes\n\n100% Continuous Use at 100 A\n\n2-1/22-1/2\nMinutesMinutes\nWeldingWelding\n7-1/27-1/2\nMinutesMinutes\nRestingResting\n\n120 VAC\n40% Use at 80 A\n\nFor 10 continuous Minutes\n\n100% Continuous Use at 60 A\n\n44\nMinutesMinutes\nWeldingWelding\n66\nMinutesMinutes\nRestingResting\nStick Rated duty cycles\n\n240 VAC\n30% Use at 175 A\n\nFor 10 continuous Minutes\n\n100% Continuous Use at 105 A\n\n33\nMinutesMinutes\nWeldingWelding\n77\nMinutesMinutes\nRestingResting\n\n120 VAC\n40% Use at 125 A\n\nFor 10 continuous Minutes\n\n100% Continuous Use at 90 A\n\n44\nMinutesMinutes\nWeldingWelding\n66\nMinutesMinutes\nRestingResting\ntig Rated duty cycles\nSetting up the Weld\nclamps\nworkpieces\nchamfer thick workpieces.\nclean surfaces\nto bare metal.\n\n1. Make practice welds on pieces of scrap the\nsame thickness as your intended workpiece\nto practice technique before welding anything\nof value. Clean the weld surfaces thoroughly\nwith a wire brush or angle grinder; there\nmust be no rust, paint, oil, or other materials\non the weld surfaces, only bare metal.\n2. Use clamps (not included) to hold the workpieces\nin position so that you can concentrate on\nproper welding technique. The distance (if\nany) between the two workpieces must be\ncontrolled properly to allow the weld to hold\nboth sides securely while allowing the weld\nto penetrate fully into the joint. The edges of\nthicker workpieces may need to be chamfered\n(or beveled) to allow proper weld penetration.\n\nnOtice: When welding equipment on a vehicle,\ndisconnect the vehicle battery power from both the\npositive connection and the ground before welding.\nThis prevents damage to some vehicle electrical\nsystems and electronics due to the high voltage\nand high frequency bursts common in welding.\n3. Clamp Ground Cable to bare metal on the\nworkpiece near the weld area, or to metal work\nbench where the workpiece is clamped.\n\n®\n\nground connection depends\non desired welding polarity\nWorkpiece\nground\nclamp\nclean\nsurface to\nbare metal.",
+    "image_path": "/data/pages/owner-manual-029.png",
+    "region_ids": []
+  },
+  {
+    "page": 30,
+    "source": "owner-manual",
+    "section": "Welding Tips",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\ntig Welding\n\ntO pReVent SeRiOUS inJURy and deatH:\n\ndo not weld without grounding clamp.\n\nWhen the operator is not holding the torch, it must be sitting on a nonconductive, nonflammable surface.\n\nOnly hold tig Rod with an electrically insulated welding glove.\n\ntO pReVent deatH FROM aSpHyXiatiOn:\n\ndo not open gas without proper ventilation. Fix gas leaks immediately. Shielding gas can displace\n\nair and cause rapid loss of consciousness and death. Shielding gas without carbon dioxide can be\n\neven more hazardous because asphyxiation can start without feeling shortness of breath.\n\nnOtice: TIG welding is a complicated process,\n\nrequiring experience and skill to achieve\n\nsuccessful results. Training beyond the scope of\n\nthis manual is required to TIG weld properly.\n\n1. Open gas cylinder’s valve all the way.\n\n2. Set Flow Gauge to SCFH value indicated on the\n\nSettings Chart on the inside of the Welder door.\n\n3. Turn the Power Switch to the OFF position, then\n\nplug the Welder into a properly grounded, GFCI\n\nprotected, 120 VAC (20 amp rated) outlet or\n\n240 V outlet. The circuit must be equipped with\n\ndelayed action-type circuit breaker or fuses.\n\n4. Set TIG Torch down on nonconductive,\n\nnonflammable surface away from\n\nany grounded objects.\n\n5. Turn the Power Switch ON.\n\n6. Press Home Button on Control Panel.\n\n7. Turn Main Control Knob until TIG process\n\nappears on LCD display screen.\n\n8. Press Main Control Knob to select TIG process.\n\nnote: Press Main Control Knob to go to next screen.\n\nPress Back Button to return to the previous screen.\n\n®\n\nMain\n\ncontrol\n\nknob\n\nleft\n\nknob\n\nRight\n\nknob\n\ntig\n\n9. Adjust settings for the TIG process.\n\na. Polarity and Gas Settings:\n\n• Plug cables in according to screen.\n\n• Connect gas according to screen.\n\n• Set SCFH between 10-25.\n\nb. Set Rod Diameter and Material Thickness:\n\n• Turn Left Knob to set rod diameter.\n\n• Turn Right Knob to set material thickness.\n\nc. Auto Weld Settings:\n\n• Turn Left Knob to adjust output amperage.\n\n• Turn Right Knob to ON to energize TIG Torch.\n\nWaRning! tO pReVent SeRiOUS\n\ninJURy: Welder is now energized and\n\nOpen circuit Voltage is present.\n\nprocess \nRod\n\ndiameter\n\nMaterial\n\nthickness\n\ngas type",
+    "image_path": "/data/pages/owner-manual-030.png",
+    "region_ids": []
+  },
+  {
+    "page": 31,
+    "source": "owner-manual",
+    "section": "Welding Tips",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nd. Optional Settings:\n\n• Press Main Control Knob to\n\nenter Optional Settings.\n\n• Turn Main Control Knob until desired\n\nsetting appears on screen.\n\n• Press Main Control Knob to\n\nselect desired setting.\n\n• Turn Main Control Knob to adjust setting.\n\nAvailable Optional Settings:\n\n• Recall Setting – Retrieve saved settings.\n\n• Save Setting – Program up to\n\n5 different configurations.\n\nnote: The initial settings may need to be\n\nadjusted after stopping and carefully inspecting\n\nthe weld. Proper welding takes experience.\n\nWaRning! tO pReVent SeRiOUS inJURy:\n\nprotective gear must be worn when using the\n\nWelder; minimum shade number 10 full face shield\n\n(or welding mask), ear protection, welding gloves,\n\nsleeves and apron, niOSH-approved respirator,\n\nand fire resistant work clothes without pockets\n\nshould be worn when welding. light from the\n\narc can cause permanent damage to the eyes\n\nand skin. do not breathe arc fumes.\n\nAfter practice welding on scrap, stop,\n\nand check your progress. Perform\n\nStrike Test according to Strike test on\n\npage 34. After making any necessary\n\nadjustments, continue to weld while\n\ncarefully following the DUTY CYCLE\n\nguidelines as explained on page 29.\n\nWaRning! tO pReVent SeRiOUS inJURy: Metal\n\nwork bench must be grounded when tig welding.\n\n10. Hold TIG Torch in one gloved hand and the TIG\n\nRod (sold separately) in other gloved hand.\n\nnOte: Maintain a constant distance between the\n\nTungsten Electrode and the workpiece: between\n\n1 and 1.5 times the diameter of the Electrode.\n\n11. Open valve on TIG Torch to start gas flow.\n\n12. To initiate welding arc, push Foot Pedal and touch\n\nElectrode to work piece and lift. If not using Foot\n\nPedal, touch Electrode to work piece and lift.\n\n13. When welding puddle is hot enough, tilt Torch\n\nbackward about 10-15 degrees from vertical and\n\nmove it back slightly. Add TIG Rod material as\n\nneeded to the front end of the weld puddle.\n\n14. Alternate between pushing the torch/weld\n\npuddle and adding the TIG Rod material.\n\nnOte: Remove the TIG Rod each time the Electrode\n\nis advanced, but do not remove it from the gas shield.\n\nThis prevents oxidation from contaminating the weld.\n\n15. When finished welding, release the Foot Pedal but\n\nkeep Torch on weld puddle until weld solidifies.\n\nIf not using Foot Pedal, pull Torch away from\n\nwork piece until welding arc is broken, then\n\nreturn the gas coverage until weld solidifies.\n\n16. Close valve on TIG Torch and turn Right Knob\n\nto OFF to turn off power to TIG Torch.\n\n17. Set TIG Torch down on nonconductive,\n\nnonflammable surface away from\n\nany grounded objects.\n\n18. Turn the Power Switch OFF.\n\n19. To prevent accidents, after use:\n\n• Allow Welder to cool down.\n\n• Unplug Welder’s power cord from outlet.\n\n• Remove Ground Clamp from workpiece or table.\n\n• Disconnect TIG Torch, Ground\n\nand Foot Pedal Cables.\n\n• Close gas cylinder’s valve securely,\n\nremove regulator and replace cap.\n\n• Disconnect Gas Hose from Welder.\n\n• Store and secure gas cylinder.\n\n• Clean, then store Welder and its accessories\n\nindoors out of children’s reach.",
+    "image_path": "/data/pages/owner-manual-031.png",
+    "region_ids": []
+  },
+  {
+    "page": 32,
+    "source": "owner-manual",
+    "section": "Welding Tips",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nStick Welding\n\ntO pReVent SeRiOUS inJURy and deatH:\n\ndo not weld without grounding clamp.\n\nWhen the operator is not holding the electrode Holder, it must be\n\nsitting on a nonconductive, nonflammable surface.\n\n1. Turn the Power Switch to the OFF position, then\n\nplug the Welder into a properly grounded, GFCI\n\nprotected, 120 VAC (20 amp rated) outlet or\n\n240 V outlet. The circuit must be equipped with\n\ndelayed action-type circuit breaker or fuses.\n\n2. Set Electrode Holder down on\n\nnonconductive, nonflammable surface\n\naway from any grounded objects.\n\n3. Turn the Power Switch ON.\n\n4. Press Home Button on Control Panel.\n\n5. Turn Main Control Knob until Stick process\n\nappears on LCD display screen.\n\n6. Press Main Control Knob to select STICK process.\n\nnote: Press Main Control Knob to go to next screen.\n\nPress Back Button to return to the previous screen.\n\nMain\n\ncontrol\n\nknob\n\nleft\n\nknob\n\nRight\n\nknob\n\nStick\n\n7. Adjust settings for the STICK process.\n\na. Polarity Setting:\n\n• Plug cables in according to screen.\n\nb. Set Electrode type:\n\n• Turn Main Control Knob to set electrode type.\n\nc. Set Electrode Diameter and Material Thickness:\n\n• Turn Left Knob to set electrode diameter.\n\n• Turn Right Knob to set material thickness.\n\nd. Auto Weld Settings:\n\n• Turn Left Knob to adjust output amperage.\n\n• Turn Right Knob to ON to\n\nenergize Electrode Holder.\n\nWaRning! tO pReVent SeRiOUS\n\ninJURy: Welder is now energized and\n\nOpen circuit Voltage is present.\n\nHot Start arc Force\n\nelectrode\n\ndiameter\n\nMaterial\n\nthickness\n\nprocess\n\nelectrode\n\ntype",
+    "image_path": "/data/pages/owner-manual-032.png",
+    "region_ids": []
+  },
+  {
+    "page": 33,
+    "source": "owner-manual",
+    "section": "Welding Tips",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\ne. Optional Settings:\n\n• Press Main Control Knob to\n\nenter Optional Settings.\n\n• Turn Main Control Knob until desired\n\nsetting appears on screen.\n\n• Press Main Control Knob to\n\nselect desired setting.\n\n• Turn Main Control Knob to adjust setting.\n\nAvailable Optional Settings:\n\n• Hot Start – Adjust amperage at start of weld.\n\n• Arc Force – Adjust weld penetration\n\nand smoothness.\n\n• Recall Setting – Retrieve saved settings.\n\n• Save Setting – Program up to\n\n5 different configurations.\n\nnote: The initial settings may need to be\n\nadjusted after stopping and carefully inspecting\n\nthe weld. Proper welding takes experience.\n\nWaRning! tO pReVent SeRiOUS inJURy:\n\nprotective gear must be worn when using the\n\nWelder; minimum shade number 10 full face shield\n\n(or welding mask), ear protection, welding gloves,\n\nsleeves and apron, niOSH-approved respirator,\n\nand fire resistant work clothes without pockets\n\nshould be worn when welding. light from the\n\narc can cause permanent damage to the eyes\n\nand skin. do not breathe arc fumes.\n\nAfter practice welding on scrap, stop,\n\nand check your progress. Perform\n\nStrike Test according to Strike test on\n\npage 34. After making any necessary\n\nadjustments, continue to weld while\n\ncarefully following the DUTY CYCLE\n\nguidelines as explained on page 29.\n\n8. Place the bare metal end of the Stick Electrode (sold\n\nseparately) inside the jaws of the Electrode Holder.\n\n9. Stroke the workpiece lightly to ignite the arc.\n\nTips for igniting the arc:\n\na. Tap the surface with the Electrode.\n\nb. Stroke the surface with the Electrode.\n\nc. Strike the surface like a match with the Electrode.\n\n10. After the arc ignites:\n\na. Lift the Electrode off workpiece the same\n\ndistance as the diameter of the bare metal end.\n\nb. Tilt Electrode back 10 to 20 degrees.\n\nc. Drag Electrode to the back end of the weld\n\npuddle to deposit material as needed.\n\n11. When finished welding; lift the Electrode from\n\nthe workpiece, then set Electrode Holder\n\ndown on nonconductive, nonflammable\n\nsurface away from any grounded objects.\n\n12. Turn the Power Switch OFF.\n\n13. To prevent accidents, after use:\n\n• Allow Welder to cool down.\n\n• Unplug Welder’s power cord from outlet.\n\n• Remove Ground Clamp.\n\n• Disconnect Electrode Holder\n\nand Ground Cables.\n\n14. Clean, then store Welder and its accessories\n\nindoors out of children’s reach.",
+    "image_path": "/data/pages/owner-manual-033.png",
+    "region_ids": []
+  },
+  {
+    "page": 34,
+    "source": "owner-manual",
+    "section": "Welding Tips",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nWelding tips\n\nA good way to test welding technique is to examine a weld’s appearance after it has cooled and the slag has been\n\nremoved. Then, better welding can be learned by adjusting your weld technique to remedy any problems found.\n\nNOTICE: TIG welding is a complicated process, requiring experience and skill to achieve successful\n\nresults. Training beyond the scope of this manual is required to TIG weld properly.\n\nafter practice welding a couple\n\nof welding beads, StOp and\n\nexamine your weld using\n\nthe following guidelines.\n\nStrike test\n\na test weld on a piece OF ScRap can be\n\ntested by using the following procedure.\n\nWeaR anSi-appROVed SaFety gOggleS\n\ndURing tHiS pROcedURe.\n\ncaUtiOn! this test Will damage the weld it is\n\nperformed on. this test is Only an indicator of weld\n\ntechnique and is not intended to test working welds.\n\n1. After two scraps have been welded together and the\n\nweld has cooled, clamp one scrap in a sturdy vise.\n\n2. Stay clear from underneath while you strike\n\nthe opposite scrap with a heavy hammer,\n\npreferably a dead-blow hammer.\n\n3. A gOOd Weld will deform but not break, as shown\n\non top.\n\nA pOOR Weld will be brittle and snap at the\n\nweld, as shown on bottom.\n\nclamp\n\nScRap\n\nworkpiece\n\ngOOd Weld\n\nbends and is not brittle\n\ndead-blow hammer\n\nclamp\n\nScRap\n\nworkpiece\n\npOOR Weld\n\nsnaps or cracks\n\ndead-blow hammer\n\ncleaning the Weld\n\ntO pReVent SeRiOUS inJURy:\n\ncontinue to wear anSi-approved\n\nsafety goggles and protective wear\n\nwhen cleaning a weld.\n\nSparks or chips may fly when cleaning.\n\n1. A weld from flux-cored wire welding or stick\n\nwelding will be covered by slag. Use a chipping\n\nhammer to knock this off. Be careful not\n\nto damage the weld or base material.\n\n2. Use a wire brush to further clean the weld\n\nor use an angle grinder (sold separately) to\n\nshape the weld.\n\nchipping\n\nHammer\n\nWire Brush",
+    "image_path": "/data/pages/owner-manual-034.png",
+    "region_ids": []
+  },
+  {
+    "page": 35,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "BURn-tHROUgH"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nWire Weld Diagnosis – Workpiece Heat Control / Weld Penetration\n\neXceSS penetRatiOn OR\n\nBURn-tHROUgH\n\npROpeR penetRatiOninadeQUate penetRatiOn\n\nnot hot enough too hotideal heat\n\nHow to increase workpiece heat\n\nand increase penetration:\n\n(to weld tHickeR workpieces properly)\n\nHow to reduce workpiece heat\n\nand limit penetration:\n\n(to weld tHinneR workpieces properly)\n\na. increase weld current\n\nb. decrease travel speed\n\nc. Use faster wire feed\n\nd. Use shorter ctWd\n\ne. decrease weld current\n\nf. increase travel speed\n\ng. Use slower wire feed\n\nh. Use longer ctWd\n\nexample Wire Weld diagrams\n\ngood\n\nWeld\n\nVoltage\n\ntoo low or\n\nWire Feed\n\ntoo Slow\n\nVoltage\n\ntoo High or\n\nWire Feed\n\ntoo Fast\n\ntravel Speed\n\ntoo Fast\n\ntravel Speed\n\ntoo Slow\n\nctWd\n\ntoo long\n\nor\n\nWrong polarity\n\ntO cORRect:\n\ntravel\n\nslower\n\ntO cORRect:\n\ntravel\n\nfaster\n\ntO cORRect:\n\ncheck polarity\n\nand\n\nmaintain\n\nlessless\n\nthan 1/2\"than 1/2\"\n\nctWdctWd\n\ntO cORRect:tO cORRect:\n\nor\n\nincrease\n\nOutput Voltage\n\nincrease Wire\n\nFeed Speed\n\nor\n\ndecrease\n\nOutput Voltage\n\ndecrease Wire\n\nFeed Speed",
+    "image_path": "/data/pages/owner-manual-035.png",
+    "region_ids": []
+  },
+  {
+    "page": 36,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "BURn-tHROUgH",
+      "PROFILE VIEWS",
+      "PROFILE",
+      "VIEW",
+      "PROFILE",
+      "VIEW",
+      "TOP",
+      "VIEW"
+    ],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nWire Weld Penetration (Workpiece Heat Control)\n\neXceSS penetRatiOn OR\n\nBURn-tHROUgH\n\nWeld droops on top and\n\nunderneath, or falls through\n\nentirely, making a hole.\n\npROpeR penetRatiOn\n\nWeld is visible underneath and\n\nbulges slightly on top.\n\ninadeQUate penetRatiOn\n\nWeld does not penetrate the\n\njoint fully, just on the surface.\n\npOSSiBle caUSeS and SOlUtiOnS\n\n1. Workpiece overheating:\n\nReduce wire feed speed.\n\nDecrease weld current.\n\n2. travel speed too slow:\n\nIncrease travel speed and ensure\n\nthat travel speed is kept steady.\n\n3. excessive material at weld:\n\nReduce wire feed speed.\n\npOSSiBle caUSeS and SOlUtiOnS\n\n4. incorrect welding technique:\n\nMaintain 1/2\" or less CTWD.\n\nKeep arc on leading edge of weld puddle.\n\nHold MIG Gun at proper angles.\n\n5. insufficient weld heat:\n\nReduce travel speed.\n\nIncrease weld current.\n\n6. Workpieces too thick/close:\n\nBevel thick workpieces, allow slight\n\ngap, and weld in several passes.\n\n7. insufficient weld material:\n\nIncrease wire feed speed.\n\nPROFILE VIEWS\n\nWeld not adhering properly\n\ngaps present between weld and previous bead or\n\nbetween weld and workpiece. See areas below.\n\npOSSiBle caUSeS and SOlUtiOnS\n\n1. incorrect welding technique:\n\nPlace stringer bead at correct place in joint.\n\nAdjust workpiece position or weld angle to permit\n\nproper welding to bottom of piece.\n\nPause briefly at sides during weave bead.\n\nKeep arc on leading edge of weld puddle.\n\nHold MIG Gun at proper angles.\n\n2. insufficient weld heat:\n\nIncrease current.\n\nIncrease wire feed speed.\n\n3. dirty workpiece:\n\nClean workpiece down to bare metal.\n\n4. insufficient weld material:\n\nIncrease wire feed speed.\n\n5. Workpiece gap too narrow:\n\nWiden groove or increase bevel.\n\nPROFILE\n\nVIEW\n\nBend at Joint\n\npOSSiBle caUSeS and SOlUtiOnS\n\n1. improper clamping:\n\nClamp workpieces securely.\n\nMake tack welds to hold workpieces.\n\n2. excessive heat:\n\nWeld a small portion and allow to cool before\n\nproceeding.\n\nIncrease travel speed.\n\nReduce wire feed speed.\n\nPROFILE\n\nVIEW\n\ncoat of Slag Over Weld\n\nSlag is a necessary part of a flux-cored wire\n\nweld. it shields the weld from impurities.\n\nclean off the slag with a chipping Hammer\n\nand Wire Brush after welding.\n\ngas-shielded Mig welds are protected by the\n\nshielding gas and do not need slag to protect them.\n\nTOP\n\nVIEW\n\nPARTIALLY CHIPPED AWAY TO SHOW WELD",
+    "image_path": "/data/pages/owner-manual-036.png",
+    "region_ids": []
+  },
+  {
+    "page": 37,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "TOP",
+      "VIEW",
+      "TOP",
+      "VIEW",
+      "TOP",
+      "VIEW",
+      "TOP",
+      "VIEW"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nWire Weld – Burn-Through\n\nBase material melts away,\n\nleaving a hole in the weld.\n\npOSSiBle caUSeS and SOlUtiOnS\n\n1. Workpiece overheating:\n\nReduce current and/or wire feed speed.\n\n2. travel speed too slow:\n\nIncrease travel speed and ensure\n\nthat travel speed is kept steady.\n\n3. excessive material at weld:\n\nReduce wire feed speed.\n\nTOP\n\nVIEW\n\nWire Weld – Crooked/Wavy Bead\n\npOSSiBle caUSeS and SOlUtiOnS\n\n1. inaccurate welding:\n\nUse two hands or rest hand on steady surface.\n\n2. inconsistent travel speed:\n\nMaintain steady travel speed.\n\n3. ctWd too long:\n\nReduce CTWD.\n\nTOP\n\nVIEW\n\nWire Weld – Porosity\n\nSmall cavities or holes in the bead.\n\npOSSiBle caUSeS and SOlUtiOnS\n\n1. incorrect polarity:\n\nCheck that polarity is set correctly\n\nfor type of welding.\n\n2. Insufficient shielding gas (MIG only):\n\nIncrease flow of gas.\n\nClean nozzle.\n\nMaintain proper CTWD.\n\n3. Incorrect shielding gas (MIG only):\n\nUse shielding gas recommended by wire supplier.\n\n4. dirty workpiece or welding wire:\n\nClean workpiece down to bare metal.\n\nMake certain that wire is clean and free\n\nfrom oil, coatings, and other residues.\n\n5. inconsistent travel speed:\n\nMaintain steady travel speed.\n\n6. ctWd too long:\n\nReduce CTWD.\n\nTOP\n\nVIEW\n\nWire Weld – Excessive Spatter\n\nFine spatter is normal.\n\nSpatter that is grainy and large is a problem.\n\npOSSiBle caUSeS and SOlUtiOnS\n\n1. dirty workpiece or welding wire:\n\nClean workpiece down to bare metal.\n\nMake certain that wire is clean and free\n\nfrom oil, coatings, and other residues.\n\n2. incorrect polarity:\n\nCheck that polarity is set correctly\n\nfor type of welding.\n\n3. Insufficient shielding gas (MIG only):\n\nIncrease flow of gas.\n\nClean nozzle.\n\nMaintain proper CTWD.\n\n4. Wire feeding too fast:\n\nReduce wire feed speed.\n\n5. ctWd too long:\n\nReduce CTWD.\n\nTOP\n\nVIEW",
+    "image_path": "/data/pages/owner-manual-037.png",
+    "region_ids": []
+  },
+  {
+    "page": 38,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "BURn-tHROUgH"
+    ],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nStick Weld Diagnosis – Workpiece Heat Control / Weld Penetration\n\neXceSS penetRatiOn OR\n\nBURn-tHROUgH\n\npROpeR penetRatiOninadeQUate penetRatiOn\n\nnot hot enough too hotideal heat\n\nHow to increase workpiece heat\n\nand increase penetration:\n\n(to weld tHickeR workpieces properly)\n\na. Increase current. b. Weld more slowly.\n\nHow to reduce workpiece heat\n\nand limit penetration:\n\n(to weld tHinneR workpieces properly)\n\nc. Decrease current. d. Weld more quickly.\n\nexample Stick Weld diagrams\n\nclean WeldS FiRSt!\n\nStick welds will have a coat of slag over them until cleaned.\n\ngood\n\nWeld\n\ncurrent\n\ntoo low\n\ntO cORRect:\n\nIncrease the\n\ncurrent\n\ntO cORRect:\n\nDecrease\n\nthe current\n\ncurrent\n\ntoo High\n\ntO cORRect:\n\nWeld slower\n\nWeld Speed\n\ntoo Fast\n\ntO cORRect:\n\nWeld faster\n\nWeld Speed\n\ntoo Slow\n\narc length\n\ntoo Short\n\ntO cORRect:\n\nIncrease\n\ndistance\n\narc length\n\ntoo long\n\ntO cORRect:\n\nDecrease\n\ndistance",
+    "image_path": "/data/pages/owner-manual-038.png",
+    "region_ids": []
+  },
+  {
+    "page": 39,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "BURn-tHROUgH",
+      "PROFILE VIEWS",
+      "PROFILE",
+      "VIEW",
+      "PROFILE",
+      "VIEW"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nStick Weld Penetration (Workpiece Heat Control)\n\neXceSS penetRatiOn OR\n\nBURn-tHROUgH\n\nWeld droops on top and\n\nunderneath or falls through\n\nentirely, making a hole.\n\npROpeR penetRatiOn\n\nWeld is visible underneath and\n\nbulges slightly on top.\n\ninadeQUate penetRatiOn\n\nWeld does not contact the joint\n\nfully, just on the surface.\n\nPROFILE VIEWS\n\npOSSiBle caUSeS and SOlUtiOnS FOR\n\neXceSS penetRatiOn OR BURn-tHROUgH\n\n1. Workpiece overheating:\n\nReduce current.\n\n2. Welding speed too slow:\n\nIncrease welding speed and ensure\n\nthat welding speed is kept steady.\n\npOSSiBle caUSeS and SOlUtiOnS FOR\n\ninadeQUate penetRatiOn\n\n1. incorrect welding technique:\n\nKeep arc on leading edge of weld puddle.\n\nHold torch at proper angles.\n\n2. insufficient weld heat:\n\nSlow down so fill material has time to melt\n\ninto the weld location. Increase current.\n\n3. Workpieces too thick/close:\n\nBevel thick workpieces, allow slight\n\ngap, and weld in several passes.\n\n4. insufficient weld material:\n\nIncrease amount of fill material.\n\nStick Weld – Weld Not Adhering Properly\n\ngaps present between weld and previous bead or between weld and workpiece. See areas below.\n\npOSSiBle caUSeS and SOlUtiOnS\n\nPROFILE\n\nVIEW\n\n1. incorrect welding technique:\n\nPlace stringer bead at correct place in joint.\n\nAdjust workpiece position or weld angle to permit\n\nproper welding to bottom of piece.\n\nKeep arc on leading edge of weld puddle.\n\nHold Electrode and fill material at proper angles.\n\n2. insufficient weld heat:\n\nIncrease current.\n\n3. dirty workpiece:\n\nClean workpiece down to bare metal.\n\n4. insufficient weld material:\n\nIncrease amount of fill material.\n\n5. distance between workpieces to large:\n\nDecrease distance and increase bevel.\n\nStick Weld – Bend at Joint\n\npOSSiBle caUSeS and SOlUtiOnS\n\nPROFILE\n\nVIEW\n\n1. improper clamping:\n\nClamp workpieces securely.\n\nMake tack welds to hold workpieces.\n\n2. excessive heat:\n\nWeld a small portion and allow to cool before\n\nproceeding.\n\nIncrease weld speed.",
+    "image_path": "/data/pages/owner-manual-039.png",
+    "region_ids": []
+  },
+  {
+    "page": 40,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "TOP",
+      "VIEW",
+      "PARTIALLY CHIPPED AWAY TO SHOW WELD",
+      "TOP",
+      "VIEW",
+      "TOP",
+      "VIEW",
+      "TOP"
+    ],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nStick Weld – Coat of Slag Over Weld\n\nTOP\n\nVIEW\n\nPARTIALLY CHIPPED AWAY TO SHOW WELD\n\nSlag is a necessary part of a stick weld. it shields\n\nthe weld from impurities. clean off the slag with the\n\nchipping Hammer and Wire Brush after welding.\n\nStick Weld – Porosity — Small cavities or holes in the bead.\n\npOSSiBle caUSeS and SOlUtiOnS\n\nTOP\n\nVIEW\n\n1. dirty workpiece or fill material:\n\nClean workpiece down to bare metal.\n\nMake certain that fill material and Electrode are\n\nclean and free from oil, coatings, and other residues.\n\n2. inconsistent welding speed:\n\nMaintain steady weld speed.\n\nStick Weld – Crooked/Wavy Bead\n\npOSSiBle caUSeS and SOlUtiOnS\n\nTOP\n\nVIEW\n\n1. inaccurate welding:\n\nUse two hands or rest hand on steady surface.\n\n2. inconsistent welding speed:\n\nMaintain steady weld speed.\n\nStick Weld – Excessive Spatter\n\npOSSiBle caUSeS and SOlUtiOnS\n\nTOP\n\nVIEW\n\nFine spatter is normal. Spatter that is\n\ngrainy and large is a problem.\n\ndirty workpiece or fill material:\n\nClean workpiece down to bare metal.\n\nMake certain that fill material and Electrode are\n\nclean and free from oil, coatings, and other residues.\n\nStick Weld – Burn-Through — Base material melts away, leaving a hole in the weld.\n\npOSSiBle caUSeS and SOlUtiOnS\n\nTOP\n\nVIEW\n\n1. Workpiece overheating:\n\nReduce current.\n\n2. Welding speed too slow:\n\nIncrease welding speed and ensure\n\nthat welding speed is kept steady.\n\n3. excessive material at weld:\n\nReduce amount of fill material.",
+    "image_path": "/data/pages/owner-manual-040.png",
+    "region_ids": []
+  },
+  {
+    "page": 41,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nMaintenance\n\ntO pReVent SeRiOUS inJURy, FiRe and BURnS:\n\nUnplug the Welder, rest the tool on a heat-proof, electrically non-conductive surface, and allow\n\nall parts of the Welder to cool thoroughly before service.\n\n1. BeFORe eacH USe, inspect the general\n\ncondition of the Welder. Check for:\n\n• loose hardware\n\n• misalignment or binding of moving parts\n\n• damaged cord / electrical wiring\n\n• frayed or damaged cables\n\n• cracked or broken parts\n\n• any other condition that may\n\naffect its safe operation.\n\n2. peRiOdically, have a qualified\n\ntechnician remove the Rear Panel\n\nand use compressed air to blow\n\nout all dust from the interior.\n\n3. aFteR eVeRy USe, store in\n\na clean and dry location.\n\n4. For optimal MIG / Flux-Cored wire weld\n\nquality, clean and inspect the Mig\n\ngun contact tip and nozzle before\n\neach use, as explained below.\n\nMig gun nozzle and contact tip inspection and cleaning\n\n1. Make sure that the entire Mig gun is completely\n\ncool and that the power cord is unplugged\n\nfrom the electrical outlet before proceeding.\n\n2. Pull the Nozzle to remove it.\n\n3. Scrub the interior of the Nozzle\n\nclean with a wire brush.\n\n4. Examine the end of the Nozzle. The end should be\n\nflat and even. If the end is uneven, chipped, melted,\n\ncracked, or otherwise damaged, the Nozzle will\n\nadversely effect the weld and should be replaced.\n\n5. Unscrew the Contact Tip counterclockwise\n\nand slide it off the welding wire to remove.\n\n6. Scrub the outside of the Tip clean with a wire brush.\n\nClean out the inside of the tip with a tip\n\ncleaner (sold separately). Check that the Tip\n\nis the proper type for the wire size used.\n\n7. Examine the shape of the hole at the end of\n\nthe Contact Tip. It should be an even circle; it\n\nshould not be oblong or have any bulges in it.\n\n8. If any problems are noted, replace the\n\nContact Tip. Select a new Tip of the\n\ncorrect size for the welding wire used.\n\n9. Reinstall the Tip and securely\n\nreinstall the Nozzle as well.\n\nnozzle \ncontact\n\ntip\n\nReplacing the lcd Screen cover\n\n1. Carefully pry frame off of Display (22)\n\nby inserting flathead screwdriver (sold\n\nseparately) into one of the side slots.\n\ndisplay\n\n2. Insert a new Screen Cover (17) into Screen\n\nFrame (18) with the gap facing downward.\n\nScreen\n\ncover\n\nScreen\n\nFrame\n\n3. Insert frame back into slot on Display with\n\nthe top end being placed in first.",
+    "image_path": "/data/pages/owner-manual-041.png",
+    "region_ids": []
+  },
+  {
+    "page": 42,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nTroubleshooting – MIG / Flux-Cored Welding\n\niMpORtant!\n\nBe ceRtain to shut off the Welder, disconnect it from power, and discharge the Mig gun to\n\nground before adjusting, cleaning, or repairing the unit.\n\nproblem possible causes likely Solutions\n\nWire Feed Motor\n\nRuns but Wire Does\n\nNot Feed Properly\n\n1. Insufficient wire feed pressure.\n\n2. Incorrect wire feed roller size.\n\n3. Damaged MIG Gun, cable, or liner assembly.\n\n4. Feed Tensioner is too tight.\n\n1. Increase wire feed pressure properly.\n\nFollow step 27 on page 17.\n\n2. Flip roll to correct size. Follow the Feed\n\nRoller instructions on page 12.\n\n3. Have a qualified technician inspect these\n\nparts and replace as necessary.\n\n4. Loosen Feed Tensioner so it applies only\n\nenough pressure to prevent continued\n\nspinning after the Gun Trigger is released.\n\nWire Creates a\n\nBird’s Nest During\n\nOperation\n\n1. Excess wire feed pressure.\n\n2. Incorrect Contact Tip size.\n\n3. MIG Gun Cable Connector not fully\n\ninserted into Wire Feed mechanism.\n\n4. Damaged liner.\n\n1. Adjust wire feed pressure properly.\n\nFollow step 27 on page 17.\n\n2. Replace with the proper tip for wire used.\n\n3. Insert Gun Cable Connector properly.\n\nFollow steps 13 and 14 on page 13.\n\n4. Have a qualified technician inspect\n\nand repair/replace as necessary.\n\nWire Stops\n\nDuring Welding\n\n1. Gun cable is severely bent and Wire\n\nFeed mechanism cannot feed wire.\n\n2. Gun liner is clogged or worn.\n\n3. Gun liner is too small for\n\nwelding wire being used.\n\n4. Wire is tangled on the spool.\n\n5. Wire is not making contact with Feed Rollers.\n\n6. Feed Roller is not making enough contact\n\nwith wire or is crushing flux-cored wire.\n\n1. Straighten Gun cable.\n\n2. Check gun liner for obstruction.\n\nReplace if necessary.\n\n3. Check that gun liner is correct size for wire.\n\n4. Check wire for cross winding or tangled spool.\n\n5. Check Feed Rollers and ensure correct\n\ngroove for wire diameter is being used.\n\n6. Check Feed Tensioner and ensure it is set properly.\n\nWelding Arc\n\nNot Stable\n\n1. Wire not feeding properly.\n\n2. Incorrect Contact Tip or liner\n\nsize or excessive wear.\n\n3. Incorrect wire feed speed.\n\n4. Loose MIG Gun cable or ground cable.\n\n5. Damaged MIG Gun or loose\n\nconnection within Gun.\n\n6. Incorrect polarity for process being run.\n\n7. Gas coverage may be insufficient or too high.\n\n8. Poor connection with workpiece.\n\n1. See first Troubleshooting section above.\n\n2. Replace with the proper tip or\n\nliner size for wire used.\n\n3. Adjust wire feed speed to achieve\n\na more stable arc.\n\n4. Check to ensure that all connections are tight.\n\n5. Have a qualified technician inspect\n\nand repair/replace as necessary.\n\n6. Ensure polarity is correct for operation:\n\nDCEP for MIG welding and DCEN for\n\nFlux-Cored self-shielded welding.\n\n7. Ensure gas flow rate is set according to\n\nSettings Chart. Make sure MIG Gun Cable\n\nConnector is fully inserted into Wire Feed\n\nmechanism with no O-Rings exposed.\n\n8. Check the ground clamp connection to\n\nthe workpiece and machine. Ensure\n\nthe MIG Gun is properly secured.\n\nWeak Arc Strength\n\n1. Incorrect line voltage.\n\n2. Improper gauge or length of cord.\n\n3. Not enough current.\n\n1. Check the line voltage and, if insufficient, have\n\na licensed electrician remedy the situation.\n\n2. Do not use an extension cord on this Welder.\n\nUse only one of the supplied power cords for\n\nthis Welder or an identical replacement cord.\n\n3. Switch current to proper setting for metal thickness.\n\nFollow all safety precautions whenever diagnosing or servicing the equipment.",
+    "image_path": "/data/pages/owner-manual-042.png",
+    "region_ids": []
+  },
+  {
+    "page": 43,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nproblem possible causes likely Solutions\n\nWelder Does Not\n\nFunction When\n\nSwitched On\n\n1. Tripped thermal protection device.\n\n2. Circuit supplies insufficient input voltage or\n\namperage.\n\n3. Faulty or improperly connected Trigger.\n\n4. Machine is in low- or\n\nover-voltage protection.\n\n5. Machine is in the incorrect mode.\n\n1. If a warning screen appears in the LCD Display\n\nwindow, Welder may have overheated and shut\n\ndown. Stop and wait with the Power Switch ON\n\nfor the Welder to cool. The Welder automatically\n\nreturns to service after cooling off. Reduce\n\nduration or frequency of welding periods to\n\nhelp reduce wear on the Welder. Refer to\n\nDuty Cycle (Duration of Use) on page 19.\n\n2. Verify that the circuit is designed to supply the\n\nrequired input voltage and amperage as detailed\n\non the Specifications table. If a warning screen\n\nappears in the LCD Display window, check the\n\ninput voltage to ensure it is within specified range.\n\n3. Ensure the gun connection is properly\n\nseated on machine. Qualified technician\n\nmust check and secure/replace Trigger.\n\n4. Check input voltage and ensure it falls within\n\nthe specified range. If input voltage is correct,\n\npress Reset Button on back of machine.\n\n5. Ensure the correct process has been selected.\n\nLCD Display\n\nDoes Not Light\n\nWhen Welder is\n\nSwitched On\n\n1. Unit is not connected to outlet properly.\n\n2. Outlet is unpowered.\n\n3. Plug does not have correct rating.\n\n4. Circuit breaker has tripped due\n\nto high input amperage.\n\n5. Input Power Cord is not seated properly.\n\n1. Verify the voltage at the outlet and\n\nthe connection to the outlet.\n\n2. Check circuit breaker/GFCI devices;\n\nif any are tripped, determine and\n\nremedy cause before resetting.\n\n3. Make sure installed plug is correct rating.\n\nSee Specifications on page 7.\n\n4. Press Reset Button on back of\n\nmachine to reset circuit breaker.\n\n5. Ensure the twist lock input Power\n\nCord is fully secured.\n\nWire Feeds, but Arc\n\nDoes Not Ignite\n\n1. Improper ground connection.\n\n2. Improperly sized Contact Tip.\n\n3. Excessively worn Contact Tip.\n\n4. Dirty Contact Tip.\n\n1. Make certain that the workpiece is contacted\n\nproperly by the Ground Clamp and that\n\nthe workpiece is properly cleaned near the\n\nground clamp and the welding location.\n\n2. Verify that Contact Tip is the proper size\n\nfor welding wire. If needed, replace\n\nContact Tip with proper size and type.\n\n3. Check that the hole in the tip is not\n\ndeformed or enlarged. If needed, replace\n\nContact Tip with proper size and type.\n\n4. Properly clean Contact Tip.\n\nPorosity in the\n\nWeld Metal\n\n1. Shielding gas bottle is empty.\n\n2. Not enough or too much shielding gas.\n\n3. Dirty workpiece.\n\n4. Gun is being used too far\n\naway from workpiece.\n\n5. Polarity is incorrect for the application.\n\n6. Dirty welding wire is introducing\n\ncontamination into the weld.\n\n1. Check gas bottle and replenish as necessary.\n\n2. Check gas regulator to ensure proper flow.\n\n3. Clean workpiece down to bare metal.\n\n4. Check CTWD (contact tip to work\n\ndistance) for the proper procedure.\n\n5. Check the polarity and ensure it is DCEP\n\nfor MIG and DCEN for Flux-Cored.\n\n6. Make certain that welding wire is clean\n\nand free of rust and residues.\n\nFollow all safety precautions whenever diagnosing or servicing the equipment.",
+    "image_path": "/data/pages/owner-manual-043.png",
+    "region_ids": []
+  },
+  {
+    "page": 44,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\nTroubleshooting – TIG / Stick Welding\n\niMpORtant!\n\nBe ceRtain to shut off the Welder, disconnect it from power, and discharge the\n\nelectrode to ground before adjusting, cleaning, or repairing the unit.\n\nproblem possible causes likely Solutions\n\nWelder Does Not\n\nFunction When\n\nSwitched On\n\n1. Tripped thermal protection device.\n\n2. Faulty or improperly\n\nconnected Trigger.\n\n3. Ground Clamp not attached\n\nto workpiece.\n\n4. Shielding Gas not connected.\n\n1. Reduce duration or frequency of welding periods\n\nto help reduce wear on the welder. Refer to\n\nDuty Cycle (Duration of Use) on page 29.\n\n2. Qualified technician must check and\n\nsecure/replace Trigger.\n\n3. Attach Ground Clamp to workpiece.\n\n4. Connect shielding gas to Welder.\n\nLCD Display Does Not\n\nLight When Welder\n\nis Switched On\n\n1. Unit is not connected\n\nto outlet properly.\n\n2. Outlet is unpowered.\n\n1. Verify the voltage at the outlet and\n\nthe connection to the outlet.\n\n2. Check circuit breaker/GFCI devices; if any are tripped,\n\ndetermine and remedy cause before resetting. Verify\n\nthat the circuit is designed to supply the required input\n\namperage as detailed in Specifications on page 7.\n\nWeak Arc Strength 1. Incorrect line voltage.\n\n2. Improper gauge or length of cord.\n\n1. Check the line voltage and, if insufficient, have\n\na licensed electrician remedy the situation.\n\n2. Do not use an extension cord on this Welder. Use\n\nonly one of the supplied power cords for this\n\nWelder or an identical replacement cord.\n\nWelding Arc\n\nNot Stable.\n\n1. Loose electrode cable\n\nor ground cable.\n\n2. Damaged electrode holder or loose\n\nconnection within electrode holder.\n\n3. Adjust current setting.\n\n4. Shielding gas getting low.\n\n1. Check to ensure that all connections are tight.\n\n2. Have a qualified technician inspect and\n\nrepair/replace as necessary.\n\n3. Make sure setting matches\n\nrecommended setting on chart.\n\n4. Replace shielding gas cylinder.\n\nFollow all safety precautions whenever diagnosing or servicing the equipment.",
+    "image_path": "/data/pages/owner-manual-044.png",
+    "region_ids": []
+  },
+  {
+    "page": 45,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "IGBT",
+      "PFC",
+      "OUT+",
+      "OUT-",
+      "K1 AC 120-240V/50/60HZ",
+      "RECITIFIER",
+      "OUT+",
+      "FANFAN2"
+    ],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nWiring Schematic\n\nAC1\nAC2\nG\n34\n-T\n\n～\n1\n\n～\n3\n \n-\n \n4\n+\n \n2\n\n～\n1\n\n～\n3\n \n-\n \n4\n+\n \n2\n24V\nJ\n2 1\nIGBT\nPFC\n \n5\n6\n4\n1\nOUT+\nOUT-\nK1 AC 120-240V/50/60HZ\nRECITIFIER\n1/4 1/4 1/4 1/4\n4\n3\n2\n1\nT1\nT60*30*28\n1\n2\n3\n4\nCN1\n\nHall\n\nv\nOUT+\n1\n2\n1\n2\nFANFAN2\n1\n2\n3\n4\n5\n6\n7\nCN8\n1\n2\n3\n4\n5\n6\n7\nCN1\n1\n2\n3\n4\n5\n6\nCN2\n1\n2\nCN3\nAVIATION\nPLUG\n1\n2\n3\nCN7\nWIRE FEEDER\nM\n \n1\n2\n3\n4\n5\nCN4\nSOLENOID\nVALVE\n1\n2\n3\n4\nCN3\n1\n2\nCN6\n3 4\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n29\n30\n31\n32\n33\n34\n28\nCN5\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n29\n30\n31\n32\n33\n34\n28\nCN7\n3\n2\n1\n5\n4\n3\n2\n1\n5\n4\n3\n2\n1\n5\n4\n1\n2\n3\n4\nCN5\n1\n2\n3\n4\nMCU BOARD\nLCD\n \nSCREEN\nFAST WIRE FEED SWITCH\nREMOTE\nBOARD\nAVIATION\nPLUG\nSOLENOID\nVALVE",
+    "image_path": "/data/pages/owner-manual-045.png",
+    "region_ids": []
+  },
+  {
+    "page": 46,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [
+      "46 IGBT 6"
+    ],
+    "text": "Sa\nF\nety\n \nWelding\n \nt\nip\nS\ntig\n \n/ Stick\nc\nO\nnt\nRO\nl\nS\n \nWi\nR\ne\n \nM\naintenance\n\npart description Qty\n\n1 Right Cover 1\n\n2 Handle Base 1\n\n3 Handle Cover 1\n\n4 Hinge-Right 2\n\n5 Hinge-left 2\n\n6 Left Cover 1\n\n7 Latch 1\n\n8 Middle Bracket 1\n\n9 PFC Inductance 1\n\n10 Spool 1\n\n11 Remote Control PCB 1\n\n12 Wire Feeder 1\n\n13 Aviation Plug Wire 1\n\n14 Miller Plug Connector 1\n\n15 Protective Cover 1\n\n16 Display PCB 1\n\n17 Screen Cover 1\n\n18 Screen Frame 1\n\n19 MIG Welding Torch 1\n\n20 Front Handle Cover 1\n\n21 Front Panel 1\n\n22 Display 1\n\n23 Knob 2\n\n24 Knob 1\n\n25 Storage Door 1\n\n26 Switch 1\n\n27 American Air Fitting 2\n\n28 Air Connector 3\n\n29 Quick Connector 2\n\n30 Grounding Clamp Assembly 1\n\n31 Welding Clamp Assembly 1\n\npart description Qty\n\n32 Polarity Cable 1\n\n33 Output Inductor 1\n\n34 Air Connector 2\n\n35 Solenoid Valve 2\n\n36 Bottom Housing 1\n\n37 Board Insulation Paper 1\n\n38 Main PCB 1\n\n39 Control PCB 1\n\n40 Fast Recovery Diode 6\n\n41 Metal Case Air Way 1\n\n42 Rectifier Radiator Support Bar 1\n\n43 Rectifier Radiator 1\n\n44 Fan 1\n\n45 Transformer 1\n\n46 IGBT 6\n\n47 Bridge Rectifier Heatsink 1\n\n48 Fast Recovery Diode 2\n\n49 IGBT Heat Sink Support Bar 1\n\n50 IGBT Radiator 1\n\n51 Bridge Rectifiers 2\n\n52 IGBT Radiator 2\n\n53 Fan 1\n\n54 Y-Type Threaded Tee 1\n\n55 120 VAC Power Cord 1\n\n56 Rear Panel 1\n\n57 Rear Handle Cover 1\n\n58 American Power Socket 1\n\n59 Overload Protector 1\n\n60 Rear Panel 1\n\n61 240 VAC Power Cord 1\n\nparts list and diagram\n\npleaSe Read tHe FOllOWing caReFUlly\n\nTHE MANUFACTURER AND/OR DISTRIBUTOR HAS PROVIDED THE PARTS LIST AND ASSEMBLY DIAGRAM\n\nIN THIS MANUAL AS A REFERENCE TOOL ONLY. NEITHER THE MANUFACTURER OR DISTRIBUTOR\n\nMAKES ANY REPRESENTATION OR WARRANTY OF ANY KIND TO THE BUYER THAT HE OR SHE IS\n\nQUALIFIED TO MAKE ANY REPAIRS TO THE PRODUCT, OR THAT HE OR SHE IS QUALIFIED TO REPLACE\n\nANY PARTS OF THE PRODUCT. IN FACT, THE MANUFACTURER AND/OR DISTRIBUTOR EXPRESSLY\n\nSTATES THAT ALL REPAIRS AND PARTS REPLACEMENTS SHOULD BE UNDERTAKEN BY CERTIFIED AND\n\nLICENSED TECHNICIANS, AND NOT BY THE BUYER. THE BUYER ASSUMES ALL RISK AND LIABILITY\n\nARISING OUT OF HIS OR HER REPAIRS TO THE ORIGINAL PRODUCT OR REPLACEMENT PARTS\n\nTHERETO, OR ARISING OUT OF HIS OR HER INSTALLATION OF REPLACEMENT PARTS THERETO.\n\nparts list\n\nRecord product’s date code Here:\n\nnote: If product has no Date Code, record month and year of purchase instead.\n\nnote: Some parts are listed and shown for illustration purposes only, and are not available individually as\n\nreplacement parts. Parts may not be interchangeable. Specify UPC 193175422590 when ordering parts.",
+    "image_path": "/data/pages/owner-manual-046.png",
+    "region_ids": []
+  },
+  {
+    "page": 47,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [],
+    "text": "Sa\nF\nety\nWelding\n \nt\nip\nS\nM\naintenance\n \ntig\n \n/ Stick\n \nc\nO\nnt\nRO\nl\nS\nWi\nR\ne\n\nassembly diagram\n\n124567\n10 912 11 815 1416\n17\n18\n20\n21\n22\n25\n23\n24\n26 27 28 29 \n33 34 35 41 42 43\n44\n45\n4037 38 39\n46\n47\n50\n49\n52\n60 59 58\n54\n53\n57 56\n55\n48\n51\n13\n61\n32 36\n19\n30 31\n3",
+    "image_path": "/data/pages/owner-manual-047.png",
+    "region_ids": []
+  },
+  {
+    "page": 48,
+    "source": "owner-manual",
+    "section": "Maintenance",
+    "headings": [],
+    "text": "®\n\n26677 Agoura Road • Calabasas, CA 91302 • 1-800-444-3353\n\nLimited 90 Day Warranty\n\nHarbor Freight Tools Co. makes every effort to assure that its products meet high quality and durability standards,\n\nand warrants to the original purchaser that this product is free from defects in materials and workmanship for the\n\nperiod of 90 days from the date of purchase. This warranty does not apply to damage due directly or indirectly,\n\nto misuse, abuse, negligence or accidents, repairs or alterations outside our facilities, criminal activity, improper\n\ninstallation, normal wear and tear, or to lack of maintenance. We shall in no event be liable for death, injuries\n\nto persons or property, or for incidental, contingent, special or consequential damages arising from the use of\n\nour product. Some states do not allow the exclusion or limitation of incidental or consequential damages, so the\n\nabove limitation of exclusion may not apply to you. THIS WARRANTY IS EXPRESSLY IN LIEU OF ALL OTHER\n\nWARRANTIES, EXPRESS OR IMPLIED, INCLUDING THE WARRANTIES OF MERCHANTABILITY AND FITNESS.\n\nTo take advantage of this warranty, the product or part must be returned to us with transportation charges\n\nprepaid. Proof of purchase date and an explanation of the complaint must accompany the merchandise.\n\nIf our inspection verifies the defect, we will either repair or replace the product at our election or we may\n\nelect to refund the purchase price if we cannot readily and quickly provide you with a replacement. We will\n\nreturn repaired products at our expense, but if we determine there is no defect, or that the defect resulted\n\nfrom causes not within the scope of our warranty, then you must bear the cost of returning the product.\n\nThis warranty gives you specific legal rights and you may also have other rights which vary from state to state.",
+    "image_path": "/data/pages/owner-manual-048.png",
+    "region_ids": []
+  },
+  {
+    "page": 1,
+    "source": "quick-start",
+    "section": "Quick Start",
+    "headings": [
+      "HOLD",
+      "GUN",
+      "CLEAR",
+      "WARNING",
+      "WARNING"
+    ],
+    "text": "BASIC WELDING INSTRUCTIONS AND WELDING TIPS ARE IN MANUAL.\n2″\n\nContact\n\nTip\n\nNozzle\n\nHOLD\n\nGUN\n\nCLEAR\n\nWARNING\n\nTo prevent serious\n\ninjury, read\n\nmanual warnings\n\nand instructions\n\nbefore use.\n\nWARNING\n\nTo prevent fire\n\nand serious\n\ninjury, keep torch\n\nand wire clear of\n\ngrounded objects\n\nwhile welder\n\nplugged in.\n\nWelder\n\nWingnut\n\n2 lb\n\nWire\n\nSpool\n\nBrake\n\nPad\n\nSpacer\n\nSpindle\n\n2 lb Spool Loading\n\nAdapter and knob required for 10-12 lb spool\n\n2″-3″\n\nwood\n\nblock\n\nclockwise\n\nwelding\n\nwire\n\nfeed\n\nguides\n\nWire Spool\n\nFeed\n\nMechanism\n\n®",
+    "image_path": "/data/pages/quick-start-001.png",
+    "region_ids": []
+  },
+  {
+    "page": 2,
+    "source": "quick-start",
+    "section": "Quick Start",
+    "headings": [],
+    "text": "BASIC WELDING INSTRUCTIONS AND WELDING TIPS ARE IN MANUAL.\n®",
+    "image_path": "/data/pages/quick-start-002.png",
+    "region_ids": []
+  },
+  {
+    "page": 1,
+    "source": "selection-chart",
+    "section": "Selection Chart",
+    "headings": [],
+    "text": "",
+    "image_path": "/data/pages/selection-chart-001.png",
+    "region_ids": []
+  }
+]

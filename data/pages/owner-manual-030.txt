@@ -1,0 +1,144 @@
+Sa
+F
+ety
+ 
+Welding
+ 
+t
+ip
+S
+tig
+ 
+/ Stick
+c
+O
+nt
+RO
+l
+S
+ 
+Wi
+R
+e
+ 
+M
+aintenance
+
+tig Welding
+
+tO pReVent SeRiOUS inJURy and deatH:
+
+do not weld without grounding clamp.
+
+When the operator is not holding the torch, it must be sitting on a nonconductive, nonflammable surface.
+
+Only hold tig Rod with an electrically insulated welding glove.
+
+tO pReVent deatH FROM aSpHyXiatiOn:
+
+do not open gas without proper ventilation. Fix gas leaks immediately. Shielding gas can displace
+
+air and cause rapid loss of consciousness and death. Shielding gas without carbon dioxide can be
+
+even more hazardous because asphyxiation can start without feeling shortness of breath.
+
+nOtice: TIG welding is a complicated process,
+
+requiring experience and skill to achieve
+
+successful results. Training beyond the scope of
+
+this manual is required to TIG weld properly.
+
+1. Open gas cylinder’s valve all the way.
+
+2. Set Flow Gauge to SCFH value indicated on the
+
+Settings Chart on the inside of the Welder door.
+
+3. Turn the Power Switch to the OFF position, then
+
+plug the Welder into a properly grounded, GFCI
+
+protected, 120 VAC (20 amp rated) outlet or
+
+240 V outlet. The circuit must be equipped with
+
+delayed action-type circuit breaker or fuses.
+
+4. Set TIG Torch down on nonconductive,
+
+nonflammable surface away from
+
+any grounded objects.
+
+5. Turn the Power Switch ON.
+
+6. Press Home Button on Control Panel.
+
+7. Turn Main Control Knob until TIG process
+
+appears on LCD display screen.
+
+8. Press Main Control Knob to select TIG process.
+
+note: Press Main Control Knob to go to next screen.
+
+Press Back Button to return to the previous screen.
+
+®
+
+Main
+
+control
+
+knob
+
+left
+
+knob
+
+Right
+
+knob
+
+tig
+
+9. Adjust settings for the TIG process.
+
+a. Polarity and Gas Settings:
+
+• Plug cables in according to screen.
+
+• Connect gas according to screen.
+
+• Set SCFH between 10-25.
+
+b. Set Rod Diameter and Material Thickness:
+
+• Turn Left Knob to set rod diameter.
+
+• Turn Right Knob to set material thickness.
+
+c. Auto Weld Settings:
+
+• Turn Left Knob to adjust output amperage.
+
+• Turn Right Knob to ON to energize TIG Torch.
+
+WaRning! tO pReVent SeRiOUS
+
+inJURy: Welder is now energized and
+
+Open circuit Voltage is present.
+
+process 
+Rod
+
+diameter
+
+Material
+
+thickness
+
+gas type

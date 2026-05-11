@@ -1,0 +1,156 @@
+Sa
+F
+ety
+Welding
+ 
+t
+ip
+S
+M
+aintenance
+ 
+tig
+ 
+/ Stick
+ 
+c
+O
+nt
+RO
+l
+S
+Wi
+R
+e
+
+Wire Weld – Burn-Through
+
+Base material melts away,
+
+leaving a hole in the weld.
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+1. Workpiece overheating:
+
+Reduce current and/or wire feed speed.
+
+2. travel speed too slow:
+
+Increase travel speed and ensure
+
+that travel speed is kept steady.
+
+3. excessive material at weld:
+
+Reduce wire feed speed.
+
+TOP
+
+VIEW
+
+Wire Weld – Crooked/Wavy Bead
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+1. inaccurate welding:
+
+Use two hands or rest hand on steady surface.
+
+2. inconsistent travel speed:
+
+Maintain steady travel speed.
+
+3. ctWd too long:
+
+Reduce CTWD.
+
+TOP
+
+VIEW
+
+Wire Weld – Porosity
+
+Small cavities or holes in the bead.
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+1. incorrect polarity:
+
+Check that polarity is set correctly
+
+for type of welding.
+
+2. Insufficient shielding gas (MIG only):
+
+Increase flow of gas.
+
+Clean nozzle.
+
+Maintain proper CTWD.
+
+3. Incorrect shielding gas (MIG only):
+
+Use shielding gas recommended by wire supplier.
+
+4. dirty workpiece or welding wire:
+
+Clean workpiece down to bare metal.
+
+Make certain that wire is clean and free
+
+from oil, coatings, and other residues.
+
+5. inconsistent travel speed:
+
+Maintain steady travel speed.
+
+6. ctWd too long:
+
+Reduce CTWD.
+
+TOP
+
+VIEW
+
+Wire Weld – Excessive Spatter
+
+Fine spatter is normal.
+
+Spatter that is grainy and large is a problem.
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+1. dirty workpiece or welding wire:
+
+Clean workpiece down to bare metal.
+
+Make certain that wire is clean and free
+
+from oil, coatings, and other residues.
+
+2. incorrect polarity:
+
+Check that polarity is set correctly
+
+for type of welding.
+
+3. Insufficient shielding gas (MIG only):
+
+Increase flow of gas.
+
+Clean nozzle.
+
+Maintain proper CTWD.
+
+4. Wire feeding too fast:
+
+Reduce wire feed speed.
+
+5. ctWd too long:
+
+Reduce CTWD.
+
+TOP
+
+VIEW

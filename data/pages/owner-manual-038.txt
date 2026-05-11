@@ -1,0 +1,117 @@
+Sa
+F
+ety
+ 
+Welding
+ 
+t
+ip
+S
+tig
+ 
+/ Stick
+c
+O
+nt
+RO
+l
+S
+ 
+Wi
+R
+e
+ 
+M
+aintenance
+
+Stick Weld Diagnosis – Workpiece Heat Control / Weld Penetration
+
+eXceSS penetRatiOn OR
+
+BURn-tHROUgH
+
+pROpeR penetRatiOninadeQUate penetRatiOn
+
+not hot enough too hotideal heat
+
+How to increase workpiece heat
+
+and increase penetration:
+
+(to weld tHickeR workpieces properly)
+
+a. Increase current. b. Weld more slowly.
+
+How to reduce workpiece heat
+
+and limit penetration:
+
+(to weld tHinneR workpieces properly)
+
+c. Decrease current. d. Weld more quickly.
+
+example Stick Weld diagrams
+
+clean WeldS FiRSt!
+
+Stick welds will have a coat of slag over them until cleaned.
+
+good
+
+Weld
+
+current
+
+too low
+
+tO cORRect:
+
+Increase the
+
+current
+
+tO cORRect:
+
+Decrease
+
+the current
+
+current
+
+too High
+
+tO cORRect:
+
+Weld slower
+
+Weld Speed
+
+too Fast
+
+tO cORRect:
+
+Weld faster
+
+Weld Speed
+
+too Slow
+
+arc length
+
+too Short
+
+tO cORRect:
+
+Increase
+
+distance
+
+arc length
+
+too long
+
+tO cORRect:
+
+Decrease
+
+distance

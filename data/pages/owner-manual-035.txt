@@ -1,0 +1,148 @@
+Sa
+F
+ety
+Welding
+ 
+t
+ip
+S
+M
+aintenance
+ 
+tig
+ 
+/ Stick
+ 
+c
+O
+nt
+RO
+l
+S
+Wi
+R
+e
+
+Wire Weld Diagnosis – Workpiece Heat Control / Weld Penetration
+
+eXceSS penetRatiOn OR
+
+BURn-tHROUgH
+
+pROpeR penetRatiOninadeQUate penetRatiOn
+
+not hot enough too hotideal heat
+
+How to increase workpiece heat
+
+and increase penetration:
+
+(to weld tHickeR workpieces properly)
+
+How to reduce workpiece heat
+
+and limit penetration:
+
+(to weld tHinneR workpieces properly)
+
+a. increase weld current
+
+b. decrease travel speed
+
+c. Use faster wire feed
+
+d. Use shorter ctWd
+
+e. decrease weld current
+
+f. increase travel speed
+
+g. Use slower wire feed
+
+h. Use longer ctWd
+
+example Wire Weld diagrams
+
+good
+
+Weld
+
+Voltage
+
+too low or
+
+Wire Feed
+
+too Slow
+
+Voltage
+
+too High or
+
+Wire Feed
+
+too Fast
+
+travel Speed
+
+too Fast
+
+travel Speed
+
+too Slow
+
+ctWd
+
+too long
+
+or
+
+Wrong polarity
+
+tO cORRect:
+
+travel
+
+slower
+
+tO cORRect:
+
+travel
+
+faster
+
+tO cORRect:
+
+check polarity
+
+and
+
+maintain
+
+lessless
+
+than 1/2"than 1/2"
+
+ctWdctWd
+
+tO cORRect:tO cORRect:
+
+or
+
+increase
+
+Output Voltage
+
+increase Wire
+
+Feed Speed
+
+or
+
+decrease
+
+Output Voltage
+
+decrease Wire
+
+Feed Speed

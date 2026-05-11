@@ -10,7 +10,8 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "test": "vitest run",
-    "extract": "tsx scripts/extract.ts",
+    "extract": "npm run extract:pages",
+    "extract:pages": "tsx scripts/extract-pages.ts",
     "eval": "tsx scripts/run-eval.ts"
   },
   "dependencies": {
@@ -35,7 +36,10 @@
     "eslint-config-next": "16.2.6",
     "eslint-config-prettier": "^10.1.8",
     "jsdom": "^29.1.1",
+    "pdf-to-img": "^4.5.0",
+    "pdfjs-dist": "^4.2.67",
     "prettier": "^3.8.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5",
