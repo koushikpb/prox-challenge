@@ -43,6 +43,7 @@ This is the most important part. Your agent must not be text-only.
 When something is too cognitively hard to explain in words, the agent should draw it. Real-time diagrams, interactive schematics, visual walkthroughs generated through code.
 
 For your agent to handle these responses well you need to reverse engineer Claude artifacts. Here are two places where you can start:
+
 - https://claude.ai/artifacts (see how Claude renders interactive artifacts in chat)
 - https://www.reidbarber.com/blog/reverse-engineering-claude-artifacts
 
