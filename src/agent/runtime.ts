@@ -109,6 +109,7 @@ export async function streamAgentTurn(
 
     const assistantContent: Anthropic.ContentBlockParam[] = [];
     const toolUseBlocks = new Map<number, ToolUseAccumulator>();
+    const endedToolIndices = new Set<number>();
     let stopReason: Anthropic.StopReason | null = null;
     let assistantText = '';
 
@@ -138,24 +139,30 @@ export async function streamAgentTurn(
           },
         });
       }
-    } catch (err) {
-      throw err;
+
+      emitCitations(assistantText, ctx, citedPages);
+
+      conversation.push({ role: 'assistant', content: assistantContent });
+
+      if (stopReason !== 'tool_use' || toolUseBlocks.size === 0) {
+        return;
+      }
+
+      const toolResults: Anthropic.ToolResultBlockParam[] = [];
+      for (const [index, acc] of toolUseBlocks) {
+        const result = await runTool(acc, ctx);
+        endedToolIndices.add(index);
+        toolResults.push(result);
+      }
+      conversation.push({ role: 'user', content: toolResults });
+    } finally {
+      for (const [index, acc] of toolUseBlocks) {
+        if (!endedToolIndices.has(index)) {
+          ctx.emit({ type: 'tool_call_end', tool: acc.name, ok: false });
+          endedToolIndices.add(index);
+        }
+      }
     }
-
-    emitCitations(assistantText, ctx, citedPages);
-
-    conversation.push({ role: 'assistant', content: assistantContent });
-
-    if (stopReason !== 'tool_use' || toolUseBlocks.size === 0) {
-      return;
-    }
-
-    const toolResults: Anthropic.ToolResultBlockParam[] = [];
-    for (const [, acc] of toolUseBlocks) {
-      const result = await runTool(acc, ctx);
-      toolResults.push(result);
-    }
-    conversation.push({ role: 'user', content: toolResults });
   }
 }
 

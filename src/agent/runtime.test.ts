@@ -180,20 +180,18 @@ describe('streamAgentTurn', () => {
     expect(calls).toHaveLength(1);
   });
 
-  it('emits an error event when render_artifact receives a bad payload but does not abort', async () => {
+  it('rejects a bad render_artifact payload at the input schema and continues without aborting', async () => {
     const { client } = makeMockClient([
       {
         kind: 'tool_use',
         tool: 'render_artifact',
         input: {
           type: 'polarity',
-          payload: {
-            process: 'TIG',
-            ground_socket: 'Positive',
-            electrode_socket: 'Negative',
-            polarity_name: 'DCXY',
-            source_page: 24,
-          },
+          process: 'TIG',
+          ground_socket: 'Positive',
+          electrode_socket: 'Negative',
+          polarity_name: 'DCXY',
+          source_page: 24,
         },
       },
       { kind: 'text', text: 'Sorry, I had a render hiccup. The TIG polarity is DCEN (p. 24).' },
@@ -206,8 +204,12 @@ describe('streamAgentTurn', () => {
       { client },
     );
 
-    const errors = events.filter((e) => e.type === 'error');
-    expect(errors.length).toBeGreaterThan(0);
+    const end = events.find(
+      (e) => e.type === 'tool_call_end' && e.tool === 'render_artifact',
+    );
+    expect(end).toBeDefined();
+    expect((end as { ok: boolean }).ok).toBe(false);
+    expect(events.some((e) => e.type === 'artifact')).toBe(false);
     expect(events.some((e) => e.type === 'text_delta' && e.delta.includes('hiccup'))).toBe(true);
   });
 
@@ -218,13 +220,11 @@ describe('streamAgentTurn', () => {
         tool: 'render_artifact',
         input: {
           type: 'polarity',
-          payload: {
-            process: 'TIG',
-            ground_socket: 'Positive',
-            electrode_socket: 'Negative',
-            polarity_name: 'DCEN',
-            source_page: 24,
-          },
+          process: 'TIG',
+          ground_socket: 'Positive',
+          electrode_socket: 'Negative',
+          polarity_name: 'DCEN',
+          source_page: 24,
         },
       },
       { kind: 'text', text: 'TIG runs DCEN (p. 24).' },

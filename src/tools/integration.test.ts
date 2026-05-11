@@ -49,19 +49,17 @@ describe('cross-tool grounding', () => {
   it('render_artifact validates a fully-populated settings payload', () => {
     const out = renderArtifact({
       type: 'settings',
-      payload: {
-        process: 'MIG',
-        subprocess: 'solid-core',
-        material: 'mild_steel',
-        thickness_in: 0.125,
-        skill_level: 'moderate',
-        gas_required: true,
-        gas_scfh_min: 20,
-        gas_scfh_max: 30,
-        cleanliness: 'clean_minimal_spatter',
-        applications: ['general fabrication'],
-        source_page: 1,
-      },
+      process: 'MIG',
+      subprocess: 'solid-core',
+      material: 'mild_steel',
+      thickness_in: 0.125,
+      skill_level: 'moderate',
+      gas_required: true,
+      gas_scfh_min: 20,
+      gas_scfh_max: 30,
+      cleanliness: 'clean_minimal_spatter',
+      applications: ['general fabrication'],
+      source_page: 1,
     });
     expect(out.rendered).toBe(true);
     expect(out.artifact.type).toBe('settings');
