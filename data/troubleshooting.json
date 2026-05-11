@@ -1,0 +1,184 @@
+[
+  {
+    "node_id": "porosity_root",
+    "symptom": "Porosity in welds (small cavities or holes in the bead)",
+    "question": "What setup or technique factor is most likely the cause?",
+    "options": [
+      { "label": "Shielding gas (gas-shielded MIG only)", "next": "porosity_gas" },
+      { "label": "Dirty workpiece or contaminated filler", "next": "porosity_workpiece" },
+      { "label": "Travel speed or stickout (CTWD)", "next": "porosity_technique" },
+      { "label": "Polarity may be wrong", "next": "porosity_polarity" }
+    ],
+    "source_pages": [37, 40]
+  },
+  {
+    "node_id": "porosity_gas",
+    "cause": "Insufficient or incorrect shielding gas on gas-shielded MIG: the molten puddle is exposed to atmosphere, trapping nitrogen and oxygen in the bead.",
+    "fixes": [
+      "Increase shielding gas flow to 20-30 SCFH (p. 20)",
+      "Check the regulator gauge and verify the cylinder valve is open",
+      "Inspect gas hose and torch O-rings for leaks; replace damaged seals",
+      "Confirm you are using the correct gas for the wire (e.g. C25 for solid-core mild steel, 100% argon for aluminum)",
+      "Shield the work area from drafts; do not weld in a strong cross-breeze"
+    ],
+    "source_pages": [37, 42]
+  },
+  {
+    "node_id": "porosity_workpiece",
+    "cause": "Surface contamination — oil, paint, rust, mill scale, or moisture — burns out during welding and forms gas pockets in the bead.",
+    "fixes": [
+      "Clean the workpiece down to bare metal with a wire brush or grinder",
+      "Wipe off oils, coatings, and other residues before welding",
+      "Use a wire feed and filler that the manufacturer recommends for your wire type",
+      "Store welding wire indoors to keep it dry"
+    ],
+    "source_pages": [37, 40, 43]
+  },
+  {
+    "node_id": "porosity_technique",
+    "cause": "Travel speed too inconsistent or contact-tip-to-work distance (CTWD) too long; the shielding gas or flux can't keep up with the puddle.",
+    "fixes": [
+      "Maintain a steady travel speed across the joint",
+      "Reduce CTWD: hold the gun so the contact tip is 3/8\" to 1/2\" from the work",
+      "Use a stable two-hand grip or rest the gun hand on the work for steadiness"
+    ],
+    "source_pages": [37]
+  },
+  {
+    "node_id": "porosity_polarity",
+    "cause": "Polarity reversed for the wire type. Solid-core gas-shielded MIG runs DCEP (electrode positive); flux-cored runs DCEN (electrode negative).",
+    "fixes": [
+      "For solid-core MIG: ground clamp into the Negative (−) socket, wire-feed power cable into the Positive (+) socket (p. 14)",
+      "For flux-cored: ground clamp into the Positive (+) socket, wire-feed power cable into the Negative (−) socket (p. 13)",
+      "Verify the polarity diagram on the welder door matches your wire"
+    ],
+    "source_pages": [13, 14, 37]
+  },
+
+  {
+    "node_id": "penetration_root",
+    "symptom": "Inadequate penetration (weld sits on top of the joint instead of fusing into it)",
+    "question": "Which process are you using?",
+    "options": [
+      { "label": "Wire (MIG or flux-cored)", "next": "penetration_wire" },
+      { "label": "Stick (SMAW)", "next": "penetration_stick" },
+      { "label": "TIG", "next": "penetration_tig" }
+    ],
+    "source_pages": [35, 38]
+  },
+  {
+    "node_id": "penetration_wire",
+    "cause": "Not enough heat or filler at the joint: amperage/voltage too low, wire-feed speed too slow, or travel speed too fast.",
+    "fixes": [
+      "Increase output voltage or wire-feed speed",
+      "Slow the travel speed and ensure it stays steady",
+      "Maintain 1/2\" or less contact-tip-to-work distance (CTWD)",
+      "Keep arc on leading edge of weld puddle and hold the MIG gun at the proper angle",
+      "Bevel thick workpieces and allow a small gap before welding to increase fusion area",
+      "Use additional weld passes for thicker material"
+    ],
+    "source_pages": [35, 36]
+  },
+  {
+    "node_id": "penetration_stick",
+    "cause": "Stick current too low, arc length too long, or travel speed too fast for the rod and thickness.",
+    "fixes": [
+      "Increase welding current (within the rod manufacturer's range)",
+      "Shorten arc length: keep the rod close to the work",
+      "Slow travel speed; let the rod and base metal fuse together",
+      "Keep the rod arc on the leading edge of the weld puddle",
+      "Use the correct rod diameter for the thickness — thinner rods for thin stock, thicker for heavy plate"
+    ],
+    "source_pages": [38, 39]
+  },
+  {
+    "node_id": "penetration_tig",
+    "cause": "TIG amperage too low or torch travel too fast; tungsten arc not delivering enough heat to fuse the joint.",
+    "fixes": [
+      "Increase amperage on the foot pedal or panel control",
+      "Slow travel speed and dwell briefly on the joint",
+      "Verify tungsten is sharp and sized correctly for the amperage",
+      "Reduce arc length: hold the tungsten closer to the work"
+    ],
+    "source_pages": [35, 38]
+  },
+
+  {
+    "node_id": "no_function_root",
+    "symptom": "Welder does not function when switched on",
+    "question": "What is the LCD display doing?",
+    "options": [
+      { "label": "Warning screen / thermal protection indicator", "next": "no_function_thermal" },
+      { "label": "LCD is off / no display", "next": "no_function_no_display" },
+      { "label": "LCD is on but the welder will not arc", "next": "no_function_no_arc" }
+    ],
+    "source_pages": [43, 44]
+  },
+  {
+    "node_id": "no_function_thermal",
+    "cause": "Internal thermal-protection device has tripped — the welder shuts down to prevent damage when its duty-cycle limit is exceeded.",
+    "fixes": [
+      "Leave the Power Switch ON and let the cooling fan run; the welder automatically returns to service after cooling",
+      "Reduce duration or frequency of welding periods to stay within the rated duty cycle (p. 7 / p. 19)",
+      "Avoid welding heavy beads in long continuous runs at the rated max amperage"
+    ],
+    "source_pages": [42, 43, 44]
+  },
+  {
+    "node_id": "no_function_no_display",
+    "cause": "The welder is not receiving mains power, or the supply circuit cannot deliver the required current.",
+    "fixes": [
+      "Verify the unit is plugged in and the outlet is powered",
+      "Check the circuit breaker or GFCI for the outlet; reset if tripped",
+      "Confirm the outlet matches the welder's input plug (120 VAC 20 A or 240 VAC) and supplies the required amperage (p. 7 specifications)",
+      "If using an extension cord, make sure it is the proper gauge and length for the welder's input current",
+      "Press the Reset button on the back of the welder if a fault breaker has tripped"
+    ],
+    "source_pages": [43, 44]
+  },
+  {
+    "node_id": "no_function_no_arc",
+    "cause": "Welder is powered but the trigger / electrode circuit isn't completing — bad trigger connection, missing ground clamp, or wrong mode for the connected lead.",
+    "fixes": [
+      "Re-seat the gun-trigger / TIG-foot-pedal connector and tighten the lock ring",
+      "Confirm the ground clamp is firmly attached to clean bare metal on the workpiece",
+      "Verify the LCD process matches the cables you have connected (MIG vs TIG vs Stick)",
+      "Check that the input range you selected on screen is within the welder's specified range (p. 7)"
+    ],
+    "source_pages": [42, 43]
+  },
+
+  {
+    "node_id": "spatter_root",
+    "symptom": "Excessive spatter in welds (large grainy spatter beyond the small fine spatter that is normal)",
+    "question": "Which process is producing the spatter?",
+    "options": [
+      { "label": "Wire (MIG or flux-cored)", "next": "spatter_wire" },
+      { "label": "Stick (SMAW)", "next": "spatter_stick" }
+    ],
+    "source_pages": [37, 40]
+  },
+  {
+    "node_id": "spatter_wire",
+    "cause": "Wire-feed and voltage setup is out of balance, polarity is wrong, contact-tip-to-work distance is too long, or workpiece is dirty.",
+    "fixes": [
+      "Clean the workpiece and welding wire down to bare metal; free it from oil, coatings, residues",
+      "Check polarity against the wire type (DCEP for solid-core, DCEN for flux-cored — p. 13/14)",
+      "Increase shielding gas flow on gas-shielded MIG (20-30 SCFH per p. 20)",
+      "Reduce wire-feed speed",
+      "Shorten contact-tip-to-work distance"
+    ],
+    "source_pages": [37]
+  },
+  {
+    "node_id": "spatter_stick",
+    "cause": "Workpiece or electrode contamination, or current too high for the rod and base metal.",
+    "fixes": [
+      "Clean the workpiece down to bare metal; ensure rods are dry and uncontaminated",
+      "Use a rod appropriate for the base metal alloy",
+      "Reduce welding current if it is at the top of the rod's range",
+      "Maintain steady arc length"
+    ],
+    "source_pages": [40]
+  }
+]
