@@ -1,0 +1,183 @@
+Sa
+F
+ety
+ 
+Welding
+ 
+t
+ip
+S
+tig
+ 
+/ Stick
+c
+O
+nt
+RO
+l
+S
+ 
+Wi
+R
+e
+ 
+M
+aintenance
+
+Wire Weld Penetration (Workpiece Heat Control)
+
+eXceSS penetRatiOn OR
+
+BURn-tHROUgH
+
+Weld droops on top and
+
+underneath, or falls through
+
+entirely, making a hole.
+
+pROpeR penetRatiOn
+
+Weld is visible underneath and
+
+bulges slightly on top.
+
+inadeQUate penetRatiOn
+
+Weld does not penetrate the
+
+joint fully, just on the surface.
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+1. Workpiece overheating:
+
+Reduce wire feed speed.
+
+Decrease weld current.
+
+2. travel speed too slow:
+
+Increase travel speed and ensure
+
+that travel speed is kept steady.
+
+3. excessive material at weld:
+
+Reduce wire feed speed.
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+4. incorrect welding technique:
+
+Maintain 1/2" or less CTWD.
+
+Keep arc on leading edge of weld puddle.
+
+Hold MIG Gun at proper angles.
+
+5. insufficient weld heat:
+
+Reduce travel speed.
+
+Increase weld current.
+
+6. Workpieces too thick/close:
+
+Bevel thick workpieces, allow slight
+
+gap, and weld in several passes.
+
+7. insufficient weld material:
+
+Increase wire feed speed.
+
+PROFILE VIEWS
+
+Weld not adhering properly
+
+gaps present between weld and previous bead or
+
+between weld and workpiece. See areas below.
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+1. incorrect welding technique:
+
+Place stringer bead at correct place in joint.
+
+Adjust workpiece position or weld angle to permit
+
+proper welding to bottom of piece.
+
+Pause briefly at sides during weave bead.
+
+Keep arc on leading edge of weld puddle.
+
+Hold MIG Gun at proper angles.
+
+2. insufficient weld heat:
+
+Increase current.
+
+Increase wire feed speed.
+
+3. dirty workpiece:
+
+Clean workpiece down to bare metal.
+
+4. insufficient weld material:
+
+Increase wire feed speed.
+
+5. Workpiece gap too narrow:
+
+Widen groove or increase bevel.
+
+PROFILE
+
+VIEW
+
+Bend at Joint
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+1. improper clamping:
+
+Clamp workpieces securely.
+
+Make tack welds to hold workpieces.
+
+2. excessive heat:
+
+Weld a small portion and allow to cool before
+
+proceeding.
+
+Increase travel speed.
+
+Reduce wire feed speed.
+
+PROFILE
+
+VIEW
+
+coat of Slag Over Weld
+
+Slag is a necessary part of a flux-cored wire
+
+weld. it shields the weld from impurities.
+
+clean off the slag with a chipping Hammer
+
+and Wire Brush after welding.
+
+gas-shielded Mig welds are protected by the
+
+shielding gas and do not need slag to protect them.
+
+TOP
+
+VIEW
+
+PARTIALLY CHIPPED AWAY TO SHOW WELD

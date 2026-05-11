@@ -1,0 +1,187 @@
+Sa
+F
+ety
+Welding
+ 
+t
+ip
+S
+M
+aintenance
+ 
+tig
+ 
+/ Stick
+ 
+c
+O
+nt
+RO
+l
+S
+Wi
+R
+e
+
+note: If Welder is used too long, a
+
+warning screen appears in the LCD
+
+Display window and the unit automatically
+
+shuts down. The Welder automatically
+
+returns to service after cooling off.
+
+Should this occur, rest the MIG Gun
+
+on an electrically non-conductive,
+
+heat-proof surface, such as a concrete
+
+slab, away from the ground clamp.
+
+allow the Welder to cool with the
+
+power Switch on, so that the internal
+
+Fan will help cool the Welder.
+
+When normal operation resumes, use
+
+shorter welding periods and longer rest
+
+periods to help prevent needless wear.
+
+7. After welding the test weld on a piece
+
+of scrap for a few seconds, stop, and
+
+check your progress. Clean, then compare
+
+your weld’s appearance with the diagrams
+
+and descriptions in the Welding tips section
+
+starting on the next page. After making any
+
+necessary adjustments, continue to weld
+
+while carefully following the DUTY CYCLE
+
+guidelines as explained on page 19.
+
+caUtiOn! Weld will be hot, do not touch.
+
+8. When welding is complete, set the Mig
+
+gun down on a heat-proof, electrically
+
+non-conductive surface.
+
+Turn the Power Switch OFF.
+
+9. Allow Welder to cool down, then
+
+unplug the Power Cord.
+
+10. Remove Ground Clamp from workpiece
+
+or table and disconnect MIG Gun.
+
+11. Respool wire by clipping wire, removing gas
+
+nozzle/contact tip on MIG gun, releasing Idler
+
+Arm on Wire Feed mechanism, and rotating
+
+the Wire Spool counterclockwise. Be sure
+
+to securely hold wire as it is being respooled
+
+because the end of wire has a tendency to
+
+quickly unravel once it clears the wire feeder.
+
+12. Mig Only:
+
+close shielding gas cylinder valve
+
+securely. Remove Regulator and
+
+replace cap. Disconnect Gas Hose from
+
+Welder. Store and secure gas cylinder.
+
+®
+
+power
+
+Switch
+
+lcd
+
+display 
+Warning
+
+Screen
+
+120 VAC
+
+40% Use at 100 A
+
+For 10 continuous Minutes
+
+100% Continuous Use at 75 A
+
+44
+
+MinutesMinutes
+
+WeldingWelding
+
+66
+
+MinutesMinutes
+
+RestingResting
+
+240 VAC
+
+25% Use at 200 A
+
+For 10 continuous Minutes
+
+100% Continuous Use at 115 A
+
+2-1/22-1/2
+
+MinutesMinutes
+
+WeldingWelding
+
+7-1/27-1/2
+
+MinutesMinutes
+
+RestingResting
+
+after practice welding for a few seconds,
+
+StOp and examine your weld using the
+
+guidelines starting on the next page.
+
+FOllOW dUty cycle!
+
+Mig gun
+
+concrete slab
+
+(or other heat-proof,
+
+non-conductive surface)
+
+power
+
+Switch

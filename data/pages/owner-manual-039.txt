@@ -1,0 +1,150 @@
+Sa
+F
+ety
+Welding
+ 
+t
+ip
+S
+M
+aintenance
+ 
+tig
+ 
+/ Stick
+ 
+c
+O
+nt
+RO
+l
+S
+Wi
+R
+e
+
+Stick Weld Penetration (Workpiece Heat Control)
+
+eXceSS penetRatiOn OR
+
+BURn-tHROUgH
+
+Weld droops on top and
+
+underneath or falls through
+
+entirely, making a hole.
+
+pROpeR penetRatiOn
+
+Weld is visible underneath and
+
+bulges slightly on top.
+
+inadeQUate penetRatiOn
+
+Weld does not contact the joint
+
+fully, just on the surface.
+
+PROFILE VIEWS
+
+pOSSiBle caUSeS and SOlUtiOnS FOR
+
+eXceSS penetRatiOn OR BURn-tHROUgH
+
+1. Workpiece overheating:
+
+Reduce current.
+
+2. Welding speed too slow:
+
+Increase welding speed and ensure
+
+that welding speed is kept steady.
+
+pOSSiBle caUSeS and SOlUtiOnS FOR
+
+inadeQUate penetRatiOn
+
+1. incorrect welding technique:
+
+Keep arc on leading edge of weld puddle.
+
+Hold torch at proper angles.
+
+2. insufficient weld heat:
+
+Slow down so fill material has time to melt
+
+into the weld location. Increase current.
+
+3. Workpieces too thick/close:
+
+Bevel thick workpieces, allow slight
+
+gap, and weld in several passes.
+
+4. insufficient weld material:
+
+Increase amount of fill material.
+
+Stick Weld – Weld Not Adhering Properly
+
+gaps present between weld and previous bead or between weld and workpiece. See areas below.
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+PROFILE
+
+VIEW
+
+1. incorrect welding technique:
+
+Place stringer bead at correct place in joint.
+
+Adjust workpiece position or weld angle to permit
+
+proper welding to bottom of piece.
+
+Keep arc on leading edge of weld puddle.
+
+Hold Electrode and fill material at proper angles.
+
+2. insufficient weld heat:
+
+Increase current.
+
+3. dirty workpiece:
+
+Clean workpiece down to bare metal.
+
+4. insufficient weld material:
+
+Increase amount of fill material.
+
+5. distance between workpieces to large:
+
+Decrease distance and increase bevel.
+
+Stick Weld – Bend at Joint
+
+pOSSiBle caUSeS and SOlUtiOnS
+
+PROFILE
+
+VIEW
+
+1. improper clamping:
+
+Clamp workpieces securely.
+
+Make tack welds to hold workpieces.
+
+2. excessive heat:
+
+Weld a small portion and allow to cool before
+
+proceeding.
+
+Increase weld speed.
