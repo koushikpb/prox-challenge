@@ -55,6 +55,18 @@ describe('POST /api/chat', () => {
     expect(runtimeMock.streamAgentTurn).not.toHaveBeenCalled();
   });
 
+  it('leads the live-agent stream with a synthetic thinking chip so the first event lands sub-500 ms', async () => {
+    process.env.ANTHROPIC_API_KEY = 'test-key';
+    runtimeMock.streamAgentTurn.mockImplementation(async () => {
+      /* no-op — only the synthetic preface should appear */
+    });
+    const req = makeRequest({ messages: [{ role: 'user', content: 'hi' }] });
+    const events = await collect(await POST(req));
+    expect(events[0]).toEqual({ type: 'tool_call_start', tool: 'thinking' });
+    expect(events[1]).toEqual({ type: 'tool_call_end', tool: 'thinking', ok: true });
+    expect(events.at(-1)?.type).toBe('done');
+  });
+
   it('returns error + done when the body fails schema validation', async () => {
     process.env.ANTHROPIC_API_KEY = 'test-key';
     const req = makeRequest({ messages: [] });

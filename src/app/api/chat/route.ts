@@ -72,6 +72,10 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   return streamResponse(
     async (ctx) => {
+      // Synthetic preface so the first SSE byte lands well under 500 ms while
+      // the agent loop's slower lookup → render round trips run behind it.
+      ctx.emit({ type: 'tool_call_start', tool: 'thinking' });
+      ctx.emit({ type: 'tool_call_end', tool: 'thinking', ok: true });
       await streamAgentTurn(
         { messages: parsed.data.messages, ...(parsed.data.session_id ? { sessionId: parsed.data.session_id } : {}) },
         ctx,
