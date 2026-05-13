@@ -137,18 +137,6 @@ function applyEvent(
       return;
     case 'tool_call_start':
       update(id, (draft) => {
-        const existingIdx = draft.toolCalls.findIndex(
-          (c) => c.tool === event.tool && c.status === 'pending',
-        );
-        if (existingIdx !== -1) {
-          const calls = [...draft.toolCalls];
-          const existing = calls[existingIdx]!;
-          calls[existingIdx] = {
-            ...existing,
-            argsPreview: event.args_preview ?? existing.argsPreview,
-          };
-          return { ...draft, toolCalls: calls };
-        }
         const record: ToolCallRecord = {
           id: nextId('t'),
           tool: event.tool,

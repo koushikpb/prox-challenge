@@ -144,15 +144,16 @@ describe('streamAgentTurn', () => {
       { client },
     );
 
-    const toolStart = events.find(
+    const toolStarts = events.filter(
       (e) => e.type === 'tool_call_start' && e.tool === 'lookup_duty_cycle',
     );
-    const toolEnd = events.find(
+    const toolEnds = events.filter(
       (e) => e.type === 'tool_call_end' && e.tool === 'lookup_duty_cycle',
     );
-    expect(toolStart).toBeDefined();
-    expect(toolEnd).toBeDefined();
-    expect((toolEnd as { ok: boolean }).ok).toBe(true);
+    expect(toolStarts).toHaveLength(1);
+    expect(toolEnds).toHaveLength(1);
+    expect((toolStarts[0] as { args_preview?: string }).args_preview).toBeDefined();
+    expect((toolEnds[0] as { ok: boolean }).ok).toBe(true);
     expect(events.some((e) => e.type === 'citation' && e.page === 7)).toBe(true);
   });
 

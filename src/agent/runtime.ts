@@ -193,10 +193,6 @@ async function handleStreamEvent(
           input: {},
         };
         toolUseBlocks.set(event.index, { id: block.id, name: block.name, raw: '' });
-        ctx.emit({
-          type: 'tool_call_start',
-          tool: block.name,
-        });
       }
       return;
     }
