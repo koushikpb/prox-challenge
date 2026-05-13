@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { SlidersHorizontalIcon } from 'lucide-react';
 
-import type { SettingsArtifactPayload } from '@/streaming';
+import type { ManualSource, SettingsArtifactPayload } from '@/streaming';
 
+import { ArtifactCard, ArtifactRows } from './ArtifactCard';
 import { loadJson } from './lib/loadJson';
 
 type SettingsTableRow = {
@@ -28,7 +30,7 @@ type SettingsTableRow = {
 };
 
 const SYNERGIC_NOTE =
-  'The welder computes A/V on-screen from wire diameter + thickness — see the LCD (p. 20).';
+  'OmniPro 220 is synergic auto-weld — the welder computes A/V on-screen from wire diameter + thickness — see the LCD (p. 20).';
 
 const PROCESS_OPTIONS = ['MIG', 'TIG', 'Stick'] as const;
 const SKILL_LABEL: Record<'low' | 'moderate' | 'high', string> = {
@@ -42,9 +44,15 @@ const CLEANLINESS_LABEL: Record<NonNullable<SettingsTableRow['cleanliness']>, st
   more_spatter: 'Heavier spatter — expect cleanup',
 };
 
-type SettingsConfiguratorArtifactProps = { payload: SettingsArtifactPayload };
+type SettingsConfiguratorArtifactProps = {
+  payload: SettingsArtifactPayload;
+  onOpenPage?: (page: number, source: ManualSource) => void;
+};
 
-export function SettingsConfiguratorArtifact({ payload }: SettingsConfiguratorArtifactProps) {
+export function SettingsConfiguratorArtifact({
+  payload,
+  onOpenPage,
+}: SettingsConfiguratorArtifactProps) {
   const [process, setProcess] = useState<'MIG' | 'TIG' | 'Stick'>(payload.process);
   const [material, setMaterial] = useState<string>(payload.material);
   const [thickness, setThickness] = useState<number>(payload.thickness_in);
@@ -89,55 +97,102 @@ export function SettingsConfiguratorArtifact({ payload }: SettingsConfiguratorAr
   }, [table, matchedRows, process, material, thickness]);
 
   const fallbackRow = useMemo<SettingsTableRow>(() => payloadAsRow(payload), [payload]);
-  const renderRows = matchedRows.length > 0 ? matchedRows : nearestRows.length > 0 ? nearestRows : [fallbackRow];
+  const renderRow =
+    matchedRows[0] ?? nearestRows[0] ?? fallbackRow;
   const isOutOfRange = matchedRows.length === 0 && nearestRows.length > 0;
 
-  return (
-    <section
-      className="space-y-3 rounded-lg border bg-card p-3 text-card-foreground shadow-sm"
-      data-slot="artifact"
-      data-artifact-type="settings"
-    >
-      <header className="flex items-baseline justify-between">
-        <h3 className="font-heading text-sm font-semibold">Settings recommendation</h3>
-        <span className="text-xs text-muted-foreground">
-          {process} · {formatMaterial(material)}
-        </span>
-      </header>
+  const useSelectionChart = renderRow.source === 'selection-chart';
+  const heroSrc = useSelectionChart
+    ? '/data/regions/selection_chart.png'
+    : '/data/regions/lcd_synergic_display.png';
+  const heroAlt = useSelectionChart
+    ? 'Welder selection chart cross-referencing process, materials, and thickness ranges'
+    : 'OmniPro 220 Auto Weld synergic display showing computed amperage and voltage';
+  const footerSource: ManualSource = renderRow.source === 'selection-chart' ? 'selection-chart' : 'owner-manual';
+  const footerPage = renderRow.source_page;
 
-      <div className="grid grid-cols-3 gap-2">
+  const rows = useMemo<Array<{ label: string; value: string }>>(() => {
+    const out: Array<{ label: string; value: string }> = [];
+    out.push({
+      label: 'Process',
+      value:
+        renderRow.process + (renderRow.subprocess ? ` · ${renderRow.subprocess}` : ''),
+    });
+    out.push({ label: 'Material', value: formatMaterial(renderRow.material) });
+    if (renderRow.thickness_in !== undefined) {
+      out.push({ label: 'Thickness', value: `${renderRow.thickness_in} in` });
+    } else if (
+      renderRow.thickness_min_in !== undefined &&
+      renderRow.thickness_max_in !== undefined
+    ) {
+      out.push({
+        label: 'Thickness',
+        value: `${renderRow.thickness_min_in}–${renderRow.thickness_max_in} in`,
+      });
+    }
+    out.push({
+      label: 'Gas',
+      value: renderRow.gas_required
+        ? renderRow.gas_scfh_min && renderRow.gas_scfh_max
+          ? `Required · ${renderRow.gas_scfh_min}–${renderRow.gas_scfh_max} SCFH`
+          : 'Required'
+        : 'None (self-shielded)',
+    });
+    if (renderRow.skill_level) out.push({ label: 'Skill', value: SKILL_LABEL[renderRow.skill_level] });
+    if (renderRow.cleanliness)
+      out.push({ label: 'Cleanliness', value: CLEANLINESS_LABEL[renderRow.cleanliness] });
+    if (renderRow.wfs_ipm !== undefined)
+      out.push({ label: 'WFS', value: `${renderRow.wfs_ipm} ipm` });
+    if (renderRow.voltage !== undefined) out.push({ label: 'Voltage', value: `${renderRow.voltage} V` });
+    return out;
+  }, [renderRow]);
+
+  return (
+    <ArtifactCard
+      type="settings"
+      tagLabel="Settings"
+      tagIcon={SlidersHorizontalIcon}
+      pageBadge={`page ${footerPage}`}
+      hero={{ src: heroSrc, alt: heroAlt }}
+      title={`${process} · ${formatMaterial(material)}`}
+      subtitle="Auto Weld synergic display"
+      footer={{ source: footerSource, page: footerPage, onOpenPage }}
+    >
+      <div className="mt-3 grid grid-cols-3 gap-2">
         <label className="flex flex-col gap-1 text-xs">
-          <span className="text-muted-foreground">Process</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.14em] text-zinc-500">Process</span>
           <select
             value={process}
             onChange={(e) => setProcess(e.target.value as 'MIG' | 'TIG' | 'Stick')}
-            className="rounded-md border bg-background px-2 py-1 text-sm"
+            className="rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 text-sm text-zinc-100 focus:border-white/30 focus:outline-none"
             aria-label="Process"
           >
             {PROCESS_OPTIONS.map((p) => (
-              <option key={p} value={p}>
+              <option key={p} value={p} className="bg-zinc-900">
                 {p}
               </option>
             ))}
           </select>
         </label>
         <label className="flex flex-col gap-1 text-xs">
-          <span className="text-muted-foreground">Material</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.14em] text-zinc-500">Material</span>
           <select
             value={material}
             onChange={(e) => setMaterial(e.target.value)}
-            className="rounded-md border bg-background px-2 py-1 text-sm"
+            className="rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 text-sm text-zinc-100 focus:border-white/30 focus:outline-none"
             aria-label="Material"
           >
             {materials.map((m) => (
-              <option key={m} value={m}>
+              <option key={m} value={m} className="bg-zinc-900">
                 {formatMaterial(m)}
               </option>
             ))}
           </select>
         </label>
         <label className="flex flex-col gap-1 text-xs">
-          <span className="text-muted-foreground">Thickness (in)</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.14em] text-zinc-500">
+            Thickness (in)
+          </span>
           <input
             type="number"
             value={thickness}
@@ -145,78 +200,48 @@ export function SettingsConfiguratorArtifact({ payload }: SettingsConfiguratorAr
             max={1}
             step={0.01}
             onChange={(e) => setThickness(Number(e.target.value) || 0)}
-            className="rounded-md border bg-background px-2 py-1 text-sm"
+            className="rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 text-sm text-zinc-100 focus:border-white/30 focus:outline-none"
             aria-label="Thickness in inches"
           />
         </label>
       </div>
 
       {isOutOfRange && (
-        <p className="rounded-md border border-amber-300 bg-amber-50 px-2 py-1 text-[0.7rem] text-amber-900 dark:border-amber-700 dark:bg-amber-950/40 dark:text-amber-100">
-          {thickness} in. is outside the published ranges for {formatMaterial(material)} on {process}. Showing the nearest recommendation.
+        <p className="mt-3 rounded-lg border border-amber-400/30 bg-amber-400/[0.06] px-2 py-1 text-[0.7rem] text-amber-200">
+          {thickness} in. is outside the published ranges for {formatMaterial(material)} on{' '}
+          {process}. Showing the nearest recommendation.
         </p>
       )}
 
-      <div className="space-y-3">
-        {renderRows.map((row, idx) => (
-          <SettingsRow key={`${row.source}-${row.source_page}-${idx}`} row={row} />
-        ))}
-      </div>
+      <ArtifactRows rows={rows} />
 
-      <p className="rounded-md bg-secondary/60 px-2 py-1 text-[0.7rem] text-secondary-foreground">
-        {SYNERGIC_NOTE}
-      </p>
+      {renderRow.applications && renderRow.applications.length > 0 && (
+        <p className="mt-2 text-xs text-zinc-400">
+          <span className="text-zinc-500">Applications · </span>
+          {renderRow.applications.slice(0, 3).join('; ')}
+          {renderRow.applications.length > 3 ? '…' : ''}
+        </p>
+      )}
 
-      <footer className="flex items-center justify-between text-[0.7rem] text-muted-foreground">
-        <span>p. {renderRows[0]?.source_page ?? payload.source_page}</span>
-        {tableError && <span className="text-destructive">Interactive match unavailable</span>}
-      </footer>
-    </section>
-  );
-}
-
-function SettingsRow({ row }: { row: SettingsTableRow }) {
-  const hasNumeric = row.wfs_ipm !== undefined || row.voltage !== undefined;
-  return (
-    <div className="space-y-1.5 rounded-md border bg-muted/30 p-2">
-      <div className="flex flex-wrap items-center gap-1.5 text-xs">
-        <span className="rounded bg-primary/10 px-1.5 py-0.5 font-medium text-primary">
-          {row.process}
-          {row.subprocess ? ` · ${row.subprocess}` : ''}
-        </span>
-        {row.skill_level && (
-          <span className="text-muted-foreground">{SKILL_LABEL[row.skill_level]}</span>
-        )}
-      </div>
-      <ul className="ml-3 list-disc space-y-0.5 text-xs">
-        <li>
-          Gas:{' '}
-          {row.gas_required
-            ? row.gas_scfh_min && row.gas_scfh_max
-              ? `required, ${row.gas_scfh_min}–${row.gas_scfh_max} SCFH`
-              : 'required'
-            : 'none (self-shielded)'}
-        </li>
-        {row.cleanliness && <li>{CLEANLINESS_LABEL[row.cleanliness]}</li>}
-        {row.applications && row.applications.length > 0 && (
-          <li>
-            Applications: {row.applications.slice(0, 3).join('; ')}
-            {row.applications.length > 3 ? '…' : ''}
-          </li>
-        )}
-        {row.notes && <li className="text-muted-foreground">{row.notes}</li>}
-      </ul>
-      {hasNumeric && (
-        <div className="rounded border border-dashed bg-background px-2 py-1 text-[0.7rem]">
-          <div className="text-muted-foreground">Owner-manual numerical values:</div>
-          <div className="font-mono">
-            {row.wfs_ipm !== undefined && <span>WFS {row.wfs_ipm} ipm</span>}
-            {row.wfs_ipm !== undefined && row.voltage !== undefined && ' · '}
-            {row.voltage !== undefined && <span>{row.voltage} V</span>}
+      {(renderRow.wfs_ipm !== undefined || renderRow.voltage !== undefined) && (
+        <div className="mt-2 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-[0.7rem]">
+          <div className="text-[0.6rem] uppercase tracking-[0.14em] text-zinc-500">
+            Owner-manual numerical values
+          </div>
+          <div className="mt-1 font-mono text-zinc-200">
+            {renderRow.wfs_ipm !== undefined && <span>WFS {renderRow.wfs_ipm} ipm</span>}
+            {renderRow.wfs_ipm !== undefined && renderRow.voltage !== undefined && ' · '}
+            {renderRow.voltage !== undefined && <span>{renderRow.voltage} V</span>}
           </div>
         </div>
       )}
-    </div>
+
+      <p className="mt-3 text-[0.7rem] leading-relaxed text-zinc-500">{SYNERGIC_NOTE}</p>
+
+      {tableError && (
+        <p className="mt-2 text-[0.65rem] text-red-300">Interactive match unavailable</p>
+      )}
+    </ArtifactCard>
   );
 }
 

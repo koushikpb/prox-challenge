@@ -1,6 +1,6 @@
 'use client';
 
-import type { ArtifactPayload } from '@/streaming';
+import type { ArtifactPayload, ManualSource } from '@/streaming';
 
 import { DutyCycleArtifact } from './DutyCycleArtifact';
 import { PolarityArtifact } from './PolarityArtifact';
@@ -8,8 +8,14 @@ import { SettingsConfiguratorArtifact } from './SettingsConfiguratorArtifact';
 import { TroubleshootingArtifact } from './TroubleshootingArtifact';
 
 export { DutyCycleArtifact, PolarityArtifact, SettingsConfiguratorArtifact, TroubleshootingArtifact };
+export { ArtifactCard, ArtifactRows } from './ArtifactCard';
 
-type RegistryComponent<P extends ArtifactPayload> = (props: { payload: P }) => React.ReactElement;
+type OpenPage = (page: number, source: ManualSource) => void;
+
+type RegistryComponent<P extends ArtifactPayload> = (props: {
+  payload: P;
+  onOpenPage?: OpenPage;
+}) => React.ReactElement;
 
 export const artifactRegistry = {
   duty_cycle: DutyCycleArtifact,
@@ -20,15 +26,21 @@ export const artifactRegistry = {
   [K in ArtifactPayload['type']]: RegistryComponent<Extract<ArtifactPayload, { type: K }>>;
 };
 
-export function RenderArtifact({ payload }: { payload: ArtifactPayload }) {
+export function RenderArtifact({
+  payload,
+  onOpenPage,
+}: {
+  payload: ArtifactPayload;
+  onOpenPage?: OpenPage;
+}) {
   switch (payload.type) {
     case 'duty_cycle':
-      return <DutyCycleArtifact payload={payload} />;
+      return <DutyCycleArtifact payload={payload} onOpenPage={onOpenPage} />;
     case 'polarity':
-      return <PolarityArtifact payload={payload} />;
+      return <PolarityArtifact payload={payload} onOpenPage={onOpenPage} />;
     case 'settings':
-      return <SettingsConfiguratorArtifact payload={payload} />;
+      return <SettingsConfiguratorArtifact payload={payload} onOpenPage={onOpenPage} />;
     case 'troubleshoot':
-      return <TroubleshootingArtifact payload={payload} />;
+      return <TroubleshootingArtifact payload={payload} onOpenPage={onOpenPage} />;
   }
 }
