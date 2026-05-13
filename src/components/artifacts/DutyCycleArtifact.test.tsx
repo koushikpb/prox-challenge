@@ -9,6 +9,20 @@ describe('DutyCycleArtifact', () => {
     const html = renderToStaticMarkup(<DutyCycleArtifact payload={dutyCycleFixture} />);
     expect(html).toMatchSnapshot();
   });
+
+  it('shows the duty-cycle specifications region as the card hero', () => {
+    const html = renderToStaticMarkup(<DutyCycleArtifact payload={dutyCycleFixture} />);
+    expect(html).toContain('data-slot="artifact-hero"');
+    expect(html).toContain('duty_cycle_specifications.png');
+  });
+
+  it('renders the artifact chrome — tag and footer source pill', () => {
+    const html = renderToStaticMarkup(<DutyCycleArtifact payload={dutyCycleFixture} />);
+    expect(html).toContain('data-slot="artifact-tag"');
+    expect(html).toContain('data-slot="artifact-footer"');
+    expect(html).toContain('data-slot="artifact-source-pill"');
+    expect(html).toContain('Owner manual');
+  });
 });
 
 describe('computeBand', () => {

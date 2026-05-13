@@ -1,69 +1,94 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { ZapIcon } from 'lucide-react';
 
-import type { PolarityArtifactPayload } from '@/streaming';
+import type { ManualSource, PolarityArtifactPayload } from '@/streaming';
 import { cn } from '@/lib/utils';
+
+import { ArtifactCard, ArtifactRows } from './ArtifactCard';
 
 type PolarityProcess = PolarityArtifactPayload['process'];
 
 type PolarityModel = {
   process: PolarityProcess;
   label: string;
+  tabLabel: string;
   electrode_label: string;
   ground_socket: 'Positive' | 'Negative';
   electrode_socket: 'Positive' | 'Negative';
   polarity_name: 'DCEP' | 'DCEN';
   source_page: number;
   hint: string;
+  region_image: string;
+  caption: string;
 };
 
 const MODEL: ReadonlyArray<PolarityModel> = [
   {
-    process: 'MIG_solid',
-    label: 'MIG (solid-core, gas)',
-    electrode_label: 'Wire-feed cable',
-    ground_socket: 'Negative',
-    electrode_socket: 'Positive',
-    polarity_name: 'DCEP',
-    source_page: 14,
-    hint: 'Gas-shielded solid wire',
-  },
-  {
-    process: 'MIG_flux',
-    label: 'MIG (flux-cored)',
-    electrode_label: 'Wire-feed cable',
-    ground_socket: 'Positive',
-    electrode_socket: 'Negative',
-    polarity_name: 'DCEN',
-    source_page: 13,
-    hint: 'Self-shielded flux core',
-  },
-  {
-    process: 'TIG',
-    label: 'TIG',
-    electrode_label: 'TIG torch cable',
-    ground_socket: 'Positive',
-    electrode_socket: 'Negative',
-    polarity_name: 'DCEN',
-    source_page: 24,
-    hint: 'Steel / stainless / chrome-moly',
-  },
-  {
     process: 'Stick',
     label: 'Stick (SMAW)',
+    tabLabel: 'Stick',
     electrode_label: 'Electrode holder cable',
     ground_socket: 'Negative',
     electrode_socket: 'Positive',
     polarity_name: 'DCEP',
     source_page: 27,
-    hint: 'Most rods — check rod spec',
+    hint: 'Most rods run DCEP — always check the electrode spec.',
+    region_image: '/data/regions/polarity_Stick.png',
+    caption:
+      'Stick (SMAW) is set up DCEP per the manual: ground clamp into Negative (−), electrode holder into Positive (+). (p. 27)',
+  },
+  {
+    process: 'TIG',
+    label: 'TIG',
+    tabLabel: 'TIG',
+    electrode_label: 'TIG torch cable',
+    ground_socket: 'Positive',
+    electrode_socket: 'Negative',
+    polarity_name: 'DCEN',
+    source_page: 24,
+    hint: 'Steel / stainless / chrome-moly — TIG runs DCEN.',
+    region_image: '/data/regions/polarity_TIG.png',
+    caption:
+      'TIG runs DCEN: ground clamp into Positive (+), TIG torch into Negative (−). (p. 24)',
+  },
+  {
+    process: 'MIG_solid',
+    label: 'MIG · solid-core (gas-shielded)',
+    tabLabel: 'Solid-core MIG',
+    electrode_label: 'Wire-feed cable',
+    ground_socket: 'Negative',
+    electrode_socket: 'Positive',
+    polarity_name: 'DCEP',
+    source_page: 14,
+    hint: 'Gas-shielded solid wire — DCEP.',
+    region_image: '/data/regions/polarity_DCEP_solid_core.png',
+    caption:
+      'Solid-core (gas-shielded) MIG runs DCEP: ground into Negative (−), wire-feed into Positive (+). (p. 14)',
+  },
+  {
+    process: 'MIG_flux',
+    label: 'MIG · flux-cored (gasless)',
+    tabLabel: 'Flux-cored MIG',
+    electrode_label: 'Wire-feed cable',
+    ground_socket: 'Positive',
+    electrode_socket: 'Negative',
+    polarity_name: 'DCEN',
+    source_page: 13,
+    hint: 'Self-shielded flux-cored wire — DCEN.',
+    region_image: '/data/regions/polarity_DCEN_flux_cored.png',
+    caption:
+      'Flux-cored (gasless) MIG runs DCEN: ground into Positive (+), wire-feed into Negative (−). (p. 13)',
   },
 ];
 
-type PolarityArtifactProps = { payload: PolarityArtifactPayload };
+type PolarityArtifactProps = {
+  payload: PolarityArtifactPayload;
+  onOpenPage?: (page: number, source: ManualSource) => void;
+};
 
-export function PolarityArtifact({ payload }: PolarityArtifactProps) {
+export function PolarityArtifact({ payload, onOpenPage }: PolarityArtifactProps) {
   const [process, setProcess] = useState<PolarityProcess>(payload.process);
 
   const current = useMemo<PolarityModel>(() => {
@@ -72,175 +97,83 @@ export function PolarityArtifact({ payload }: PolarityArtifactProps) {
     return {
       process: payload.process,
       label: payload.process,
+      tabLabel: payload.process,
       electrode_label: 'Electrode cable',
       ground_socket: payload.ground_socket,
       electrode_socket: payload.electrode_socket,
       polarity_name: payload.polarity_name,
       source_page: payload.source_page,
       hint: '',
+      region_image: '/data/regions/polarity_DCEP_solid_core.png',
+      caption: '',
     };
   }, [process, payload]);
 
   return (
-    <section
-      className="space-y-3 rounded-lg border bg-card p-3 text-card-foreground shadow-sm"
-      data-slot="artifact"
-      data-artifact-type="polarity"
+    <ArtifactCard
+      type="polarity"
+      tagLabel="Polarity"
+      tagIcon={ZapIcon}
+      pageBadge={`page ${current.source_page}`}
+      hero={{ src: current.region_image, alt: `${current.label} polarity diagram` }}
+      title={current.label}
+      subtitle={current.hint}
+      safetyNote="Unplug the welder before changing cable polarity."
+      footer={{ source: 'owner-manual', page: current.source_page, onOpenPage }}
     >
-      <header className="flex items-baseline justify-between gap-2">
-        <h3 className="font-heading text-sm font-semibold">Polarity wiring</h3>
-        <span
-          className={cn(
-            'inline-flex rounded-full px-2 py-0.5 text-[0.7rem] font-semibold',
-            current.polarity_name === 'DCEP'
-              ? 'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200'
-              : 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-200',
-          )}
-        >
-          {current.polarity_name}
-        </span>
-      </header>
-
-      <p className="rounded-md border border-amber-300 bg-amber-50 px-2 py-1 text-[0.7rem] text-amber-900 dark:border-amber-700 dark:bg-amber-950/40 dark:text-amber-100">
-        Unplug the welder before swapping cables between sockets.
-      </p>
-
-      <div role="tablist" aria-label="Process" className="flex flex-wrap gap-1">
-        {MODEL.map((m) => (
-          <button
-            key={m.process}
-            type="button"
-            role="tab"
-            aria-selected={process === m.process}
-            onClick={() => setProcess(m.process)}
-            className={cn(
-              'rounded-full border px-2 py-0.5 text-[0.7rem] font-medium transition-colors',
-              process === m.process
-                ? 'border-primary bg-primary text-primary-foreground'
-                : 'border-border bg-background text-muted-foreground hover:text-foreground',
-            )}
-          >
-            {m.label}
-          </button>
-        ))}
+      <div
+        role="tablist"
+        aria-label="Process"
+        className="-mx-1 mt-3 flex flex-wrap gap-1.5"
+        data-slot="polarity-tabs"
+      >
+        {MODEL.map((m) => {
+          const active = process === m.process;
+          return (
+            <button
+              key={m.process}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              onClick={() => setProcess(m.process)}
+              className={cn(
+                'rounded-full border px-3 py-1 text-[0.7rem] font-medium transition-colors',
+                active
+                  ? 'border-white/30 bg-white text-zinc-900'
+                  : 'border-white/10 bg-white/[0.04] text-zinc-300 hover:border-white/20 hover:text-white',
+              )}
+              data-slot="polarity-tab"
+              data-process={m.process}
+            >
+              {m.tabLabel}
+            </button>
+          );
+        })}
       </div>
 
-      <PolaritySVG model={current} />
+      <p className="mt-3 text-xs leading-relaxed text-zinc-400">{current.caption}</p>
 
-      <p className="text-xs text-muted-foreground">{current.hint}</p>
-
-      <footer className="text-[0.7rem] text-muted-foreground">p. {current.source_page}</footer>
-    </section>
-  );
-}
-
-function PolaritySVG({ model }: { model: PolarityModel }) {
-  const groundColor = model.ground_socket === 'Positive' ? '#dc2626' : '#0f172a';
-  const electrodeColor = model.electrode_socket === 'Positive' ? '#dc2626' : '#0f172a';
-  return (
-    <svg
-      viewBox="0 0 320 180"
-      role="img"
-      aria-label={`Polarity diagram: ${model.label} runs ${model.polarity_name}`}
-      className="h-auto w-full"
-    >
-      <rect
-        x="80"
-        y="20"
-        width="160"
-        height="140"
-        rx="10"
-        fill="hsl(var(--muted) / 0.3)"
-        stroke="currentColor"
-        strokeOpacity="0.2"
+      <ArtifactRows
+        rows={[
+          { label: 'Ground clamp', value: `${current.ground_socket} (−/+) socket` },
+          { label: 'Wire / electrode', value: `${current.electrode_socket} (−/+) socket` },
+          {
+            label: 'Polarity',
+            value: (
+              <span
+                className={cn(
+                  'inline-flex rounded-full border px-2 py-0.5 font-mono text-[0.7rem]',
+                  current.polarity_name === 'DCEP'
+                    ? 'border-red-400/30 bg-red-400/[0.08] text-red-300'
+                    : 'border-blue-400/30 bg-blue-400/[0.08] text-blue-300',
+                )}
+              >
+                {current.polarity_name}
+              </span>
+            ),
+          },
+        ]}
       />
-      <text x="160" y="38" textAnchor="middle" fontSize="11" fill="currentColor" opacity="0.6">
-        Front sockets
-      </text>
-
-      <Socket cx={120} cy={100} label="−" tone="negative" highlight={model.ground_socket === 'Negative' || model.electrode_socket === 'Negative'} />
-      <Socket cx={200} cy={100} label="+" tone="positive" highlight={model.ground_socket === 'Positive' || model.electrode_socket === 'Positive'} />
-
-      <Cable
-        from={model.ground_socket === 'Negative' ? [120, 100] : [200, 100]}
-        to={[40, 150]}
-        color={groundColor}
-        label="Ground clamp"
-        labelAt={[40, 168]}
-      />
-      <Cable
-        from={model.electrode_socket === 'Negative' ? [120, 100] : [200, 100]}
-        to={[280, 150]}
-        color={electrodeColor}
-        label={model.electrode_label}
-        labelAt={[280, 168]}
-      />
-    </svg>
-  );
-}
-
-function Socket({
-  cx,
-  cy,
-  label,
-  tone,
-  highlight,
-}: {
-  cx: number;
-  cy: number;
-  label: string;
-  tone: 'positive' | 'negative';
-  highlight: boolean;
-}) {
-  const fill = tone === 'positive' ? '#fee2e2' : '#e2e8f0';
-  const stroke = tone === 'positive' ? '#dc2626' : '#475569';
-  return (
-    <g>
-      <circle
-        cx={cx}
-        cy={cy}
-        r={20}
-        fill={fill}
-        stroke={stroke}
-        strokeWidth={highlight ? 3 : 1.5}
-        opacity={highlight ? 1 : 0.7}
-      />
-      <text x={cx} y={cy + 4} textAnchor="middle" fontSize="14" fontWeight="600" fill={stroke}>
-        {label}
-      </text>
-    </g>
-  );
-}
-
-function Cable({
-  from,
-  to,
-  color,
-  label,
-  labelAt,
-}: {
-  from: [number, number];
-  to: [number, number];
-  color: string;
-  label: string;
-  labelAt: [number, number];
-}) {
-  const [fx, fy] = from;
-  const [tx, ty] = to;
-  const midX = (fx + tx) / 2;
-  return (
-    <g>
-      <path
-        d={`M ${fx} ${fy} C ${midX} ${fy}, ${midX} ${ty}, ${tx} ${ty}`}
-        stroke={color}
-        strokeWidth={3}
-        fill="none"
-        strokeLinecap="round"
-      />
-      <circle cx={tx} cy={ty} r={4} fill={color} />
-      <text x={labelAt[0]} y={labelAt[1]} textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.75">
-        {label}
-      </text>
-    </g>
+    </ArtifactCard>
   );
 }

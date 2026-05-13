@@ -1,67 +1,91 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { WrenchIcon } from 'lucide-react';
 
-import type { TroubleshootArtifactPayload, TroubleshootNode } from '@/streaming';
+import type { ManualSource, TroubleshootArtifactPayload, TroubleshootNode } from '@/streaming';
 import { cn } from '@/lib/utils';
 
-type TroubleshootingArtifactProps = { payload: TroubleshootArtifactPayload };
+import { ArtifactCard } from './ArtifactCard';
 
-export function TroubleshootingArtifact({ payload }: TroubleshootingArtifactProps) {
+type TroubleshootingArtifactProps = {
+  payload: TroubleshootArtifactPayload;
+  onOpenPage?: (page: number, source: ManualSource) => void;
+};
+
+export function TroubleshootingArtifact({
+  payload,
+  onOpenPage,
+}: TroubleshootingArtifactProps) {
   const nodesById = useMemo(() => buildIndex(payload.tree), [payload.tree]);
   const firstId = payload.tree[0]?.node_id;
   const [stack, setStack] = useState<string[]>(firstId ? [firstId] : []);
 
   if (!firstId) {
     return (
-      <section className="rounded-lg border bg-card p-3 text-card-foreground" data-slot="artifact" data-artifact-type="troubleshoot">
-        <h3 className="font-heading text-sm font-semibold">Troubleshooting</h3>
-        <p className="text-xs text-muted-foreground">No troubleshooting steps provided.</p>
-      </section>
+      <ArtifactCard
+        type="troubleshoot"
+        tagLabel="Troubleshooting"
+        tagIcon={WrenchIcon}
+        title="Troubleshooting"
+        subtitle={payload.symptom}
+        footer={{ source: 'owner-manual', page: 37, onOpenPage }}
+      >
+        <p className="mt-2 text-xs text-zinc-500">No troubleshooting steps provided.</p>
+      </ArtifactCard>
     );
   }
 
   const currentId = stack[stack.length - 1] ?? firstId;
   const node = nodesById.get(currentId) ?? null;
-  const isLeaf = node !== null && (node.cause !== undefined || (node.fixes !== undefined && node.fixes.length > 0));
+  const isLeaf =
+    node !== null && (node.cause !== undefined || (node.fixes !== undefined && node.fixes.length > 0));
   const canGoBack = stack.length > 1;
+  const stepIndex = stack.length;
+  const primaryPage = node?.source_pages?.[0] ?? 37;
 
   return (
-    <section
-      className="space-y-3 rounded-lg border bg-card p-3 text-card-foreground shadow-sm"
-      data-slot="artifact"
-      data-artifact-type="troubleshoot"
+    <ArtifactCard
+      type="troubleshoot"
+      tagLabel="Troubleshooting"
+      tagIcon={WrenchIcon}
+      pageBadge={`step ${stepIndex}`}
+      title={payload.symptom}
+      subtitle="Walk through the most likely cause"
+      footer={{ source: 'owner-manual', page: primaryPage, onOpenPage }}
     >
-      <header className="flex items-baseline justify-between gap-2">
-        <h3 className="font-heading text-sm font-semibold">Troubleshooting wizard</h3>
-        <span className="text-xs text-muted-foreground">{payload.symptom}</span>
-      </header>
-
       {node ? (
-        <div className="space-y-2">
+        <div className="mt-3 space-y-3">
           {node.cause && (
-            <div className="rounded-md border-l-4 border-amber-400 bg-amber-50 px-2 py-1.5 text-xs text-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
-              <div className="text-[0.65rem] uppercase tracking-wide opacity-70">Likely cause</div>
-              <div>{node.cause}</div>
+            <div className="rounded-xl border border-amber-400/30 bg-amber-400/[0.06] px-3 py-2 text-xs text-amber-100">
+              <div className="text-[0.6rem] uppercase tracking-[0.16em] text-amber-300/80">
+                Likely cause
+              </div>
+              <p className="mt-1 leading-relaxed">{node.cause}</p>
             </div>
           )}
 
           {node.fixes && node.fixes.length > 0 && (
-            <div className="space-y-1 text-xs">
-              <div className="text-[0.65rem] uppercase tracking-wide text-muted-foreground">Fixes</div>
-              <ul className="ml-3 list-disc space-y-0.5">
+            <div>
+              <div className="text-[0.6rem] uppercase tracking-[0.16em] text-zinc-500">Fixes</div>
+              <ol className="mt-2 space-y-2">
                 {node.fixes.map((fix, i) => (
-                  <li key={i}>{fix}</li>
+                  <li key={i} className="flex gap-2.5 text-xs leading-relaxed text-zinc-200">
+                    <span className="inline-flex size-5 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] font-mono text-[0.65rem] text-zinc-300">
+                      {i + 1}
+                    </span>
+                    <span>{fix}</span>
+                  </li>
                 ))}
-              </ul>
+              </ol>
             </div>
           )}
 
           {node.question && (
-            <div className="space-y-1.5 text-xs">
-              <div className="text-foreground">{node.question}</div>
+            <div className="space-y-2 text-xs">
+              <p className="text-zinc-200">{node.question}</p>
               {node.options && node.options.length > 0 && (
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1.5">
                   {node.options.map((opt) => (
                     <button
                       key={`${opt.next}-${opt.label}`}
@@ -69,8 +93,8 @@ export function TroubleshootingArtifact({ payload }: TroubleshootingArtifactProp
                       onClick={() => setStack((prev) => [...prev, opt.next])}
                       disabled={!nodesById.has(opt.next)}
                       className={cn(
-                        'rounded-md border bg-background px-2 py-1 text-left text-xs transition-colors',
-                        'hover:bg-muted disabled:opacity-50',
+                        'rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 text-left text-xs text-zinc-200 transition-colors',
+                        'hover:border-white/20 hover:bg-white/[0.06] disabled:opacity-40',
                       )}
                     >
                       {opt.label}
@@ -81,20 +105,20 @@ export function TroubleshootingArtifact({ payload }: TroubleshootingArtifactProp
             </div>
           )}
 
-          <SourcePages pages={node.source_pages} />
         </div>
       ) : (
-        <p className="text-xs text-muted-foreground">
-          Step <code>{currentId}</code> is not in the provided tree.
+        <p className="mt-3 text-xs text-zinc-500">
+          Step <code className="rounded bg-white/[0.06] px-1">{currentId}</code> is not in the
+          provided tree.
         </p>
       )}
 
-      <div className="flex items-center justify-between text-[0.7rem]">
+      <div className="mt-3 flex items-center justify-between gap-2 text-[0.7rem]">
         <button
           type="button"
           onClick={() => setStack((prev) => (prev.length > 1 ? prev.slice(0, -1) : prev))}
           disabled={!canGoBack}
-          className="rounded-md border bg-background px-2 py-0.5 transition-colors hover:bg-muted disabled:opacity-40"
+          className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-white/20 hover:text-white disabled:opacity-30"
         >
           ← Back
         </button>
@@ -102,22 +126,13 @@ export function TroubleshootingArtifact({ payload }: TroubleshootingArtifactProp
           <button
             type="button"
             onClick={() => setStack(firstId ? [firstId] : [])}
-            className="rounded-md border bg-background px-2 py-0.5 transition-colors hover:bg-muted"
+            className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-zinc-300 transition-colors hover:border-white/20 hover:text-white"
           >
             Start over
           </button>
         )}
       </div>
-    </section>
-  );
-}
-
-function SourcePages({ pages }: { pages: number[] }) {
-  if (!pages || pages.length === 0) return null;
-  return (
-    <div className="text-[0.7rem] text-muted-foreground">
-      Source: {pages.map((p) => `p. ${p}`).join(', ')}
-    </div>
+    </ArtifactCard>
   );
 }
 

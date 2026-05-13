@@ -37,7 +37,7 @@ describe('Message', () => {
     expect(html).toContain('200 A');
   });
 
-  it('relocates citations to a Sources footer, deduped, and strips inline (p. N) markers', () => {
+  it('strips inline (p. N) markers from prose and surfaces no Sources block', () => {
     const msg = makeAssistant({
       content: 'Use DCEN for flux-core (p. 7). The procedure is on (p. 24).',
       citations: [
@@ -49,22 +49,15 @@ describe('Message', () => {
     });
     const html = renderToStaticMarkup(<Message message={msg} onOpenCitation={noop} />);
 
-    expect(html).toContain('data-slot="citations-footer"');
-    expect(html).toContain('Sources');
+    expect(html).not.toContain('data-slot="citations-footer"');
+    expect(html).not.toMatch(/>\s*Sources\s*</);
 
-    const cards = html.match(/data-slot="citation-card"/g) ?? [];
-    expect(cards.length).toBe(2);
-
-    expect(html).toMatch(/data-page="7"/);
-    expect(html).toMatch(/data-page="24"/);
-
-    const prose = html.match(/data-slot="assistant-prose"[\s\S]*?(?=data-slot="citations-footer")/);
+    const prose = html.match(/data-slot="assistant-prose"[\s\S]*?<\/div>/);
     expect(prose).not.toBeNull();
     expect(prose![0]).not.toMatch(/\(p\.\s*\d+\)/);
-    expect(prose![0]).not.toContain('data-slot="citation-card"');
   });
 
-  it('hides tool chips when done and surfaces them via a Show steps disclosure', () => {
+  it('shows pending and ok chips while streaming and hides them once done', () => {
     const toolCalls: ToolCallRecord[] = [
       { id: 't-1', tool: 'lookup_duty_cycle', status: 'pending' },
       { id: 't-2', tool: 'render_artifact', status: 'ok' },
@@ -80,13 +73,26 @@ describe('Message', () => {
       <Message message={streaming} onOpenCitation={noop} />,
     );
     expect(streamingHtml).toContain('data-slot="tool-chips-live"');
-    expect(streamingHtml).not.toContain('data-slot="tool-chips-disclosure"');
+    const liveChips = streamingHtml.match(/data-slot="tool-chip"/g) ?? [];
+    expect(liveChips.length).toBe(2);
+    expect(streamingHtml).toContain('data-status="pending"');
+    expect(streamingHtml).toContain('data-status="ok"');
 
     const doneHtml = renderToStaticMarkup(<Message message={finished} onOpenCitation={noop} />);
     expect(doneHtml).not.toContain('data-slot="tool-chips-live"');
-    expect(doneHtml).toContain('data-slot="tool-chips-disclosure"');
-    expect(doneHtml).toContain('Show steps');
-    const chipCount = (doneHtml.match(/data-slot="tool-chip"/g) ?? []).length;
-    expect(chipCount).toBe(2);
+    expect(doneHtml).not.toContain('data-slot="tool-chip"');
+    expect(doneHtml).not.toContain('Show steps');
+  });
+
+  it('hides tool chips entirely when showSteps is false', () => {
+    const streaming = makeAssistant({
+      toolCalls: [{ id: 't-1', tool: 'lookup_duty_cycle', status: 'pending' }],
+      done: false,
+    });
+    const html = renderToStaticMarkup(
+      <Message message={streaming} onOpenCitation={noop} showSteps={false} />,
+    );
+    expect(html).not.toContain('data-slot="tool-chips-live"');
+    expect(html).not.toContain('data-slot="tool-chip"');
   });
 });

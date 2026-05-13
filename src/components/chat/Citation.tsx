@@ -21,15 +21,16 @@ export function CitationCard({ page, source, onOpen }: CitationCardProps) {
       onClick={() => onOpen(page, source)}
       title={`${label} — page ${page}`}
       className={cn(
-        'inline-flex items-center gap-1 rounded-md border border-border bg-secondary/40 px-2 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:bg-secondary',
+        'inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[0.7rem] font-medium text-zinc-300 transition-colors',
+        'hover:border-white/20 hover:bg-white/[0.07] hover:text-white',
       )}
       data-slot="citation-card"
       data-source={source}
       data-page={page}
     >
       <span>{label}</span>
-      <span className="text-muted-foreground">·</span>
-      <span>p. {page}</span>
+      <span className="text-zinc-600">·</span>
+      <span className="font-mono">p. {page}</span>
     </button>
   );
 }

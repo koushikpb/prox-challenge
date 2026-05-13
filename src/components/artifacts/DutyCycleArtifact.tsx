@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { ActivityIcon } from 'lucide-react';
 
-import type { DutyCycleArtifactPayload } from '@/streaming';
+import type { DutyCycleArtifactPayload, ManualSource } from '@/streaming';
 import { cn } from '@/lib/utils';
 
+import { ArtifactCard, ArtifactRows } from './ArtifactCard';
 import { loadJson } from './lib/loadJson';
 
 type DutyCycleTableRow = {
@@ -31,9 +33,12 @@ type Computed = {
 const PROCESS_OPTIONS = ['MIG', 'TIG', 'Stick'] as const;
 const VOLTAGE_OPTIONS = [120, 240] as const;
 
-type DutyCycleArtifactProps = { payload: DutyCycleArtifactPayload };
+type DutyCycleArtifactProps = {
+  payload: DutyCycleArtifactPayload;
+  onOpenPage?: (page: number, source: ManualSource) => void;
+};
 
-export function DutyCycleArtifact({ payload }: DutyCycleArtifactProps) {
+export function DutyCycleArtifact({ payload, onOpenPage }: DutyCycleArtifactProps) {
   const [voltage, setVoltage] = useState<120 | 240>(payload.input_voltage);
   const [process, setProcess] = useState<'MIG' | 'TIG' | 'Stick'>(payload.process);
   const [amperage, setAmperage] = useState<number>(payload.amperage);
@@ -77,46 +82,49 @@ export function DutyCycleArtifact({ payload }: DutyCycleArtifactProps) {
   const showInteractive = row !== null;
 
   return (
-    <section
-      className="space-y-3 rounded-lg border bg-card p-3 text-card-foreground shadow-sm"
-      data-slot="artifact"
-      data-artifact-type="duty_cycle"
+    <ArtifactCard
+      type="duty_cycle"
+      tagLabel="Duty cycle"
+      tagIcon={ActivityIcon}
+      pageBadge={`${computed.duty_cycle_pct}% @ ${voltage} V`}
+      hero={{
+        src: '/data/regions/duty_cycle_specifications.png',
+        alt: 'Owner-manual specifications block listing rated duty cycles by process and input voltage',
+      }}
+      title={`${process} · ${voltage} V`}
+      subtitle={`${amperage} A · ${computed.duty_cycle_pct}% rated`}
+      footer={{ source: 'owner-manual', page: computed.source_page, onOpenPage }}
     >
-      <header className="flex items-baseline justify-between">
-        <h3 className="font-heading text-sm font-semibold">Duty cycle</h3>
-        <span className="text-xs text-muted-foreground">
-          {process} · {voltage} V
-        </span>
-      </header>
-
-      <div className="grid grid-cols-2 gap-2">
+      <div className="mt-3 grid grid-cols-2 gap-2">
         <label className="flex flex-col gap-1 text-xs">
-          <span className="text-muted-foreground">Process</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.14em] text-zinc-500">Process</span>
           <select
             value={process}
             onChange={(e) => setProcess(e.target.value as 'MIG' | 'TIG' | 'Stick')}
-            className="rounded-md border bg-background px-2 py-1 text-sm"
+            className="rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 text-sm text-zinc-100 focus:border-white/30 focus:outline-none"
             disabled={!showInteractive}
             aria-label="Process"
           >
             {PROCESS_OPTIONS.map((p) => (
-              <option key={p} value={p}>
+              <option key={p} value={p} className="bg-zinc-900">
                 {p}
               </option>
             ))}
           </select>
         </label>
         <label className="flex flex-col gap-1 text-xs">
-          <span className="text-muted-foreground">Input voltage</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.14em] text-zinc-500">
+            Input voltage
+          </span>
           <select
             value={voltage}
             onChange={(e) => setVoltage(Number(e.target.value) as 120 | 240)}
-            className="rounded-md border bg-background px-2 py-1 text-sm"
+            className="rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 text-sm text-zinc-100 focus:border-white/30 focus:outline-none"
             disabled={!showInteractive}
             aria-label="Input voltage"
           >
             {VOLTAGE_OPTIONS.map((v) => (
-              <option key={v} value={v}>
+              <option key={v} value={v} className="bg-zinc-900">
                 {v} V
               </option>
             ))}
@@ -124,10 +132,10 @@ export function DutyCycleArtifact({ payload }: DutyCycleArtifactProps) {
         </label>
       </div>
 
-      <label className="block space-y-1 text-xs">
+      <label className="mt-3 block space-y-1 text-xs">
         <span className="flex items-baseline justify-between">
-          <span className="text-muted-foreground">Amperage</span>
-          <span className="font-mono text-sm text-foreground">{amperage} A</span>
+          <span className="text-[0.65rem] uppercase tracking-[0.14em] text-zinc-500">Amperage</span>
+          <span className="font-mono text-sm text-white">{amperage} A</span>
         </span>
         <input
           type="range"
@@ -137,84 +145,64 @@ export function DutyCycleArtifact({ payload }: DutyCycleArtifactProps) {
           value={amperage}
           onChange={(e) => setAmperage(Number(e.target.value))}
           disabled={!showInteractive}
-          className="w-full accent-primary"
+          className="w-full accent-white"
           aria-label="Amperage"
         />
         {range && (
-          <span className="flex justify-between text-[0.65rem] text-muted-foreground">
+          <span className="flex justify-between font-mono text-[0.65rem] text-zinc-500">
             <span>{range.min_a} A</span>
             <span>{range.max_a} A</span>
           </span>
         )}
       </label>
 
-      <DutyReadout computed={computed} />
-
-      <footer className="flex items-center justify-between text-[0.7rem] text-muted-foreground">
-        <span>p. {computed.source_page}</span>
-        {tableError && <span className="text-destructive">Interactive recompute unavailable</span>}
-      </footer>
-    </section>
-  );
-}
-
-function DutyReadout({ computed }: { computed: Computed }) {
-  return (
-    <div className="grid grid-cols-3 gap-2 rounded-md bg-muted/40 p-2 text-center text-xs">
-      <Stat label="Duty cycle" value={`${computed.duty_cycle_pct}%`} />
-      <Stat
-        label="Work / 10 min"
-        value={`${formatMinutes(computed.work_minutes)} min`}
+      <ArtifactRows
+        rows={[
+          { label: 'Duty cycle', value: `${computed.duty_cycle_pct}%` },
+          { label: 'Work / 10 min', value: `${formatMinutes(computed.work_minutes)} min` },
+          { label: 'Rest / 10 min', value: `${formatMinutes(computed.rest_minutes)} min` },
+        ]}
       />
-      <Stat
-        label="Rest / 10 min"
-        value={`${formatMinutes(computed.rest_minutes)} min`}
-      />
-      <div className="col-span-3">
+
+      <div className="mt-2">
         <BandBadge band={computed.band} />
       </div>
-    </div>
-  );
-}
 
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <div className="text-[0.65rem] uppercase tracking-wide text-muted-foreground">{label}</div>
-      <div className="font-mono text-sm text-foreground">{value}</div>
-    </div>
+      {tableError && (
+        <p className="mt-2 text-[0.65rem] text-red-300">Interactive recompute unavailable</p>
+      )}
+    </ArtifactCard>
   );
 }
 
 function BandBadge({ band }: { band: Band }) {
-  if (band === '100pct') {
-    return (
-      <span className="inline-flex rounded-full bg-emerald-100 px-2 py-0.5 text-[0.65rem] font-medium text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200">
-        100% continuous — weld without resting
-      </span>
-    );
-  }
-  if (band === 'rated') {
-    return (
-      <span className="inline-flex rounded-full bg-amber-100 px-2 py-0.5 text-[0.65rem] font-medium text-amber-800 dark:bg-amber-950 dark:text-amber-200">
-        Rated duty cycle — observe work/rest split
-      </span>
-    );
-  }
-  if (band === 'below_range') {
-    return (
-      <span className="inline-flex rounded-full bg-secondary px-2 py-0.5 text-[0.65rem] font-medium text-secondary-foreground">
-        Below rated band — no work/rest limit listed
-      </span>
-    );
-  }
+  const map: Record<Band, { label: string; className: string }> = {
+    '100pct': {
+      label: '100% continuous — weld without resting',
+      className: 'border-emerald-400/30 bg-emerald-400/[0.08] text-emerald-300',
+    },
+    rated: {
+      label: 'Rated duty cycle — observe work/rest split',
+      className: 'border-amber-400/30 bg-amber-400/[0.08] text-amber-200',
+    },
+    below_range: {
+      label: 'Below rated band — no work/rest limit listed',
+      className: 'border-white/10 bg-white/[0.04] text-zinc-300',
+    },
+    out_of_range: {
+      label: 'Out of range — exceeds welder spec',
+      className: 'border-red-400/30 bg-red-400/[0.08] text-red-300',
+    },
+  };
+  const { label, className } = map[band];
   return (
     <span
       className={cn(
-        'inline-flex rounded-full bg-destructive/10 px-2 py-0.5 text-[0.65rem] font-medium text-destructive',
+        'inline-flex rounded-full border px-2.5 py-0.5 text-[0.65rem] font-medium',
+        className,
       )}
     >
-      Out of range — exceeds welder spec
+      {label}
     </span>
   );
 }

@@ -10,9 +10,10 @@ import type { ChatMessageRecord } from './types';
 type MessageListProps = {
   messages: ChatMessageRecord[];
   onOpenCitation: (page: number, source: ManualSource) => void;
+  showSteps?: boolean;
 };
 
-export function MessageList({ messages, onOpenCitation }: MessageListProps) {
+export function MessageList({ messages, onOpenCitation, showSteps = true }: MessageListProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -25,9 +26,13 @@ export function MessageList({ messages, onOpenCitation }: MessageListProps) {
     return (
       <div
         ref={containerRef}
-        className="flex flex-1 items-center justify-center px-4 py-8 text-center text-sm text-muted-foreground"
+        className="flex flex-1 items-center justify-center px-4 py-8 text-center text-sm text-zinc-500"
+        data-slot="message-list"
+        data-empty
       >
-        Ask about MIG, TIG, or Stick setup on the Vulcan OmniPro 220.
+        <p className="max-w-sm leading-relaxed">
+          Ask anything about your Vulcan OmniPro 220 — settings, duty cycle, polarity, or troubleshooting.
+        </p>
       </div>
     );
   }
@@ -35,11 +40,16 @@ export function MessageList({ messages, onOpenCitation }: MessageListProps) {
   return (
     <div
       ref={containerRef}
-      className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4"
+      className="flex flex-1 flex-col gap-5 overflow-y-auto px-1 py-4"
       data-slot="message-list"
     >
       {messages.map((message) => (
-        <Message key={message.id} message={message} onOpenCitation={onOpenCitation} />
+        <Message
+          key={message.id}
+          message={message}
+          onOpenCitation={onOpenCitation}
+          showSteps={showSteps}
+        />
       ))}
     </div>
   );
