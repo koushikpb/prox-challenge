@@ -7,14 +7,13 @@ const SOURCE_LABEL: Record<ManualSource, string> = {
   'selection-chart': 'Selection chart',
 };
 
-type CitationProps = {
-  index: number;
+type CitationCardProps = {
   page: number;
   source: ManualSource;
   onOpen: (page: number, source: ManualSource) => void;
 };
 
-export function Citation({ index, page, source, onOpen }: CitationProps) {
+export function CitationCard({ page, source, onOpen }: CitationCardProps) {
   const label = SOURCE_LABEL[source];
   return (
     <button
@@ -22,18 +21,15 @@ export function Citation({ index, page, source, onOpen }: CitationProps) {
       onClick={() => onOpen(page, source)}
       title={`${label} — page ${page}`}
       className={cn(
-        'inline-flex items-center justify-center rounded-sm bg-secondary/60 px-1 text-[0.65rem] font-medium leading-none text-secondary-foreground transition-colors hover:bg-secondary',
+        'inline-flex items-center gap-1 rounded-md border border-border bg-secondary/40 px-2 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:bg-secondary',
       )}
-      data-slot="citation"
+      data-slot="citation-card"
       data-source={source}
       data-page={page}
     >
-      <sup className="text-[0.65rem]">
-        {index}
-        <span className="sr-only">
-          {label} page {page}
-        </span>
-      </sup>
+      <span>{label}</span>
+      <span className="text-muted-foreground">·</span>
+      <span>p. {page}</span>
     </button>
   );
 }

@@ -10,18 +10,13 @@ import { Composer } from './Composer';
 import { ManualViewer } from './ManualViewer';
 import { MessageList } from './MessageList';
 import { useChatSession, type ChatSource } from './useChatSession';
+import { stripCitationMarkers } from './utils';
 
 type ChatShellProps = {
   source?: ChatSource;
   title?: string;
   subtitle?: string;
 };
-
-const CITATION_MARKER = /\(p\.\s*\d+(?:\s*[-–]\s*\d+)?\)/g;
-
-function stripCitationMarkers(text: string): string {
-  return text.replace(CITATION_MARKER, '').replace(/\s{2,}/g, ' ').trim();
-}
 
 export function ChatShell({
   source,

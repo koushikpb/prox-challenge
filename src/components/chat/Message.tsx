@@ -5,9 +5,11 @@ import { cn } from '@/lib/utils';
 
 import { RenderArtifact } from '@/components/artifacts';
 
-import { Citation } from './Citation';
+import { CitationCard } from './Citation';
+import { MarkdownContent } from './MarkdownContent';
 import { ToolChip } from './ToolChip';
-import type { AssistantMessage, ChatMessageRecord } from './types';
+import type { AssistantMessage, ChatMessageRecord, CitationRef } from './types';
+import { stripCitationMarkers } from './utils';
 
 type MessageProps = {
   message: ChatMessageRecord;
@@ -39,6 +41,9 @@ function AssistantBubble({
   onOpenCitation: (page: number, source: ManualSource) => void;
 }) {
   const isClarification = message.kind === 'clarification';
+  const hasChips = message.toolCalls.length > 0;
+  const displayContent = stripCitationMarkers(message.content);
+  const dedupedCitations = dedupeCitations(message.citations);
   return (
     <div className="flex justify-start" data-slot="message" data-role="assistant" data-kind={message.kind}>
       <div
@@ -49,31 +54,22 @@ function AssistantBubble({
             : 'border-border bg-card text-card-foreground',
         )}
       >
-        {message.toolCalls.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
+        {hasChips && !message.done && (
+          <div className="flex flex-wrap gap-1.5" data-slot="tool-chips-live">
             {message.toolCalls.map((call) => (
               <ToolChip key={call.id} call={call} />
             ))}
           </div>
         )}
 
-        {(message.content.length > 0 || message.done) && (
-          <p className="whitespace-pre-wrap leading-relaxed">
-            {message.content || <span className="text-muted-foreground">…</span>}
-            {message.citations.length > 0 && (
-              <span className="ml-1 inline-flex gap-0.5 align-text-top">
-                {message.citations.map((c, i) => (
-                  <Citation
-                    key={`${c.source}-${c.page}-${i}`}
-                    index={i + 1}
-                    page={c.page}
-                    source={c.source}
-                    onOpen={onOpenCitation}
-                  />
-                ))}
-              </span>
+        {(displayContent.length > 0 || message.done) && (
+          <div data-slot="assistant-prose">
+            {displayContent.length > 0 ? (
+              <MarkdownContent text={displayContent} />
+            ) : (
+              <p className="leading-relaxed text-muted-foreground">…</p>
             )}
-          </p>
+          </div>
         )}
 
         {message.artifacts.length > 0 && (
@@ -81,6 +77,27 @@ function AssistantBubble({
             {message.artifacts.map((artifact, idx) => (
               <RenderArtifact key={`${artifact.type}-${idx}`} payload={artifact} />
             ))}
+          </div>
+        )}
+
+        {dedupedCitations.length > 0 && message.done && (
+          <div
+            className="rounded-md border border-border/60 bg-muted/40 px-2 py-1.5"
+            data-slot="citations-footer"
+          >
+            <div className="mb-1 text-[0.7rem] font-semibold uppercase tracking-wide text-muted-foreground">
+              Sources
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {dedupedCitations.map((c) => (
+                <CitationCard
+                  key={`${c.source}-${c.page}`}
+                  page={c.page}
+                  source={c.source}
+                  onOpen={onOpenCitation}
+                />
+              ))}
+            </div>
           </div>
         )}
 
@@ -94,10 +111,38 @@ function AssistantBubble({
           </div>
         ))}
 
+        {hasChips && message.done && (
+          <details className="group text-xs" data-slot="tool-chips-disclosure">
+            <summary className="cursor-pointer list-none text-muted-foreground hover:text-foreground">
+              <span className="inline-flex items-center gap-1">
+                <span className="transition-transform group-open:rotate-90">▸</span>
+                Show steps ({message.toolCalls.length})
+              </span>
+            </summary>
+            <div className="mt-1.5 flex flex-wrap gap-1.5">
+              {message.toolCalls.map((call) => (
+                <ToolChip key={call.id} call={call} />
+              ))}
+            </div>
+          </details>
+        )}
+
         {!message.done && message.content.length === 0 && message.toolCalls.length === 0 && (
           <p className="text-xs text-muted-foreground">Thinking…</p>
         )}
       </div>
     </div>
   );
+}
+
+function dedupeCitations(citations: CitationRef[]): CitationRef[] {
+  const seen = new Set<string>();
+  const out: CitationRef[] = [];
+  for (const c of citations) {
+    const key = `${c.source}::${c.page}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(c);
+  }
+  return out;
 }
