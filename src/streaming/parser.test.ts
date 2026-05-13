@@ -8,6 +8,7 @@ import type {
   DutyCycleArtifactPayload,
   ErrorEvent,
   PolarityArtifactPayload,
+  RegionArtifactPayload,
   SettingsArtifactPayload,
   StreamEvent,
   TextDeltaEvent,
@@ -73,11 +74,23 @@ const troubleshootFixture = {
   ],
 } as const satisfies TroubleshootArtifactPayload;
 
+const regionFixture = {
+  type: 'region',
+  region_id: 'wiring_schematic',
+  image_url: '/data/regions/wiring_schematic.png',
+  caption:
+    'Safety: all internal service requires the welder to be unplugged and fully discharged before any panel is opened. Internal wiring schematic showing the PFC stage, MCU board, IGBT inverter, and output rectification. (p. 45)',
+  page: 45,
+  source: 'owner-manual',
+  title: 'Wiring schematic',
+} as const satisfies RegionArtifactPayload;
+
 const allArtifactFixtures: readonly ArtifactPayload[] = [
   dutyCycleFixture,
   polarityFixture,
   settingsFixture,
   troubleshootFixture,
+  regionFixture,
 ];
 
 const textDeltaFixture: TextDeltaEvent = { type: 'text_delta', delta: 'Hello, ' };
@@ -194,10 +207,10 @@ describe('parseEvent rejects invalid input', () => {
 
 describe('compile-time payload shape pins', () => {
   it('exposes the fixtures so any future drift surfaces here', () => {
-    expect(allArtifactFixtures).toHaveLength(4);
+    expect(allArtifactFixtures).toHaveLength(5);
     const kinds = allArtifactFixtures.map((p) => p.type);
     expect(new Set(kinds)).toEqual(
-      new Set(['duty_cycle', 'polarity', 'settings', 'troubleshoot']),
+      new Set(['duty_cycle', 'polarity', 'settings', 'troubleshoot', 'region']),
     );
   });
 });

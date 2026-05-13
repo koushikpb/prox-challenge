@@ -1,8 +1,8 @@
 # Golden Eval — last run
 
-- Timestamp: `2026-05-12T05:48:42.031Z`
+- Timestamp: `2026-05-13T11:57:35.918Z`
 - Model: `claude-sonnet-4-6`
-- Result: **20 / 20 pass**
+- Result: **17 / 21 pass**
 
 ## Per-entry results
 
@@ -12,7 +12,7 @@
 | Q02 | I'm getting porosity in my flux-cored welds. What should I check? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q03 | What polarity setup do I need for TIG welding? Which socket does the ground cla… | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q04 | For stick welding 1/8 inch mild steel, what polarity, what amperage range, and … | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q05 | Show me the wire feed mechanism diagram. | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
+| Q05 | Show me the wire feed mechanism diagram. | ✓ | ✓ | ✓ | ✗ | ✓ | FAIL |
 | Q06 | Show me the polarity wiring for flux-cored MIG. | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q07 | What settings should I use? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q08 | What polarity do I need? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
@@ -22,16 +22,29 @@
 | Q12 | What settings should I use for solid-core MIG on 1/8 inch mild steel? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q13 | What's the rated duty cycle for TIG at 175A on 240V? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q14 | What polarity do I use for stick welding on this welder? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q15 | Why am I getting excessive spatter in my MIG welds? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q16 | What does the LCD show after I dial in wire diameter and material thickness? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
+| Q15 | Why am I getting excessive spatter in my MIG welds? | ✗ | ✓ | ✗ | ✓ | ✓ | FAIL |
+| Q16 | What does the LCD show after I dial in wire diameter and material thickness? | ✓ | ✓ | ✗ | ✓ | ✓ | FAIL |
 | Q17 | What shielding gas should I use for MIG welding aluminum? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q18 | I'm welding outside in windy conditions — which process should I use? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q19 | Show me the wiring schematic. | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q20 | The welder shut off mid-bead and the LCD is showing the thermal protection indi… | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
+| Q20 | The welder shut off mid-bead and the LCD is showing the thermal protection indi… | ✓ | ✓ | ✓ | ✓ | ✗ | FAIL |
+| Q21 | Show me the parts diagram. | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 
 ## Failures
 
-_None — every entry passed every rubric check._
+### Q05 — Show me the wire feed mechanism diagram.
+- Failing checks: clarification
+
+### Q15 — Why am I getting excessive spatter in my MIG welds?
+- Failing checks: facts, artifact
+- Missing facts: `polarity`
+
+### Q16 — What does the LCD show after I dial in wire diameter and material thickness?
+- Failing checks: artifact
+
+### Q20 — The welder shut off mid-bead and the LCD is showing the thermal protection indicator — what do I do?
+- Failing checks: safety
+
 <!-- investigation-notes:keep -->
 
 ## Investigation Notes

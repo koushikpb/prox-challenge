@@ -6,7 +6,7 @@ import { searchManual } from './search_manual';
 import { renderSettingsArtifact } from './render_artifact';
 
 describe('tool registry contract', () => {
-  it('registers exactly the ten Spec-defined tools (six grounding + four per-type render)', () => {
+  it('registers the Spec-defined grounding tools plus every render_*_artifact variant', () => {
     const names = toolRegistry.map((t) => t.name).sort();
     expect(names).toEqual(
       [
@@ -17,6 +17,7 @@ describe('tool registry contract', () => {
         'lookup_settings',
         'render_duty_cycle_artifact',
         'render_polarity_artifact',
+        'render_region_artifact',
         'render_settings_artifact',
         'render_troubleshoot_artifact',
         'search_manual',
