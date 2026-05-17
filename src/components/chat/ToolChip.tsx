@@ -32,9 +32,9 @@ export function ToolChip({ call }: ToolChipProps) {
         ))}
       {status === 'ok' &&
         (isThinking ? (
-          <SparklesIcon className="size-3" aria-hidden />
+          <SparklesIcon className="size-3 animate-check-pop" aria-hidden />
         ) : (
-          <CheckIcon className="size-3" aria-hidden />
+          <CheckIcon className="size-3 animate-check-pop" aria-hidden />
         ))}
       {status === 'error' && <XIcon className="size-3" aria-hidden />}
       <span>{label}</span>

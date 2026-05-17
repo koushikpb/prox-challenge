@@ -19,8 +19,12 @@ type MessageProps = {
 export function Message({ message, onOpenCitation, showSteps = true }: MessageProps) {
   if (message.role === 'user') {
     return (
-      <div className="flex justify-end" data-slot="message" data-role="user">
-        <div className="max-w-[85%] rounded-3xl bg-zinc-800/60 px-4 py-2.5 text-sm text-white shadow-[inset_0_1px_0_oklch(1_0_0/0.04)]">
+      <div
+        className="animate-message-enter flex justify-end"
+        data-slot="message"
+        data-role="user"
+      >
+        <div className="max-w-[85%] rounded-3xl bg-bubble-user px-4 py-2.5 text-sm text-white shadow-[inset_0_1px_0_oklch(1_0_0/0.06)] ring-1 ring-white/10">
           {message.content}
         </div>
       </div>
@@ -48,11 +52,16 @@ function AssistantBubble({
   const hasChips = message.toolCalls.length > 0;
   const displayContent = stripCitationMarkers(message.content);
   return (
-    <div data-slot="message" data-role="assistant" data-kind={message.kind}>
+    <div
+      className="animate-message-enter"
+      data-slot="message"
+      data-role="assistant"
+      data-kind={message.kind}
+    >
       <div
         className={cn(
           'rounded-3xl border bg-panel px-5 py-4 text-sm text-zinc-200 shadow-[inset_0_1px_0_oklch(1_0_0/0.05)] backdrop-blur',
-          'border-white/[0.07]',
+          'border-panel-border',
           isClarification && 'border-amber-500/30 bg-amber-500/[0.04] text-amber-50',
         )}
         data-slot="assistant-panel"

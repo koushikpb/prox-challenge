@@ -49,8 +49,8 @@ export function ArtifactCard({
   return (
     <section
       className={cn(
-        'overflow-hidden rounded-2xl border border-white/[0.07] bg-zinc-950/60',
-        'shadow-[inset_0_1px_0_oklch(1_0_0/0.04)]',
+        'animate-artifact-enter overflow-hidden rounded-2xl border border-white/[0.09] bg-panel-strong',
+        'shadow-[inset_0_1px_0_oklch(1_0_0/0.06)]',
       )}
       data-slot="artifact"
       data-artifact-type={type}
@@ -131,9 +131,9 @@ function HeroSlot({
 }) {
   const interactive = Boolean(onClick);
   const baseClass =
-    'group/hero relative mx-4 mt-3 block w-[calc(100%-2rem)] overflow-hidden rounded-xl bg-zinc-100 text-left';
+    'group/hero relative mx-4 mt-3 block w-[calc(100%-2rem)] overflow-hidden rounded-xl bg-zinc-100 text-left ring-1 ring-white/15 shadow-[inset_0_1px_0_oklch(0_0_0/0.1),0_1px_0_oklch(0_0_0/0.25)]';
   const interactiveClass =
-    'cursor-zoom-in transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 hover:shadow-[0_0_0_1px_oklch(1_0_0/0.18)]';
+    'cursor-zoom-in transition-[box-shadow,outline-color] duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 hover:ring-white/30';
 
   const content = (
     <>
@@ -144,7 +144,7 @@ function HeroSlot({
             <img
               src={hero.src}
               alt={hero.alt}
-              className="h-auto max-h-72 w-full object-contain"
+              className="h-auto max-h-72 w-full object-contain transition-transform duration-300 ease-out group-hover/hero:scale-[1.01]"
               loading="lazy"
             />
           ) : null
@@ -193,7 +193,7 @@ function SourcePill({
   onClick?: () => void;
 }) {
   const className = cn(
-    'inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[0.7rem] font-medium text-zinc-300 transition-colors',
+    'inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[0.7rem] font-medium text-zinc-300 transition-colors duration-150 ease-out',
     onClick && 'hover:border-white/20 hover:bg-white/[0.07] hover:text-white',
   );
   const inner = (
