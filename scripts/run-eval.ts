@@ -253,13 +253,38 @@ function preservedNotes(): string {
   return prior.slice(idx);
 }
 
+function parseIdFilter(): Set<string> | null {
+  const arg = process.argv.slice(2).find((a) => a.startsWith('--ids='));
+  const env = process.env.EVAL_IDS;
+  const raw = arg ? arg.slice('--ids='.length) : env;
+  if (!raw) return null;
+  const ids = raw
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+  return ids.length > 0 ? new Set(ids) : null;
+}
+
 async function main(): Promise<void> {
   if (!existsSync(GOLDEN_PATH)) {
     console.error(`golden.jsonl not found at ${GOLDEN_PATH}`);
     process.exit(2);
   }
-  const entries = loadEntries();
-  console.log(`[eval] loaded ${entries.length} entries from evals/golden.jsonl`);
+  const allEntries = loadEntries();
+  const idFilter = parseIdFilter();
+  const entries = idFilter ? allEntries.filter((e) => idFilter.has(e.id)) : allEntries;
+  if (idFilter) {
+    const missing = [...idFilter].filter((id) => !allEntries.some((e) => e.id === id));
+    if (missing.length > 0) {
+      console.error(`[eval] unknown ids in --ids filter: ${missing.join(', ')}`);
+      process.exit(2);
+    }
+    console.log(
+      `[eval] filtered to ${entries.length} / ${allEntries.length} entries: ${entries.map((e) => e.id).join(', ')}`,
+    );
+  } else {
+    console.log(`[eval] loaded ${entries.length} entries from evals/golden.jsonl`);
+  }
 
   const server = await ensureServer();
   const cleanup = () => teardown(server);
@@ -299,12 +324,17 @@ async function main(): Promise<void> {
 
   renderConsoleTable(rows);
   const passCount = rows.filter((r) => r.overall).length;
-  const notes = preservedNotes();
-  const markdown = renderMarkdown(rows, passCount, rows.length, DEFAULT_MODEL) + notes;
-  writeFileSync(REPORT_PATH, markdown, 'utf8');
-  console.log('');
-  console.log(`[eval] ${passCount} / ${rows.length} pass`);
-  console.log(`[eval] report written to ${path.relative(REPO_ROOT, REPORT_PATH)}`);
+  if (idFilter) {
+    console.log('');
+    console.log(`[eval] ${passCount} / ${rows.length} pass (filtered run — report not written)`);
+  } else {
+    const notes = preservedNotes();
+    const markdown = renderMarkdown(rows, passCount, rows.length, DEFAULT_MODEL) + notes;
+    writeFileSync(REPORT_PATH, markdown, 'utf8');
+    console.log('');
+    console.log(`[eval] ${passCount} / ${rows.length} pass`);
+    console.log(`[eval] report written to ${path.relative(REPO_ROOT, REPORT_PATH)}`);
+  }
   process.exit(passCount === rows.length ? 0 : 1);
 }
 
