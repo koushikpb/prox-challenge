@@ -75,11 +75,24 @@ export const troubleshootArtifactSchema = z
   })
   .strict();
 
+export const regionArtifactSchema = z
+  .object({
+    type: z.literal('region'),
+    region_id: z.string().min(1),
+    image_url: z.string().min(1),
+    caption: z.string(),
+    page: z.number(),
+    source: z.enum(['owner-manual', 'quick-start', 'selection-chart']),
+    title: z.string().optional(),
+  })
+  .strict();
+
 export const artifactPayloadSchema = z.discriminatedUnion('type', [
   dutyCycleArtifactSchema,
   polarityArtifactSchema,
   settingsArtifactSchema,
   troubleshootArtifactSchema,
+  regionArtifactSchema,
 ]);
 
 const textDeltaSchema = z

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const ARTIFACT_KINDS = ['duty_cycle', 'polarity', 'settings', 'troubleshoot'] as const;
+export const ARTIFACT_KINDS = ['duty_cycle', 'polarity', 'settings', 'troubleshoot', 'region'] as const;
 export type ExpectedArtifactKind = (typeof ARTIFACT_KINDS)[number];
 
 export const goldenEntrySchema = z

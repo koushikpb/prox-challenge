@@ -53,11 +53,22 @@ export type TroubleshootNode = {
   source_pages: number[];
 };
 
+export type RegionArtifactPayload = {
+  type: 'region';
+  region_id: string;
+  image_url: string;
+  caption: string;
+  page: number;
+  source: ManualSource;
+  title?: string;
+};
+
 export type ArtifactPayload =
   | DutyCycleArtifactPayload
   | PolarityArtifactPayload
   | SettingsArtifactPayload
-  | TroubleshootArtifactPayload;
+  | TroubleshootArtifactPayload
+  | RegionArtifactPayload;
 
 export type ArtifactKind = ArtifactPayload['type'];
 

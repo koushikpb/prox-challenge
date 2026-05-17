@@ -4,10 +4,17 @@ import type { ArtifactPayload, ManualSource } from '@/streaming';
 
 import { DutyCycleArtifact } from './DutyCycleArtifact';
 import { PolarityArtifact } from './PolarityArtifact';
+import { RegionArtifact } from './RegionArtifact';
 import { SettingsConfiguratorArtifact } from './SettingsConfiguratorArtifact';
 import { TroubleshootingArtifact } from './TroubleshootingArtifact';
 
-export { DutyCycleArtifact, PolarityArtifact, SettingsConfiguratorArtifact, TroubleshootingArtifact };
+export {
+  DutyCycleArtifact,
+  PolarityArtifact,
+  RegionArtifact,
+  SettingsConfiguratorArtifact,
+  TroubleshootingArtifact,
+};
 export { ArtifactCard, ArtifactRows } from './ArtifactCard';
 
 type OpenPage = (page: number, source: ManualSource) => void;
@@ -22,6 +29,7 @@ export const artifactRegistry = {
   polarity: PolarityArtifact,
   settings: SettingsConfiguratorArtifact,
   troubleshoot: TroubleshootingArtifact,
+  region: RegionArtifact,
 } as const satisfies {
   [K in ArtifactPayload['type']]: RegistryComponent<Extract<ArtifactPayload, { type: K }>>;
 };
@@ -42,5 +50,7 @@ export function RenderArtifact({
       return <SettingsConfiguratorArtifact payload={payload} onOpenPage={onOpenPage} />;
     case 'troubleshoot':
       return <TroubleshootingArtifact payload={payload} onOpenPage={onOpenPage} />;
+    case 'region':
+      return <RegionArtifact payload={payload} onOpenPage={onOpenPage} />;
   }
 }

@@ -73,6 +73,14 @@ export {
   type RenderTroubleshootArtifactInput,
 } from './render_artifact';
 
+export {
+  renderRegionArtifact,
+  renderRegionArtifactTool,
+  renderRegionArtifactInputSchema,
+  type RenderRegionArtifactInput,
+  type RenderRegionArtifactOutput,
+} from './render_region_artifact';
+
 import { lookupDutyCycleTool } from './lookup_duty_cycle';
 import { lookupPolarityTool } from './lookup_polarity';
 import { lookupSettingsTool } from './lookup_settings';
@@ -85,12 +93,14 @@ import {
   renderSettingsArtifactTool,
   renderTroubleshootArtifactTool,
 } from './render_artifact';
+import { renderRegionArtifactTool } from './render_region_artifact';
 
 export const RENDER_ARTIFACT_TOOL_NAMES = [
   'render_duty_cycle_artifact',
   'render_polarity_artifact',
   'render_settings_artifact',
   'render_troubleshoot_artifact',
+  'render_region_artifact',
 ] as const;
 
 export type RenderArtifactToolName = (typeof RENDER_ARTIFACT_TOOL_NAMES)[number];
@@ -106,4 +116,5 @@ export const toolRegistry = [
   renderPolarityArtifactTool,
   renderSettingsArtifactTool,
   renderTroubleshootArtifactTool,
+  renderRegionArtifactTool,
 ] as const;
