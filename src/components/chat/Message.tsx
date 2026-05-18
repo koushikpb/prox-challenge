@@ -13,10 +13,9 @@ import { stripCitationMarkers } from './utils';
 type MessageProps = {
   message: ChatMessageRecord;
   onOpenCitation: (page: number, source: ManualSource) => void;
-  showSteps?: boolean;
 };
 
-export function Message({ message, onOpenCitation, showSteps = true }: MessageProps) {
+export function Message({ message, onOpenCitation }: MessageProps) {
   if (message.role === 'user') {
     return (
       <div
@@ -31,22 +30,16 @@ export function Message({ message, onOpenCitation, showSteps = true }: MessagePr
     );
   }
   return (
-    <AssistantBubble
-      message={message}
-      onOpenCitation={onOpenCitation}
-      showSteps={showSteps}
-    />
+    <AssistantBubble message={message} onOpenCitation={onOpenCitation} />
   );
 }
 
 function AssistantBubble({
   message,
   onOpenCitation,
-  showSteps,
 }: {
   message: AssistantMessage;
   onOpenCitation: (page: number, source: ManualSource) => void;
-  showSteps: boolean;
 }) {
   const isClarification = message.kind === 'clarification';
   const hasChips = message.toolCalls.length > 0;
@@ -67,7 +60,7 @@ function AssistantBubble({
         data-slot="assistant-panel"
       >
         <div className="space-y-3">
-          {showSteps && hasChips && !message.done && (
+          {hasChips && !message.done && (
             <div className="flex flex-wrap gap-1.5" data-slot="tool-chips-live">
               {message.toolCalls.map((call) => (
                 <ToolChip key={call.id} call={call} />
@@ -85,7 +78,7 @@ function AssistantBubble({
             </div>
           )}
 
-          {message.artifacts.length > 0 && (
+          {message.done && message.artifacts.length > 0 && (
             <div className="space-y-3 pt-1">
               {message.artifacts.map((artifact, idx) => (
                 <RenderArtifact
