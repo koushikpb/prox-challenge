@@ -176,9 +176,9 @@ export function Composer({
           aria-label="Send"
           data-slot="composer-send"
           className={cn(
-            'inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-all',
+            'inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-all duration-150 ease-out',
             canSend
-              ? 'bg-white text-zinc-900 hover:bg-zinc-200'
+              ? 'bg-white text-zinc-900 hover:bg-zinc-200 active:scale-95'
               : 'bg-zinc-700 text-zinc-500 cursor-not-allowed',
           )}
         >

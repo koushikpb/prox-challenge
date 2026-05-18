@@ -102,7 +102,7 @@ export function ManualViewer({ open, page, source, onOpenChange }: ManualViewerP
       aria-modal="true"
       aria-label={ready ? `${label} — page ${currentPage}` : 'Manual viewer'}
       data-slot="manual-viewer"
-      className="fixed inset-0 z-50 flex flex-col bg-black/90 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex flex-col bg-black/90 backdrop-blur-md animate-in fade-in zoom-in-95 duration-200 ease-out"
       onClick={close}
     >
       <header

@@ -10,10 +10,9 @@ import type { ChatMessageRecord } from './types';
 type MessageListProps = {
   messages: ChatMessageRecord[];
   onOpenCitation: (page: number, source: ManualSource) => void;
-  showSteps?: boolean;
 };
 
-export function MessageList({ messages, onOpenCitation, showSteps = true }: MessageListProps) {
+export function MessageList({ messages, onOpenCitation }: MessageListProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -48,7 +47,6 @@ export function MessageList({ messages, onOpenCitation, showSteps = true }: Mess
           key={message.id}
           message={message}
           onOpenCitation={onOpenCitation}
-          showSteps={showSteps}
         />
       ))}
     </div>

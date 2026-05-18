@@ -84,15 +84,30 @@ describe('Message', () => {
     expect(doneHtml).not.toContain('Show steps');
   });
 
-  it('hides tool chips entirely when showSteps is false', () => {
+  it('does not render artifacts until message.done is true', () => {
     const streaming = makeAssistant({
-      toolCalls: [{ id: 't-1', tool: 'lookup_duty_cycle', status: 'pending' }],
+      content: 'streaming…',
+      artifacts: [
+        {
+          type: 'duty_cycle',
+          process: 'MIG',
+          input_voltage: 240,
+          amperage: 200,
+          duty_cycle_pct: 25,
+          work_minutes: 2.5,
+          rest_minutes: 7.5,
+          source_page: 4,
+        },
+      ],
       done: false,
     });
-    const html = renderToStaticMarkup(
-      <Message message={streaming} onOpenCitation={noop} showSteps={false} />,
+    const finished = { ...streaming, done: true };
+    const streamingHtml = renderToStaticMarkup(
+      <Message message={streaming} onOpenCitation={noop} />,
     );
-    expect(html).not.toContain('data-slot="tool-chips-live"');
-    expect(html).not.toContain('data-slot="tool-chip"');
+    expect(streamingHtml).not.toContain('data-slot="artifact"');
+
+    const doneHtml = renderToStaticMarkup(<Message message={finished} onOpenCitation={noop} />);
+    expect(doneHtml).toContain('data-slot="artifact"');
   });
 });
