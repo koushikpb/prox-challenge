@@ -1,7 +1,23 @@
 import { z } from 'zod';
 
-export const ARTIFACT_KINDS = ['duty_cycle', 'polarity', 'settings', 'troubleshoot', 'region'] as const;
+export const ARTIFACT_KINDS = [
+  'duty_cycle',
+  'polarity',
+  'settings',
+  'troubleshoot',
+  'region',
+  'generated_diagram',
+] as const;
 export type ExpectedArtifactKind = (typeof ARTIFACT_KINDS)[number];
+
+export const WIRING_PROCESSES = [
+  'flux_cored_mig',
+  'solid_wire_mig',
+  'stick_dcep',
+  'stick_dcen',
+  'tig_dcen',
+] as const;
+export type ExpectedWiringProcess = (typeof WIRING_PROCESSES)[number];
 
 const goldenInputObjectSchema = z
   .object({
@@ -25,6 +41,7 @@ export const goldenEntrySchema = z
     expected_facts: z.array(z.string()),
     expects_image: z.boolean(),
     expects_artifact: z.union([z.enum(ARTIFACT_KINDS), z.null()]),
+    expects_wiring_process: z.enum(WIRING_PROCESSES).optional(),
     expects_clarification: z.boolean(),
     expects_safety_nudge: z.boolean(),
     notes: z.string().optional(),

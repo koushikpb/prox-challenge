@@ -14,6 +14,7 @@ import type {
   DoneEvent,
   DutyCycleArtifactPayload,
   ErrorEvent,
+  GeneratedDiagramArtifactPayload,
   PolarityArtifactPayload,
   RegionArtifactPayload,
   SettingsArtifactPayload,
@@ -23,6 +24,7 @@ import type {
   ToolCallStartEvent,
   TroubleshootArtifactPayload,
 } from './types';
+import { parseArtifactPayload } from './parser';
 
 const dutyCycleFixture = {
   type: 'duty_cycle',
@@ -81,6 +83,24 @@ const troubleshootFixture = {
   ],
 } as const satisfies TroubleshootArtifactPayload;
 
+const generatedDiagramFixture = {
+  type: 'generated_diagram',
+  process: 'flux_cored_mig',
+  caption: 'Flux-cored MIG wiring (DCEN).',
+  nodes: [
+    { id: 'welder', label: 'Welder', kind: 'welder', x: 120, y: 120 },
+    { id: 'workpiece', label: 'Workpiece', kind: 'workpiece', x: 540, y: 420 },
+    { id: 'gun', label: 'MIG gun', kind: 'electrode_holder', x: 540, y: 200 },
+    { id: 'ground', label: 'Ground clamp', kind: 'ground_clamp', x: 540, y: 420 },
+  ],
+  edges: [
+    { from: 'welder', to: 'gun', label: 'wire feed', polarity: '-', color: 'black', style: 'solid' },
+    { from: 'welder', to: 'ground', label: 'ground', polarity: '+', color: 'red', style: 'solid' },
+    { from: 'ground', to: 'workpiece', color: 'green', style: 'solid' },
+  ],
+  page_cite: 13,
+} as const satisfies GeneratedDiagramArtifactPayload;
+
 const regionFixture = {
   type: 'region',
   region_id: 'wiring_schematic',
@@ -98,6 +118,7 @@ const allArtifactFixtures: readonly ArtifactPayload[] = [
   settingsFixture,
   troubleshootFixture,
   regionFixture,
+  generatedDiagramFixture,
 ];
 
 const textDeltaFixture: TextDeltaEvent = { type: 'text_delta', delta: 'Hello, ' };
@@ -308,10 +329,75 @@ describe('validateUserContent', () => {
 
 describe('compile-time payload shape pins', () => {
   it('exposes the fixtures so any future drift surfaces here', () => {
-    expect(allArtifactFixtures).toHaveLength(5);
+    expect(allArtifactFixtures).toHaveLength(6);
     const kinds = allArtifactFixtures.map((p) => p.type);
     expect(new Set(kinds)).toEqual(
-      new Set(['duty_cycle', 'polarity', 'settings', 'troubleshoot', 'region']),
+      new Set([
+        'duty_cycle',
+        'polarity',
+        'settings',
+        'troubleshoot',
+        'region',
+        'generated_diagram',
+      ]),
     );
+  });
+});
+
+describe('parseArtifactPayload — generated_diagram structural validation', () => {
+  it('accepts a well-formed payload', () => {
+    expect(parseArtifactPayload(generatedDiagramFixture)).toEqual(generatedDiagramFixture);
+  });
+
+  it('rejects duplicate node ids', () => {
+    const bad = {
+      ...generatedDiagramFixture,
+      nodes: [
+        ...generatedDiagramFixture.nodes,
+        { id: 'welder', label: 'dup', kind: 'welder', x: 0, y: 0 },
+      ],
+    };
+    expect(() => parseArtifactPayload(bad)).toThrow(/duplicate node id/);
+  });
+
+  it('rejects an edge referencing an unknown node', () => {
+    const bad = {
+      ...generatedDiagramFixture,
+      edges: [
+        { from: 'welder', to: 'ghost', color: 'red', style: 'solid' },
+      ],
+    };
+    expect(() => parseArtifactPayload(bad)).toThrow(/references unknown node/);
+  });
+
+  it('rejects a label exceeding the 32-char cap', () => {
+    const bad = {
+      ...generatedDiagramFixture,
+      nodes: [
+        { id: 'welder', label: 'x'.repeat(33), kind: 'welder', x: 0, y: 0 },
+        ...generatedDiagramFixture.nodes.slice(1),
+      ],
+    };
+    expect(() => parseArtifactPayload(bad)).toThrow(StreamParseError);
+  });
+
+  it('rejects positions outside the 0..800 × 0..600 viewbox', () => {
+    const bad = {
+      ...generatedDiagramFixture,
+      nodes: [
+        { id: 'welder', label: 'Welder', kind: 'welder', x: 900, y: 0 },
+        ...generatedDiagramFixture.nodes.slice(1),
+      ],
+    };
+    expect(() => parseArtifactPayload(bad)).toThrow(StreamParseError);
+  });
+
+  it('rejects fewer than two nodes', () => {
+    const bad = {
+      ...generatedDiagramFixture,
+      nodes: [generatedDiagramFixture.nodes[0]],
+      edges: [],
+    };
+    expect(() => parseArtifactPayload(bad)).toThrow(StreamParseError);
   });
 });

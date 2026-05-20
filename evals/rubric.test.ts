@@ -75,6 +75,24 @@ describe('checkArtifact', () => {
     expect(checkArtifact([text('hi')], null)).toBe(true);
     expect(checkArtifact([dutyArtifact], null)).toBe(false);
   });
+
+  it('matches a generated_diagram with the expected wiring process', () => {
+    const generatedFlux: StreamEvent = {
+      type: 'artifact',
+      artifact: {
+        type: 'generated_diagram',
+        process: 'flux_cored_mig',
+        caption: 'demo',
+        nodes: [
+          { id: 'a', label: 'A', kind: 'welder', x: 0, y: 0 },
+          { id: 'b', label: 'B', kind: 'workpiece', x: 10, y: 10 },
+        ],
+        edges: [{ from: 'a', to: 'b', color: 'red', style: 'solid' }],
+      },
+    };
+    expect(checkArtifact([generatedFlux], 'generated_diagram', 'flux_cored_mig')).toBe(true);
+    expect(checkArtifact([generatedFlux], 'generated_diagram', 'stick_dcep')).toBe(false);
+  });
 });
 
 describe('checkClarification', () => {

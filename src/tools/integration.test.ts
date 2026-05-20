@@ -10,6 +10,7 @@ describe('tool registry contract', () => {
     const names = toolRegistry.map((t) => t.name).sort();
     expect(names).toEqual(
       [
+        'generate_wiring_diagram',
         'get_page_image',
         'get_region',
         'lookup_duty_cycle',

@@ -6,6 +6,13 @@ export type {
   DoneEvent,
   DutyCycleArtifactPayload,
   ErrorEvent,
+  GeneratedDiagramArtifactPayload,
+  GeneratedDiagramEdge,
+  GeneratedDiagramEdgeColor,
+  GeneratedDiagramEdgePolarity,
+  GeneratedDiagramEdgeStyle,
+  GeneratedDiagramNode,
+  GeneratedDiagramNodeKind,
   ImageMediaType,
   ManualSource,
   PolarityArtifactPayload,
@@ -20,6 +27,7 @@ export type {
   TroubleshootNode,
   UserContentBlock,
   UserMessageContent,
+  WiringProcess,
 } from './types';
 
 export {
@@ -28,6 +36,7 @@ export {
   StreamParseError,
   artifactPayloadSchema,
   dutyCycleArtifactSchema,
+  generatedDiagramArtifactSchema,
   parseArtifactPayload,
   parseEvent,
   polarityArtifactSchema,
