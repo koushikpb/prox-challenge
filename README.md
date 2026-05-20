@@ -4,7 +4,7 @@
 
 An in-app assistant for the Harbor Freight Vulcan OmniPro 220 multiprocess welder, built on the **Anthropic Claude Agent SDK** in TypeScript and shipped as a single **Next.js (App Router)** app. The agent answers grounded technical questions about the welder — duty cycle, polarity setup, process selection, troubleshooting — and replies with prose plus inline **typed React artifacts** (interactive duty-cycle calculator, polarity diagram with the right socket highlighted, settings configurator, decision-tree troubleshooter) and cropped manual images. Every factual claim cites an owner-manual page.
 
-**Demo:** <https://TBD — will be filled after Vercel deployment>
+**Demo:** <https://prox-challenge-livid.vercel.app>
 
 **Video:** <link — optional>
 
@@ -174,6 +174,8 @@ The eval suite is **20 graded questions** in [`evals/golden.jsonl`](evals/golden
 `npm run eval` boots a local Next.js dev server, POSTs each entry to `/api/chat`, parses the SSE stream, applies the rubric, and writes [`evals/last-run.md`](evals/last-run.md). Latest run: **20 / 20 pass** (model `claude-sonnet-4-6`).
 
 The suite covers the three original README example questions (duty cycle at 200 A on 240 V; flux-cored porosity; TIG polarity + ground-clamp socket) plus 17 additional entries that exercise the lookup → render pairing, the action-vs-reference safety policy, the single-question clarification rule, and the refusal-with-nearest-fact behavior on out-of-scope topics like titanium.
+
+**Performance.** Smoke against the production deploy lands the first SSE byte in about 240 ms warm — the route handler emits a synthetic `thinking` event up front so the user sees activity immediately — followed by the first text token at roughly 6.4 s warm uncached, and a cached SSE replay returns the full stream in under 300 ms. An in-process cache keyed on the message array short-circuits repeat questions to that replay path. The canonical duty-cycle example requires two sequential Anthropic tool calls (lookup then render) before any text streams, and even single-tool questions clock around 5 s warm, so the 5–7 s first-text-token window is a characteristic of the agent loop rather than something to chase at this scope.
 
 ## Limitations and what's next
 
