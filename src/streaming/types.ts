@@ -90,12 +90,58 @@ export type RegionArtifactPayload = {
   title?: string;
 };
 
+export type WiringProcess =
+  | 'flux_cored_mig'
+  | 'solid_wire_mig'
+  | 'stick_dcep'
+  | 'stick_dcen'
+  | 'tig_dcen';
+
+export type GeneratedDiagramNodeKind =
+  | 'welder'
+  | 'electrode_holder'
+  | 'ground_clamp'
+  | 'workpiece'
+  | 'terminal'
+  | 'cable_junction';
+
+export type GeneratedDiagramEdgeColor = 'red' | 'black' | 'green' | 'blue';
+export type GeneratedDiagramEdgeStyle = 'solid' | 'dashed';
+export type GeneratedDiagramEdgePolarity = '+' | '-' | 'AC' | 'ground';
+
+export type GeneratedDiagramNode = {
+  id: string;
+  label: string;
+  kind: GeneratedDiagramNodeKind;
+  x: number;
+  y: number;
+};
+
+export type GeneratedDiagramEdge = {
+  from: string;
+  to: string;
+  label?: string;
+  polarity?: GeneratedDiagramEdgePolarity;
+  color: GeneratedDiagramEdgeColor;
+  style: GeneratedDiagramEdgeStyle;
+};
+
+export type GeneratedDiagramArtifactPayload = {
+  type: 'generated_diagram';
+  process: WiringProcess;
+  caption: string;
+  nodes: GeneratedDiagramNode[];
+  edges: GeneratedDiagramEdge[];
+  page_cite?: number;
+};
+
 export type ArtifactPayload =
   | DutyCycleArtifactPayload
   | PolarityArtifactPayload
   | SettingsArtifactPayload
   | TroubleshootArtifactPayload
-  | RegionArtifactPayload;
+  | RegionArtifactPayload
+  | GeneratedDiagramArtifactPayload;
 
 export type ArtifactKind = ArtifactPayload['type'];
 

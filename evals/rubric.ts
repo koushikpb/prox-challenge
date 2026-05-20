@@ -50,12 +50,23 @@ export function checkImage(
 export function checkArtifact(
   events: StreamEvent[],
   expected: ExpectedArtifactKind | null,
+  expectedProcess?: string,
 ): boolean {
-  const artifactKinds = events
-    .filter((e): e is Extract<StreamEvent, { type: 'artifact' }> => e.type === 'artifact')
-    .map((e) => e.artifact.type);
+  const artifactEvents = events.filter(
+    (e): e is Extract<StreamEvent, { type: 'artifact' }> => e.type === 'artifact',
+  );
+  const artifactKinds = artifactEvents.map((e) => e.artifact.type);
   if (expected === null) return artifactKinds.length === 0;
-  return artifactKinds.includes(expected);
+  if (!artifactKinds.includes(expected)) return false;
+  if (expected === 'generated_diagram' && expectedProcess) {
+    const matched = artifactEvents.some(
+      (e) =>
+        e.artifact.type === 'generated_diagram' &&
+        e.artifact.process === expectedProcess,
+    );
+    if (!matched) return false;
+  }
+  return true;
 }
 
 // Clarification heuristic. The system prompt directs the agent to "ask
@@ -120,7 +131,7 @@ export function applyRubric(
   const results: Record<CheckKey, boolean> = {
     facts: facts.ok,
     image: checkImage(events, entry.expects_image, opts.pageExists),
-    artifact: checkArtifact(events, entry.expects_artifact),
+    artifact: checkArtifact(events, entry.expects_artifact, entry.expects_wiring_process),
     clarification: checkClarification(streamText, entry.expects_clarification),
     safety: checkSafetyNudge(streamText, entry.expects_safety_nudge),
   };

@@ -107,12 +107,88 @@ export const regionArtifactSchema = z
   })
   .strict();
 
+const WIRING_PROCESSES = [
+  'flux_cored_mig',
+  'solid_wire_mig',
+  'stick_dcep',
+  'stick_dcen',
+  'tig_dcen',
+] as const;
+
+const generatedDiagramNodeSchema = z
+  .object({
+    id: z
+      .string()
+      .regex(/^[a-z_][a-z0-9_]{0,15}$/, 'node id must be ^[a-z_][a-z0-9_]{0,15}$'),
+    label: z.string().min(1).max(32),
+    kind: z.enum([
+      'welder',
+      'electrode_holder',
+      'ground_clamp',
+      'workpiece',
+      'terminal',
+      'cable_junction',
+    ]),
+    x: z.number().min(0).max(800),
+    y: z.number().min(0).max(600),
+  })
+  .strict();
+
+const generatedDiagramEdgeSchema = z
+  .object({
+    from: z.string().min(1),
+    to: z.string().min(1),
+    label: z.string().max(24).optional(),
+    polarity: z.enum(['+', '-', 'AC', 'ground']).optional(),
+    color: z.enum(['red', 'black', 'green', 'blue']),
+    style: z.enum(['solid', 'dashed']),
+  })
+  .strict();
+
+export const generatedDiagramArtifactSchema = z
+  .object({
+    type: z.literal('generated_diagram'),
+    process: z.enum(WIRING_PROCESSES),
+    caption: z.string().max(200),
+    nodes: z.array(generatedDiagramNodeSchema).min(2).max(12),
+    edges: z.array(generatedDiagramEdgeSchema).min(1).max(16),
+    page_cite: z.number().int().positive().optional(),
+  })
+  .strict();
+
+// Structural integrity beyond what zod's shape can express. Runs after
+// type-level parsing succeeds in parseArtifactPayload below.
+function assertGeneratedDiagramStructure(
+  value: z.infer<typeof generatedDiagramArtifactSchema>,
+): void {
+  const ids = new Set<string>();
+  for (const node of value.nodes) {
+    if (ids.has(node.id)) {
+      throw new StreamParseError(`generated_diagram has duplicate node id "${node.id}"`);
+    }
+    ids.add(node.id);
+  }
+  for (const [i, edge] of value.edges.entries()) {
+    if (!ids.has(edge.from)) {
+      throw new StreamParseError(
+        `generated_diagram edges[${i}].from "${edge.from}" references unknown node`,
+      );
+    }
+    if (!ids.has(edge.to)) {
+      throw new StreamParseError(
+        `generated_diagram edges[${i}].to "${edge.to}" references unknown node`,
+      );
+    }
+  }
+}
+
 export const artifactPayloadSchema = z.discriminatedUnion('type', [
   dutyCycleArtifactSchema,
   polarityArtifactSchema,
   settingsArtifactSchema,
   troubleshootArtifactSchema,
   regionArtifactSchema,
+  generatedDiagramArtifactSchema,
 ]);
 
 const textDeltaSchema = z
@@ -283,5 +359,9 @@ export function parseArtifactPayload(value: unknown): ArtifactPayload {
       .join('; ');
     throw new StreamParseError(`ArtifactPayload failed validation — ${summary}`, result.error);
   }
-  return result.data as ArtifactPayload;
+  const parsed = result.data as ArtifactPayload;
+  if (parsed.type === 'generated_diagram') {
+    assertGeneratedDiagramStructure(parsed);
+  }
+  return parsed;
 }

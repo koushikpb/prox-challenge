@@ -3,6 +3,7 @@
 import type { ArtifactPayload, ManualSource } from '@/streaming';
 
 import { DutyCycleArtifact } from './DutyCycleArtifact';
+import { GeneratedDiagramArtifact } from './GeneratedDiagramArtifact';
 import { PolarityArtifact } from './PolarityArtifact';
 import { RegionArtifact } from './RegionArtifact';
 import { SettingsConfiguratorArtifact } from './SettingsConfiguratorArtifact';
@@ -10,6 +11,7 @@ import { TroubleshootingArtifact } from './TroubleshootingArtifact';
 
 export {
   DutyCycleArtifact,
+  GeneratedDiagramArtifact,
   PolarityArtifact,
   RegionArtifact,
   SettingsConfiguratorArtifact,
@@ -30,6 +32,7 @@ export const artifactRegistry = {
   settings: SettingsConfiguratorArtifact,
   troubleshoot: TroubleshootingArtifact,
   region: RegionArtifact,
+  generated_diagram: GeneratedDiagramArtifact,
 } as const satisfies {
   [K in ArtifactPayload['type']]: RegistryComponent<Extract<ArtifactPayload, { type: K }>>;
 };
@@ -52,5 +55,7 @@ export function RenderArtifact({
       return <TroubleshootingArtifact payload={payload} onOpenPage={onOpenPage} />;
     case 'region':
       return <RegionArtifact payload={payload} onOpenPage={onOpenPage} />;
+    case 'generated_diagram':
+      return <GeneratedDiagramArtifact payload={payload} onOpenPage={onOpenPage} />;
   }
 }

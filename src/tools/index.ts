@@ -81,6 +81,15 @@ export {
   type RenderRegionArtifactOutput,
 } from './render_region_artifact';
 
+export {
+  generateWiringDiagram,
+  generateWiringDiagramTool,
+  generateWiringDiagramInputSchema,
+  type GenerateWiringDiagramInput,
+  type GenerateWiringDiagramOutput,
+} from './generate_wiring_diagram';
+export { WIRING_DIAGRAMS, humanizeProcess, type WiringLayout } from './wiring-diagrams';
+
 import { lookupDutyCycleTool } from './lookup_duty_cycle';
 import { lookupPolarityTool } from './lookup_polarity';
 import { lookupSettingsTool } from './lookup_settings';
@@ -94,6 +103,7 @@ import {
   renderTroubleshootArtifactTool,
 } from './render_artifact';
 import { renderRegionArtifactTool } from './render_region_artifact';
+import { generateWiringDiagramTool } from './generate_wiring_diagram';
 
 export const RENDER_ARTIFACT_TOOL_NAMES = [
   'render_duty_cycle_artifact',
@@ -101,6 +111,7 @@ export const RENDER_ARTIFACT_TOOL_NAMES = [
   'render_settings_artifact',
   'render_troubleshoot_artifact',
   'render_region_artifact',
+  'generate_wiring_diagram',
 ] as const;
 
 export type RenderArtifactToolName = (typeof RENDER_ARTIFACT_TOOL_NAMES)[number];
@@ -117,4 +128,5 @@ export const toolRegistry = [
   renderSettingsArtifactTool,
   renderTroubleshootArtifactTool,
   renderRegionArtifactTool,
+  generateWiringDiagramTool,
 ] as const;
