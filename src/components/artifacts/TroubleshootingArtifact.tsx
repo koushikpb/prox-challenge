@@ -38,8 +38,7 @@ export function TroubleshootingArtifact({
 
   const currentId = stack[stack.length - 1] ?? firstId;
   const node = nodesById.get(currentId) ?? null;
-  const isLeaf =
-    node !== null && (node.cause !== undefined || (node.fixes !== undefined && node.fixes.length > 0));
+  const isLeaf = node !== null && (node.cause !== undefined || (node.fixes !== undefined && node.fixes.length > 0));
   const canGoBack = stack.length > 1;
   const stepIndex = stack.length;
   const primaryPage = node?.source_pages?.[0] ?? 37;

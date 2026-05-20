@@ -7,10 +7,7 @@ import { mockStream } from './mockStream';
 export default function ChatMockPage() {
   return (
     <main className="flex flex-1 flex-col">
-      <ChatShell
-        modelLabel="dev-mock-stream"
-        source={{ kind: 'generator', events: mockStream }}
-      />
+      <ChatShell source={{ kind: 'generator', events: mockStream }} />
     </main>
   );
 }
