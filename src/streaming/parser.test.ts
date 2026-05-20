@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { StreamParseError, parseEvent, serializeEvent } from './parser';
+import {
+  MAX_DECODED_BYTES_PER_REQUEST,
+  MAX_IMAGE_BLOCKS_PER_MESSAGE,
+  StreamParseError,
+  parseEvent,
+  serializeEvent,
+  validateUserContent,
+} from './parser';
 import type {
   ArtifactEvent,
   ArtifactPayload,
@@ -202,6 +209,100 @@ describe('parseEvent rejects invalid input', () => {
     void _omit;
     const line = `data: ${JSON.stringify({ type: 'artifact', artifact: rest })}\n\n`;
     expect(() => parseEvent(line)).toThrow(StreamParseError);
+  });
+});
+
+// Minimal valid magic-number payloads, padded to 16+ bytes so the
+// decodeFirstBytes head check has enough material to inspect.
+const PNG_HEADER = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+const JPEG_HEADER = Buffer.from([0xff, 0xd8, 0xff, 0xe0]);
+const WEBP_HEADER = Buffer.from([
+  0x52, 0x49, 0x46, 0x46, 0x24, 0x00, 0x00, 0x00, 0x57, 0x45, 0x42, 0x50,
+]);
+const GIF_HEADER = Buffer.from([0x47, 0x49, 0x46, 0x38, 0x39, 0x61]);
+
+function padTo16(prefix: Buffer): string {
+  const padding = Buffer.alloc(Math.max(0, 32 - prefix.length));
+  return Buffer.concat([prefix, padding]).toString('base64');
+}
+
+const SAMPLE_PNG_BASE64 = padTo16(PNG_HEADER);
+const SAMPLE_JPEG_BASE64 = padTo16(JPEG_HEADER);
+const SAMPLE_WEBP_BASE64 = padTo16(WEBP_HEADER);
+const SAMPLE_GIF_BASE64 = padTo16(GIF_HEADER);
+
+describe('validateUserContent', () => {
+  it('accepts a plain string (backward compat)', () => {
+    expect(validateUserContent('hello')).toBe('hello');
+  });
+
+  it('accepts a single text block', () => {
+    const blocks = [{ type: 'text', text: 'hi' }];
+    expect(validateUserContent(blocks)).toEqual(blocks);
+  });
+
+  it.each([
+    ['image/png', SAMPLE_PNG_BASE64],
+    ['image/jpeg', SAMPLE_JPEG_BASE64],
+    ['image/webp', SAMPLE_WEBP_BASE64],
+    ['image/gif', SAMPLE_GIF_BASE64],
+  ] as const)('accepts a valid %s attachment', (media_type, data) => {
+    const blocks = [
+      { type: 'text', text: 'look' },
+      { type: 'image', source: { type: 'base64', media_type, data } },
+    ];
+    expect(validateUserContent(blocks)).toEqual(blocks);
+  });
+
+  it('rejects an oversized payload (5 MB of zero bytes)', () => {
+    const oversize = Buffer.alloc(5 * 1024 * 1024).toString('base64');
+    const blocks = [
+      {
+        type: 'image',
+        source: { type: 'base64', media_type: 'image/png', data: oversize },
+      },
+    ];
+    expect(() => validateUserContent(blocks)).toThrow(StreamParseError);
+    expect(() => validateUserContent(blocks)).toThrow(/exceeds/i);
+  });
+
+  it(`rejects more than ${MAX_IMAGE_BLOCKS_PER_MESSAGE} image blocks`, () => {
+    const block = {
+      type: 'image' as const,
+      source: { type: 'base64' as const, media_type: 'image/png' as const, data: SAMPLE_PNG_BASE64 },
+    };
+    const blocks = [block, block, block, block, block];
+    expect(() => validateUserContent(blocks)).toThrow(StreamParseError);
+    expect(() => validateUserContent(blocks)).toThrow(/limit/i);
+  });
+
+  it('rejects a magic-number / media_type mismatch (JPEG bytes with PNG label)', () => {
+    const blocks = [
+      {
+        type: 'image',
+        source: { type: 'base64', media_type: 'image/png', data: SAMPLE_JPEG_BASE64 },
+      },
+    ];
+    expect(() => validateUserContent(blocks)).toThrow(StreamParseError);
+    expect(() => validateUserContent(blocks)).toThrow(/media_type/i);
+  });
+
+  it('rejects an unsupported media_type', () => {
+    const blocks = [
+      {
+        type: 'image',
+        source: { type: 'base64', media_type: 'image/svg+xml', data: SAMPLE_PNG_BASE64 },
+      },
+    ];
+    expect(() => validateUserContent(blocks)).toThrow(StreamParseError);
+  });
+
+  it('rejects an empty content array', () => {
+    expect(() => validateUserContent([])).toThrow(StreamParseError);
+  });
+
+  it('exposes the documented decoded-byte cap', () => {
+    expect(MAX_DECODED_BYTES_PER_REQUEST).toBe(4 * 1024 * 1024);
   });
 });
 

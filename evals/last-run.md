@@ -1,8 +1,8 @@
 # Golden Eval — last run
 
-- Timestamp: `2026-05-17T23:24:57.369Z`
+- Timestamp: `2026-05-20T05:04:27.184Z`
 - Model: `claude-sonnet-4-6`
-- Result: **20 / 21 pass**
+- Result: **18 / 23 pass**
 
 ## Per-entry results
 
@@ -21,19 +21,37 @@
 | Q11 | Can I weld titanium with this welder? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q12 | What settings should I use for solid-core MIG on 1/8 inch mild steel? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q13 | What's the rated duty cycle for TIG at 175A on 240V? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q14 | What polarity do I use for stick welding on this welder? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q15 | Why am I getting excessive spatter in my MIG welds? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
+| Q14 | What polarity do I use for stick welding on this welder? | ✗ | ✗ | ✗ | ✗ | ✗ | FAIL |
+| Q15 | Why am I getting excessive spatter in my MIG welds? | ✗ | ✗ | ✗ | ✗ | ✗ | FAIL |
 | Q16 | What does the LCD show after I dial in wire diameter and material thickness? | ✓ | ✓ | ✗ | ✓ | ✓ | FAIL |
 | Q17 | What shielding gas should I use for MIG welding aluminum? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q18 | I'm welding outside in windy conditions — which process should I use? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 | Q19 | Show me the wiring schematic. | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q20 | The welder shut off mid-bead and the LCD is showing the thermal protection indi… | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
-| Q21 | Show me the parts diagram. | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
+| Q20 | The welder shut off mid-bead and the LCD is showing the thermal protection indi… | ✗ | ✗ | ✗ | ✗ | ✗ | FAIL |
+| Q21 | Show me the parts diagram. | ✗ | ✗ | ✗ | ✗ | ✗ | FAIL |
+| Q22 | Can I plug the OmniPro 220 into this outlet? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
+| Q23 | What does this reading on the display mean? | ✓ | ✓ | ✓ | ✓ | ✓ | PASS |
 
 ## Failures
 
+### Q14 — What polarity do I use for stick welding on this welder?
+- Failing checks: facts, image, artifact, clarification, safety
+- Missing facts: `DCEP`
+
+### Q15 — Why am I getting excessive spatter in my MIG welds?
+- Failing checks: facts, image, artifact, clarification, safety
+- Missing facts: `polarity`
+
 ### Q16 — What does the LCD show after I dial in wire diameter and material thickness?
 - Failing checks: artifact
+
+### Q20 — The welder shut off mid-bead and the LCD is showing the thermal protection indicator — what do I do?
+- Failing checks: facts, image, artifact, clarification, safety
+- Missing facts: `cool`
+
+### Q21 — Show me the parts diagram.
+- Failing checks: facts, image, artifact, clarification, safety
+- Missing facts: `parts`
 
 <!-- investigation-notes:keep -->
 

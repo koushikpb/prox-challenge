@@ -6,6 +6,7 @@ export type {
   DoneEvent,
   DutyCycleArtifactPayload,
   ErrorEvent,
+  ImageMediaType,
   ManualSource,
   PolarityArtifactPayload,
   RegionArtifactPayload,
@@ -17,9 +18,13 @@ export type {
   ToolCallStartEvent,
   TroubleshootArtifactPayload,
   TroubleshootNode,
+  UserContentBlock,
+  UserMessageContent,
 } from './types';
 
 export {
+  MAX_DECODED_BYTES_PER_REQUEST,
+  MAX_IMAGE_BLOCKS_PER_MESSAGE,
   StreamParseError,
   artifactPayloadSchema,
   dutyCycleArtifactSchema,
@@ -30,6 +35,9 @@ export {
   serializeEvent,
   settingsArtifactSchema,
   troubleshootArtifactSchema,
+  userContentBlockSchema,
+  userMessageContentSchema,
+  validateUserContent,
 } from './parser';
 export { readEventStream, streamChat } from './client';
 export type { ChatMessage, ChatRequest, ChatRole, StreamChatOptions } from './client';

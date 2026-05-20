@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, useRef, useState } from 'react';
 
-import type { ChatMessage, StreamEvent } from '@/streaming';
+import type { ChatMessage, StreamEvent, UserContentBlock } from '@/streaming';
 import { streamChat } from '@/streaming';
 
 import type {
@@ -11,6 +11,26 @@ import type {
   ToolCallRecord,
   UserMessage,
 } from './types';
+
+// Cross-component buffer for image attachments the Composer collected just
+// before submit. Kept module-scoped so the Composer can hand off attachments
+// without restructuring the ChatShell prop chain. There is only ever one chat
+// session live in this app, so a singleton is correct.
+let pendingAttachments: UserContentBlock[] = [];
+
+export function setPendingAttachments(blocks: UserContentBlock[]): void {
+  pendingAttachments = blocks;
+}
+
+export function clearPendingAttachments(): void {
+  pendingAttachments = [];
+}
+
+function consumePendingAttachments(): UserContentBlock[] {
+  const out = pendingAttachments;
+  pendingAttachments = [];
+  return out;
+}
 
 
 let idCounter = 0;
@@ -59,7 +79,16 @@ export function useChatSession(options: UseChatSessionOptions = {}): UseChatSess
       const trimmed = text.trim();
       if (trimmed.length === 0 || isStreaming) return;
 
-      const userMsg: UserMessage = { id: nextId('u'), role: 'user', content: trimmed };
+      const attachments = consumePendingAttachments();
+      const imageAttachments = attachments.filter(
+        (b): b is Extract<UserContentBlock, { type: 'image' }> => b.type === 'image',
+      );
+      const userMsg: UserMessage = {
+        id: nextId('u'),
+        role: 'user',
+        content: trimmed,
+        attachments: imageAttachments.length > 0 ? imageAttachments : undefined,
+      };
       const assistantId = nextId('a');
       const assistantMsg: AssistantMessage = {
         id: assistantId,
@@ -80,9 +109,16 @@ export function useChatSession(options: UseChatSessionOptions = {}): UseChatSess
       const controller = new AbortController();
       abortRef.current = controller;
 
+      const tailContent: string | UserContentBlock[] =
+        attachments.length > 0
+          ? [{ type: 'text', text: trimmed } as UserContentBlock, ...attachments]
+          : trimmed;
+
       const wireMessages: ChatMessage[] = [
-        ...priorMessages.map((m) => ({ role: m.role, content: m.content })),
-        { role: 'user', content: trimmed },
+        ...priorMessages.map(
+          (m) => ({ role: m.role, content: m.content }) as ChatMessage,
+        ),
+        { role: 'user', content: tailContent },
       ];
 
       let stream: AsyncIterable<StreamEvent>;

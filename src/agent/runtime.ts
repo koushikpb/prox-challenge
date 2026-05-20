@@ -98,10 +98,12 @@ export async function streamAgentTurn(
   const maxLoops = opts.maxToolLoops ?? DEFAULT_MAX_TOOL_LOOPS;
 
   const conversation: Anthropic.MessageParam[] = request.messages
-    .filter((m) => m.content.length > 0)
+    .filter((m) =>
+      typeof m.content === 'string' ? m.content.length > 0 : m.content.length > 0,
+    )
     .map((m) => ({
       role: m.role,
-      content: m.content,
+      content: m.content as Anthropic.MessageParam['content'],
     }));
 
   const citedPages = new Set<number>();

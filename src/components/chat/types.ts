@@ -1,4 +1,6 @@
-import type { ArtifactPayload, ManualSource } from '@/streaming';
+import type { ArtifactPayload, ManualSource, UserContentBlock } from '@/streaming';
+
+export type UserAttachment = Extract<UserContentBlock, { type: 'image' }>;
 
 export type CitationRef = {
   page: number;
@@ -18,6 +20,7 @@ export type UserMessage = {
   id: string;
   role: 'user';
   content: string;
+  attachments?: UserAttachment[];
 };
 
 export type AssistantMessage = {

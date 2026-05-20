@@ -1,5 +1,32 @@
 export type ManualSource = 'owner-manual' | 'quick-start' | 'selection-chart';
 
+export type ImageMediaType = 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif';
+
+export type UserContentBlock =
+  | { type: 'text'; text: string }
+  | {
+      type: 'image';
+      source: {
+        type: 'base64';
+        media_type: ImageMediaType;
+        data: string;
+      };
+    };
+
+export type UserMessageContent = string | UserContentBlock[];
+
+export type UserMessage = {
+  role: 'user';
+  content: UserMessageContent;
+};
+
+export type AssistantMessage = {
+  role: 'assistant';
+  content: string;
+};
+
+export type WireMessage = UserMessage | AssistantMessage;
+
 export type DutyCycleArtifactPayload = {
   type: 'duty_cycle';
   process: 'MIG' | 'TIG' | 'Stick';
