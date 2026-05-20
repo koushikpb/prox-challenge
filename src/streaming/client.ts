@@ -1,12 +1,11 @@
 import { parseEvent, StreamParseError } from './parser';
-import type { StreamEvent } from './types';
+import type { StreamEvent, UserContentBlock } from './types';
 
 export type ChatRole = 'user' | 'assistant';
 
-export type ChatMessage = {
-  role: ChatRole;
-  content: string;
-};
+export type ChatMessage =
+  | { role: 'user'; content: string | UserContentBlock[] }
+  | { role: 'assistant'; content: string };
 
 export type ChatRequest = {
   messages: ChatMessage[];

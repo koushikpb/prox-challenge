@@ -2,6 +2,11 @@ import { NextRequest } from 'next/server';
 import { z } from 'zod';
 import { streamAgentTurn } from '@/agent/runtime';
 import { cacheGet, cacheKey, cacheSet, isCacheable } from '@/streaming/cache';
+import {
+  StreamParseError,
+  userMessageContentSchema,
+  validateUserContent,
+} from '@/streaming/parser';
 import { checkRateLimit } from '@/streaming/rate-limit';
 import { replayEvents, streamResponse } from '@/streaming/sse';
 import type { StreamEvent } from '@/streaming/types';
@@ -13,7 +18,7 @@ const requestSchema = z.object({
   messages: z
     .array(
       z.discriminatedUnion('role', [
-        z.object({ role: z.literal('user'), content: z.string().min(1) }),
+        z.object({ role: z.literal('user'), content: userMessageContentSchema }),
         z.object({ role: z.literal('assistant'), content: z.string() }),
       ]),
     )
@@ -50,6 +55,20 @@ export async function POST(req: NextRequest): Promise<Response> {
       .map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`)
       .join('; ');
     return streamSingleError(`Request shape invalid — ${detail}.`);
+  }
+
+  // Second-pass validation on the latest user message: enforce the magic-number,
+  // count, and total-byte caps that the zod schema cannot express on its own.
+  const lastUser = [...parsed.data.messages].reverse().find((m) => m.role === 'user');
+  if (lastUser) {
+    try {
+      validateUserContent(lastUser.content);
+    } catch (err) {
+      if (err instanceof StreamParseError) {
+        return streamSingleError(err.message);
+      }
+      throw err;
+    }
   }
 
   const limit = checkRateLimit(clientIp(req));

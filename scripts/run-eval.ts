@@ -5,14 +5,28 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_MODEL } from '@/agent/runtime';
-import { parseEvent, type StreamEvent } from '@/streaming';
+import { parseEvent, type StreamEvent, type UserContentBlock } from '@/streaming';
 import { applyRubric } from '@/evals/rubric';
-import { goldenEntrySchema, type GoldenEntry } from '@/evals/types';
+import {
+  entryQuestionImages,
+  entryQuestionText,
+  goldenEntrySchema,
+  type GoldenEntry,
+} from '@/evals/types';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
 const GOLDEN_PATH = path.join(REPO_ROOT, 'evals', 'golden.jsonl');
+const FIXTURES_DIR = path.join(REPO_ROOT, 'evals', 'fixtures');
 const REPORT_PATH = path.join(REPO_ROOT, 'evals', 'last-run.md');
+
+const IMAGE_MEDIA_TYPES: Record<string, 'image/png' | 'image/jpeg' | 'image/webp' | 'image/gif'> = {
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.gif': 'image/gif',
+};
 const PORT = Number(process.env.PORT ?? '3000');
 const HOST = '127.0.0.1';
 const READY_TIMEOUT_MS = 60_000;
@@ -125,6 +139,27 @@ function teardown(handle: ServerHandle): void {
   }
 }
 
+function buildContent(entry: GoldenEntry): string | UserContentBlock[] {
+  const images = entryQuestionImages(entry);
+  const text = entryQuestionText(entry);
+  if (images.length === 0) return text;
+  const blocks: UserContentBlock[] = [{ type: 'text', text }];
+  for (const rel of images) {
+    const abs = path.join(FIXTURES_DIR, rel);
+    const ext = path.extname(rel).toLowerCase();
+    const media = IMAGE_MEDIA_TYPES[ext];
+    if (!media) {
+      throw new Error(`Unsupported image extension for fixture ${rel}`);
+    }
+    const data = readFileSync(abs).toString('base64');
+    blocks.push({
+      type: 'image',
+      source: { type: 'base64', media_type: media, data },
+    });
+  }
+  return blocks;
+}
+
 async function runEntry(entry: GoldenEntry): Promise<{ events: StreamEvent[]; row: RunRow }> {
   const ac = new AbortController();
   const timeout = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
@@ -134,7 +169,7 @@ async function runEntry(entry: GoldenEntry): Promise<{ events: StreamEvent[]; ro
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        messages: [{ role: 'user', content: entry.question }],
+        messages: [{ role: 'user', content: buildContent(entry) }],
       }),
       signal: ac.signal,
     });
@@ -311,7 +346,7 @@ async function main(): Promise<void> {
         console.log(`ERROR — ${message}`);
         rows.push({
           id: entry.id,
-          question: entry.question,
+          question: entryQuestionText(entry),
           results: { facts: false, image: false, artifact: false, clarification: false, safety: false },
           missing_facts: entry.expected_facts,
           overall: false,

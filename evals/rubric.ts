@@ -8,6 +8,7 @@ import {
   type EntryResult,
   type ExpectedArtifactKind,
   type GoldenEntry,
+  entryQuestionText,
 } from './types';
 
 export type FactsCheck = { ok: boolean; missing: string[] };
@@ -126,7 +127,7 @@ export function applyRubric(
   const overall = CHECK_KEYS.every((k) => results[k]);
   return {
     id: entry.id,
-    question: entry.question,
+    question: entryQuestionText(entry),
     results,
     missing_facts: facts.missing,
     overall,
