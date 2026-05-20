@@ -19,6 +19,11 @@ type ArtifactCardProps = {
   pageBadge?: string;
   hero?: { src: string; alt: string };
   heroSlot?: ReactNode;
+  // When provided, the hero becomes a button that calls this instead of
+  // routing to the manual page. Lets diagram-style heroes open their own
+  // lightbox while the source pill still navigates to the citation.
+  heroOnClick?: () => void;
+  heroEnlargeLabel?: string;
   title: string;
   subtitle?: string;
   safetyNote?: string;
@@ -37,6 +42,8 @@ export function ArtifactCard({
   pageBadge,
   hero,
   heroSlot,
+  heroOnClick,
+  heroEnlargeLabel,
   title,
   subtitle,
   safetyNote,
@@ -45,6 +52,9 @@ export function ArtifactCard({
 }: ArtifactCardProps) {
   const sourceLabel = SOURCE_LABEL[footer.source];
   const openPage = () => footer.onOpenPage?.(footer.page, footer.source);
+  const heroClick = heroOnClick ?? (footer.onOpenPage ? openPage : undefined);
+  const heroLabel =
+    heroEnlargeLabel ?? `Open ${sourceLabel} page ${footer.page}`;
 
   return (
     <section
@@ -86,8 +96,8 @@ export function ArtifactCard({
         <HeroSlot
           hero={hero}
           heroSlot={heroSlot}
-          enlargeLabel={`Open ${sourceLabel} page ${footer.page}`}
-          onClick={footer.onOpenPage ? openPage : undefined}
+          enlargeLabel={heroLabel}
+          onClick={heroClick}
         />
       )}
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 import type { ManualSource } from '@/streaming';
+import type { OpenDiagramHandler } from '@/components/artifacts/GeneratedDiagramArtifact';
 
 import { Message } from './Message';
 import type { ChatMessageRecord } from './types';
@@ -10,9 +11,10 @@ import type { ChatMessageRecord } from './types';
 type MessageListProps = {
   messages: ChatMessageRecord[];
   onOpenCitation: (page: number, source: ManualSource) => void;
+  onOpenDiagram?: OpenDiagramHandler;
 };
 
-export function MessageList({ messages, onOpenCitation }: MessageListProps) {
+export function MessageList({ messages, onOpenCitation, onOpenDiagram }: MessageListProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -47,6 +49,7 @@ export function MessageList({ messages, onOpenCitation }: MessageListProps) {
           key={message.id}
           message={message}
           onOpenCitation={onOpenCitation}
+          onOpenDiagram={onOpenDiagram}
         />
       ))}
     </div>

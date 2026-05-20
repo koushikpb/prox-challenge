@@ -33,8 +33,6 @@ function consumePendingAttachments(): UserContentBlock[] {
 }
 
 
-let idCounter = 0;
-const nextId = (prefix: string) => `${prefix}-${++idCounter}`;
 
 const CLARIFICATION_PATTERN = /\?\s*$/;
 
@@ -59,6 +57,13 @@ export function useChatSession(options: UseChatSessionOptions = {}): UseChatSess
   const [messages, setMessages] = useState<ChatMessageRecord[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+  // Ref so the counter survives HMR module reloads. A module-level counter
+  // would reset on every dev reload, regenerating colliding IDs.
+  const idCounterRef = useRef(0);
+  const nextId = useCallback((prefix: string) => {
+    idCounterRef.current += 1;
+    return `${prefix}-${idCounterRef.current}`;
+  }, []);
 
   const updateAssistant = useCallback(
     (id: string, recipe: (draft: AssistantMessage) => AssistantMessage) => {
@@ -133,7 +138,7 @@ export function useChatSession(options: UseChatSessionOptions = {}): UseChatSess
 
       try {
         for await (const event of stream) {
-          applyEvent(updateAssistant, assistantId, event);
+          applyEvent(updateAssistant, assistantId, event, nextId);
         }
       } catch (err) {
         const message = err instanceof Error ? err.message : String(err);
@@ -147,7 +152,7 @@ export function useChatSession(options: UseChatSessionOptions = {}): UseChatSess
         setIsStreaming(false);
       }
     },
-    [isStreaming, messages, sessionId, source, updateAssistant],
+    [isStreaming, messages, nextId, sessionId, source, updateAssistant],
   );
 
   return useMemo(
@@ -160,6 +165,7 @@ function applyEvent(
   update: (id: string, recipe: (draft: AssistantMessage) => AssistantMessage) => void,
   id: string,
   event: StreamEvent,
+  nextId: (prefix: string) => string,
 ): void {
   switch (event.type) {
     case 'text_delta':

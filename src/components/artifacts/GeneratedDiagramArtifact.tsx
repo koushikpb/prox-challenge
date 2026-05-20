@@ -12,9 +12,18 @@ import type {
 
 import { ArtifactCard } from './ArtifactCard';
 
+export type OpenDiagramHandler = (item: {
+  payload: GeneratedDiagramArtifactPayload;
+  title: string;
+  subtitle?: string;
+}) => void;
+
 type Props = {
   payload: GeneratedDiagramArtifactPayload;
+  // Source-pill click → opens the cited manual page in the shared viewer.
   onOpenPage?: (page: number, source: ManualSource) => void;
+  // Hero click → opens the SAME viewer in diagram mode showing this SVG.
+  onOpenDiagram?: OpenDiagramHandler;
 };
 
 const VIEW_W = 800;
@@ -186,19 +195,22 @@ function safetyNote(process: GeneratedDiagramArtifactPayload['process']): string
   return 'Unplug the welder before changing cable polarity.';
 }
 
-export function GeneratedDiagramArtifact({ payload, onOpenPage }: Props) {
-  const processLabel = PROCESS_LABEL[payload.process];
-  const polarity = POLARITY_NAME[payload.process];
-  const subtitle = `Generated layout · ${polarity}`;
-  const note = safetyNote(payload.process);
+export function GeneratedDiagramSvg({
+  payload,
+  className,
+  ariaLabel,
+}: {
+  payload: GeneratedDiagramArtifactPayload;
+  className: string;
+  ariaLabel: string;
+}) {
   const nodesById = new Map(payload.nodes.map((n) => [n.id, n]));
-
-  const hero = (
+  return (
     <svg
       viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
       role="img"
-      aria-label={`${processLabel} diagram (${polarity})`}
-      className="block w-full h-auto max-h-72"
+      aria-label={ariaLabel}
+      className={className}
       data-slot="diagram-svg"
     >
       <rect x={0} y={0} width={VIEW_W} height={VIEW_H} fill="#f4f4f5" />
@@ -210,6 +222,22 @@ export function GeneratedDiagramArtifact({ payload, onOpenPage }: Props) {
       ))}
     </svg>
   );
+}
+
+export function GeneratedDiagramArtifact({ payload, onOpenPage, onOpenDiagram }: Props) {
+  const processLabel = PROCESS_LABEL[payload.process];
+  const polarity = POLARITY_NAME[payload.process];
+  const subtitle = `Generated layout · ${polarity}`;
+  const note = safetyNote(payload.process);
+  const ariaLabel = `${processLabel} diagram (${polarity})`;
+
+  const hero = (
+    <GeneratedDiagramSvg
+      payload={payload}
+      ariaLabel={ariaLabel}
+      className="block w-full h-auto max-h-72"
+    />
+  );
 
   return (
     <ArtifactCard
@@ -218,6 +246,12 @@ export function GeneratedDiagramArtifact({ payload, onOpenPage }: Props) {
       tagIcon={CableIcon}
       pageBadge={payload.page_cite ? `page ${payload.page_cite}` : undefined}
       heroSlot={hero}
+      heroOnClick={
+        onOpenDiagram
+          ? () => onOpenDiagram({ payload, title: processLabel, subtitle })
+          : undefined
+      }
+      heroEnlargeLabel={`Enlarge ${processLabel} diagram`}
       title={processLabel}
       subtitle={subtitle}
       safetyNote={note}

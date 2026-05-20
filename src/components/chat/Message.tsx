@@ -4,6 +4,7 @@ import type { ManualSource } from '@/streaming';
 import { cn } from '@/lib/utils';
 
 import { RenderArtifact } from '@/components/artifacts';
+import type { OpenDiagramHandler } from '@/components/artifacts/GeneratedDiagramArtifact';
 
 import { MarkdownContent } from './MarkdownContent';
 import { ToolChip } from './ToolChip';
@@ -13,9 +14,10 @@ import { stripCitationMarkers } from './utils';
 type MessageProps = {
   message: ChatMessageRecord;
   onOpenCitation: (page: number, source: ManualSource) => void;
+  onOpenDiagram?: OpenDiagramHandler;
 };
 
-export function Message({ message, onOpenCitation }: MessageProps) {
+export function Message({ message, onOpenCitation, onOpenDiagram }: MessageProps) {
   if (message.role === 'user') {
     return (
       <div
@@ -30,16 +32,22 @@ export function Message({ message, onOpenCitation }: MessageProps) {
     );
   }
   return (
-    <AssistantBubble message={message} onOpenCitation={onOpenCitation} />
+    <AssistantBubble
+      message={message}
+      onOpenCitation={onOpenCitation}
+      onOpenDiagram={onOpenDiagram}
+    />
   );
 }
 
 function AssistantBubble({
   message,
   onOpenCitation,
+  onOpenDiagram,
 }: {
   message: AssistantMessage;
   onOpenCitation: (page: number, source: ManualSource) => void;
+  onOpenDiagram?: OpenDiagramHandler;
 }) {
   const isClarification = message.kind === 'clarification';
   const hasChips = message.toolCalls.length > 0;
@@ -85,6 +93,7 @@ function AssistantBubble({
                   key={`${artifact.type}-${idx}`}
                   payload={artifact}
                   onOpenPage={onOpenCitation}
+                  onOpenDiagram={onOpenDiagram}
                 />
               ))}
             </div>

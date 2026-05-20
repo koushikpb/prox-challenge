@@ -4,8 +4,10 @@ import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from 'lucide-react';
 
-import type { ManualSource } from '@/streaming';
+import type { GeneratedDiagramArtifactPayload, ManualSource } from '@/streaming';
 import { cn } from '@/lib/utils';
+
+import { GeneratedDiagramSvg } from '@/components/artifacts/GeneratedDiagramArtifact';
 
 const SOURCE_LABEL: Record<ManualSource, string> = {
   'owner-manual': 'Owner manual',
@@ -19,25 +21,36 @@ const SOURCE_PAGE_COUNT: Record<ManualSource, number> = {
   'selection-chart': 1,
 };
 
+export type ManualViewerItem =
+  | { kind: 'page'; page: number; source: ManualSource }
+  | { kind: 'diagram'; payload: GeneratedDiagramArtifactPayload; title: string; subtitle?: string };
+
 type ManualViewerProps = {
   open: boolean;
-  page: number | null;
-  source: ManualSource | null;
+  item: ManualViewerItem | null;
   onOpenChange: (open: boolean) => void;
 };
 
-export function ManualViewer({ open, page, source, onOpenChange }: ManualViewerProps) {
-  const [currentPage, setCurrentPage] = useState<number | null>(page);
-  const [pageInput, setPageInput] = useState<string>(page ? String(page) : '');
-  const [prevPage, setPrevPage] = useState<number | null>(page);
-  const [prevSource, setPrevSource] = useState<ManualSource | null>(source);
-  if (page !== prevPage || source !== prevSource) {
-    setPrevPage(page);
-    setPrevSource(source);
-    setCurrentPage(page);
-    setPageInput(page ? String(page) : '');
+export function ManualViewer({ open, item, onOpenChange }: ManualViewerProps) {
+  const pageItem = item?.kind === 'page' ? item : null;
+  const diagramItem = item?.kind === 'diagram' ? item : null;
+
+  const [currentPage, setCurrentPage] = useState<number | null>(pageItem?.page ?? null);
+  const [pageInput, setPageInput] = useState<string>(pageItem ? String(pageItem.page) : '');
+  const [prevPage, setPrevPage] = useState<number | null>(pageItem?.page ?? null);
+  const [prevSource, setPrevSource] = useState<ManualSource | null>(pageItem?.source ?? null);
+
+  if (
+    (pageItem?.page ?? null) !== prevPage ||
+    (pageItem?.source ?? null) !== prevSource
+  ) {
+    setPrevPage(pageItem?.page ?? null);
+    setPrevSource(pageItem?.source ?? null);
+    setCurrentPage(pageItem?.page ?? null);
+    setPageInput(pageItem ? String(pageItem.page) : '');
   }
 
+  const source = pageItem?.source ?? null;
   const totalPages = source ? SOURCE_PAGE_COUNT[source] : 0;
   const ready = currentPage !== null && source !== null;
   const imgSrc = ready ? buildImageSrc(source, currentPage) : null;
@@ -72,6 +85,7 @@ export function ManualViewer({ open, page, source, onOpenChange }: ManualViewerP
         close();
         return;
       }
+      if (diagramItem) return; // no paging when viewing a diagram
       const target = event.target as HTMLElement | null;
       if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return;
       if (event.key === 'ArrowLeft') {
@@ -89,18 +103,29 @@ export function ManualViewer({ open, page, source, onOpenChange }: ManualViewerP
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = prevOverflow;
     };
-  }, [open, close, goPrev, goNext]);
+  }, [open, close, goPrev, goNext, diagramItem]);
 
   if (!open) return null;
 
   const atStart = currentPage === null || currentPage <= 1;
   const atEnd = currentPage === null || (source !== null && currentPage >= totalPages);
 
+  const headerLabel = diagramItem
+    ? diagramItem.title
+    : ready
+      ? label
+      : 'Manual viewer';
+  const ariaLabel = diagramItem
+    ? `${diagramItem.title} diagram`
+    : ready
+      ? `${label} — page ${currentPage}`
+      : 'Manual viewer';
+
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={ready ? `${label} — page ${currentPage}` : 'Manual viewer'}
+      aria-label={ariaLabel}
       data-slot="manual-viewer"
       className="fixed inset-0 z-50 flex flex-col bg-black/90 backdrop-blur-md animate-in fade-in zoom-in-95 duration-200 ease-out"
       onClick={close}
@@ -110,10 +135,13 @@ export function ManualViewer({ open, page, source, onOpenChange }: ManualViewerP
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-baseline gap-2 text-sm">
-          <span className="font-medium text-white">{ready ? label : 'Manual viewer'}</span>
+          <span className="font-medium text-white">{headerLabel}</span>
+          {diagramItem?.subtitle && (
+            <span className="text-xs text-zinc-400">{diagramItem.subtitle}</span>
+          )}
         </div>
 
-        {source && currentPage !== null && (
+        {pageItem && source && currentPage !== null && (
           <div className="flex items-center gap-2" data-slot="manual-viewer-nav">
             <button
               type="button"
@@ -187,7 +215,18 @@ export function ManualViewer({ open, page, source, onOpenChange }: ManualViewerP
       </header>
 
       <div className="flex flex-1 items-center justify-center overflow-auto p-6">
-        {imgSrc ? (
+        {diagramItem ? (
+          <div
+            className="relative flex max-h-full w-full max-w-5xl items-center justify-center"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <GeneratedDiagramSvg
+              payload={diagramItem.payload}
+              ariaLabel={ariaLabel}
+              className="h-auto max-h-[calc(100vh-7rem)] w-auto max-w-full rounded-md bg-white object-contain shadow-2xl"
+            />
+          </div>
+        ) : imgSrc ? (
           <div
             className="relative flex max-h-full w-full max-w-5xl items-center justify-center"
             onClick={(event) => event.stopPropagation()}

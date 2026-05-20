@@ -3,22 +3,21 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { BookOpenIcon, SparklesIcon } from 'lucide-react';
 
-import type { ManualSource } from '@/streaming';
+import type { GeneratedDiagramArtifactPayload, ManualSource } from '@/streaming';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { useSpeech } from '@/components/voice/useSpeech';
 
 import { Composer } from './Composer';
-import { ManualViewer } from './ManualViewer';
+import { ManualViewer, type ManualViewerItem } from './ManualViewer';
 import { MessageList } from './MessageList';
 import { useChatSession, type ChatSource } from './useChatSession';
 import { stripCitationMarkers } from './utils';
 
 type ChatShellProps = {
   source?: ChatSource;
-  modelLabel?: string;
 };
 
-export function ChatShell({ source, modelLabel = 'vulcan-omnipro-220' }: ChatShellProps) {
+export function ChatShell({ source }: ChatShellProps) {
   const { messages, isStreaming, send } = useChatSession({ source });
   const speech = useSpeech();
   const [speakerOn, setSpeakerOn] = useState(false);
@@ -26,17 +25,37 @@ export function ChatShell({ source, modelLabel = 'vulcan-omnipro-220' }: ChatShe
 
   const [viewer, setViewer] = useState<{
     open: boolean;
-    page: number | null;
-    source: ManualSource | null;
-  }>({ open: false, page: null, source: null });
+    item: ManualViewerItem | null;
+  }>({ open: false, item: null });
 
   const openCitation = useCallback((page: number, source: ManualSource) => {
-    setViewer({ open: true, page, source });
+    setViewer({ open: true, item: { kind: 'page', page, source } });
   }, []);
 
   const openManualHome = useCallback(() => {
-    setViewer({ open: true, page: 1, source: 'owner-manual' });
+    setViewer({
+      open: true,
+      item: { kind: 'page', page: 1, source: 'owner-manual' },
+    });
   }, []);
+
+  const openDiagram = useCallback(
+    ({
+      payload,
+      title,
+      subtitle,
+    }: {
+      payload: GeneratedDiagramArtifactPayload;
+      title: string;
+      subtitle?: string;
+    }) => {
+      setViewer({
+        open: true,
+        item: { kind: 'diagram', payload, title, subtitle },
+      });
+    },
+    [],
+  );
 
   const handleViewerChange = useCallback((open: boolean) => {
     setViewer((prev) => ({ ...prev, open }));
@@ -70,15 +89,9 @@ export function ChatShell({ source, modelLabel = 'vulcan-omnipro-220' }: ChatShe
             <span className="inline-flex size-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04]">
               <SparklesIcon className="size-3.5 text-zinc-300" aria-hidden />
             </span>
-            <span className="font-medium">Prox Coding Challenge Agent</span>
+            <span className="font-medium">Vulcan Omnipro 220 Agent</span>
           </div>
           <div className="flex items-center gap-2">
-            <span
-              className="hidden font-mono text-[0.7rem] tracking-tight text-zinc-500 sm:inline"
-              aria-hidden
-            >
-              {modelLabel}
-            </span>
             <button
               type="button"
               onClick={openManualHome}
@@ -91,7 +104,11 @@ export function ChatShell({ source, modelLabel = 'vulcan-omnipro-220' }: ChatShe
           </div>
         </header>
 
-        <MessageList messages={messages} onOpenCitation={openCitation} />
+        <MessageList
+          messages={messages}
+          onOpenCitation={openCitation}
+          onOpenDiagram={openDiagram}
+        />
         <Composer
           disabled={isStreaming}
           onSubmit={(text) => void send(text)}
@@ -101,8 +118,7 @@ export function ChatShell({ source, modelLabel = 'vulcan-omnipro-220' }: ChatShe
         />
         <ManualViewer
           open={viewer.open}
-          page={viewer.page}
-          source={viewer.source}
+          item={viewer.item}
           onOpenChange={handleViewerChange}
         />
       </div>

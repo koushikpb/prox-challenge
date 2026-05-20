@@ -3,7 +3,10 @@
 import type { ArtifactPayload, ManualSource } from '@/streaming';
 
 import { DutyCycleArtifact } from './DutyCycleArtifact';
-import { GeneratedDiagramArtifact } from './GeneratedDiagramArtifact';
+import {
+  GeneratedDiagramArtifact,
+  type OpenDiagramHandler,
+} from './GeneratedDiagramArtifact';
 import { PolarityArtifact } from './PolarityArtifact';
 import { RegionArtifact } from './RegionArtifact';
 import { SettingsConfiguratorArtifact } from './SettingsConfiguratorArtifact';
@@ -40,9 +43,11 @@ export const artifactRegistry = {
 export function RenderArtifact({
   payload,
   onOpenPage,
+  onOpenDiagram,
 }: {
   payload: ArtifactPayload;
   onOpenPage?: OpenPage;
+  onOpenDiagram?: OpenDiagramHandler;
 }) {
   switch (payload.type) {
     case 'duty_cycle':
@@ -56,6 +61,12 @@ export function RenderArtifact({
     case 'region':
       return <RegionArtifact payload={payload} onOpenPage={onOpenPage} />;
     case 'generated_diagram':
-      return <GeneratedDiagramArtifact payload={payload} onOpenPage={onOpenPage} />;
+      return (
+        <GeneratedDiagramArtifact
+          payload={payload}
+          onOpenPage={onOpenPage}
+          onOpenDiagram={onOpenDiagram}
+        />
+      );
   }
 }
