@@ -91,7 +91,7 @@ export const renderTroubleshootArtifactTool: ToolDefinition<
 > = {
   name: 'render_troubleshoot_artifact',
   description:
-    'Render the interactive troubleshoot artifact. Call this when the user reports a weld defect (porosity, burn-through, undercut, etc.) and would benefit from a guided diagnosis. The payload is `{ symptom, tree }` only — do not pass fields like `defect`, `process`, `causes`, or `notes`. Each node in `tree` is either a `question`+`options` branch or a terminal `cause`+`fixes` leaf, plus a `node_id` and `source_pages`.',
+    'Render the interactive troubleshoot artifact. Call this when the user reports a weld defect (spatter, porosity, burn-through, undercut, lack of fusion) or a hardware-fault symptom (thermal-protection trip, no-arc, no-display, "welder shut off mid-bead") and would benefit from a guided diagnosis. This is the right tool for "why am I getting excessive spatter" — spatter is in scope. The payload is `{ symptom, tree }` only — do not pass fields like `defect`, `process`, `causes`, or `notes`. Each node in `tree` is either a `question`+`options` branch or a terminal `cause`+`fixes` leaf, plus a `node_id` and `source_pages`.',
   input_schema: renderTroubleshootArtifactInputSchema,
   handler: renderTroubleshootArtifact,
 };
