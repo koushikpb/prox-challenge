@@ -37,7 +37,7 @@ flowchart LR
   end
   class DATA data
 
-  subgraph T["src/tools/ (10 tools)"]
+  subgraph T["src/tools/ (12 tools)"]
     T1["lookup_duty_cycle · lookup_polarity · lookup_settings"]
     T2["search_manual · get_region · get_page_image"]
     T3["render_{duty_cycle,polarity,settings,troubleshoot}_artifact"]
@@ -72,7 +72,7 @@ Layer summary:
 - **Source PDFs (`files/`).** Three PDFs total: 48-page owner manual, 2-page quick-start guide, 1-page welder-door selection chart. Read-only — the agent never opens a PDF at runtime.
 - **Build-time extraction (`scripts/`).** `extract-pages.ts` renders every PDF page at 300 DPI and writes both the PNG and a text layer. `extract-regions.ts` crops named regions out of the rendered pages with `sharp`. The five structured JSON tables are hand-authored against the manual with page citations baked into every record.
 - **Committed knowledge (`data/`).** Everything the agent needs at runtime: page renders + per-page text, a manual index, the five structured tables, and the named regions registry. Checked into git so reviewers and Vercel deploys do not re-run the extractor.
-- **Runtime tools (`src/tools/`).** Ten tools, all server-only: three strict lookups, three retrieval / image surfaces (`search_manual`, `get_region`, `get_page_image`), and four per-type `render_*_artifact` tools that validate their payload against the shared `ArtifactPayload` schema before emitting.
+- **Runtime tools (`src/tools/`).** Twelve tools, all server-only: three strict lookups, three retrieval / image surfaces (`search_manual`, `get_region`, `get_page_image`), four per-type `render_*_artifact` tools that validate their payload against the shared `ArtifactPayload` schema before emitting, a `render_region_artifact` tool that surfaces a single cropped manual region as a standalone card, and a `generate_wiring_diagram` tool that emits a schema-validated node/edge graph the frontend renders as an SVG.
 - **Agent (`src/agent/`).** `runtime.ts` drives the Anthropic Messages SDK loop (model `claude-sonnet-4-6`, max 6 tool loops per turn) and emits citations as the model writes them. `system-prompt.ts` enforces lookup → render pairing, citation format, safety-nudge policy, and the single-question clarification rule.
 - **Streaming boundary (`src/app/api/chat/` + `src/streaming/`).** A single Route Handler streams Server-Sent Events to the browser. The `src/streaming/` module owns the shared `StreamEvent` and `ArtifactPayload` discriminated unions and imports neither the Anthropic SDK nor any tool code — this is the bundle-split point that keeps the agent SDK out of the browser.
 - **Frontend (`src/app/` + `src/components/`).** Next.js App Router. The chat shell streams `text_delta` deltas, renders inline artifacts via a typed registry switched on the payload `type`, and surfaces image citations through a manual viewer. Model output never reaches the DOM as HTML, JS, or CSS — only as primitive props on validated payloads.
@@ -129,7 +129,7 @@ data/
 
 ## Agent design
 
-The agent uses ten tools and a tightly-scoped system prompt. The two policies that do most of the work:
+The agent uses twelve tools and a tightly-scoped system prompt. The two policies that do most of the work:
 
 1. **Strict-lookup → render pairing.** Any numeric or tabular question pulls the matching strict-lookup tool first, then the matching `render_*_artifact`. The lookup tools never compose numbers from prose; out-of-range input returns the nearest grounded band rather than fabricating. The render tools validate their payload against `ArtifactPayload` before emitting, so a malformed payload becomes a `tool_result` error instead of a broken UI. The pairs are:
    - `lookup_duty_cycle` → `render_duty_cycle_artifact`
@@ -148,7 +148,7 @@ Implementation lives in [`src/agent/system-prompt.ts`](src/agent/system-prompt.t
 
 ## Artifacts
 
-Four typed React artifacts, registered in [`src/components/artifacts/index.tsx`](src/components/artifacts/index.tsx) and rendered inline in the chat by switching on the validated payload's `type` field.
+Six typed React artifacts, registered in [`src/components/artifacts/index.tsx`](src/components/artifacts/index.tsx) and rendered inline in the chat by switching on the validated payload's `type` field.
 
 | Artifact | Why it exists |
 | --- | --- |
@@ -156,12 +156,14 @@ Four typed React artifacts, registered in [`src/components/artifacts/index.tsx`]
 | **PolarityArtifact** | Polarity is a "which cable goes where" question. A diagram with the right socket highlighted is faster than two sentences, and the cropped polarity region (e.g. `polarity_DCEP_solid_core.png`) is shown beside it for the manual ground-truth. |
 | **SettingsConfiguratorArtifact** | A process / material / thickness recommender that surfaces skill level, gas requirement and SCFH band, cleanliness, and applications. Because the welder is synergic, the artifact does **not** compute WFS or voltage — it always points back to the LCD Auto Weld display (p. 20). |
 | **TroubleshootingArtifact** | The manual's troubleshooting matrices branch on user-supplied symptoms (gas leak? dirty workpiece? wrong polarity?). A decision-tree wizard walks the tree one branch at a time and lands on a cause + numbered fixes, which is closer to how someone debugs a bad weld than a flat table is. |
+| **RegionArtifact** | Some questions are visual-only ("Show me the wiring schematic", "Show me the parts diagram"). The artifact surfaces a single cropped manual region as a standalone card with a click-through to the full page, and prepends a one-line safety note when the region is a mains-wiring schematic — same safety policy as the prose nudges, applied at the visual surface. |
+| **GeneratedDiagramArtifact** | When the user asks for a wiring diagram for a specific process / polarity combination (e.g. solid-core MIG with shielding gas, stick DCEP), the agent emits a schema-validated node/edge graph and the artifact renders it client-side as an SVG. The model picks the layout; the renderer guarantees that nothing reaches the DOM as HTML, JS, or CSS — only as primitive props on validated nodes and edges. |
 
 Every artifact payload is validated against the `ArtifactPayload` zod schema in [`src/streaming/parser.ts`](src/streaming/parser.ts) before it leaves the server. This is how model output is prevented from reaching the UI as raw HTML, JS, or CSS — it can only ever flow through typed React props with primitive values.
 
 ## Validation approach
 
-The eval suite is **20 graded questions** in [`evals/golden.jsonl`](evals/golden.jsonl), scored against five rubric checks defined in [`evals/rubric.ts`](evals/rubric.ts):
+The eval suite is **26 graded questions** in [`evals/golden.jsonl`](evals/golden.jsonl), scored against five rubric checks defined in [`evals/rubric.ts`](evals/rubric.ts):
 
 | Check | What it measures |
 | --- | --- |
@@ -171,9 +173,9 @@ The eval suite is **20 graded questions** in [`evals/golden.jsonl`](evals/golden
 | `clarification` | The last visible character of the prose is `?` when the question is intentionally ambiguous (and is not when it isn't). |
 | `safety` | The first paragraph starts with a `Heads up: …`-style nudge on action / wiring questions only. |
 
-`npm run eval` boots a local Next.js dev server, POSTs each entry to `/api/chat`, parses the SSE stream, applies the rubric, and writes [`evals/last-run.md`](evals/last-run.md). Latest run: **20 / 20 pass** (model `claude-sonnet-4-6`).
+`npm run eval` boots a local Next.js dev server, POSTs each entry to `/api/chat`, parses the SSE stream, applies the rubric, and writes [`evals/last-run.md`](evals/last-run.md). Latest run: **25 / 26 pass** (model `claude-sonnet-4-6`) — Q16 (synergic-LCD reading) intermittently over-renders an artifact when none is expected; it is on a small documented rotating-flake set (Q02 / Q15 / Q16 / Q18 / Q20) and re-runs typically rescue it. Q15 (the spatter-troubleshoot path) was the only structural regression we caught — it is now fixed and passes consistently.
 
-The suite covers the three original README example questions (duty cycle at 200 A on 240 V; flux-cored porosity; TIG polarity + ground-clamp socket) plus 17 additional entries that exercise the lookup → render pairing, the action-vs-reference safety policy, the single-question clarification rule, and the refusal-with-nearest-fact behavior on out-of-scope topics like titanium.
+The suite covers the three original README example questions (duty cycle at 200 A on 240 V; flux-cored porosity; TIG polarity + ground-clamp socket) plus 23 additional entries that exercise the lookup → render pairing, the action-vs-reference safety policy, the single-question clarification rule, the refusal-with-nearest-fact behavior on out-of-scope topics like titanium, and the multimodal image-input and generated-diagram paths.
 
 **Performance.** Smoke against the production deploy lands the first SSE byte in about 240 ms warm — the route handler emits a synthetic `thinking` event up front so the user sees activity immediately — followed by the first text token at roughly 6.4 s warm uncached, and a cached SSE replay returns the full stream in under 300 ms. An in-process cache keyed on the message array short-circuits repeat questions to that replay path. The canonical duty-cycle example requires two sequential Anthropic tool calls (lookup then render) before any text streams, and even single-tool questions clock around 5 s warm, so the 5–7 s first-text-token window is a characteristic of the agent loop rather than something to chase at this scope.
 
@@ -182,7 +184,7 @@ The suite covers the three original README example questions (duty cycle at 200 
 Honest list:
 
 - **The manual is the only knowledge source.** Questions outside the three PDFs are refused with the nearest grounded fact — there is no live web tool, no third-party knowledge base, no support-thread retrieval. This is the right shape for a graded submission but a real product would extend the corpus.
-- **The eval is 20 questions, not a regression test for every welder fact.** It is good enough to catch the canonical failure modes (under-rendering artifacts, mis-firing safety nudges, hybrid clarify+answer responses) but it is not exhaustive.
+- **The eval is 26 questions, not a regression test for every welder fact.** It is good enough to catch the canonical failure modes (under-rendering artifacts, mis-firing safety nudges, hybrid clarify+answer responses) but it is not exhaustive.
 - **Voice is a skeleton.** `NEXT_PUBLIC_VOICE_ENABLED=true` enables a stub `useSpeech` hook in the composer. There is no production STT/TTS pipeline behind it.
 - **Observability is not wired up.** No request tracing, no eval-on-deploy, no usage / latency dashboards. The Route Handler logs to stdout and that's it.
 - **No multi-turn personalisation.** Each request validates against the same schema and the server-side cache is keyed on the full message array; there is no user model or persistent session beyond the optional `session_id` field.
