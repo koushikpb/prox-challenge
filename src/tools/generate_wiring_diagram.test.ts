@@ -18,13 +18,20 @@ describe('generateWiringDiagram', () => {
       notes: 'Steel plate, 6011 rod',
     });
     expect(out.artifact.caption.endsWith('Steel plate, 6011 rod')).toBe(true);
-    expect(out.artifact.caption.length).toBeLessThanOrEqual(200);
+    expect(out.artifact.caption.length).toBeLessThanOrEqual(320);
   });
 
   it('clamps an oversized notes string', () => {
     const longNote = 'x'.repeat(400);
     const out = generateWiringDiagram({ process: 'tig_dcen', notes: longNote });
-    expect(out.artifact.caption.length).toBeLessThanOrEqual(200);
+    expect(out.artifact.caption.length).toBeLessThanOrEqual(320);
+  });
+
+  it('preserves a 120-char notes string on stick_dcen without truncation', () => {
+    const longNote = 'a'.repeat(120);
+    const out = generateWiringDiagram({ process: 'stick_dcen', notes: longNote });
+    expect(out.artifact.caption.includes(longNote)).toBe(true);
+    expect(out.artifact.caption.length).toBeLessThanOrEqual(320);
   });
 
   it('flux-cored MIG cable goes from negative terminal (DCEN)', () => {

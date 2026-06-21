@@ -28,7 +28,7 @@ export type GenerateWiringDiagramOutput = {
 function clampCaption(layoutCaption: string, notes?: string): string {
   if (!notes) return layoutCaption;
   const combined = `${layoutCaption} — ${notes}`;
-  return combined.length <= 200 ? combined : combined.slice(0, 197) + '…';
+  return combined.length <= 320 ? combined : combined.slice(0, 320);
 }
 
 export function generateWiringDiagram(

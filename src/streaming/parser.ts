@@ -149,7 +149,7 @@ export const generatedDiagramArtifactSchema = z
   .object({
     type: z.literal('generated_diagram'),
     process: z.enum(WIRING_PROCESSES),
-    caption: z.string().max(200),
+    caption: z.string().max(320),
     nodes: z.array(generatedDiagramNodeSchema).min(2).max(12),
     edges: z.array(generatedDiagramEdgeSchema).min(1).max(16),
     page_cite: z.number().int().positive().optional(),
