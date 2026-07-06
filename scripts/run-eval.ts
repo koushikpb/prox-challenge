@@ -10,13 +10,13 @@ import { applyRubric } from '@/evals/rubric';
 import {
   entryQuestionImages,
   entryQuestionText,
-  goldenEntrySchema,
-  type GoldenEntry,
+  evalCaseSchema,
+  type EvalCase,
 } from '@/evals/types';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
-const GOLDEN_PATH = path.join(REPO_ROOT, 'evals', 'golden.jsonl');
+const CASES_PATH = path.join(REPO_ROOT, 'evals', 'cases.jsonl');
 const FIXTURES_DIR = path.join(REPO_ROOT, 'evals', 'fixtures');
 const REPORT_PATH = path.join(REPO_ROOT, 'evals', 'last-run.md');
 
@@ -34,23 +34,23 @@ const REQUEST_TIMEOUT_MS = 120_000;
 
 type RunRow = ReturnType<typeof applyRubric>;
 
-function loadEntries(): GoldenEntry[] {
-  const raw = readFileSync(GOLDEN_PATH, 'utf8');
+function loadEntries(): EvalCase[] {
+  const raw = readFileSync(CASES_PATH, 'utf8');
   const lines = raw.split('\n').filter((l) => l.trim().length > 0);
-  const entries: GoldenEntry[] = [];
+  const entries: EvalCase[] = [];
   for (const [i, line] of lines.entries()) {
     let parsed: unknown;
     try {
       parsed = JSON.parse(line);
     } catch (err) {
-      throw new Error(`golden.jsonl line ${i + 1}: invalid JSON — ${(err as Error).message}`);
+      throw new Error(`cases.jsonl line ${i + 1}: invalid JSON — ${(err as Error).message}`);
     }
-    const result = goldenEntrySchema.safeParse(parsed);
+    const result = evalCaseSchema.safeParse(parsed);
     if (!result.success) {
       const detail = result.error.issues
         .map((iss) => `${iss.path.join('.') || '(root)'}: ${iss.message}`)
         .join('; ');
-      throw new Error(`golden.jsonl line ${i + 1}: schema rejected — ${detail}`);
+      throw new Error(`cases.jsonl line ${i + 1}: schema rejected — ${detail}`);
     }
     entries.push(result.data);
   }
@@ -139,7 +139,7 @@ function teardown(handle: ServerHandle): void {
   }
 }
 
-function buildContent(entry: GoldenEntry): string | UserContentBlock[] {
+function buildContent(entry: EvalCase): string | UserContentBlock[] {
   const images = entryQuestionImages(entry);
   const text = entryQuestionText(entry);
   if (images.length === 0) return text;
@@ -160,7 +160,7 @@ function buildContent(entry: GoldenEntry): string | UserContentBlock[] {
   return blocks;
 }
 
-async function runEntry(entry: GoldenEntry): Promise<{ events: StreamEvent[]; row: RunRow }> {
+async function runEntry(entry: EvalCase): Promise<{ events: StreamEvent[]; row: RunRow }> {
   const ac = new AbortController();
   const timeout = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
   let res: Response;
@@ -234,7 +234,7 @@ const NOTES_MARKER = '<!-- investigation-notes:keep -->';
 function renderMarkdown(rows: RunRow[], passCount: number, totalCount: number, model: string): string {
   const timestamp = new Date().toISOString();
   const lines: string[] = [];
-  lines.push(`# Golden Eval — last run`);
+  lines.push(`# Eval Suite — last run`);
   lines.push('');
   lines.push(`- Timestamp: \`${timestamp}\``);
   lines.push(`- Model: \`${model}\``);
@@ -301,8 +301,8 @@ function parseIdFilter(): Set<string> | null {
 }
 
 async function main(): Promise<void> {
-  if (!existsSync(GOLDEN_PATH)) {
-    console.error(`golden.jsonl not found at ${GOLDEN_PATH}`);
+  if (!existsSync(CASES_PATH)) {
+    console.error(`cases.jsonl not found at ${CASES_PATH}`);
     process.exit(2);
   }
   const allEntries = loadEntries();
@@ -318,7 +318,7 @@ async function main(): Promise<void> {
       `[eval] filtered to ${entries.length} / ${allEntries.length} entries: ${entries.map((e) => e.id).join(', ')}`,
     );
   } else {
-    console.log(`[eval] loaded ${entries.length} entries from evals/golden.jsonl`);
+    console.log(`[eval] loaded ${entries.length} entries from evals/cases.jsonl`);
   }
 
   const server = await ensureServer();

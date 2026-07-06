@@ -19,25 +19,25 @@ export const WIRING_PROCESSES = [
 ] as const;
 export type ExpectedWiringProcess = (typeof WIRING_PROCESSES)[number];
 
-const goldenInputObjectSchema = z
+const caseInputObjectSchema = z
   .object({
     text: z.string().min(1),
     images: z.array(z.string().min(1)).min(1),
   })
   .strict();
 
-// Golden inputs are either a plain question string (the historical shape,
+// Case inputs are either a plain question string (the historical shape,
 // kept so existing entries stay valid) or an object with text + relative
 // image paths under evals/fixtures/. The runner builds the appropriate
 // user-content blocks before posting to /api/chat.
-export const goldenInputSchema = z.union([z.string().min(1), goldenInputObjectSchema]);
+export const caseInputSchema = z.union([z.string().min(1), caseInputObjectSchema]);
 
-export type GoldenInput = z.infer<typeof goldenInputSchema>;
+export type CaseInput = z.infer<typeof caseInputSchema>;
 
-export const goldenEntrySchema = z
+export const evalCaseSchema = z
   .object({
     id: z.string().min(1),
-    question: goldenInputSchema,
+    question: caseInputSchema,
     expected_facts: z.array(z.string()),
     expects_image: z.boolean(),
     expects_artifact: z.union([z.enum(ARTIFACT_KINDS), z.null()]),
@@ -48,13 +48,13 @@ export const goldenEntrySchema = z
   })
   .strict();
 
-export type GoldenEntry = z.infer<typeof goldenEntrySchema>;
+export type EvalCase = z.infer<typeof evalCaseSchema>;
 
-export function entryQuestionText(entry: GoldenEntry): string {
+export function entryQuestionText(entry: EvalCase): string {
   return typeof entry.question === 'string' ? entry.question : entry.question.text;
 }
 
-export function entryQuestionImages(entry: GoldenEntry): string[] {
+export function entryQuestionImages(entry: EvalCase): string[] {
   return typeof entry.question === 'string' ? [] : entry.question.images;
 }
 

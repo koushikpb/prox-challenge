@@ -102,7 +102,7 @@ Other useful scripts:
 | `npm run typecheck` | `tsc --noEmit`. |
 | `npm run lint` | ESLint over the workspace. |
 | `npm test` | Vitest run — schema validators, parsers, agent runtime, rate limiter, cache, tools, artifact components. |
-| `npm run eval` | End-to-end golden eval against a live local dev server. See [Validation approach](#validation-approach). |
+| `npm run eval` | End-to-end eval suite against a live local dev server. See [Validation approach](#validation-approach). |
 | `npm run extract` | Author-time PDF extraction. Outputs are committed under `data/` — reviewers do not need to run this. |
 | `npm run build` / `npm run start` | Production build / serve. |
 
@@ -163,7 +163,7 @@ Every artifact payload is validated against the `ArtifactPayload` zod schema in 
 
 ## Validation approach
 
-The eval suite is **26 graded questions** in [`evals/golden.jsonl`](evals/golden.jsonl), scored against five rubric checks defined in [`evals/rubric.ts`](evals/rubric.ts):
+The eval suite is **26 graded questions** in [`evals/cases.jsonl`](evals/cases.jsonl), scored against five rubric checks defined in [`evals/rubric.ts`](evals/rubric.ts):
 
 | Check | What it measures |
 | --- | --- |
@@ -211,7 +211,7 @@ Build a multimodal reasoning agent for the OmniPro 220 using the Anthropic Claud
 2. *"I'm getting porosity in my flux-cored welds. What should I check?"*
 3. *"What polarity setup do I need for TIG welding? Which socket does the ground clamp go in?"*
 
-All three are entries Q01–Q03 in `evals/golden.jsonl` and pass on the latest run.
+All three are entries Q01–Q03 in `evals/cases.jsonl` and pass on the latest run.
 
 ### What the challenge evaluates
 

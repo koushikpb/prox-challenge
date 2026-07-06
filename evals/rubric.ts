@@ -7,7 +7,7 @@ import {
   type CheckKey,
   type EntryResult,
   type ExpectedArtifactKind,
-  type GoldenEntry,
+  type EvalCase,
   entryQuestionText,
 } from './types';
 
@@ -119,7 +119,7 @@ export type ApplyRubricOptions = {
 
 export function applyRubric(
   events: StreamEvent[],
-  entry: GoldenEntry,
+  entry: EvalCase,
   opts: ApplyRubricOptions = {},
 ): EntryResult {
   const streamText = events

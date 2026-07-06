@@ -23,7 +23,7 @@ npm run dev                # http://localhost:3000
 
 ## Validation evidence
 
-- Golden eval: 25/26 PASS on `main` (last run: 2026-05-21). Q16 (synergic-LCD reading) intermittently over-renders an artifact; it is on a small documented rotating-flake set (Q02 / Q15 / Q16 / Q18 / Q20) and re-runs typically rescue it. Q15 (the spatter-troubleshoot path) was the only structural regression we caught — fixed in commit `7ed89b7` and passes consistently.
+- Eval suite: 25/26 PASS on `main` (last run: 2026-05-21). Q16 (synergic-LCD reading) intermittently over-renders an artifact; it is on a small documented rotating-flake set (Q02 / Q15 / Q16 / Q18 / Q20) and re-runs typically rescue it. Q15 (the spatter-troubleshoot path) was the only structural regression we caught — fixed in commit `7ed89b7` and passes consistently.
 - Vitest: 249/249 PASS.
 - Typecheck + lint: 0 errors.
 - Bundle hygiene: `ANTHROPIC_API_KEY` and `@anthropic-ai/sdk` both absent from `.next/static/` (server-only).

@@ -1,4 +1,4 @@
-# Golden Eval — last run
+# Eval Suite — last run
 
 - Timestamp: `2026-05-20T05:58:54.384Z`
 - Model: `claude-sonnet-4-6`
@@ -46,7 +46,7 @@ Hand-written hypotheses for each failure. Preserved across re-runs by `scripts/r
 
 ### System-prompt fix loop — resolution (2026-05-12)
 
-All six original failures (Q03, Q07, Q13, Q14, Q17, Q20) resolved by surgical edits to `src/agent/system-prompt.ts` on `fix/agent-prompt-eval-pass`. No edits to `evals/golden.jsonl`, `evals/rubric.ts`, `data/*`, `src/tools/`, or `src/streaming/`.
+All six original failures (Q03, Q07, Q13, Q14, Q17, Q20) resolved by surgical edits to `src/agent/system-prompt.ts` on `fix/agent-prompt-eval-pass`. No edits to `evals/cases.jsonl`, `evals/rubric.ts`, `data/*`, `src/tools/`, or `src/streaming/`.
 
 ### Theme 1 — Agent under-renders artifacts (Q13, Q17, Q20) — RESOLVED
 
@@ -58,7 +58,7 @@ Common-thread fix: lookup→render is now framed as a non-optional sequential pa
 
 ### Theme 2 — Agent over-applies safety nudges to informational polarity questions (Q03, Q14) — RESOLVED
 
-Q03 (TIG polarity + ground-clamp socket) and Q14 (Stick polarity) now answer without a safety lead. Fix: Safety-nudge rule reframed around the action verb in the user's request rather than the topic of the answer. Reference verbs ("what polarity does X use", "which socket does the ground clamp go in", "what setup do I need") explicitly do NOT take the nudge; action verbs ("how do I change/swap/wire/rewire/plug/unplug/open") do. Concrete reference-question and action-question example pairs provided. The narrower (action-vs-reference) reading from the eval author was adopted; no rubric / golden-set change.
+Q03 (TIG polarity + ground-clamp socket) and Q14 (Stick polarity) now answer without a safety lead. Fix: Safety-nudge rule reframed around the action verb in the user's request rather than the topic of the answer. Reference verbs ("what polarity does X use", "which socket does the ground clamp go in", "what setup do I need") explicitly do NOT take the nudge; action verbs ("how do I change/swap/wire/rewire/plug/unplug/open") do. Concrete reference-question and action-question example pairs provided. The narrower (action-vs-reference) reading from the eval author was adopted; no rubric / eval-set change.
 
 Note — the wiring-display case (Q06 "Show me the polarity wiring for X" / Q19 "Show me the wiring schematic") needed an explicit override because the model treats "show me" as reference. Hard rule added: any user question containing the word "wiring" requires the canonical lead — the region captions in `data/regions.json` lead with the same line and the prose must mirror it.
 

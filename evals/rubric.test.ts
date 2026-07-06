@@ -11,7 +11,7 @@ import {
   firstParagraph,
   type PageExistsPredicate,
 } from './rubric';
-import type { GoldenEntry } from './types';
+import type { EvalCase } from './types';
 
 const text = (s: string): StreamEvent => ({ type: 'text_delta', delta: s });
 const cite = (page: number, source: 'owner-manual' | 'quick-start' | 'selection-chart' = 'owner-manual'): StreamEvent => ({
@@ -130,7 +130,7 @@ describe('checkSafetyNudge', () => {
 });
 
 describe('applyRubric', () => {
-  const entry: GoldenEntry = {
+  const entry: EvalCase = {
     id: 'TQ',
     question: 'Polarity for TIG?',
     expected_facts: ['DCEN', 'Positive'],
