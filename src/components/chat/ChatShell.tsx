@@ -1,17 +1,15 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { BookOpenIcon, SparklesIcon } from 'lucide-react';
 
 import type { GeneratedDiagramArtifactPayload, ManualSource } from '@/streaming';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { useSpeech } from '@/components/voice/useSpeech';
 
 import { Composer } from './Composer';
 import { ManualViewer, type ManualViewerItem } from './ManualViewer';
 import { MessageList } from './MessageList';
 import { useChatSession, type ChatSource } from './useChatSession';
-import { stripCitationMarkers } from './utils';
 
 type ChatShellProps = {
   source?: ChatSource;
@@ -19,9 +17,6 @@ type ChatShellProps = {
 
 export function ChatShell({ source }: ChatShellProps) {
   const { messages, isStreaming, send } = useChatSession({ source });
-  const speech = useSpeech();
-  const [speakerOn, setSpeakerOn] = useState(false);
-  const spokenIdsRef = useRef<Set<string>>(new Set());
 
   const [viewer, setViewer] = useState<{
     open: boolean;
@@ -61,20 +56,6 @@ export function ChatShell({ source }: ChatShellProps) {
     setViewer((prev) => ({ ...prev, open }));
   }, []);
 
-  useEffect(() => {
-    if (!speakerOn) return;
-    if (!speech.supported.synthesis) return;
-    for (const message of messages) {
-      if (message.role !== 'assistant') continue;
-      if (!message.done) continue;
-      if (spokenIdsRef.current.has(message.id)) continue;
-      spokenIdsRef.current.add(message.id);
-      const text = stripCitationMarkers(message.content);
-      if (text.length === 0) continue;
-      speech.speak(text);
-    }
-  }, [messages, speakerOn, speech]);
-
   return (
     <TooltipProvider>
       <div
@@ -109,18 +90,8 @@ export function ChatShell({ source }: ChatShellProps) {
           onOpenCitation={openCitation}
           onOpenDiagram={openDiagram}
         />
-        <Composer
-          disabled={isStreaming}
-          onSubmit={(text) => void send(text)}
-          speech={speech}
-          speakerOn={speakerOn}
-          onSpeakerToggle={setSpeakerOn}
-        />
-        <ManualViewer
-          open={viewer.open}
-          item={viewer.item}
-          onOpenChange={handleViewerChange}
-        />
+        <Composer disabled={isStreaming} onSubmit={(text) => void send(text)} />
+        <ManualViewer open={viewer.open} item={viewer.item} onOpenChange={handleViewerChange} />
       </div>
     </TooltipProvider>
   );

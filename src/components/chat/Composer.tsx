@@ -2,19 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, ClipboardEvent, FormEvent, KeyboardEvent } from 'react';
-import {
-  ArrowUpIcon,
-  ImageIcon,
-  MicIcon,
-  MicOffIcon,
-  PaperclipIcon,
-  Volume2Icon,
-  VolumeXIcon,
-} from 'lucide-react';
+import { ArrowUpIcon, ImageIcon, PaperclipIcon } from 'lucide-react';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { VOICE_ENABLED } from '@/components/voice/voiceEnabled';
-import type { SpeechApi } from '@/components/voice/useSpeech';
 import { cn } from '@/lib/utils';
 
 import { AttachmentChip } from './AttachmentChip';
@@ -32,9 +22,6 @@ const MAX_ATTACHMENTS = 4;
 type ComposerProps = {
   disabled?: boolean;
   onSubmit: (text: string) => void;
-  speech: SpeechApi;
-  speakerOn: boolean;
-  onSpeakerToggle: (next: boolean) => void;
 };
 
 type AttachmentEntry = PreparedAttachment & { id: string };
@@ -46,27 +33,13 @@ function isImageFile(file: File): boolean {
   return inferMediaType(file.name) !== null;
 }
 
-export function Composer({
-  disabled = false,
-  onSubmit,
-  speech,
-  speakerOn,
-  onSpeakerToggle,
-}: ComposerProps) {
+export function Composer({ disabled = false, onSubmit }: ComposerProps) {
   const [value, setValue] = useState('');
   const [attachments, setAttachments] = useState<AttachmentEntry[]>([]);
   const [attachError, setAttachError] = useState<string | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
-  const lastTranscriptRef = useRef('');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragCounterRef = useRef(0);
-
-  useEffect(() => {
-    if (speech.transcript && speech.transcript !== lastTranscriptRef.current) {
-      lastTranscriptRef.current = speech.transcript;
-      setValue(speech.transcript);
-    }
-  }, [speech.transcript]);
 
   useEffect(() => {
     return () => {
@@ -171,7 +144,10 @@ export function Composer({
       if (dragCounterRef.current === 0) setIsDragOver(false);
     };
     const onDragOver = (event: DragEvent) => {
-      if (event.dataTransfer && Array.from(event.dataTransfer.items ?? []).some((it) => it.kind === 'file')) {
+      if (
+        event.dataTransfer &&
+        Array.from(event.dataTransfer.items ?? []).some((it) => it.kind === 'file')
+      ) {
         event.preventDefault();
       }
     };
@@ -208,46 +184,23 @@ export function Composer({
       attachments.forEach((a) => URL.revokeObjectURL(a.previewUrl));
       setAttachments([]);
       setAttachError(null);
-      lastTranscriptRef.current = '';
     },
     [attachments, disabled, onSubmit, value],
   );
 
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === 'Enter' && !event.shiftKey) {
-        event.preventDefault();
-        const form = event.currentTarget.form;
-        if (form) form.requestSubmit();
-      }
-    },
-    [],
-  );
+  const handleKeyDown = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      const form = event.currentTarget.form;
+      if (form) form.requestSubmit();
+    }
+  }, []);
 
   const canSend = (value.trim().length > 0 || attachments.length > 0) && !disabled;
-  const micActive = VOICE_ENABLED && speech.supported.recognition && !disabled;
-  const speakerActive = VOICE_ENABLED && speech.supported.synthesis && !disabled;
   const canAttachMore = attachments.length < MAX_ATTACHMENTS && !disabled;
 
-  const handleMicClick = () => {
-    if (!micActive) return;
-    if (speech.listening) speech.stopListening();
-    else speech.startListening();
-  };
-
-  const handleSpeakerClick = () => {
-    if (!speakerActive) return;
-    const next = !speakerOn;
-    if (!next) speech.cancelSpeech();
-    onSpeakerToggle(next);
-  };
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="sticky bottom-0 z-10 pt-3 pb-4"
-      data-slot="composer"
-    >
+    <form onSubmit={handleSubmit} className="sticky bottom-0 z-10 pt-3 pb-4" data-slot="composer">
       {isDragOver && (
         <div
           className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/70 backdrop-blur-sm"
@@ -255,17 +208,14 @@ export function Composer({
           aria-hidden
         >
           <div className="rounded-2xl border-2 border-dashed border-zinc-300/60 bg-zinc-900/80 px-8 py-6 text-sm font-medium text-zinc-100 shadow-lg">
-            <ImageIcon className="mb-2 inline size-5 align-text-bottom" aria-hidden />{' '}
-            Drop image to attach
+            <ImageIcon className="mb-2 inline size-5 align-text-bottom" aria-hidden /> Drop image to
+            attach
           </div>
         </div>
       )}
 
       {attachments.length > 0 && (
-        <div
-          className="mb-2 flex flex-wrap gap-2"
-          data-slot="attachment-row"
-        >
+        <div className="mb-2 flex flex-wrap gap-2" data-slot="attachment-row">
           {attachments.map((a) => (
             <AttachmentChip
               key={a.id}
@@ -295,79 +245,10 @@ export function Composer({
           'shadow-[inset_0_1px_0_oklch(1_0_0/0.05)] focus-within:border-white/20',
         )}
       >
-        {VOICE_ENABLED && (
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <button
-                  type="button"
-                  disabled={!micActive}
-                  aria-pressed={speech.listening}
-                  aria-label={speech.listening ? 'Stop listening' : 'Start voice input'}
-                  onClick={handleMicClick}
-                  className={cn(
-                    'inline-flex size-8 shrink-0 items-center justify-center rounded-full text-zinc-400 transition-colors',
-                    'hover:text-zinc-100 disabled:opacity-30',
-                    speech.listening && 'text-red-400 animate-pulse',
-                  )}
-                  data-slot="voice-mic"
-                />
-              }
-            >
-              {speech.listening ? (
-                <MicOffIcon className="size-4" aria-hidden />
-              ) : (
-                <MicIcon className="size-4" aria-hidden />
-              )}
-            </TooltipTrigger>
-            <TooltipContent>
-              {micActive ? (speech.listening ? 'Listening… tap to stop' : 'Tap to speak') : 'Voice input disabled'}
-            </TooltipContent>
-          </Tooltip>
-        )}
-
-        {VOICE_ENABLED && (
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <button
-                  type="button"
-                  disabled={!speakerActive}
-                  aria-pressed={speakerOn}
-                  aria-label={speakerOn ? 'Disable voice output' : 'Enable voice output'}
-                  onClick={handleSpeakerClick}
-                  className={cn(
-                    'inline-flex size-8 shrink-0 items-center justify-center rounded-full text-zinc-400 transition-colors',
-                    'hover:text-zinc-100 disabled:opacity-30',
-                    speakerOn && 'text-emerald-300',
-                  )}
-                  data-slot="voice-speaker"
-                />
-              }
-            >
-              {speakerOn ? (
-                <Volume2Icon className="size-4" aria-hidden />
-              ) : (
-                <VolumeXIcon className="size-4" aria-hidden />
-              )}
-            </TooltipTrigger>
-            <TooltipContent>
-              {speakerActive
-                ? speakerOn
-                  ? 'Voice output on'
-                  : 'Voice output off'
-                : 'Voice output disabled'}
-            </TooltipContent>
-          </Tooltip>
-        )}
-
         <input
           type="text"
           value={value}
-          onChange={(event) => {
-            setValue(event.target.value);
-            lastTranscriptRef.current = event.target.value;
-          }}
+          onChange={(event) => setValue(event.target.value)}
           onKeyDown={handleKeyDown}
           onPaste={handlePaste}
           placeholder="Ask about your welder…"
@@ -409,7 +290,9 @@ export function Composer({
             <PaperclipIcon className="size-4" aria-hidden />
           </TooltipTrigger>
           <TooltipContent>
-            {canAttachMore ? 'Attach image (PNG, JPEG, WebP, GIF)' : `Max ${MAX_ATTACHMENTS} attachments`}
+            {canAttachMore
+              ? 'Attach image (PNG, JPEG, WebP, GIF)'
+              : `Max ${MAX_ATTACHMENTS} attachments`}
           </TooltipContent>
         </Tooltip>
 

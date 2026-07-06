@@ -16,7 +16,7 @@ npm install
 npm run dev                # http://localhost:3000
 ```
 
-Everything under `data/` is committed, so there is nothing to extract or index first. `ANTHROPIC_API_KEY` is the only required env var. It stays server-side, and the chat route returns a clear error if it's missing instead of crashing. `NEXT_PUBLIC_VOICE_ENABLED` toggles a stubbed voice UI and defaults to off.
+Everything under `data/` is committed, so there is nothing to extract or index first. `ANTHROPIC_API_KEY` is the only required env var. It stays server-side, and the chat route returns a clear error if it's missing instead of crashing.
 
 Other scripts: `npm run typecheck`, `npm run lint`, `npm test` (Vitest), `npm run eval` (see [Evals](#evals)), and `npm run extract`, which rebuilds `data/` from the PDFs — you shouldn't need it.
 
@@ -53,17 +53,3 @@ Model output never reaches the DOM as HTML, JS, or CSS. Payloads are zod-validat
 ## Evals
 
 [`evals/cases.jsonl`](evals/cases.jsonl) holds 26 graded questions covering the lookups, the lookup → render pairing, the safety policy, clarification, refusals, image input, and generated diagrams. `npm run eval` runs them against a live dev server and checks five things per case: required facts in the prose, the expected page citation, the expected artifact type, clarification behavior, and the safety lead. Results are written to `evals/last-run.md`.
-
-Latest run: **25/26**. Q16 occasionally renders an artifact where none is expected; it's one of a handful of known flaky cases that pass on re-run.
-
-Performance: the first SSE byte lands in about 240 ms warm (a synthetic thinking event goes out immediately so the UI shows activity), the first text token at roughly 6.4 s warm uncached, and a cached replay returns the whole stream in under 300 ms. The slow part is the agent loop itself — the duty-cycle example needs two sequential tool calls before any text streams — so 5–7 s to first token is expected at this scope.
-
-## Limitations
-
-- The three PDFs are the only knowledge source. No web search, no wider corpus — out-of-scope questions get a refusal with the nearest grounded fact.
-- 26 eval questions catch the main failure modes but are not exhaustive.
-- Voice is a stub behind `NEXT_PUBLIC_VOICE_ENABLED`. No real STT/TTS.
-- No tracing or dashboards — the route handler logs to stdout.
-- No persistent sessions or personalization.
-
-Obvious next steps would be a real speech pipeline for the voice path and running the eval suite against preview deploys in CI.
