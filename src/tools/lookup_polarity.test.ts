@@ -3,7 +3,7 @@ import { lookupPolarity } from './lookup_polarity';
 import { lookupPolarityInputSchema } from './lookup_polarity';
 
 describe('lookup_polarity', () => {
-  it('returns DCEN with Positive ground for TIG (README example)', () => {
+  it('returns DCEN with Positive ground for TIG (canonical example)', () => {
     const out = lookupPolarity({ process: 'TIG' });
     expect(out.polarity).toBe('DCEN');
     expect(out.ground_socket).toBe('Positive');
@@ -12,7 +12,7 @@ describe('lookup_polarity', () => {
     expect(out.source_page).toBe(24);
   });
 
-  it('returns DCEN with Positive ground for flux-cored MIG (README example)', () => {
+  it('returns DCEN with Positive ground for flux-cored MIG (canonical example)', () => {
     const out = lookupPolarity({ process: 'MIG_flux' });
     expect(out.polarity).toBe('DCEN');
     expect(out.ground_socket).toBe('Positive');

@@ -17,7 +17,7 @@
     "current_range": { "min_a": 30, "max_a": 220 },
     "ocv_v": 86,
     "source_page": 7,
-    "notes": "Specifications block on p. 7; worked example on p. 19 (2-1/2 min welding / 7-1/2 min resting in a 10-minute period). README-example fact."
+    "notes": "Specifications block on p. 7; worked example on p. 19 (2-1/2 min welding / 7-1/2 min resting in a 10-minute period). Canonical example fact."
   },
   {
     "process": "TIG",

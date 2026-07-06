@@ -3,7 +3,7 @@ import { lookupDutyCycle } from './lookup_duty_cycle';
 import { ToolInputError } from './types';
 
 describe('lookup_duty_cycle', () => {
-  it('returns 25% rated band for the README example (MIG 240V 200A)', () => {
+  it('returns 25% rated band for the canonical example (MIG 240V 200A)', () => {
     const out = lookupDutyCycle({ process: 'MIG', input_voltage: 240, amperage: 200 });
     expect(out.duty_cycle_pct).toBe(25);
     expect(out.work_minutes).toBe(2.5);

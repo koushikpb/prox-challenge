@@ -56,7 +56,10 @@ describe('region registry contracts', () => {
     const regions = regionsSchema.parse(regionsJson);
     const regionIds = new Set(regions.map((r) => r.region_id));
     for (const row of polarity) {
-      expect(regionIds.has(row.region_id), `polarity row ${row.process} references missing region ${row.region_id}`).toBe(true);
+      expect(
+        regionIds.has(row.region_id),
+        `polarity row ${row.process} references missing region ${row.region_id}`,
+      ).toBe(true);
     }
   });
 
@@ -69,7 +72,7 @@ describe('region registry contracts', () => {
   });
 });
 
-describe('README example facts', () => {
+describe('canonical example facts', () => {
   it('MIG @ 200 A on 240 V → duty_cycle_pct === 25', () => {
     const dutyCycle = dutyCycleSchema.parse(dutyCycleJson);
     const row = dutyCycle.find(
