@@ -26,7 +26,7 @@ The knowledge source is three PDFs in `files/`: the 48-page owner manual, a 2-pa
 
 All of that lives in `data/`, committed to the repo and validated against zod schemas at load time. The agent never opens a PDF at runtime.
 
-At runtime, `src/agent/` drives a Claude tool loop (model `claude-sonnet-4-6`, at most 6 tool iterations per turn) over twelve server-only tools: strict lookups over the tables, manual search, page and region image fetches, one artifact renderer per artifact type, and a wiring-diagram generator. Responses stream to the browser as Server-Sent Events. The event and payload types live in `src/streaming/`, which imports neither the SDK nor the tools — that split keeps the agent code out of the client bundle. There's a longer writeup in [`docs/architecture.md`](docs/architecture.md).
+At runtime, `src/agent/` drives a Claude tool loop (model `claude-sonnet-4-6`, at most 6 tool iterations per turn) over twelve server-only tools: strict lookups over the tables, manual search, page and region image fetches, one artifact renderer per artifact type, and a wiring-diagram generator. Responses stream to the browser as Server-Sent Events. The event and payload types live in `src/streaming/`, which imports neither the SDK nor the tools — that split keeps the agent code out of the client bundle.
 
 A few rules in the system prompt carry most of the behavior:
 
@@ -52,7 +52,7 @@ Model output never reaches the DOM as HTML, JS, or CSS. Payloads are zod-validat
 
 ## Evals
 
-[`evals/cases.jsonl`](evals/cases.jsonl) holds 26 graded questions covering the lookups, the lookup → render pairing, the safety policy, clarification, refusals, image input, and generated diagrams. `npm run eval` runs them against a live dev server and checks five things per case: required facts in the prose, the expected page citation, the expected artifact type, clarification behavior, and the safety lead. Results are written to [`evals/last-run.md`](evals/last-run.md).
+[`evals/cases.jsonl`](evals/cases.jsonl) holds 26 graded questions covering the lookups, the lookup → render pairing, the safety policy, clarification, refusals, image input, and generated diagrams. `npm run eval` runs them against a live dev server and checks five things per case: required facts in the prose, the expected page citation, the expected artifact type, clarification behavior, and the safety lead. Results are written to `evals/last-run.md`.
 
 Latest run: **25/26**. Q16 occasionally renders an artifact where none is expected; it's one of a handful of known flaky cases that pass on re-run.
 
