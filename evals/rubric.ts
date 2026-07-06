@@ -83,8 +83,8 @@ export function checkClarification(streamText: string, expected: boolean): boole
   return endsWithQuestionMark(streamText) === expected;
 }
 
-// Safety-nudge heuristic. CLAUDE.md (§User-Facing Welder Content) requires a
-// one-line safety note before the technical content. The system prompt's
+// Safety-nudge heuristic. Safety-relevant answers must lead with a one-line
+// safety note before the technical content. The system prompt's
 // canonical openers — "Heads up: unplug …", "Heads up: crack the gas cylinder
 // valve away from your face …" — let us match on a short keyword list applied
 // to the first non-empty paragraph (text up to the first blank line, or the

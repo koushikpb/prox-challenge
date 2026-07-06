@@ -42,11 +42,6 @@ next-env.d.ts
 # Misc
 *.pem
 
-# APM scaffolding (kept local-only per project decision)
-.apm/
-.claude/
-CLAUDE.md
-
 # Note: data/ is intentionally NOT ignored.
 # Generated extraction outputs under data/ are committed to the repo
 # so reviewers and Vercel deployments do not re-run the extractor.

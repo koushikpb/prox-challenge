@@ -134,7 +134,7 @@ const SOURCES: readonly SourceSpec[] = [
 ];
 
 // Heading detection: short uppercase-ish lines, no terminal punctuation.
-// Best-effort only — empty array is acceptable per the Task Prompt.
+// Best-effort only — an empty array is an acceptable result.
 function inferHeadings(text: string): string[] {
   const headings: string[] = [];
   for (const raw of text.split('\n')) {

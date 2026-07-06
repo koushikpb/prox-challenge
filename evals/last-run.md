@@ -44,7 +44,7 @@ _None — every entry passed every rubric check._
 
 Hand-written hypotheses for each failure. Preserved across re-runs by `scripts/run-eval.ts` (everything from the `investigation-notes:keep` marker down is left untouched by the next `npm run eval`). When the underlying failure changes or is resolved, update this section by hand.
 
-### Stage 2 Fix Loop — Task 2.9 resolution (2026-05-12)
+### System-prompt fix loop — resolution (2026-05-12)
 
 All six original failures (Q03, Q07, Q13, Q14, Q17, Q20) resolved by surgical edits to `src/agent/system-prompt.ts` on `fix/agent-prompt-eval-pass`. No edits to `evals/golden.jsonl`, `evals/rubric.ts`, `data/*`, `src/tools/`, or `src/streaming/`.
 
@@ -64,7 +64,7 @@ Note — the wiring-display case (Q06 "Show me the polarity wiring for X" / Q19 
 
 ### Theme 3 — Q07 clarification heuristic miss — RESOLVED
 
-Q07 raw stream inspection (`curl /api/chat` on the live dev server) confirmed case (a) from the Task Prompt: the agent did ask a clarifying question (`"Which process, material, and thickness are you working with? For example: 'MIG, mild steel, 1/8 inch' — I need all three to pull the right guidance."`) but trailed with prose after the `?`, so `endsWithQuestionMark` rejected the response. This is a real prompt-side problem, not a rubric gap, and the rubric was not adjusted.
+Q07 raw stream inspection (`curl /api/chat` on the live dev server) confirmed the suspected failure mode: the agent did ask a clarifying question (`"Which process, material, and thickness are you working with? For example: 'MIG, mild steel, 1/8 inch' — I need all three to pull the right guidance."`) but trailed with prose after the `?`, so `endsWithQuestionMark` rejected the response. This is a real prompt-side problem, not a rubric gap, and the rubric was not adjusted.
 
 Fix: Clarification rule now states explicitly that the LAST VISIBLE CHARACTER of the message must be `?`, with no trailing prose, no closing sentence, no offer of defaults, and no follow-up explanation. A second worked example for Q07 was added alongside the existing Q08 example. The "answer + question" hybrid pattern is explicitly forbidden. Run-time confirmation: Q07 response now ends `"…for example MIG, mild steel, 1/8 in?"` and passes.
 
@@ -75,5 +75,5 @@ While iterating on the safety-nudge rule for Q06, prompt edits were not propagat
 ### Theme summary
 
 - All six original failures closed by edits to `src/agent/system-prompt.ts`. Final eval: **20 / 20 pass**.
-- Stage 1 (`data/*`) untouched and validated as accurate by every passing facts assertion.
+- `data/*` untouched and validated as accurate by every passing facts assertion.
 - Streaming / artifact / runtime contracts untouched. No code outside the system prompt changed.
