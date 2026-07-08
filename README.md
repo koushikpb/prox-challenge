@@ -4,23 +4,27 @@
 
 A chat assistant for the Harbor Freight Vulcan OmniPro 220 multiprocess welder, built with the Anthropic Claude Agent SDK and Next.js. Ask it about duty cycle, polarity, settings, or a weld that isn't coming out right, and it answers in prose plus interactive artifacts: a duty-cycle calculator, a polarity diagram with the correct socket highlighted, a settings configurator, a troubleshooting wizard, and cropped images from the manual itself. Every factual claim cites an owner-manual page.
 
-**Demo:** <https://prox-challenge-livid.vercel.app>
+**Demo:** <https://prox-challenge-livid.vercel.app> · **Video:** <https://youtu.be/QZzbXRdWJa8>
 
 ## Running it
 
+You need Node.js 20.9+ (which includes npm) and git.
+
 ```bash
-git clone <your-fork>
+git clone https://github.com/koushikpb/prox-challenge.git
 cd prox-challenge
-cp .env.example .env       # set ANTHROPIC_API_KEY
+cp .env.example .env       # then edit .env and set ANTHROPIC_API_KEY to your key
 npm install
-npm run dev                # http://localhost:3000
+npm run dev                # app runs at http://localhost:3000
 ```
 
-Everything under `data/` is committed, so there is nothing to extract or index first. `ANTHROPIC_API_KEY` is the only required env var. It stays server-side, and the chat route returns a clear error if it's missing instead of crashing.
+Everything under `data/` is committed, so there is nothing to extract or index first. `ANTHROPIC_API_KEY` is the only required env var — get one at <https://console.anthropic.com>. It stays server-side, and the app starts and renders even without a valid key; chat requests just return a clear error until you set one.
 
 Other scripts: `npm run typecheck`, `npm run lint`, `npm test` (Vitest), `npm run eval` (see [Evals](#evals)), and `npm run extract`, which rebuilds `data/` from the PDFs — you shouldn't need it.
 
 ## How it works
+
+![Architecture: at build time, PDFs are extracted into data/; at runtime, the browser talks to an agent loop that calls 12 tools which read data/](architecture.png)
 
 The knowledge source is three PDFs in `files/`: the 48-page owner manual, a 2-page quick-start guide, and the welder-door selection chart. At build time, scripts in `scripts/` render every page to a 300 DPI PNG with a text layer and crop out named regions like the polarity panels and the wiring schematic. Five structured tables (duty cycle, polarity, settings, troubleshooting, parts) are hand-authored against the manual, and every record carries its page citation. At 51 pages the corpus is small enough that hand-authoring beats an extraction pipeline, and it means every number the agent quotes traces to a real page.
 
